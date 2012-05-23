@@ -6,6 +6,8 @@
 ## Setup
 
 ```sass
+@import "breakpoint"
+
 // create $breakpoint variables like so
 // assume $breakpoint-default-feature if only a number
 $breakpoint1: 500px
