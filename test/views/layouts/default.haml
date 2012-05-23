@@ -1,0 +1,26 @@
+!!! 5
+-# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+%html.no-js{ :lang => "en" }
+  <!--<![endif]-->
+  %head
+    %meta{ :charset => "utf-8" }/
+
+    %title= @title
+
+    / CSS
+    -# CSS: implied media="all"
+    %link{ :href => "/css/style.css?v=1", :rel => "stylesheet" }
+    -# = stylesheet_link_tag("/css/style.css")
+
+  %body
+    #page
+      %header
+      #main{ :role => "main" }
+        = yield
+      %footer
+
+

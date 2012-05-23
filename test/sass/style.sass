@@ -1,0 +1,60 @@
+// path to local mixin
+@import "../../stylesheets/breakpoint"
+
+$breakpoint-default-feature: min-width !default
+
+// create $breakpoint variables like so
+// assume $breakpoint-default-feature if only a number
+$breakpoint1: 500px
+$breakpoint2: 30em
+// set min-width/max-width if both values are numbers
+$breakpoint3: 500px 700px
+// if one value is a string, assume a feature/value pair
+$breakpoint4: min-width 700px
+$breakpoint5: max-width 700px
+// for multidimensional lists, assume each item is a feature value pair
+$breakpoint6: max-width 700px, orientation portrait
+// handle one-sided features (ie. monochrome)
+$breakpoint7: max-width 700px, orientation portrait, monochrome
+$breakpoint8: monochrome
+
+
+
+// Use it
+
+.foo
+  +breakpoint($breakpoint1)
+    background-color: azure
+.bar
+  +breakpoint($breakpoint2)
+    background-color: bisque
+.baz
+  +breakpoint($breakpoint3)
+    background-color: blueviolet
+.omg
+  +breakpoint($breakpoint4)
+    background-color: burlywood
+.wtf
+  +breakpoint($breakpoint5)
+    background-color: cadetblue
+.bbq
+  +breakpoint($breakpoint6)
+    background-color: crimson
+.zztop
+  +breakpoint($breakpoint7)
+    background-color: darkgray
+.elp
+  +breakpoint($breakpoint1, print)
+    background-color: darkcyan
+.csny
+  +breakpoint($breakpoint8)
+    background-color: grey
+.rhcp
+  +breakpoint(30em 40em)
+    background-color: powderblue
+
+.example
+  border: 1px solid grey
+  padding: 1em
+  width: 80%
+  margin-bottom: 1em

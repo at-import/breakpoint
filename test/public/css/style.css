@@ -1,0 +1,66 @@
+@media screen and (min-width:  500px) {
+  .foo {
+    background-color: azure;
+  }
+}
+
+@media screen and (min-width:  30em) {
+  .bar {
+    background-color: bisque;
+  }
+}
+
+@media screen and (min-width:  500px) and (max-width:  700px) {
+  .baz {
+    background-color: blueviolet;
+  }
+}
+
+@media screen and (min-width:  700px) {
+  .omg {
+    background-color: burlywood;
+  }
+}
+
+@media screen and (max-width:  700px) {
+  .wtf {
+    background-color: cadetblue;
+  }
+}
+
+@media screen and (max-width:  700px) and (orientation:  portrait) {
+  .bbq {
+    background-color: crimson;
+  }
+}
+
+@media screen and (max-width:  700px) and (orientation:  portrait) and (monochrome) {
+  .zztop {
+    background-color: darkgrey;
+  }
+}
+
+@media print and (min-width:  500px) {
+  .elp {
+    background-color: darkcyan;
+  }
+}
+
+@media screen and (monochrome) {
+  .csny {
+    background-color: grey;
+  }
+}
+
+@media screen and (min-width:  30em) and (max-width:  40em) {
+  .rhcp {
+    background-color: powderblue;
+  }
+}
+
+.example {
+  border: 1px solid grey;
+  padding: 1em;
+  width: 80%;
+  margin-bottom: 1em;
+}
