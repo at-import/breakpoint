@@ -2,8 +2,8 @@ require './lib/breakpoint'
 
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = SurvivalKit::VERSION
-  s.date = SurvivalKit::DATE
+  s.version = Breakpoint::VERSION
+  s.date = Breakpoint::DATE
 
   # Gem Details
   s.name = "breakpoint"
