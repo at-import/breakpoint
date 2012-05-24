@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.name = "breakpoint"
   s.description = %q{Really simple media queries in Sass}
   s.summary = %q{An easy to use system for writing and managing media queries.}
-  s.authors = ["Mason Wendell"]
-  s.email = ["mason@zivtech.com"]
+  s.authors = ["Mason Wendell", "Sam Richard"]
+  s.email = ["mason@zivtech.com", "sam@snug.ug"]
   s.homepage = "http://thecodingdesigner.com"
 
   # Gem Files
@@ -22,5 +22,7 @@ Gem::Specification.new do |s|
   # Gem Bookkeeping
   s.required_rubygems_version = ">= 1.3.6"
   s.rubygems_version = %q{1.3.6}
-  s.add_dependency("compass", [">= 0.12.1"])
+  
+  s.add_dependency("compass",   [">= 0.12.1"])
+  s.add_dependency("fraction",  [">=0.3.2"])
 end
