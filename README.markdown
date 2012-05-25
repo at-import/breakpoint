@@ -14,14 +14,16 @@ $breakpoint1: 500px
 $breakpoint2: 30em
 // set min-width/max-width if both values are numbers
 $breakpoint3: 500px 700px
+// set min/max of feature if there are two numbers
+$breakpoint4: 300px 700px 'height'
 // if one value is a string, assume a feature/value pair
-$breakpoint4: min-width 700px
-$breakpoint5: max-width 700px
+$breakpoint5: min-width 700px
+$breakpoint6: max-width 700px
 // for multidimensional lists, assume each item is a feature value pair
-$breakpoint6: max-width 700px, orientation portrait
+$breakpoint7: max-width 700px, orientation portrait
 // handle one-sided features (ie. monochrome)
-$breakpoint7: max-width 700px, orientation portrait, monochrome
-$breakpoint8: monochrome
+$breakpoint8: max-width 700px, orientation portrait, monochrome
+$breakpoint9: monochrome
 ```
 
 
@@ -29,37 +31,62 @@ $breakpoint8: monochrome
 
 Call the mixin and pass one of your breakpoint variables. You can also call it with a la carte arguments.
 
-```sass
-.foo
-  +breakpoint($breakpoint1)
-    content: 'foo'
-.bar
-  +breakpoint($breakpoint2)
-    content: 'bar'
-.baz
-  +breakpoint($breakpoint3)
-    content: 'baz'
-.omg
-  +breakpoint($breakpoint4)
-    content: 'omg'
-.wtf
-  +breakpoint($breakpoint5)
-    content: 'wtf'
-.bbq
-  +breakpoint($breakpoint6)
-    content: 'bbq'
-.zztop
-  +breakpoint($breakpoint7)
-    content: 'zztop'
-.elp
-  +breakpoint($breakpoint1, print)
-    content: 'elp'
-.csny
-  +breakpoint($breakpoint8)
-    content: 'csny'
-.rhcp
-  +breakpoint(30em 40em)
-    content: 'rhcp'
+```scss
+.foo {
+  @include breakpoint($breakpoint1) {
+    content: 'foo';
+  }
+}
+.bar {
+  @include breakpoint($breakpoint2) {
+    content: 'bar';
+  }
+}
+.baz {
+  @include breakpoint($breakpoint3) {
+    content: 'baz';
+  }
+}
+.omg {
+  @include breakpoint($breakpoint5) {
+    content: 'omg';
+  }
+}
+.wtf {
+  @include breakpoint($breakpoint6) {
+    content: 'wtf';
+  }
+}
+.bbq {
+  @include breakpoint($breakpoint7) {
+    content: 'bbq';
+  }
+}
+.zztop {
+  @include breakpoint($breakpoint8) {
+    content: 'zztop';
+  }
+}
+.elp {
+  @include breakpoint($breakpoint1, print) {
+    content: 'elp';
+  }
+}
+.csny {
+  @include breakpoint($breakpoint9) {
+    content: 'csny';
+  }
+}
+.rhcp {
+  @include breakpoint(30em 40em) {
+    content: 'rhcp';
+  }
+}
+.tgif {
+ @include breakpoint($breakpoint4) {
+   content: 'tgif';
+ }
+}
 ```
 
 Example generated CSS
@@ -122,6 +149,12 @@ Example generated CSS
 @media screen and (min-width:  30em) and (max-width:  40em) {
   .rhcp {
     content: "rhcp";
+  }
+}
+
+@media screen and (min-height: 300px) and (max-height: 700px) {
+  .tgif {
+    content: "tgif";
   }
 }
 ```
