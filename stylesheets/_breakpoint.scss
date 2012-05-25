@@ -28,17 +28,6 @@
 
 $breakpoint-default-feature: min-width !default;
 
-@function breakpoint-concatenate($query-string, $new-value, $feature: $breakpoint-default-feature) {
-  $new-string: "";
-  @if $feature != false {
-    $new-string: #{$query-string}unquote("and (#{$feature}:  #{$new-value}) ");
-  }
-  @else {
-    $new-string: #{$query-string}unquote("and (#{$new-value}) ");
-  }
-  @return $new-string;
-}
-
 @mixin breakpoint($breakpoint, $media: "screen") {
   // Feature/Value Placeholders
   $feature:               false !default;
@@ -62,7 +51,7 @@ $breakpoint-default-feature: min-width !default;
   @else if type-of($breakpoint) == list {
     // set min/max if both values are numbers
     @if type-of(nth($breakpoint, 1)) == number and type-of(nth($breakpoint, 2)) == number {
-      // Optionally pass in 3rd parameter 
+      // Optionally pass in 3rd parameter
       @if length($breakpoint) == 3 and breakpoint-min-max(nth($breakpoint, 3)) {
         // Device Pixel Ratio is fracking weird, need to handle it three different ways
         @if nth($breakpoint, 3) == 'device-pixel-ratio' {
@@ -73,10 +62,11 @@ $breakpoint-default-feature: min-width !default;
           $moz-query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "min--moz-#{nth($breakpoint, 3)}");
           $moz-query-string: breakpoint-concatenate($moz-query-string, nth($breakpoint, 2), "max--moz-#{nth($breakpoint, 3)}");
           // Opera
-          $o-query-string: breakpoint-concatenate($query-string, '#{numerator(nth($breakpoint, 1))}/#{denominator(nth($breakpoint, 1))}', "-o-min-#{nth($breakpoint, 3)}");
-          $o-query-string: breakpoint-concatenate($o-query-string, '#{numerator(nth($breakpoint, 2))}/#{denominator(nth($breakpoint, 2))}', "-o-max-#{nth($breakpoint, 3)}");
+          // remove opera support for now.
+          // $o-query-string: breakpoint-concatenate($query-string, '#{numerator(nth($breakpoint, 1))}/#{denominator(nth($breakpoint, 1))}', "-o-min-#{nth($breakpoint, 3)}");
+          // $o-query-string: breakpoint-concatenate($o-query-string, '#{numerator(nth($breakpoint, 2))}/#{denominator(nth($breakpoint, 2))}', "-o-max-#{nth($breakpoint, 3)}");
         }
-        // Min/Max for given 
+        // Min/Max for given
         $query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "min-#{nth($breakpoint, 3)}");
         $query-string: breakpoint-concatenate($query-string, nth($breakpoint, 2), "max-#{nth($breakpoint, 3)}");
       }
@@ -87,8 +77,8 @@ $breakpoint-default-feature: min-width !default;
         $query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "min-width");
         $query-string: breakpoint-concatenate($query-string, nth($breakpoint, 2), "max-width");
       }
-      
-      
+
+
     }
     @else if type-of(nth($breakpoint, 1)) == string or type-of(nth($breakpoint, 2)) == string {
       // if one value is a string, assume a feature/value pair
@@ -108,7 +98,8 @@ $breakpoint-default-feature: min-width !default;
         // Mozilla
         $moz-query-string: breakpoint-concatenate($query-string, $value, "-moz-#{$feature}");
         // Opera
-        $o-query-string: breakpoint-concatenate($query-string, '#{numerator($value)}/#{denominator($value)}', "-o-#{$feature}");
+        // remove opera support for now.
+        // $o-query-string: breakpoint-concatenate($query-string, '#{numerator($value)}/#{denominator($value)}', "-o-#{$feature}");
       }
       $query-string: breakpoint-concatenate($query-string, $value, $feature);
     }
@@ -145,11 +136,23 @@ $breakpoint-default-feature: min-width !default;
       @content;
     }
   }
-  @if $o-query-string {
-    @media #{$o-query-string} {
-      @content;
-    }
+  // remove opera support for now.
+  // @if $o-query-string {
+  //   @media #{$o-query-string} {
+  //     @content;
+  //   }
+  // }
+}
+
+@function breakpoint-concatenate($query-string, $new-value, $feature: $breakpoint-default-feature) {
+  $new-string: "";
+  @if $feature != false {
+    $new-string: #{$query-string}unquote("and (#{$feature}:  #{$new-value}) ");
   }
+  @else {
+    $new-string: #{$query-string}unquote("and (#{$new-value}) ");
+  }
+  @return $new-string;
 }
 
 @function breakpoint-min-max($feature) {
