@@ -14,8 +14,8 @@ $breakpoint1: 500px
 $breakpoint2: 30em
 // set min-width/max-width if both values are numbers
 $breakpoint3: 500px 700px
-// set min/max of feature if there are two numbers
-$breakpoint4: 300px 700px 'height'
+// set min/max of feature if there are two numbers and a feature
+$breakpoint4: 300px 700px height
 // if one value is a string, assume a feature/value pair
 $breakpoint5: min-width 700px
 $breakpoint6: max-width 700px
@@ -46,6 +46,11 @@ Call the mixin and pass one of your breakpoint variables. You can also call it w
   @include breakpoint($breakpoint3) {
     content: 'baz';
   }
+}
+.tgif {
+ @include breakpoint($breakpoint4) {
+   content: 'tgif';
+ }
 }
 .omg {
   @include breakpoint($breakpoint5) {
@@ -82,11 +87,6 @@ Call the mixin and pass one of your breakpoint variables. You can also call it w
     content: 'rhcp';
   }
 }
-.tgif {
- @include breakpoint($breakpoint4) {
-   content: 'tgif';
- }
-}
 ```
 
 Example generated CSS
@@ -107,6 +107,12 @@ Example generated CSS
 @media screen and (min-width:  500px) and (max-width:  700px) {
   .baz {
     content: "baz";
+  }
+}
+
+@media screen and (min-height: 300px) and (max-height: 700px) {
+  .tgif {
+    content: "tgif";
   }
 }
 
@@ -149,12 +155,6 @@ Example generated CSS
 @media screen and (min-width:  30em) and (max-width:  40em) {
   .rhcp {
     content: "rhcp";
-  }
-}
-
-@media screen and (min-height: 300px) and (max-height: 700px) {
-  .tgif {
-    content: "tgif";
   }
 }
 ```
