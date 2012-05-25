@@ -10,77 +10,116 @@ $breakpoint2: 30em;
 
 // set min-width/max-width if both values are numbers
 $breakpoint3: 500px 700px;
+// set min/max of feature if there are two numbers and a feature
+$breakpoint4: 300px 700px height;
 
 // if one value is a string, assume a feature/value pair
-$breakpoint4: min-width 700px;
-$breakpoint5: max-width 700px;
+$breakpoint5: min-width 700px;
+$breakpoint6: max-width 700px;
 
 // for multidimensional lists, assume each item is a feature value pair
-$breakpoint6: max-width 700px, orientation portrait;
+$breakpoint7: max-width 700px, orientation portrait;
 
 // handle one-sided features (ie. monochrome)
-$breakpoint7: max-width 700px, orientation portrait, monochrome;
-$breakpoint8: monochrome;
+$breakpoint8: max-width 700px, orientation portrait, monochrome;
+$breakpoint9: monochrome;
+
+// experimental support for device-pixel-ratio
+$breakpoint10: 1 1.5 device-pixel-ratio;
+
+
 
 // Use it
 
+@mixin show-variable($variable) {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: quote(#{$variable});
+  }
+}
+
 .foo {
+  @include show-variable($breakpoint1);
   @include breakpoint($breakpoint1) {
-    background-color: azure;
+    background-color: crimson;
   }
 }
 
 .bar {
+  @include show-variable($breakpoint2);
   @include breakpoint($breakpoint2) {
-    background-color: bisque;
+    background-color: crimson;
   }
 }
 
 .baz {
+  @include show-variable($breakpoint3);
   @include breakpoint($breakpoint3) {
-    background-color: blueviolet;
+    background-color: crimson;
   }
 }
 
 .omg {
+  @include show-variable($breakpoint4);
   @include breakpoint($breakpoint4) {
-    background-color: burlywood;
+    background-color: crimson;
   }
 }
 
 .wtf {
+  @include show-variable($breakpoint5);
   @include breakpoint($breakpoint5) {
-    background-color: cadetblue;
+    background-color: crimson;
   }
 }
 
 .bbq {
+  @include show-variable($breakpoint6);
   @include breakpoint($breakpoint6) {
     background-color: crimson;
   }
 }
 
 .zztop {
+  @include show-variable($breakpoint7);
   @include breakpoint($breakpoint7) {
-    background-color: darkgrey;
+    background-color: crimson;
   }
 }
 
 .elp {
+  @include show-variable($breakpoint1 print);
   @include breakpoint($breakpoint1, print) {
-    background-color: darkcyan;
+    background-color: crimson;
   }
 }
 
 .csny {
+  @include show-variable($breakpoint8);
   @include breakpoint($breakpoint8) {
-    background-color: grey;
+    background-color: crimson;
   }
 }
 
 .rhcp {
+  @include show-variable("30em 40em");
   @include breakpoint(30em 40em) {
-    background-color: powderblue;
+    background-color: crimson;
+  }
+}
+
+.tgif {
+  @include show-variable($breakpoint4);
+  @include breakpoint($breakpoint4) {
+    background-color: crimson;
+  }
+}
+
+.snl {
+  @include show-variable($breakpoint10);
+  @include breakpoint($breakpoint10) {
+    background-color: crimson;
   }
 }
 

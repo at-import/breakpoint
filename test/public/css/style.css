@@ -1,60 +1,166 @@
+.foo {
+  position: relative;
+}
+.foo:after {
+  position: absolute;
+  content: "500px";
+}
 @media screen and (min-width:  500px) {
   .foo {
-    background-color: azure;
+    background-color: crimson;
   }
 }
 
+.bar {
+  position: relative;
+}
+.bar:after {
+  position: absolute;
+  content: "30em";
+}
 @media screen and (min-width:  30em) {
   .bar {
-    background-color: bisque;
+    background-color: crimson;
   }
 }
 
+.baz {
+  position: relative;
+}
+.baz:after {
+  position: absolute;
+  content: "500px 700px";
+}
 @media screen and (min-width:  500px) and (max-width:  700px) {
   .baz {
-    background-color: blueviolet;
+    background-color: crimson;
   }
 }
 
-@media screen and (min-width:  700px) {
+.omg {
+  position: relative;
+}
+.omg:after {
+  position: absolute;
+  content: "300px 700px height";
+}
+@media screen and (min-height:  300px) and (max-height:  700px) {
   .omg {
-    background-color: burlywood;
+    background-color: crimson;
   }
 }
 
-@media screen and (max-width:  700px) {
+.wtf {
+  position: relative;
+}
+.wtf:after {
+  position: absolute;
+  content: "min-width 700px";
+}
+@media screen and (min-width:  700px) {
   .wtf {
-    background-color: cadetblue;
+    background-color: crimson;
   }
 }
 
-@media screen and (max-width:  700px) and (orientation:  portrait) {
+.bbq {
+  position: relative;
+}
+.bbq:after {
+  position: absolute;
+  content: "max-width 700px";
+}
+@media screen and (max-width:  700px) {
   .bbq {
     background-color: crimson;
   }
 }
 
-@media screen and (max-width:  700px) and (orientation:  portrait) and (monochrome) {
+.zztop {
+  position: relative;
+}
+.zztop:after {
+  position: absolute;
+  content: "max-width 700px, orientation portrait";
+}
+@media screen and (max-width:  700px) and (orientation:  portrait) {
   .zztop {
-    background-color: darkgrey;
+    background-color: crimson;
   }
 }
 
+.elp {
+  position: relative;
+}
+.elp:after {
+  position: absolute;
+  content: "500px print";
+}
 @media print and (min-width:  500px) {
   .elp {
-    background-color: darkcyan;
+    background-color: crimson;
   }
 }
 
-@media screen and (monochrome) {
+.csny {
+  position: relative;
+}
+.csny:after {
+  position: absolute;
+  content: "max-width 700px, orientation portrait, monochrome";
+}
+@media screen and (max-width:  700px) and (orientation:  portrait) and (monochrome) {
   .csny {
-    background-color: grey;
+    background-color: crimson;
   }
 }
 
+.rhcp {
+  position: relative;
+}
+.rhcp:after {
+  position: absolute;
+  content: "30em 40em";
+}
 @media screen and (min-width:  30em) and (max-width:  40em) {
   .rhcp {
-    background-color: powderblue;
+    background-color: crimson;
+  }
+}
+
+.tgif {
+  position: relative;
+}
+.tgif:after {
+  position: absolute;
+  content: "300px 700px height";
+}
+@media screen and (min-height:  300px) and (max-height:  700px) {
+  .tgif {
+    background-color: crimson;
+  }
+}
+
+.snl {
+  position: relative;
+}
+.snl:after {
+  position: absolute;
+  content: "1 1.5 device-pixel-ratio";
+}
+@media screen and (min-device-pixel-ratio:  1) and (max-device-pixel-ratio:  1.5) {
+  .snl {
+    background-color: crimson;
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio:  1) and (-webkit-min-device-pixel-ratio:  1.5) {
+  .snl {
+    background-color: crimson;
+  }
+}
+@media screen and (min--moz-device-pixel-ratio:  1) and (max--moz-device-pixel-ratio:  1.5) {
+  .snl {
+    background-color: crimson;
   }
 }
 
