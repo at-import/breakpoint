@@ -58,6 +58,18 @@
   }
 }
 
+@media screen and (resolution:  192dpi) {
+  .banana {
+    background-color: yellow;
+  }
+}
+
+@media screen and (min-resolution:  96dpi) and (max-resolution:  192dpi) {
+  .bob {
+    background-color: #b4d455;
+  }
+}
+
 .example {
   border: 1px solid grey;
   padding: 1em;

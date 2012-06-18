@@ -17,6 +17,8 @@ $breakpoint6: max-width 700px, orientation portrait
 // handle one-sided features (ie. monochrome)
 $breakpoint7: max-width 700px, orientation portrait, monochrome
 $breakpoint8: monochrome
+$breakpoint9: 2 device-pixel-ratio
+$breakpoint10: 1 2 device-pixel-ratio
 
 
 
@@ -52,6 +54,13 @@ $breakpoint8: monochrome
 .rhcp
   +breakpoint(30em 40em)
     background-color: powderblue
+.banana
+  +breakpoint($breakpoint9)
+    background-color: yellow
+
+.bob
+  +breakpoint($breakpoint10)
+    background-color: #b4d455
 
 .example
   border: 1px solid grey
