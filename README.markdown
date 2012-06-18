@@ -2,29 +2,49 @@
 
 **Really simple media queries in Sass**
 
+Breakpoint aims to make writing media queries in Sass super simple. Create a variable using a simplified syntax based on most commonly used media queries, then call it using the `breakpoint` mixin.  Breakpoint handles all of the lifting of writing the media query itself, including cross-browser compatibility issues, so you can focus on what's important: making sure your website looks its best.
+
+Breakpoint makes the following assumptions:
+
+* All breakpoints, unless overwritten in the media query call, are screen breakpoints.
+* A single value breakpoint is assumed to be a `min-width` breakpoint.
+* A two value breakpoint is assumed to be a `min-width`/`max-width` breakpoint.
+* Unprefixed `device-pixel-ratio` breakpoints are transformed into the standard `resolution` breakpoint based on the [W3C recommendation for how to do so](http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)
+
+
+## Installation
+`gem install breakpoint`
+
+#### If creating a new project
+`compass create <my_project> -r breakpoint`
+
+#### If adding to existing project, in config.rb
+`require 'breakpoint`
+
+#### Import the breakpoint partial at the top of your working file
+`@import "breakpoint";`
+
 
 ## Setup
 
-```sass
-@import "breakpoint"
-
+```scss
 // create $breakpoint variables like so
 // assume $breakpoint-default-feature if only a number
-$breakpoint1: 500px
-$breakpoint2: 30em
+$breakpoint1: 500px;
+$breakpoint2: 30em;
 // set min-width/max-width if both values are numbers
-$breakpoint3: 500px 700px
+$breakpoint3: 500px 700px;
 // set min/max of feature if there are two numbers
-$breakpoint4: 300px 700px 'height'
+$breakpoint4: 300px 700px 'height';
 // if one value is a string, assume a feature/value pair
-$breakpoint5: min-width 700px
-$breakpoint6: max-width 700px
+$breakpoint5: min-width 700px;
+$breakpoint6: max-width 700px;
 // for multidimensional lists, assume each item is a feature value pair
-$breakpoint7: max-width 700px, orientation portrait
+$breakpoint7: max-width 700px, orientation portrait;
 // handle one-sided features (ie. monochrome)
-$breakpoint8: max-width 700px, orientation portrait, monochrome
-$breakpoint9: monochrome
-$breakpoint10: 2 device-pixel-ratio
+$breakpoint8: max-width 700px, orientation portrait, monochrome;
+$breakpoint9: monochrome;
+$breakpoint10: 2 device-pixel-ratio;
 ```
 
 
