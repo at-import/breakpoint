@@ -24,5 +24,4 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   
   s.add_dependency("compass",   [">= 0.12.1"])
-  s.add_dependency("fraction",  [">=0.3.2"])
 end
