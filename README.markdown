@@ -24,6 +24,7 @@ $breakpoint7: max-width 700px, orientation portrait
 // handle one-sided features (ie. monochrome)
 $breakpoint8: max-width 700px, orientation portrait, monochrome
 $breakpoint9: monochrome
+$breakpoint10: 2 device-pixel-ratio
 ```
 
 
@@ -85,6 +86,11 @@ Call the mixin and pass one of your breakpoint variables. You can also call it w
 .tgif {
  @include breakpoint($breakpoint4) {
    content: 'tgif';
+ }
+}
+.omgdpr {
+ @include breakpoint($breakpoint10) {
+  content: 'omgdpr';
  }
 }
 ```
@@ -155,6 +161,12 @@ Example generated CSS
 @media screen and (min-height: 300px) and (max-height: 700px) {
   .tgif {
     content: "tgif";
+  }
+}
+
+@media screen and (resolution: 192dpi) {
+  .omgdpr {
+    content: "omgdpr";
   }
 }
 ```
