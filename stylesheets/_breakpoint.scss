@@ -64,17 +64,15 @@ $breakpoint-default-feature: min-width !default;
     @if type-of(nth($breakpoint, 1)) == number and type-of(nth($breakpoint, 2)) == number {
       // Optionally pass in 3rd parameter 
       @if length($breakpoint) == 3 and breakpoint-min-max(nth($breakpoint, 3)) {
-        // Device Pixel Ratio is fracking weird, need to handle it three different ways
+        // If the feature is device-pixel-ratio, let's convert it to the standard resolution media query!
+        //  - via http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/
         @if nth($breakpoint, 3) == 'device-pixel-ratio' {
-          // Webkit
-          $webkit-query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "-webkit-min-#{nth($breakpoint, 3)}");
-          $webkit-query-string: breakpoint-concatenate($webkit-query-string, nth($breakpoint, 2), "-webkit-min-#{nth($breakpoint, 3)}");
-          // Mozilla
-          $moz-query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "min--moz-#{nth($breakpoint, 3)}");
-          $moz-query-string: breakpoint-concatenate($moz-query-string, nth($breakpoint, 2), "max--moz-#{nth($breakpoint, 3)}");
-          // Opera
-          $o-query-string: breakpoint-concatenate($query-string, '#{numerator(nth($breakpoint, 1))}/#{denominator(nth($breakpoint, 1))}', "-o-min-#{nth($breakpoint, 3)}");
-          $o-query-string: breakpoint-concatenate($o-query-string, '#{numerator(nth($breakpoint, 2))}/#{denominator(nth($breakpoint, 2))}', "-o-max-#{nth($breakpoint, 3)}");
+          @debug nth($breakpoint, 1);
+          @debug nth($breakpoint, 2);
+          $value1: 96 * nth($breakpoint, 1) * 1dpi;
+          $value2: 96 * nth($breakpoint, 2) * 1dpi;;
+          $feature: 'resolution';
+          $breakpoint: $value1 $value2 $feature;
         }
         // Min/Max for given 
         $query-string: breakpoint-concatenate($query-string, nth($breakpoint, 1), "min-#{nth($breakpoint, 3)}");
@@ -101,16 +99,26 @@ $breakpoint-default-feature: min-width !default;
         $feature: nth($breakpoint, 2);
         $value: nth($breakpoint, 1);
       }
-      // If the feature is device-pixel-ratio, it's gonna be weird
+      // If the feature is device-pixel-ratio, let's convert it to the standard resolution media query!
+      //  - via http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/
       @if $feature == 'device-pixel-ratio' {
-        // Webkit
-        $webkit-query-string: breakpoint-concatenate($query-string, $value, "-webkit-#{$feature}");
-        // Mozilla
-        $moz-query-string: breakpoint-concatenate($query-string, $value, "-moz-#{$feature}");
-        // Opera
-        $o-query-string: breakpoint-concatenate($query-string, '#{numerator($value)}/#{denominator($value)}', "-o-#{$feature}");
+        $value: 96 * $value * 1dpi;
+        $feature: 'resolution';
+        $query-string: breakpoint-concatenate($query-string, $value, $feature);
       }
-      $query-string: breakpoint-concatenate($query-string, $value, $feature);
+      @else if $feature == 'min-device-pixel-ratio' {
+        $value: 96 * $value * 1dpi;
+        $feature: 'min-resolution';
+        $query-string: breakpoint-concatenate($query-string, $value, $feature);
+      }
+      @else if $feature == 'max-device-pixel-ratio' {
+        $value: 96 * $value * 1dpi;
+        $feature: 'max-resolution';
+        $query-string: breakpoint-concatenate($query-string, $value, $feature);
+      }
+      @else {
+        $query-string: breakpoint-concatenate($query-string, $value, $feature);
+      }
     }
     @else if type-of(nth($breakpoint, 1)) == list {
       // for multidimensional lists, assume each item is a feature value pair
