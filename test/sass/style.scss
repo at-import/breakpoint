@@ -24,8 +24,11 @@ $breakpoint7: max-width 700px, orientation portrait;
 $breakpoint8: max-width 700px, orientation portrait, monochrome;
 $breakpoint9: monochrome;
 
-// experimental support for device-pixel-ratio
+// device-pixel-ratio conversion silliness
 $breakpoint10: 1 1.5 device-pixel-ratio;
+$breakpoint11: 2 min-device-pixel-ratio;
+$breakpoint12: 3 -webkit-device-pixel-ratio;
+
 
 
 
@@ -119,6 +122,20 @@ $breakpoint10: 1 1.5 device-pixel-ratio;
 .snl {
   @include show-variable($breakpoint10);
   @include breakpoint($breakpoint10) {
+    background-color: crimson;
+  }
+}
+
+.omgdpr {
+  @include show-variable($breakpoint11);
+  @include breakpoint($breakpoint11) {
+    backgrond-color: crimson;
+  }
+}
+
+.rotdpr {
+  @include show-variable($breakpoint12);
+  @include breakpoint($breakpoint12) {
     background-color: crimson;
   }
 }
