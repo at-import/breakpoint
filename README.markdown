@@ -2,6 +2,19 @@
 
 **Really simple media queries in Sass**
 
+### Installation
+
+  1. [Install Sass and Compass](http://compass-style.org/install/), if you haven't already.
+  2. **Terminal**: `gem install breakpoint`
+  3. Add `require 'breakpoint'` in Compass's config.rb file
+  4. Import breakpoint and use as directed below `@import breakpoint;`
+
+
+## Requirements
+
+- [Sass](http://sass-lang.com/)
+- [Compass](http://compass-style.org/)
+
 
 ## Setup
 
@@ -158,20 +171,6 @@ Example generated CSS
   }
 }
 ```
-
-### Installation
-
-  0. [Install Sass and Compass](http://compass-style.org/install/), if you haven't already.
-  1. **Terminal**: `gem install breakpoint`
-  2. Add `require 'breakpoint'` in Compass's config.rb file
-
-
-
-
-## Requirements
-
-- [Sass](http://sass-lang.com/)
-- [Compass](http://compass-style.org/)
 
 
 
