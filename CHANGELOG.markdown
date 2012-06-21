@@ -2,6 +2,7 @@
 
 ## 0.3 - June 18, 2012
 * Rewrote 'device-pixel-ratio' conversions to change from prefixed nightmarish hell to Resolution standard based on the [W3C Unprefixing -webkit-device-pixel-ratio article](http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)
+* Large README update covering feature set, installation, assumptions, and more.
 
 ## 0.2 - May 24, 2012
 * Converted from Sass to SCSS
