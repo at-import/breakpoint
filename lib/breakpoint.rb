@@ -4,7 +4,7 @@ Compass::Frameworks.register("breakpoint", :path => "#{File.dirname(__FILE__)}/.
 
 module Breakpoint
 
-  VERSION = "0.2"
-  DATE = "2012-05-24"
+  VERSION = "0.3"
+  DATE = "2012-06-21"
 
 end
