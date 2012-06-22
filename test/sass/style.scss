@@ -1,17 +1,27 @@
 // path to local mixin
 @import "../../stylesheets/breakpoint";
 
-$breakpoint-default-feature: min-width !default;
+$breakpoint-to-ems: true;
+
+//$breakpoint-default-feature: min-width !default;
 
 // create $breakpoint variables like so
 // assume $breakpoint-default-feature if only a number
 $breakpoint1: 500px;
 $breakpoint2: 30em;
 
+// single value with feature
+$bkpt3: 500px 'height';
+$bkpt4: 'lion' 500px;
+$bkptSt: portrait orientation;
+
 // set min-width/max-width if both values are numbers
 $breakpoint3: 500px 700px;
 // set min/max of feature if there are two numbers and a feature
 $breakpoint4: 300px 700px height;
+
+// failing bkpt
+$bkptFail: 300px 700px lion;
 
 // if one value is a string, assume a feature/value pair
 $breakpoint5: min-width 700px;
@@ -20,12 +30,14 @@ $breakpoint6: max-width 700px;
 // for multidimensional lists, assume each item is a feature value pair
 $breakpoint7: max-width 700px, orientation portrait;
 
+$bkptSuper: 300px 400px 'height', 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 2 device-pixel-ratio;
+
 // handle one-sided features (ie. monochrome)
 $breakpoint8: max-width 700px, orientation portrait, monochrome;
 $breakpoint9: monochrome;
 
 // device-pixel-ratio conversion silliness
-$breakpoint10: 1 1.5 device-pixel-ratio;
+$breakpoint10: 1.5 1 device-pixel-ratio;
 $breakpoint11: 2 min-device-pixel-ratio;
 $breakpoint12: 3 -webkit-device-pixel-ratio;
 
@@ -34,115 +46,38 @@ $breakpoint12: 3 -webkit-device-pixel-ratio;
 
 // Use it
 
-@mixin show-variable($variable) {
-  position: relative;
-  &:after {
-    position: absolute;
-    content: quote(#{$variable});
-  }
-}
-
 .foo {
-  @include show-variable($breakpoint1);
-  @include breakpoint($breakpoint1) {
-    background-color: crimson;
-  }
-}
-
-.bar {
-  @include show-variable($breakpoint2);
-  @include breakpoint($breakpoint2) {
-    background-color: crimson;
-  }
-}
-
-.baz {
-  @include show-variable($breakpoint3);
-  @include breakpoint($breakpoint3) {
-    background-color: crimson;
-  }
-}
-
-.omg {
-  @include show-variable($breakpoint4);
-  @include breakpoint($breakpoint4) {
-    background-color: crimson;
-  }
-}
-
-.wtf {
-  @include show-variable($breakpoint5);
-  @include breakpoint($breakpoint5) {
-    background-color: crimson;
-  }
-}
-
-.bbq {
-  @include show-variable($breakpoint6);
-  @include breakpoint($breakpoint6) {
-    background-color: crimson;
-  }
-}
-
-.zztop {
-  @include show-variable($breakpoint7);
+//  @include breakpoint($breakpoint1) {
+//      background-color: crimson;
+//    }
+//    @include breakpoint($breakpoint2) {
+//      background-color: crimson;
+//    }
+//    @include breakpoint($bkpt3) {
+//      background-color: crimson;
+//    }
+//    @include breakpoint($bkpt4) {
+//      background-color: crimson;
+//    }
+//  @include breakpoint($breakpoint3) {
+//    background: red;
+//  }
+//  @include breakpoint($breakpoint4) {
+//    background: green;
+//  }
+//  @include breakpoint($breakpoint10) {
+//    background: yellow;
+//  }
+//  @include breakpoint($bkptSt) {
+//    background: blue;
+//  }
+//  @include breakpoint($bkptFail) {
+//    background: yellow;
+//  }
   @include breakpoint($breakpoint7) {
-    background-color: crimson;
+    background: bonga;
   }
-}
-
-.elp {
-  @include show-variable($breakpoint1 print);
-  @include breakpoint($breakpoint1, print) {
-    background-color: crimson;
+  @include breakpoint($bkptSuper) {
+    background: banana;
   }
-}
-
-.csny {
-  @include show-variable($breakpoint8);
-  @include breakpoint($breakpoint8) {
-    background-color: crimson;
-  }
-}
-
-.rhcp {
-  @include show-variable("30em 40em");
-  @include breakpoint(30em 40em) {
-    background-color: crimson;
-  }
-}
-
-.tgif {
-  @include show-variable($breakpoint4);
-  @include breakpoint($breakpoint4) {
-    background-color: crimson;
-  }
-}
-
-.snl {
-  @include show-variable($breakpoint10);
-  @include breakpoint($breakpoint10) {
-    background-color: crimson;
-  }
-}
-
-.omgdpr {
-  @include show-variable($breakpoint11);
-  @include breakpoint($breakpoint11) {
-    backgrond-color: crimson;
-  }
-}
-
-.rotdpr {
-  @include show-variable($breakpoint12);
-  @include breakpoint($breakpoint12) {
-    background-color: crimson;
-  }
-}
-
-.example {
-  border: 1px solid grey;
-  padding: 1em;
-  width: 80%;
-  margin-bottom: 1em;
 }
