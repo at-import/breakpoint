@@ -71,12 +71,7 @@ $breakpoint-to-ems:           false       !default;
       $value: breakpoint-to-base-em($value);
     }
     // Build the Query
-    @if $first == true {
-      $query: breakpoint-generate($media-string, $feature, $value, true);
-    }
-    @else {
-      $query: breakpoint-generate($media-string, $feature, $value);
-    }
+    $query: breakpoint-generate($media-string, $feature, $value, $first);
   }
   @else if $length == 2 {
     // If both are numbers, we've got a double!
@@ -100,12 +95,7 @@ $breakpoint-to-ems:           false       !default;
       }
       
       // Min/Max for given
-      @if $first == true {
-        $query: breakpoint-generate($media-string, $min-feature, $min-value, true);
-      }
-      @else {
-        $query: breakpoint-generate($media-string, $min-feature, $min-value);
-      }
+      $query: breakpoint-generate($media-string, $min-feature, $min-value, $first);
       $query: join($query, breakpoint-generate($media-string, $max-feature, $max-value));
     }
     @else if type-of(nth($breakpoint, 1)) == 'string' and type-of(nth($breakpoint, 2)) == 'string' {
@@ -124,12 +114,7 @@ $breakpoint-to-ems:           false       !default;
       }
       
       // Build the Query
-      @if $first == true {
-        $query: breakpoint-generate($media-string, $feature, $value, true);
-      }
-      @else {
-        $query: breakpoint-generate($media-string, $feature, $value);
-      }
+      $query: breakpoint-generate($media-string, $feature, $value, $first);
     }
     @else {
       // Because we can have either the first or second option be the feature, we switch on it.
@@ -161,12 +146,7 @@ $breakpoint-to-ems:           false       !default;
       }
       
       // Build the Query
-      @if $first == true {
-        $query: breakpoint-generate($media-string, $feature, $value, true);
-      }
-      @else {
-        $query: breakpoint-generate($media-string, $feature, $value);
-      }
+      $query: breakpoint-generate($media-string, $feature, $value, $first);
     }
   }
   @else if $length == 3 {
@@ -214,12 +194,7 @@ $breakpoint-to-ems:           false       !default;
       $max-feature: 'max-#{$feature}';
 
       // Min/Max for given
-      @if $first == true {
-        $query: breakpoint-generate($media-string, $min-feature, $min-value, true);
-      }
-      @else {
-        $query: breakpoint-generate($media-string, $min-feature, $min-value);
-      }
+      $query: breakpoint-generate($media-string, $min-feature, $min-value, $first);
       $query: join($query, breakpoint-generate($media-string, $max-feature, $max-value));
     }
     @else {
