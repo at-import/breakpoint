@@ -6,10 +6,12 @@ Breakpoint aims to make writing media queries in Sass super simple. Create a var
 
 Breakpoint makes the following assumptions:
 
-* All queries are assumed to be screen queries. This can be overwritten by specifying the media you'd like to query against as the second parameter in the breakpoint mixin.
-* A single value query is assumed to be against the `min-width` feature. This can be overwritten by adding the feature you'd like to query against.
-* A two value query is assumed to be against the `min-width`/`max-width` feature pair. This can be overwritten by adding the feature you'd like to query against.
+* All queries are assumed to be for all media types. This can be overwritten by specifying the media you'd like to query against as the second parameter in the breakpoint mixin.
+* A single value query is assumed to be against the `min-width` feature. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
+* A two value query is assumed to be against the `min-width`/`max-width` feature pair. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
 * Unprefixed `device-pixel-ratio` queries are transformed into the standard `resolution` breakpoint based on the [W3C recommendation for how to do so](http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/). This can be overwritten by passing in prefixed the needed prefixed feature.
+
+If you'd prefer to use string names to identify your queries as opposed to variables, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
 
 ## Requirements
 
@@ -28,8 +30,19 @@ Breakpoint is a Compass extension, so make sure you have [Sass and Compass Insta
 #### Import the breakpoint partial at the top of your working file
 `@import "breakpoint";`
 
-
 ## Setup
+
+### Breakpoint Options
+
+Breakpoint provides a few default options that you can change.
+
+* `$breakpoint-default-media` - Defaults to 'all'. If you do not pass a media type into the breakpoint mixin, this is the media type that will be used.
+* `$breakpoint-default-feature` - Defaults to 'min-width'. If you write a breakpoint with only a number, this is the feature that is used.
+* `$breakpoint-default-pair` - Defaults to 'width'. If you write a breakpoint with two numbers but do not specify the feature, this is the feature that is used.
+* `$breakpoint-to-ems` - Defaults to 'false'. If set to true, all pt/px/percent numbers will be converted to em units for better, more accessable media queries.
+
+### Usage
+
 
 ```scss
 // create $breakpoint variables like so
