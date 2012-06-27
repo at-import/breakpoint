@@ -206,23 +206,35 @@ $breakpoint-to-ems:           false       !default;
 }
 
 @function breakpoint-generate($media, $feature, $value, $first: false) {
+  // Media Query string to be returned
   $new-string: "";
-  @if $media == '' and $first == true {
+  
+  // If it's the first item, it gets special treatment
+  @if $first == true {
+    // And Statement
+    $and: 'and ';
+    // If $media is blank (i.e. all), remove and statement
+    @if $media == '' {
+      $and: '';
+    }
+    
     @if $feature != false {
-      $new-string: #{$media}unquote("(#{$feature}: #{$value})");
+      $new-string: #{$media}unquote("#{$and}(#{$feature}: #{$value})");
     }
     @else {
-      $new-string: #{$media}unquote("(#{$value})");
+      $new-string: #{$media}unquote("#{$and}(#{$value})");
     }
   }
+  
   @else {
     @if $feature != false {
-      $new-string: #{$media}unquote("and (#{$feature}: #{$value})");
+      $new-string: unquote("and (#{$feature}: #{$value})");
     }
     @else {
-      $new-string: #{$media}unquote("and (#{$value})");
+      $new-string: unquote("and (#{$value})");
     }
   }
+  
   @return $new-string;
 }
 
