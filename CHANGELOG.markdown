@@ -20,4 +20,4 @@
 * Added ability to have single feature/value input be either have feature first or second
 
 ## 0.1 - May 22, 2012
-* extract breakpoint from ssurvival kit to this gem
+* extract breakpoint from survival kit to this gem

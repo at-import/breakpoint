@@ -2,7 +2,7 @@
 
 **Really simple media queries in Sass**
 
-Breakpoint aims to make writing media queries in Sass super simple. Create a variable using a simplified syntax based on most commonly used media queries, then call it using the `breakpoint` mixin.  Breakpoint handles all of the lifting of writing the media query itself, including cross-browser compatibility issues, so you can focus on what's important: making sure your website looks its best.
+Breakpoint makes writing media queries in Sass super simple. Create a variable using a simplified syntax based on most commonly used media queries, then call it using the `breakpoint` mixin.  Breakpoint handles all of the heavy lifting, from writing the media query itself, to handling cross-browser compatibility issues, so you can focus on what's important: making sure your website looks its best.
 
 Breakpoint makes the following assumptions:
 
@@ -46,22 +46,22 @@ Breakpoint provides a few default options that you can change.
 
 ```scss
 // create $breakpoint variables like so
-// assume $breakpoint-default-feature if only a number
-$breakpoint1: 500px;
-$breakpoint2: 30em;
+// assume min-width (by default) if only a number
+$breakpoint-medium-width: 500px;
+$breakpoint-medium-width-em: 30em;
 // set min-width/max-width if both values are numbers
-$breakpoint3: 500px 700px;
+$breakpoint-medium-not-wide: 500px 700px;
 // set min/max of feature if there are two numbers
-$breakpoint4: 300px 700px 'height';
+$breakpoint-medium-height: 300px 700px 'height';
 // if one value is a string, assume a feature/value pair
-$breakpoint5: min-width 700px;
-$breakpoint6: max-width 700px;
+$breakpoint-kind-of-wide: min-width 700px;
+$breakpoint-not-too-wide: max-width 700px;
 // for multidimensional lists, assume each item is a feature value pair
-$breakpoint7: max-width 700px, orientation portrait;
+$breakpoint-wide-portrait: max-width 700px, orientation portrait;
 // handle one-sided features (ie. monochrome)
-$breakpoint8: max-width 700px, orientation portrait, monochrome;
-$breakpoint9: monochrome;
-$breakpoint10: 2 device-pixel-ratio;
+$breakpoint-wide-portrait-mono: max-width 700px, orientation portrait, monochrome;
+$breakpoint-mono: monochrome;
+$breakpoint-hi-rez: 2 device-pixel-ratio;
 ```
 
 
@@ -71,142 +71,208 @@ Call the mixin and pass one of your breakpoint variables. You can also call it w
 
 ```scss
 .foo {
-  @include breakpoint($breakpoint1) {
-    content: 'foo';
+  @include breakpoint($breakpoint-medium-width) {
+    content: 'medium widths';
   }
 }
 .bar {
-  @include breakpoint($breakpoint2) {
-    content: 'bar';
+  @include breakpoint($breakpoint-medium-width-em) {
+    content: 'medium widths measured in ems';
   }
 }
 .baz {
-  @include breakpoint($breakpoint3) {
-    content: 'baz';
-  }
-}
-.omg {
-  @include breakpoint($breakpoint5) {
-    content: 'omg';
-  }
-}
-.wtf {
-  @include breakpoint($breakpoint6) {
-    content: 'wtf';
-  }
-}
-.bbq {
-  @include breakpoint($breakpoint7) {
-    content: 'bbq';
-  }
-}
-.zztop {
-  @include breakpoint($breakpoint8) {
-    content: 'zztop';
-  }
-}
-.elp {
-  @include breakpoint($breakpoint1, print) {
-    content: 'elp';
-  }
-}
-.csny {
-  @include breakpoint($breakpoint9) {
-    content: 'csny';
-  }
-}
-.rhcp {
-  @include breakpoint(30em 40em) {
-    content: 'rhcp';
+  @include breakpoint($breakpoint-medium-not-wide) {
+    content: 'medium, but not too wide';
   }
 }
 .tgif {
- @include breakpoint($breakpoint4) {
-   content: 'tgif';
+ @include breakpoint($breakpoint-medium-height) {
+   content: 'medium heights';
  }
 }
+.omg {
+  @include breakpoint($breakpoint-kind-of-wide) {
+    content: 'kind of wide';
+  }
+}
+.wtf {
+  @include breakpoint($breakpoint-not-too-wide) {
+    content: 'not too wide';
+  }
+}
+.bbq {
+  @include breakpoint($breakpoint-wide-portrait) {
+    content: 'wide, portrait';
+  }
+}
+.zztop {
+  @include breakpoint($breakpoint-wide-portrait-mono) {
+    content: 'wide, portrait, monochrome';
+  }
+}
+.csny {
+  @include breakpoint($breakpoint-mono) {
+    content: 'monochrome';
+  }
+}
+.elp {
+  @include breakpoint($breakpoint-mono, print) {
+    content: 'monochrome, print';
+  }
+}
 .omgdpr {
- @include breakpoint($breakpoint10) {
-  content: 'omgdpr';
+ @include breakpoint($breakpoint-hi-rez) {
+  content: 'hi resolutions';
  }
+}
+
+// You can use breakpoint without variables too.
+.rhcp {
+  @include breakpoint(30em 40em) {
+    content: 'between 30 and 40ems';
+  }
 }
 ```
 
 Example generated CSS
 
 ```css
-@media screen and (min-width:  500px) {
+@media (min-width: 500px) {
   .foo {
-    content: "foo";
+    content: 'medium widths';
   }
 }
 
-@media screen and (min-width:  30em) {
+@media (min-width: 30em) {
   .bar {
-    content: "bar";
+    content: 'medium widths measured in ems';
   }
 }
 
-@media screen and (min-width:  500px) and (max-width:  700px) {
+@media (min-width: 500px) and (max-width: 700px) {
   .baz {
-    content: "baz";
+    content: 'medium, but not too wide';
   }
 }
 
-@media screen and (min-width:  700px) {
-  .omg {
-    content: "omg";
-  }
-}
-
-@media screen and (max-width:  700px) {
-  .wtf {
-    content: "wtf";
-  }
-}
-
-@media screen and (max-width:  700px) and (orientation:  portrait) {
-  .bbq {
-    content: "bbq";
-  }
-}
-
-@media screen and (max-width:  700px) and (orientation:  portrait) and (monochrome) {
-  .zztop {
-    content: "zztop";
-  }
-}
-
-@media print and (min-width:  500px) {
-  .elp {
-    content: "elp";
-  }
-}
-
-@media screen and (monochrome) {
-  .csny {
-    content: "csny";
-  }
-}
-
-@media screen and (min-width:  30em) and (max-width:  40em) {
-  .rhcp {
-    content: "rhcp";
-  }
-}
-
-@media screen and (min-height: 300px) and (max-height: 700px) {
+@media (min-height: 300px) and (max-height: 700px) {
   .tgif {
-    content: "tgif";
+    content: 'medium heights';
   }
 }
 
-@media screen and (resolution: 192dpi) {
+@media (min-width: 700px) {
+  .omg {
+    content: 'kind of wide';
+  }
+}
+
+@media (max-width: 700px) {
+  .wtf {
+    content: 'not too wide';
+  }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .bbq {
+    content: 'wide, portrait';
+  }
+}
+
+@media (max-width: 700px) and (orientation: portrait) and (monochrome) {
+  .zztop {
+    content: 'wide, portrait, monochrome';
+  }
+}
+
+@media (monochrome) {
+  .csny {
+    content: 'monochrome';
+  }
+}
+
+@media print and (monochrome) {
+  .elp {
+    content: 'monochrome, print';
+  }
+}
+
+@media (resolution: 192dpi) {
   .omgdpr {
-    content: "omgdpr";
+    content: 'hi resolutions';
+  }
+}
+
+@media (min-width: 30em) and (max-width: 40em) {
+  .rhcp {
+    content: 'between 30 and 40ems';
   }
 }
 ```
+
+With `$breakpoint-to-ems: true;`
+```scss
+@media (min-width: 31.25em) {
+  .foo {
+    content: 'medium widths';
+  }
+}
+
+@media (min-width: 30em) {
+  .bar {
+    content: 'medium widths measured in ems';
+  }
+}
+
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .baz {
+    content: 'medium, but not too wide';
+  }
+}
+
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .tgif {
+    content: 'medium heights';
+  }
+}
+
+@media (min-width: 43.75em) {
+  .omg {
+    content: 'kind of wide';
+  }
+}
+
+@media (max-width: 43.75em) {
+  .wtf {
+    content: 'not too wide';
+  }
+}
+
+@media (max-width: 43.75em) and (orientation: portrait) {
+  .bbq {
+    content: 'wide, portrait';
+  }
+}
+
+@media (max-width: 43.75em) and (orientation: portrait) and (monochrome) {
+  .zztop {
+    content: 'wide, portrait, monochrome';
+  }
+}
+
+@media print and (monochrome) {
+  .elp {
+    content: 'monochrome, print';
+  }
+}
+
+@media (min-width: 30em) and (max-width: 40em) {
+  .rhcp {
+    content: 'between 30 and 40ems';
+  }
+}
+```
+
 
 ## License
 
