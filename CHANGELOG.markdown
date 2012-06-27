@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.1 - June 27, 2012
+* fixed logic error that would print multiple instences of a media type
+
 ## 1.0 - June 22, 2012
 * Refactor of the underlying logic to make everything work better and make the world a happy place.
 * Added default options for Default Feature, Default Media, and Default Feature Pair.
