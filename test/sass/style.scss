@@ -41,6 +41,15 @@ $breakpoint10: 1.5 1 device-pixel-ratio;
 $breakpoint11: 2 min-device-pixel-ratio;
 $breakpoint12: 3 -webkit-device-pixel-ratio;
 
+$bkpt-fail: 400px 600px "height", 400px "min-width";
+
+
+.fuuu {
+  @include breakpoint($bkpt-fail, 'screen') {
+    background: green;
+  }
+}
+
 
 
 

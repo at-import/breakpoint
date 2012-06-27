@@ -1,3 +1,9 @@
+@media screen and (min-height: 25em) and (max-height: 37.5em) and (min-width: 25em) {
+  .fuuu {
+    background: green;
+  }
+}
+
 @media (max-width: 43.75em) and (orientation: portrait) {
   .foo {
     background: bonga;
