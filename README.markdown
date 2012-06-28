@@ -11,7 +11,7 @@ Breakpoint makes the following assumptions:
 * A two value query is assumed to be against the `min-width`/`max-width` feature pair. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
 * Unprefixed `device-pixel-ratio` queries are transformed into the standard `resolution` breakpoint based on the [W3C recommendation for how to do so](http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/). This can be overwritten by passing in prefixed the needed prefixed feature.
 
-If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
+If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, or want to dynamically generate media queries, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
 
 ## Requirements
 
