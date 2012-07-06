@@ -17,6 +17,12 @@ If you'd prefer the semantic awesomeness of string names to identify your querie
 
 Breakpoint is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
 
+Breakpoint also requires Sass 3.2, which is currently in pre-release. Breakpoint should install Sass 3.2 for you when you install it, but in case you are getting errors, open up your terminal and type the following in:
+
+`gem install sass --pre`
+
+This will install Sass 3.2. If you are compiling with CodeKit, [Chris Coyier has an awesome writeup](http://css-tricks.com/media-queries-sass-3-2-and-codekit/) on how to get CodeKit playing nice with Sass 3.2.
+
 ## Installation
 
 `gem install breakpoint`
