@@ -9,7 +9,12 @@
     background: bonga;
   }
 }
-@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min-resolution: 96dpi) and (max-resolution: 192dpi) and (min-width: 43.75em) and (resolution: 192dpi) {
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
+  .foo {
+    background: banana;
+  }
+}
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
   .foo {
     background: banana;
   }

@@ -30,7 +30,7 @@ $breakpoint6: max-width 700px;
 // for multidimensional lists, assume each item is a feature value pair
 $breakpoint7: max-width 700px, orientation portrait;
 
-$bkptSuper: 300px 400px 'height', 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 2 device-pixel-ratio;
+$bkptSuper: 300px 400px 'height', 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 192dpi resolution;
 
 // handle one-sided features (ie. monochrome)
 $breakpoint8: max-width 700px, orientation portrait, monochrome;
