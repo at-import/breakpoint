@@ -286,7 +286,6 @@ Ever wanted to get the context of a media query from within a mixin or function?
 
 Caviats with Media Query context:
 
-* If you call `breakpoint-get-context` outside of a `breakpoint` driven mixin, the context will be wrong.
 * If you have `$breakpoint-to-ems` set to true, you will get returns in base ems. You can run non-em based values through `breakpoint-to-base-em($value)` to convert them to base ems.
 * If you are testing for a prefixed feature (such as `device-pixel-ratio`), you need to test for the prefixed value (`-webkit-device-pixel-ratio`, `min--moz-device-pixel-ratio`, etc…).
 
