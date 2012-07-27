@@ -349,24 +349,3 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
   
   @return $new-string;
 }
-
-@function breakpoint-to-base-em($value) {
-  $unit: unit($value);
-  
-  @if $unit == 'px' {
-    @return $value / 16px * 1em;
-  }
-  @else if $unit == '%' {
-    @return $value / 100% * 1em;
-  }
-  @else if $unit == 'em' {
-    @return $value;
-  }
-  @else if $unit == 'pt' {
-    @return $value / 12pt * 1em;
-  }
-  @else {
-    @return $value;
-//    @warn 'Everything is terrible! What have you done?!';
-  }
-}
