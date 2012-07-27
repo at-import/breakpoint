@@ -1,0 +1,37 @@
+//////////////////////////////
+// Private Breakpoint Variables
+//////////////////////////////
+$TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
+
+//////////////////////////////
+// Breakpoint Get Context
+// $feature: Input feature to get it's current MQ context. Returns false if no context
+//////////////////////////////
+@function breakpoint-get-context($feature) {
+  @each $context in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+    @if $feature == nth($context, 1) {
+      @return nth($context, 2);
+    }
+  }
+  
+  @return false;
+}
+
+//////////////////////////////
+// Private function to set context
+//////////////////////////////
+@function U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value) {
+  $append: $feature;
+  $append: join($append, $value, space);
+    
+  $TXkgdmFyaWFibGUhIEdvIGF3YXkh: append($TXkgdmFyaWFibGUhIEdvIGF3YXkh, $append, comma);
+  
+  @return true;
+}
+
+//////////////////////////////
+// Private function to reset context
+//////////////////////////////
+@mixin TXkgcmVzZXQhIEdvIGF3YXkh {
+  $TXkgdmFyaWFibGUhIEdvIGF3YXkh: ();
+}
