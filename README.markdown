@@ -9,7 +9,8 @@ Breakpoint makes the following assumptions:
 * All queries are assumed to be for all media types. This can be overwritten by specifying the media you'd like to query against as the second parameter in the breakpoint mixin.
 * A single value query is assumed to be against the `min-width` feature. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
 * A two value query is assumed to be against the `min-width`/`max-width` feature pair. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
-* Unprefixed `device-pixel-ratio` queries are transformed into the standard `resolution` breakpoint based on the [W3C recommendation for how to do so](http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/). This can be overwritten by passing in prefixed the needed prefixed feature.
+
+Breakpoint also allows you to get the context of your media queries from your code, allowing you to write dynamic mixins based on their media query context.
 
 If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, or want to dynamically generate media queries, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
 
@@ -278,6 +279,15 @@ With `$breakpoint-to-ems: true;`
   }
 }
 ```
+
+## Media Query Context
+
+Ever wanted to get the context of a media query from within a mixin or function? Well we have, so we've made that possible! Simply call the `breakpoint-get-context($feature)` function which will either return the contextual value for that feature (`min-width`, `max-width`, etc…) or `false`. You can then do all the awesomeness that you've ever wanted to do with that information.
+
+Caviats with Media Query context:
+
+* If you have `$breakpoint-to-ems` set to true, you will get returns in base ems. You can run non-em based values through `breakpoint-to-base-em($value)` to convert them to base ems.
+* If you are testing for a prefixed feature (such as `device-pixel-ratio`), you need to test for the prefixed value (`-webkit-device-pixel-ratio`, `min--moz-device-pixel-ratio`, etc…).
 
 
 ## License

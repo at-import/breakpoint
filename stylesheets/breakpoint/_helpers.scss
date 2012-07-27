@@ -1,0 +1,80 @@
+//////////////////////////////
+// Converts the input value to Base EMs
+//////////////////////////////
+@function breakpoint-to-base-em($value) {
+  $unit: unit($value);
+  
+  @if $unit == 'px' {
+    @return $value / 16px * 1em;
+  }
+  @else if $unit == '%' {
+    @return $value / 100% * 1em;
+  }
+  @else if $unit == 'em' {
+    @return $value;
+  }
+  @else if $unit == 'pt' {
+    @return $value / 12pt * 1em;
+  }
+  @else {
+    @return $value;
+//    @warn 'Everything is terrible! What have you done?!';
+  }
+}
+
+//////////////////////////////
+// Returns whether the feature can have a min/max pair
+//////////////////////////////
+@function breakpoint-min-max($feature) {
+  @if $feature == 'color' or $feature == 'color-index' or $feature == 'aspect-ratio' or $feature == 'device-height' or $feature == 'device-width' or $feature == 'height' or $feature == 'monochrome' or $feature == 'resolution' or $feature == 'width' or $feature == 'device-pixel-ratio' {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+//////////////////////////////
+// Returns whether the feature can have a string value
+//////////////////////////////
+@function breakpoint-string-value($feature) {
+  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+//////////////////////////////
+// Experimental Media Queries
+//////////////////////////////
+@function breakpoint-experimental($property, $prefix) {
+  @if $property == 'min-device-pixel-ratio' {
+    @if $prefix == 'webkit' {
+      @return '-#{$prefix}-#{$property}';
+    }
+    @else if $prefix == 'moz' {
+      @return 'min--#{$prefix}-device-pixel-ratio';
+    }
+    @else {
+      @warn '#{$property} is not fully supported in -#{prefix}';
+      @return 'ERROR';
+    }
+  }
+  @else if $property == 'max-device-pixel-ratio' {
+    @if $prefix == 'webkit' {
+      @return '-#{$prefix}-#{$property}';
+    }
+    @else if $prefix == 'moz' {
+      @return 'max--#{$prefix}-device-pixel-ratio';
+    }
+    @else {
+      @warn '#{$property} is not fully supported in -#{prefix}';
+      @return 'ERROR';
+    }
+  }
+  @else {
+    @return '-#{$prefix}-#{$property}';
+  }
+}
