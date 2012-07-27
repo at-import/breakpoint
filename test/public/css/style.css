@@ -4,6 +4,16 @@
   }
 }
 
+@media (min-width: 31.25em) {
+  .foo {
+    background-color: crimson;
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    background-color: crimson;
+  }
+}
 @media (max-width: 43.75em) and (orientation: portrait) {
   .foo {
     background: bonga;
