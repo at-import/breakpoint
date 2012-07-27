@@ -1,6 +1,11 @@
 # Changelog
 
+
+## 1.1 - July 29, 2012
+* Added function `breakpoint-get-context($feature)` to allow users to get the current media query context
+
 ## 1.0.2 - July 28, 2012
+* Refixed our 'device-pixel-ratio' conversions because, frankly, the w3c was wrong.
 * fixed bugs that caused single and triple value single queries to fail. Also bugs with stacking single and triple value tests.
 
 ## 1.0.1 - June 27, 2012
