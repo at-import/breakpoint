@@ -9,6 +9,12 @@ $breakpoint-prefixes:         'webkit' 'moz'  !default;
 $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'                      !default;
 
 //////////////////////////////
+// Import Breakpoint Helpers
+//////////////////////////////
+@import 'breakpoint/helpers';
+@import 'breakpoint/context';
+
+//////////////////////////////
 // Breakpoint Mixin
 //////////////////////////////
 @mixin breakpoint($breakpoint, $media: $breakpoint-default-media) {
@@ -27,8 +33,11 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
   $ms:            false !default;
   $ms-first:      true !default;
 
-  // Holder for Count;
+  // Holder for Count
   $first:         true  !default;
+
+  // Reset Context
+  @include TXkgcmVzZXQhIEdvIGF3YXkh;
 
   // Initialize Query String
   @if $media != 'all' {
@@ -188,6 +197,8 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
     }
     // Build the Query
     $query: breakpoint-generate($media-string, $feature, $value, $first);
+    // Set Context
+    $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
   }
   @else if $length == 2 {
     // If both are numbers, we've got a double!
@@ -213,6 +224,9 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
       // Min/Max for given
       $query: breakpoint-generate($media-string, $min-feature, $min-value, $first);
       $query: join($query, breakpoint-generate($media-string, $max-feature, $max-value));
+      // Set Context
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
     }
     @else if type-of(nth($breakpoint, 1)) == 'string' and type-of(nth($breakpoint, 2)) == 'string' {
       @if breakpoint-string-value(nth($breakpoint, 1)) == true {
@@ -231,6 +245,8 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
 
       // Build the Query
       $query: breakpoint-generate($media-string, $feature, $value, $first);
+      // Set Context
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
     }
     @else {
       // Because we can have either the first or second option be the feature, we switch on it.
@@ -264,6 +280,8 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
 
       // Build the Query
       $query: breakpoint-generate($media-string, $feature, $value, $first);
+      // Set Context
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
     }
   }
   @else if $length == 3 {
@@ -313,6 +331,9 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
       // Min/Max for given
       $query: breakpoint-generate($media-string, $min-feature, $min-value, $first);
       $query: join($query, breakpoint-generate($media-string, $max-feature, $max-value));
+      // Set Context
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
     }
     @else {
       @warn '#{$feature} cannot have a min/max value!';
@@ -373,53 +394,5 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
   @else {
     @return $value;
 //    @warn 'Everything is terrible! What have you done?!';
-  }
-}
-
-@function breakpoint-min-max($feature) {
-  @if $feature == 'color' or $feature == 'color-index' or $feature == 'aspect-ratio' or $feature == 'device-height' or $feature == 'device-width' or $feature == 'height' or $feature == 'monochrome' or $feature == 'resolution' or $feature == 'width' or $feature == 'device-pixel-ratio' {
-    @return true;
-  }
-  @else {
-    @return false;
-  }
-}
-
-@function breakpoint-string-value($feature) {
-  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' {
-    @return true;
-  }
-  @else {
-    @return false;
-  }
-}
-
-@function breakpoint-experimental($property, $prefix) {
-  @if $property == 'min-device-pixel-ratio' {
-    @if $prefix == 'webkit' {
-      @return '-#{$prefix}-#{$property}';
-    }
-    @else if $prefix == 'moz' {
-      @return 'min--#{$prefix}-device-pixel-ratio';
-    }
-    @else {
-      @warn '#{$property} is not fully supported in -#{prefix}';
-      @return 'ERROR';
-    }
-  }
-  @else if $property == 'max-device-pixel-ratio' {
-    @if $prefix == 'webkit' {
-      @return '-#{$prefix}-#{$property}';
-    }
-    @else if $prefix == 'moz' {
-      @return 'max--#{$prefix}-device-pixel-ratio';
-    }
-    @else {
-      @warn '#{$property} is not fully supported in -#{prefix}';
-      @return 'ERROR';
-    }
-  }
-  @else {
-    @return '-#{$prefix}-#{$property}';
   }
 }
