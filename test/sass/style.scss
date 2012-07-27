@@ -79,20 +79,13 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
   @include breakpoint($breakpoint1) {
       background-color: crimson;
       @debug breakpoint-get-context('min-width');
-      @debug 'Breakpoint';
     }
     @include breakpoint($breakpoint2) {
       background-color: crimson;
       $min-width: breakpoint-get-context('min-width');
       @debug $min-width;
-      
-      @if $min-width and 31 > $min-width {
-        @debug 'yes';
-      }
-      @else {
-        @debug 'no'
-      }
     }
+    @debug breakpoint-get-context('min-width');
 //    @include breakpoint($bkpt3) {
 //      background-color: crimson;
 //    }
