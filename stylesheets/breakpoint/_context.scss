@@ -21,6 +21,10 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 // Private function to set context
 //////////////////////////////
 @function U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value) {
+  @if $value == 'monochrome' {
+    $feature: 'monochrome';
+  }
+
   $append: $feature;
   $append: join($append, $value, space);
 
