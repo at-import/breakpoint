@@ -71,47 +71,68 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
 // }
 
 
-
+@mixin my-background {
+  $min-width-context: breakpoint-get-context('min-width');
+  // @debug $min-width-context;
+  @if $min-width-context > 30em {
+    background: purple;
+  }
+  @else {
+    background: red;
+  }
+}
 
 // Use it
 
 .foo {
   @include breakpoint($breakpoint1) {
-      background-color: crimson;
-      @debug breakpoint-get-context('min-width');
-    }
-    @include breakpoint($breakpoint2) {
-      background-color: crimson;
-      $min-width: breakpoint-get-context('min-width');
-      @debug $min-width;
-    }
-    @debug breakpoint-get-context('min-width');
-//    @include breakpoint($bkpt3) {
-//      background-color: crimson;
-//    }
-//    @include breakpoint($bkpt4) {
-//      background-color: crimson;
-//    }
-//  @include breakpoint($breakpoint3) {
-//    background: red;
-//  }
-//  @include breakpoint($breakpoint4) {
-//    background: green;
-//  }
-//  @include breakpoint($breakpoint10) {
-//    background: yellow;
-//  }
-//  @include breakpoint($bkptSt) {
-//    background: blue;
-//  }
-//  @include breakpoint($bkptFail) {
-//    background: yellow;
-//  }
+    background-color: crimson;
+    // @debug breakpoint-get-context('min-width');
+    width: breakpoint-get-context('min-width');
+    @include my-background;
+  }
+  @include breakpoint($breakpoint2) {
+    background-color: crimson;
+    $min-width: breakpoint-get-context('min-width');
+    // @debug $min-width;
+    @include my-background;
+  }
+  // should fail
+  // @debug breakpoint-get-context('min-width');
+  //    @include breakpoint($bkpt3) {
+  //      background-color: crimson;
+  //    }
+  //    @include breakpoint($bkpt4) {
+  //      background-color: crimson;
+  //    }
+  //  @include breakpoint($breakpoint3) {
+  //    background: red;
+  //  }
+  //  @include breakpoint($breakpoint4) {
+  //    background: green;
+  //  }
+  //  @include breakpoint($breakpoint10) {
+  //    background: yellow;
+  //  }
+  //  @include breakpoint($bkptSt) {
+  //    background: blue;
+  //  }
+  //  @include breakpoint($bkptFail) {
+  //    background: yellow;
+  //  }
   // @include breakpoint($breakpoint7) {
   //   background: bonga;
   // }
   @include breakpoint($bkptSuper) {
     background: bkptSuper;
+    breakpoint-get-context-min-width: breakpoint-get-context('min-width');
+    breakpoint-get-context-max-width: breakpoint-get-context('max-width');
+    breakpoint-get-context-max-height: breakpoint-get-context('max-height');
+    breakpoint-get-context-height: breakpoint-get-context('height'); // false
+    breakpoint-get-context-monochrome: breakpoint-get-context('monochrome');
+    breakpoint-get-context-orientation: breakpoint-get-context('orientation');
+    breakpoint-get-context-resolution: breakpoint-get-context('resolution');
+    breakpoint-get-context--webkit-max-device-pixel-ratio: breakpoint-get-context('-webkit-max-device-pixel-ratio');
   }
   @include breakpoint($breakpoint-minwidth) {
     background: minwidth;
