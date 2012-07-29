@@ -10,7 +10,7 @@ Breakpoint makes the following assumptions:
 * A single value query is assumed to be against the `min-width` feature. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
 * A two value query is assumed to be against the `min-width`/`max-width` feature pair. This can be overwritten by adding the feature you'd like to query against or by changing the provided default variable.
 
-Breakpoint also allows you to get the context of your media queries from your code, allowing you to write dynamic mixins based on their media query context.
+Breakpoint also allows you to get the [context of your media queries](https://github.com/canarymason/breakpoint#media-query-context) from your code, allowing you to write dynamic mixins based on their media query context.
 
 If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, or want to dynamically generate media queries, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
 
@@ -47,9 +47,12 @@ Breakpoint provides a few default options that you can change.
 * `$breakpoint-default-feature` - Defaults to 'min-width'. If you write a breakpoint with only a number, this is the feature that is used.
 * `$breakpoint-default-pair` - Defaults to 'width'. If you write a breakpoint with two numbers but do not specify the feature, this is the feature that is used.
 * `$breakpoint-to-ems` - Defaults to 'false'. If set to true, all pt/px/percent numbers will be converted to em units for better, more accessable media queries.
+* `$breakpoint-prefixes` - Defines the prefixes to write for prefixed media features. Defaults to `'webkit' 'moz'`.
+* `$breakpoint-prefixed-queries` - Defines what queries should be prefixed. Defaults to `'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'`.
+
+PLEASE NOTE! If you're a savvy reader, you'll have noticed that we've not included `-o-device-pixel-ratio` as a prefixed option, and we would encourage you not to either. Opera has decided that [their implementation should be written as a fraction, not as a decimal](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/#device-pixel-ratio), and we are currently not prepared to support automatic conversion of decimals to fractions. This leaves us in the position of either supporting only fractions for unprefixed `device-pixel-ratio`, which is counter to the way the two largest browsers support the query, or suggesting that if you want to use `-o-device-pixel-ratio` that you write a separate media query for it, and we've chosen the later.
 
 ### Usage
-
 
 ```scss
 // create $breakpoint variables like so
