@@ -52,7 +52,9 @@ Breakpoint provides a few default options that you can change.
 
 PLEASE NOTE! If you're a savvy reader, you'll have noticed that we've not included `-o-device-pixel-ratio` as a prefixed option, and we would encourage you not to either. Opera has decided that [their implementation should be written as a fraction, not as a decimal](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/#device-pixel-ratio), and we are currently not prepared to support automatic conversion of decimals to fractions. This leaves us in the position of either supporting only fractions for unprefixed `device-pixel-ratio`, which is counter to the way the two largest browsers support the query, or suggesting that if you want to use `-o-device-pixel-ratio` that you write a separate media query for it, and we've chosen the later.
 
-### Usage
+## Using Breakpoint
+
+First, we set up our breakpoint variables.
 
 ```scss
 // create $breakpoint variables like so
@@ -73,9 +75,6 @@ $breakpoint-wide-portrait-mono: max-width 700px, orientation portrait, monochrom
 $breakpoint-mono: monochrome;
 $breakpoint-hi-rez: 2 device-pixel-ratio;
 ```
-
-
-## Using Breakpoint
 
 Call the mixin and pass one of your breakpoint variables. You can also call it with a la carte arguments.
 
@@ -207,7 +206,13 @@ Example generated CSS
   }
 }
 
-@media (resolution: 192dpi) {
+@media (-webkit-device-pixel-ratio: 2) {
+  .omgdpr {
+    content: 'hi resolutions';
+  }
+}
+
+@media (-moz-device-pixel-ratio: 2) {
   .omgdpr {
     content: 'hi resolutions';
   }
