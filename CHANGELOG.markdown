@@ -6,7 +6,7 @@
 
 ## 1.0.2 - July 28, 2012
 * Refixed our 'device-pixel-ratio' conversions because, frankly, the w3c was wrong.
-* fixed bugs that caused single and triple value single queries to fail. Also bugs with stacking single and triple value tests.
+* fixed bugs that caused single and triple value single queries to fail. Also bugs with stacking single and triple value queries.
 
 ## 1.0.1 - June 27, 2012
 * fixed logic error that would print multiple instences of a media type
