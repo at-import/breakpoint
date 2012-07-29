@@ -30,7 +30,26 @@ $breakpoint6: max-width 700px;
 // for multidimensional lists, assume each item is a feature value pair
 $breakpoint7: max-width 700px, orientation portrait;
 
-$bkptSuper: 300px 400px 'height', 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 192dpi resolution;
+$bkptSuper: 300px 400px 'height',
+            500px 600px,
+            monochrome,
+            orientation portrait,
+            1 2 device-pixel-ratio,
+            700px,
+            192dpi resolution;
+
+$breakpoint-minwidth: 300px;
+$breakpoint-valuepair: 300px height;
+$breakpoint-mono: monochrome;
+$breakpoint-fail1: 1 device-pixel-ratio;
+$breakpoint-fail2: 1 2 device-pixel-ratio;
+$breakpoint-fail3: 300px, 200px 300px height;
+$breakpoint-fail4: 300px, 1 2 device-pixel-ratio;
+$breakpoint-fail5: 100px 200px height;
+$breakpoint-fail6: 300px, monochrome;
+
+// $breakpoint-webkit: 1 -webkit-device-pixel-ratio;
+// $breakpoint-moz: 1 -moz-device-pixel-ratio;
 
 // handle one-sided features (ie. monochrome)
 $breakpoint8: max-width 700px, orientation portrait, monochrome;
@@ -44,11 +63,11 @@ $breakpoint12: 3 -webkit-device-pixel-ratio;
 $bkpt-fail: 400px 600px "height", 400px "min-width";
 
 
-.fuuu {
-  @include breakpoint($bkpt-fail, 'screen') {
-    background: green;
-  }
-}
+// .fuuu {
+//   @include breakpoint($bkpt-fail, 'screen') {
+//     background: green;
+//   }
+// }
 
 
 
@@ -83,10 +102,37 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
 //  @include breakpoint($bkptFail) {
 //    background: yellow;
 //  }
-  @include breakpoint($breakpoint7) {
-    background: bonga;
-  }
+  // @include breakpoint($breakpoint7) {
+  //   background: bonga;
+  // }
   @include breakpoint($bkptSuper) {
-    background: banana;
+    background: bkptSuper;
+  }
+  @include breakpoint($breakpoint-minwidth) {
+    background: minwidth;
+  }
+  @include breakpoint($breakpoint-valuepair) {
+    background: valuepair;
+  }
+  @include breakpoint($breakpoint-mono) {
+    background: mono;
+  }
+  @include breakpoint($breakpoint-fail1) {
+    background: fail1;
+  }
+  @include breakpoint($breakpoint-fail2) {
+    background: fail2;
+  }
+  @include breakpoint($breakpoint-fail3) {
+    background: fail3;
+  }
+  @include breakpoint($breakpoint-fail4) {
+    background: fail4;
+  }
+  @include breakpoint($breakpoint-fail5) {
+    background: fail5;
+  }
+  @include breakpoint($breakpoint-fail6) {
+    background: fail6;
   }
 }
