@@ -13,7 +13,7 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
       @return nth($context, 2);
     }
   }
-  
+
   @return false;
 }
 
@@ -23,9 +23,9 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 @function U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value) {
   $append: $feature;
   $append: join($append, $value, space);
-    
+
   $TXkgdmFyaWFibGUhIEdvIGF3YXkh: append($TXkgdmFyaWFibGUhIEdvIGF3YXkh, $append, comma);
-  
+
   @return true;
 }
 
