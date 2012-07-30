@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1 - July 30, 2012
+* Added (forgot to include the first time) the ability to query the media type using `breakpoint-get-context('media')`
+
 
 ## 1.1 - July 29, 2012
 * Added function `breakpoint-get-context($feature)` to allow users to get the current media query context
