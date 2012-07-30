@@ -38,6 +38,9 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
 
   // Reset Context
   @include TXkgcmVzZXQhIEdvIGF3YXkh;
+  
+  // Set Media Context
+  $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('media', $media);
 
   // Initialize Query String
   @if $media != 'all' {
