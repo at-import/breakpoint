@@ -7,7 +7,7 @@
 }
 @media all and (min-width: 30em) {
   .foo {
-    background-color: crimson;
+    background-color: cyan;
     background: red;
   }
 }
