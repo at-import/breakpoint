@@ -9,6 +9,8 @@ $breakpoint-to-ems:           false           !default;
 $breakpoint-prefixes:         'webkit' 'moz'  !default;
 $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'                      !default;
 
+$breakpoint-no-queries:       false           !default;
+
 //////////////////////////////
 // Import Breakpoint Helpers
 //////////////////////////////
@@ -18,7 +20,7 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
 //////////////////////////////
 // Breakpoint Mixin
 //////////////////////////////
-@mixin breakpoint($breakpoint, $media: $breakpoint-default-media) {
+@mixin breakpoint($breakpoint, $media: $breakpoint-default-media, $no-query: false) {
   // Query and Media String Defaults
   $query:         false !default;
   $query-holder:  false !default;
@@ -146,31 +148,39 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
       }
     }
   }
-
-  @if not $webkit and not $moz and not $o and not $ms {
-    @media #{$query} {
+  
+  @if $breakpoint-no-queries {
+    @if $no-query {
       @content;
+      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no queries', true);
     }
   }
   @else {
-    @if $webkit {
-      @media #{$webkit} {
+    @if not $webkit and not $moz and not $o and not $ms {
+      @media #{$query} {
         @content;
       }
     }
-    @if $moz {
-      @media #{$moz} {
-        @content;
+    @else {
+      @if $webkit {
+        @media #{$webkit} {
+          @content;
+        }
       }
-    }
-    @if $o {
-      @media #{$o} {
-        @content;
+      @if $moz {
+        @media #{$moz} {
+          @content;
+        }
       }
-    }
-    @if $ms {
-      @media #{$ms} {
-        @content;
+      @if $o {
+        @media #{$o} {
+          @content;
+        }
+      }
+      @if $ms {
+        @media #{$ms} {
+          @content;
+        }
       }
     }
   }
