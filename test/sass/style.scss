@@ -93,8 +93,8 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
     width: breakpoint-get-context('min-width');
     @include my-background;
   }
-  @include breakpoint($breakpoint2) {
-    background-color: crimson;
+  @include breakpoint($breakpoint2, $no-query: true) {
+    background-color: cyan;
     $min-width: breakpoint-get-context('min-width');
     // @debug $min-width;
     @include my-background;
