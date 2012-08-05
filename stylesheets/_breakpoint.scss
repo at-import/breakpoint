@@ -3,6 +3,7 @@
 //////////////////////////////
 $breakpoint-default-feature:  'min-width'     !default;
 $breakpoint-default-media:    'all'           !default;
+$breakpoint-force-media-all:  false           !default;
 $breakpoint-default-pair:     'width'         !default;
 $breakpoint-to-ems:           false           !default;
 $breakpoint-prefixes:         'webkit' 'moz'  !default;
@@ -43,7 +44,7 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
   $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('media', $media);
 
   // Initialize Query String
-  @if $media != 'all' {
+  @if $media != 'all' or $breakpoint-force-media-all {
     $media-string: "#{$media} ";
   }
   @else {
