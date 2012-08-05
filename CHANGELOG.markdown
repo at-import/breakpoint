@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2 - August 5th, 2012
+* Added ability to force the 'all' media type to be written by setting `$breakpoint-force-media-all: true;`. Defaults to `false`.
+
 ## 1.1.1 - July 30, 2012
 * Added (forgot to include the first time) the ability to query the media type using `breakpoint-get-context('media')`
 
