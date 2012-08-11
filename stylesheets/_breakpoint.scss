@@ -154,7 +154,7 @@ $breakpoint-no-query-wrappers: false           !default;
     @if $no-query {
       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no queries', true);
       @if $breakpoint-no-query-wrapper {
-        #{$no-query} {
+        #{$no-query} & {
           @content;
           $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
         }
@@ -166,7 +166,7 @@ $breakpoint-no-query-wrappers: false           !default;
   }
   @else {
     @if $breakpoint-no-query-wrapper {
-      #{$no-query} {
+      #{$no-query} & {
         @content;
         $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
       }
