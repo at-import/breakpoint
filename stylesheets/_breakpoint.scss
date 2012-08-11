@@ -10,6 +10,7 @@ $breakpoint-prefixes:         'webkit' 'moz'  !default;
 $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'                      !default;
 
 $breakpoint-no-queries:       false           !default;
+$breakpoint-no-query-wrapper: false           !default;
 
 //////////////////////////////
 // Import Breakpoint Helpers
@@ -151,11 +152,25 @@ $breakpoint-no-queries:       false           !default;
   
   @if $breakpoint-no-queries {
     @if $no-query {
-      @content;
       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no queries', true);
+      @if $breakpoint-no-query-wrapper {
+        #{$no-query} {
+          @content;
+          $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
+        }
+      }
+      @else {
+        @content;
+      }
     }
   }
   @else {
+    @if $breakpoint-no-query-wrapper {
+      #{$no-query} {
+        @content;
+        $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
+      }
+    }
     @if not $webkit and not $moz and not $o and not $ms {
       @media #{$query} {
         @content;
