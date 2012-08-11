@@ -10,7 +10,7 @@ $breakpoint-prefixes:         'webkit' 'moz'  !default;
 $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'                      !default;
 
 $breakpoint-no-queries:       false           !default;
-$breakpoint-no-query-wrapper: false           !default;
+$breakpoint-no-query-wrappers: false           !default;
 
 //////////////////////////////
 // Import Breakpoint Helpers
