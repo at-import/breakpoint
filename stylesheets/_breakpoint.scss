@@ -147,31 +147,23 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
     }
   }
 
-  @if not $webkit and not $moz and not $o and not $ms {
+  @if $query {
     @media #{$query} {
       @content;
     }
   }
   @else {
-    @if $webkit {
-      @media #{$webkit} {
-        @content;
+    $pf-queries: $webkit, $moz, $o, $ms;
+    $pf-query: ();
+    
+    @each $pfq in $pf-queries {
+      @if $pfq {
+        $pf-query: append($pf-query, $pfq, comma);
       }
     }
-    @if $moz {
-      @media #{$moz} {
-        @content;
-      }
-    }
-    @if $o {
-      @media #{$o} {
-        @content;
-      }
-    }
-    @if $ms {
-      @media #{$ms} {
-        @content;
-      }
+    
+    @media #{$pf-query} {
+      @content;
     }
   }
 
