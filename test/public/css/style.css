@@ -1,17 +1,17 @@
-@media all and (min-width: 31.25em) {
+@media (min-width: 31.25em) {
   .foo {
     background-color: crimson;
     width: 31.25em;
     background: purple;
   }
 }
-@media all and (min-width: 30em) {
+@media (min-width: 30em) {
   .foo {
     background-color: crimson;
     background: red;
   }
 }
-@media all and (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi), (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
   .foo {
     background: bkptSuper;
     breakpoint-get-context-min-width: 31.25em;
@@ -24,75 +24,47 @@
     breakpoint-get-context--webkit-max-device-pixel-ratio: 2;
   }
 }
-@media all and (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
-  .foo {
-    background: bkptSuper;
-    breakpoint-get-context-min-width: 31.25em;
-    breakpoint-get-context-max-width: 37.5em;
-    breakpoint-get-context-max-height: 25em;
-    breakpoint-get-context-height: false;
-    breakpoint-get-context-monochrome: monochrome;
-    breakpoint-get-context-orientation: portrait;
-    breakpoint-get-context-resolution: 192dpi;
-    breakpoint-get-context--webkit-max-device-pixel-ratio: 2;
-  }
-}
-@media all and (min-width: 18.75em) {
+@media (min-width: 18.75em) {
   .foo {
     background: minwidth;
   }
 }
-@media all and (height: 18.75em) {
+@media (height: 18.75em) {
   .foo {
     background: valuepair;
   }
 }
-@media all and (monochrome) {
+@media (monochrome) {
   .foo {
     background: mono;
   }
 }
-@media all and (-webkit-device-pixel-ratio: 1) {
+@media (-webkit-device-pixel-ratio: 1), (-moz-device-pixel-ratio: 1) {
   .foo {
     background: fail1;
   }
 }
-@media all and (-moz-device-pixel-ratio: 1) {
-  .foo {
-    background: fail1;
-  }
-}
-@media all and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) {
+@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
   .foo {
     background: fail2;
   }
 }
-@media all and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
-  .foo {
-    background: fail2;
-  }
-}
-@media all and (min-width: 18.75em) and (min-height: 12.5em) and (max-height: 18.75em) {
+@media (min-width: 18.75em) and (min-height: 12.5em) and (max-height: 18.75em) {
   .foo {
     background: fail3;
   }
 }
-@media all and (min-width: 18.75em) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) {
+@media (min-width: 18.75em) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2), (min-width: 18.75em) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
   .foo {
     background: fail4;
   }
 }
-@media all and (min-width: 18.75em) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
-  .foo {
-    background: fail4;
-  }
-}
-@media all and (min-height: 6.25em) and (max-height: 12.5em) {
+@media (min-height: 6.25em) and (max-height: 12.5em) {
   .foo {
     background: fail5;
   }
 }
-@media all and (min-width: 18.75em) and (monochrome) {
+@media (min-width: 18.75em) and (monochrome) {
   .foo {
     background: fail6;
   }
