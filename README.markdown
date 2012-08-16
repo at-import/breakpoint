@@ -14,6 +14,21 @@ Breakpoint also allows you to get the [context of your media queries](https://gi
 
 If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, or want to dynamically generate media queries, check out [Respond-To](https://github.com/snugug/respond-to); a string based naming API for Breakpoint.
 
+**It is important to note** that due to limitations within the Sass language itself, which themselve stem from some potentially unexpected cascading from doing so, Breakpoint is unable to concat like media queries into a single media query. This means they will be spread out throughout your CSS. This is unfortunate, yes, but currently unavoiadable. That being said, once [Sass Issue #241: Seperate Media/Browser Specific Markup to Separate Style Sheet](https://github.com/nex3/sass/issues/241) hits, be sure we're going to take full advantage of it.
+
+## Table of Contents
+
+1. [Requirements](#requirements)
+2. [Installation](#installation)
+3. [Setup](#setup)
+    * [Breakpoint Options](#breakpoint-options)
+    * [Using Breakpoint](#using-breakpoint)
+4. [Media Query Context](#media-query-context)
+5. [No Query Fallback](#no-query-fallback)
+    * [Wrapping Selector, Same Stylesheet](#wrapping-selector-same-stylesheet)
+    * [No Wrapping Selector, Separate Stylesheet](#no-wrapping-selector-separate-stylesheet)
+    * [Wrapping Selector, Separate Stylesheet](#wrapping-selector-separate-stylesheet)
+
 ## Requirements
 
 Breakpoint is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
@@ -297,6 +312,129 @@ Caviats with Media Query context:
 * If you have `$breakpoint-to-ems` set to true, you will get returns in base ems. You can run non-em based values through `breakpoint-to-base-em($value)` to convert them to base ems.
 * If you are testing for a prefixed feature (such as `device-pixel-ratio`), you need to test for the prefixed value (`-webkit-device-pixel-ratio`, `min--moz-device-pixel-ratio`, etc…).
 
+## No Query Fallback
+
+Breakpoint provides a way to generate fallback CSS for if you would like the CSS to apply even if media queries aren't available. There are three methidologies we discovered cover most, if not all, of the stylistic options a user could have in a system like this: a wrapping selector within the same stylesheet, a seperate stylesheet with no wrapping selector, and a seperate stylesheet with a wrapping selector. For both of these, bare in mind that Sass cannot create separate stylesheets automatically ([yet](https://github.com/nex3/sass/issues/241)), so you're going to need to do it by hand, but the tools we've provided are very powerful, so we think you'll like.
+
+There are now two new breakpoint flags to set that control no query support, `$breakpoint-no-queries` for specifying that only no query output should be output by Breakpoint and `$breakpoint-no-query-wrappers` for specifying that you want no query wrappers to be printed. Both of the new flags, `$breakpoint-no-queries` and `$breakpoint-no-query-wrappers` default to `false`, toggling them to `true` activates them. For the purposes of clarity in the following code samples, I'm including both flags even though the `false` flags are not explicitly needed. When passing in a wrapper, you must write the whole wrapper and may include a compound wrapper, *i.e.* `'.no-mqs'` or `'#print'` or `'.high-dpi.no-mqs'`. Variables may also be passed in, but they still require the whole wrapper.
+
+### Wrapping Selector, Same Stylesheet
+```scss
+// style.scss
+$breakpoint-no-queries: false;
+$breakpoint-no-query-wrappers: true;
+
+#foo {
+  background: red;
+  @include breakpoint(567px, $no-query: '.no-mqs') {
+    background: green;
+  }
+}
+```
+```css
+/* style.css */
+#foo {
+  background: red;
+}
+
+.no-mqs #foo {
+  background: green;
+}
+
+@media (min-width: 567px) {
+  #foo {
+    background: green;
+  }
+}
+```
+
+### No Wrapping Selector, Separate Stylesheet
+```scss
+// _layout.scss
+#foo {
+  background: red;
+  @include breakpoint(567px, $no-query: true) {
+    background: green;
+  }
+}
+```
+```scss
+// style.scss
+$breakpoint-no-queries: false;
+$breakpoint-no-query-wrappers: false;
+
+@import 'layout';
+```
+```scss
+// no-mq.scss
+$breakpoint-no-queries: true;
+$breakpoint-no-query-wrappers: false;
+
+@import 'layout';
+```
+```css
+/* style.css */
+#foo {
+  background: red;
+}
+
+@media (min-width: 567px) {
+  #foo {
+    background: green;
+  }
+}
+```
+```css
+/* no-mq.css */
+#foo {
+  background: red;
+  background: green;
+}
+```
+
+### Wrapping Selector, Separate Stylesheet
+```scss
+// _layout.scss
+#foo {
+  background: red;
+  @include breakpoint(567px, $no-query: '.no-mq') {
+    background: green;
+  }
+}
+```
+```scss
+// style.scss
+$breakpoint-no-queries: false;
+$breakpoint-no-query-wrappers: false;
+
+@import 'layout';
+```
+```scss
+// no-mq.scss
+$breakpoint-no-queries: true;
+$breakpoint-no-query-wrappers: true;
+
+@import 'layout';
+```
+```css
+/* style.css */
+#foo {
+  background: red;
+}
+
+@media (min-width: 567px) {
+  #foo {
+    background: green;
+  }
+}
+```
+```css
+/* no-mq.css */
+.no-mq #foo {
+  background: red;
+  background: green;
+}
+```
 
 ## License
 
