@@ -65,6 +65,8 @@ $breakpoint12: 3 -webkit-device-pixel-ratio;
 
 $bkpt-fail: 400px 600px "height", 400px "min-width";
 
+// $breakpoint-no-queries: true;
+$breakpoint-no-query-wrappers: true;
 
 // .fuuu {
 //   @include breakpoint($bkpt-fail, 'screen') {
@@ -85,47 +87,62 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
 }
 
 // Use it
-
 .foo {
+  background-color: gainsboro;
   @include breakpoint($breakpoint1) {
+    /* simple breakpoint */
     background-color: crimson;
+  }
+  @include breakpoint($breakpoint1) {
+    /* breakpoint-get-context */
     // @debug breakpoint-get-context('min-width');
     width: breakpoint-get-context('min-width');
     @include my-background;
   }
   @include breakpoint($breakpoint2, $no-query: true) {
+    /* no-query */
     background-color: cyan;
-    $min-width: breakpoint-get-context('min-width');
-    // @debug $min-width;
-    @include my-background;
+  }
+  @include breakpoint($breakpoint2, $no-query: ".no-query") {
+    /* no-query-wrapper */
+    background-color: bisque;
   }
   // should fail
   // @debug breakpoint-get-context('min-width');
-  //    @include breakpoint($bkpt3) {
-  //      background-color: crimson;
-  //    }
-  //    @include breakpoint($bkpt4) {
-  //      background-color: crimson;
-  //    }
-  //  @include breakpoint($breakpoint3) {
-  //    background: red;
-  //  }
-  //  @include breakpoint($breakpoint4) {
-  //    background: green;
-  //  }
-  //  @include breakpoint($breakpoint10) {
-  //    background: yellow;
-  //  }
-  //  @include breakpoint($bkptSt) {
-  //    background: blue;
-  //  }
-  //  @include breakpoint($bkptFail) {
-  //    background: yellow;
-  //  }
-  // @include breakpoint($breakpoint7) {
-  //   background: bonga;
+  @include breakpoint($bkpt3) {
+    /* single value with feature */
+    background-color: crimson;
+  }
+  @include breakpoint($bkpt4) {
+    /* single value with arbitrary feature */
+    background-color: blanchedalmond;
+  }
+  @include breakpoint($breakpoint3) {
+    /* min-width/max-width */
+    background: blueviolet;
+  }
+  @include breakpoint($breakpoint4) {
+    /* min/max of feature */
+    background: burlywood;
+  }
+  @include breakpoint($breakpoint10) {
+    /* device-pixel-ratio conversion silliness */
+    background: cornflowerblue;
+  }
+  @include breakpoint($bkptSt) {
+    /* single value with keyword feature */
+    background: darkorchid;
+  }
+  // @include breakpoint($bkptFail) {
+  //   /* fail: this feature can't have min/max */
+  //   background: deeppink;
   // }
+  @include breakpoint($breakpoint7) {
+    /* multidimensional lists, assume each item is a feature value pair */
+    background: firebrick;
+  }
   @include breakpoint($bkptSuper) {
+    /* stack a ton of features */
     background: bkptSuper;
     breakpoint-get-context-min-width: breakpoint-get-context('min-width');
     breakpoint-get-context-max-width: breakpoint-get-context('max-width');
@@ -137,30 +154,33 @@ $bkpt-fail: 400px 600px "height", 400px "min-width";
     breakpoint-get-context--webkit-max-device-pixel-ratio: breakpoint-get-context('-webkit-max-device-pixel-ratio');
   }
   @include breakpoint($breakpoint-minwidth) {
-    background: minwidth;
+    /* minwidth (or default) */
+    background: ghostwhite;
   }
   @include breakpoint($breakpoint-valuepair) {
-    background: valuepair;
+    /* feature value pair */
+    background: goldenrod;
   }
   @include breakpoint($breakpoint-mono) {
-    background: mono;
+    /* monochrome */
+    background: honeydew;
   }
   @include breakpoint($breakpoint-fail1) {
-    background: fail1;
+    background: hotpink;
   }
   @include breakpoint($breakpoint-fail2) {
-    background: fail2;
+    background: indianred;
   }
   @include breakpoint($breakpoint-fail3) {
-    background: fail3;
+    background: lavenderblush;
   }
   @include breakpoint($breakpoint-fail4) {
-    background: fail4;
+    background: lawngreen;
   }
   @include breakpoint($breakpoint-fail5) {
-    background: fail5;
+    background: lemonchiffon;
   }
   @include breakpoint($breakpoint-fail6) {
-    background: fail6;
+    background: linen;
   }
 }
