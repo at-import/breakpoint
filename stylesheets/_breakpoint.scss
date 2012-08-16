@@ -42,7 +42,7 @@ $breakpoint-no-query-wrappers: false           !default;
 
   // Reset Context
   @include TXkgcmVzZXQhIEdvIGF3YXkh;
-  
+
   // Set Media Context
   $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('media', $media);
 
@@ -149,11 +149,11 @@ $breakpoint-no-query-wrappers: false           !default;
       }
     }
   }
-  
+
   @if $breakpoint-no-queries {
     @if $no-query {
       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no queries', true);
-      @if $breakpoint-no-query-wrapper {
+      @if $breakpoint-no-query-wrappers and type-of($no-query) != bool {
         #{$no-query} & {
           @content;
           $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
@@ -165,7 +165,7 @@ $breakpoint-no-query-wrappers: false           !default;
     }
   }
   @else {
-    @if $breakpoint-no-query-wrapper {
+    @if $breakpoint-no-query-wrappers and type-of($no-query) != bool {
       #{$no-query} & {
         @content;
         $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('no query wrapper', $no-query);
