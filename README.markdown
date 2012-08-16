@@ -431,7 +431,6 @@ $breakpoint-no-query-wrappers: true;
 ```css
 /* no-mq.css */
 .no-mq #foo {
-  background: red;
   background: green;
 }
 ```
