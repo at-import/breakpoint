@@ -104,33 +104,9 @@
     background: honeydew;
   }
 }
-@media (-webkit-device-pixel-ratio: 1), (-moz-device-pixel-ratio: 1) {
+@media (min-width: 35.71429em) {
   .foo {
-    background: hotpink;
-  }
-}
-@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
-  .foo {
-    background: indianred;
-  }
-}
-@media (min-width: 18.75em) and (min-height: 12.5em) and (max-height: 18.75em) {
-  .foo {
-    background: lavenderblush;
-  }
-}
-@media (min-width: 18.75em) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2), (min-width: 18.75em) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) {
-  .foo {
-    background: lawngreen;
-  }
-}
-@media (min-height: 6.25em) and (max-height: 12.5em) {
-  .foo {
-    background: lemonchiffon;
-  }
-}
-@media (min-width: 18.75em) and (monochrome) {
-  .foo {
-    background: linen;
+    /* use $base-font-size to calculate breakpoint-to-ems */
+    background: papayawhip;
   }
 }

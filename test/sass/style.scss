@@ -65,8 +65,13 @@ $breakpoint12: 3 -webkit-device-pixel-ratio;
 
 $bkpt-fail: 400px 600px "height", 400px "min-width";
 
+
 // $breakpoint-no-queries: true;
 $breakpoint-no-query-wrappers: true;
+
+// em calculator tests
+// $breakpoint-base-font-size: 14px;
+$breakpoint-em-1: 500px;
 
 // .fuuu {
 //   @include breakpoint($bkpt-fail, 'screen') {
@@ -165,22 +170,29 @@ $breakpoint-no-query-wrappers: true;
     /* monochrome */
     background: honeydew;
   }
-  @include breakpoint($breakpoint-fail1) {
-    background: hotpink;
+  @include breakpoint($breakpoint-em-1, $base-font-size: 14px) {
+    /* use $base-font-size to calculate breakpoint-to-ems */
+    background: papayawhip;
   }
-  @include breakpoint($breakpoint-fail2) {
-    background: indianred;
-  }
-  @include breakpoint($breakpoint-fail3) {
-    background: lavenderblush;
-  }
-  @include breakpoint($breakpoint-fail4) {
-    background: lawngreen;
-  }
-  @include breakpoint($breakpoint-fail5) {
-    background: lemonchiffon;
-  }
-  @include breakpoint($breakpoint-fail6) {
-    background: linen;
-  }
+  // @include breakpoint($breakpoint-fail1) {
+  //   background: hotpink;
+  // }
+  // @include breakpoint($breakpoint-fail2) {
+  //   background: indianred;
+  // }
+  // @include breakpoint($breakpoint-fail3) {
+  //   background: lavenderblush;
+  // }
+  // @include breakpoint($breakpoint-fail4) {
+  //   background: lawngreen;
+  // }
+  // @include breakpoint($breakpoint-fail5) {
+  //   background: lemonchiffon;
+  // }
+  // @include breakpoint($breakpoint-fail6) {
+  //   background: linen;
+  // }
+  // @include breakpoint(1.3em) {
+  //   background: teal;
+  // }
 }
