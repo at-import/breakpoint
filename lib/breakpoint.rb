@@ -16,19 +16,25 @@ module Sass::Script::Functions
     testList = Array.new
     listLength = list.to_a.length - 1
 
-    for i in 0..listLength
-      if list.value[i].class == Sass::Script::List
-        subList = list.value[i].to_a.length - 1
+    # Only check if length greater than zero
+    # Was throwing errors for floats (but strangely, not for ints)
+    if listLength > 0
+      for i in 0..listLength
+        if list.value[i].class == Sass::Script::List
+          subList = list.value[i].to_a.length - 1
 
-        for j in 0..subList
-          testList << list.value[i].value[j]
+          for j in 0..subList
+            testList << list.value[i].value[j]
+          end
+        else
+          testList << list.value[i]
         end
-      else
-        testList << list.value[i]
       end
+      result = testList.include?(feature)
+    else
+      result = false
     end
 
-    result = testList.include?(feature)
     Sass::Script::Bool.new(result)
   end
 end
