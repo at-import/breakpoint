@@ -1,24 +1,39 @@
 //////////////////////////////
 // Converts the input value to Base EMs
 //////////////////////////////
-@function breakpoint-to-base-em($value) {
-  $unit: unit($value);
-  
-  @if $unit == 'px' {
-    @return $value / 16px * 1em;
+@function breakpoint-to-base-em($value, $base-font-size) {
+  $value-unit: unit($value);
+  $base-unit: unit($base-font-size);
+
+  @if $value-unit == 'px' {
+    @if $value-unit == $base-unit {
+      @return $value / $base-font-size * 1em;
+    }
+    @else {
+      @return $value / 16px * 1em;
+    }
   }
-  @else if $unit == '%' {
-    @return $value / 100% * 1em;
+  @else if $value-unit == '%' {
+    @if $value-unit == $base-unit {
+      @return $value / $base-font-size * 1em;
+    }
+    @else {
+      @return $value / 100% * 1em;
+    }
   }
-  @else if $unit == 'em' {
+  @else if $value-unit == 'em' {
     @return $value;
   }
-  @else if $unit == 'pt' {
-    @return $value / 12pt * 1em;
+  @else if $value-unit == 'pt' {
+    @if $value-unit == $base-unit {
+      @return $value / $base-font-size * 1em;
+    }
+    @else {
+      @return $value / 12pt * 1em;
+    }
   }
   @else {
     @return $value;
-//    @warn 'Everything is terrible! What have you done?!';
   }
 }
 
