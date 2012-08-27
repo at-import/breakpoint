@@ -439,8 +439,8 @@ $breakpoint-no-query-wrappers: true;
 
 Licensed under MIT/GPL.
 
-GPL license:
-http://www.gnu.org/licenses/gpl.html
+GPL2 license:
+http://www.gnu.org/licenses/gpl-2.0.html
 
 MIT license:
 http://www.opensource.org/licenses/mit-license.php
