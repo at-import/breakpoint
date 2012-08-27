@@ -1,39 +1,44 @@
 //////////////////////////////
 // Converts the input value to Base EMs
 //////////////////////////////
-@function breakpoint-to-base-em($value, $base-font-size) {
+@function breakpoint-to-base-em($value, $base-font-size: false) {
   $value-unit: unit($value);
-  $base-unit: unit($base-font-size);
 
-  @if $value-unit == 'px' {
-    @if $value-unit == $base-unit {
-      @return $value / $base-font-size * 1em;
+  // Will convert relative EMs into root EMs.
+  @if $base-font-size and type-of($base-font-size) == 'number' and $value-unit == 'em' {
+    $base-unit: unit($base-font-size);
+
+    @if $base-unit == 'px' or $base-unit == '%' or $base-unit == 'em' or $base-unit == 'pt' {
+      @return base-conversion($value) / base-conversion($base-font-size) * 1em;
     }
     @else {
-      @return $value / 16px * 1em;
-    }
-  }
-  @else if $value-unit == '%' {
-    @if $value-unit == $base-unit {
-      @return $value / $base-font-size * 1em;
-    }
-    @else {
-      @return $value / 100% * 1em;
-    }
-  }
-  @else if $value-unit == 'em' {
-    @return $value;
-  }
-  @else if $value-unit == 'pt' {
-    @if $value-unit == $base-unit {
-      @return $value / $base-font-size * 1em;
-    }
-    @else {
-      @return $value / 12pt * 1em;
+      @warn '#{$base-font-size} is not set in valid units for font size!';
+      @return false;
     }
   }
   @else {
+    @return base-conversion($value);
+  }
+}
+
+@function base-conversion($value) {
+  $unit: unit($value);
+
+  @if $unit == 'px' {
+    @return $value / 16px * 1em;
+  }
+  @else if $unit == '%' {
+    @return $value / 100% * 1em;
+  }
+  @else if $unit == 'em' {
     @return $value;
+  }
+  @else if $unit == 'pt' {
+    @return $value / 12pt * 1em;
+  }
+  @else {
+    @return $value;
+//    @warn 'Everything is terrible! What have you done?!';
   }
 }
 

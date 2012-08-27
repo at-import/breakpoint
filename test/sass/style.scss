@@ -72,6 +72,7 @@ $breakpoint-no-query-wrappers: true;
 // em calculator tests
 // $breakpoint-base-font-size: 14px;
 $breakpoint-em-1: 500px;
+$breakpoint-em-1: 30em;
 
 // .fuuu {
 //   @include breakpoint($bkpt-fail, 'screen') {

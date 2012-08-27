@@ -104,7 +104,7 @@
     background: honeydew;
   }
 }
-@media (min-width: 35.71429em) {
+@media (min-width: 34.28571em) {
   .foo {
     /* use $base-font-size to calculate breakpoint-to-ems */
     background: papayawhip;
