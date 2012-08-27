@@ -12,6 +12,8 @@ $breakpoint-prefixed-queries: 'device-pixel-ratio' 'min-device-pixel-ratio' 'max
 $breakpoint-no-queries:       false           !default;
 $breakpoint-no-query-wrappers: false           !default;
 
+$breakpoint-base-font-size: false;
+
 //////////////////////////////
 // Import Breakpoint Helpers
 //////////////////////////////
@@ -21,7 +23,7 @@ $breakpoint-no-query-wrappers: false           !default;
 //////////////////////////////
 // Breakpoint Mixin
 //////////////////////////////
-@mixin breakpoint($breakpoint, $media: $breakpoint-default-media, $no-query: false) {
+@mixin breakpoint($breakpoint, $media: $breakpoint-default-media, $no-query: false, $base-font-size: $breakpoint-base-font-size) {
   // Query and Media String Defaults
   $query:         false !default;
   $query-holder:  false !default;
@@ -64,24 +66,24 @@ $breakpoint-no-query-wrappers: false           !default;
     @if $do-prefix {
       @each $prfx in $breakpoint-prefixes {
         @if $prfx == 'webkit' {
-          $webkit: breakpoint-switch($breakpoint, $media-string, true, $prfx);
+          $webkit: breakpoint-switch($breakpoint, $media-string, true, $prfx, $base-font-size: $base-font-size);
         }
 
         @if $prfx == 'moz' {
-          $moz: breakpoint-switch($breakpoint, $media-string, true, $prfx);
+          $moz: breakpoint-switch($breakpoint, $media-string, true, $prfx, $base-font-size: $base-font-size);
         }
 
         @if $prfx == 'o' {
-          $o: breakpoint-switch($breakpoint, $media-string, true, $prfx);
+          $o: breakpoint-switch($breakpoint, $media-string, true, $prfx, $base-font-size: $base-font-size);
         }
 
         @if $prfx == 'ms' {
-          $ms: breakpoint-switch($breakpoint, $media-string, true, $prfx);
+          $ms: breakpoint-switch($breakpoint, $media-string, true, $prfx, $base-font-size: $base-font-size);
         }
       }
     }
     @else {
-      $query: breakpoint-switch($breakpoint, $media-string, true);
+      $query: breakpoint-switch($breakpoint, $media-string, true, $base-font-size: $base-font-size);
     }
   }
   @else {
@@ -97,41 +99,41 @@ $breakpoint-no-query-wrappers: false           !default;
         @each $bkpt in $breakpoint {
           @if $prfx == 'webkit' {
             @if $webkit-first {
-              $webkit: breakpoint-switch($bkpt, $media-string, true, $prfx);
+              $webkit: breakpoint-switch($bkpt, $media-string, true, $prfx, $base-font-size: $base-font-size);
               $webkit-first: false;
             }
             @else {
-              $webkit: join($webkit, breakpoint-switch($bkpt, $media-string, $prefix: $prfx));
+              $webkit: join($webkit, breakpoint-switch($bkpt, $media-string, $prefix: $prfx, $base-font-size: $base-font-size));
             }
           }
 
           @if $prfx == 'moz' {
             @if $moz-first {
-              $moz: breakpoint-switch($bkpt, $media-string, true, $prfx);
+              $moz: breakpoint-switch($bkpt, $media-string, true, $prfx, $base-font-size: $base-font-size);
               $moz-first: false;
             }
             @else {
-              $moz: join($moz, breakpoint-switch($bkpt, $media-string, $prefix: $prfx));
+              $moz: join($moz, breakpoint-switch($bkpt, $media-string, $prefix: $prfx, $base-font-size: $base-font-size));
             }
           }
 
           @if $prfx == 'o' {
             @if $o-first {
-              $o: breakpoint-switch($bkpt, $media-string, true, $prfx);
+              $o: breakpoint-switch($bkpt, $media-string, true, $prfx, $base-font-size: $base-font-size);
               $o-first: false;
             }
             @else {
-              $o: join($o, breakpoint-switch($bkpt, $media-string, $prefix: $prfx));
+              $o: join($o, breakpoint-switch($bkpt, $media-string, $prefix: $prfx, $base-font-size: $base-font-size));
             }
           }
 
           @if $prfx == 'ms' {
             @if $ms-first {
-              $ms: breakpoint-switch($bkpt, $media-string, true, $prfx);
+              $ms: breakpoint-switch($bkpt, $media-string, true, $prfx, $base-font-size: $base-font-size);
               $ms-first: false;
             }
             @else {
-              $ms: join($ms, breakpoint-switch($bkpt, $media-string, $prefix: $prfx));
+              $ms: join($ms, breakpoint-switch($bkpt, $media-string, $prefix: $prfx, $base-font-size: $base-font-size));
             }
           }
         }
@@ -140,11 +142,11 @@ $breakpoint-no-query-wrappers: false           !default;
     @else {
       @each $bkpt in $breakpoint {
         @if $first == true {
-          $query: breakpoint-switch($bkpt, $media-string, true);
+          $query: breakpoint-switch($bkpt, $media-string, true, $base-font-size: $base-font-size);
           $first: false;
         }
         @else {
-          $query: join($query, breakpoint-switch($bkpt, $media-string));
+          $query: join($query, breakpoint-switch($bkpt, $media-string, $base-font-size: $base-font-size));
         }
       }
     }
@@ -194,7 +196,7 @@ $breakpoint-no-query-wrappers: false           !default;
   @include TXkgcmVzZXQhIEdvIGF3YXkh;
 }
 
-@function breakpoint-switch($breakpoint, $media-string, $first: false, $prefix: false) {
+@function breakpoint-switch($breakpoint, $media-string, $first: false, $prefix: false, $base-font-size: $breakpoint-base-font-size) {
   // Feature/Value/Length/Query Placehoders:
   $feature:       false !default;
   $min-feature:   "min-#{$breakpoint-default-pair}" !default;
@@ -215,7 +217,7 @@ $breakpoint-no-query-wrappers: false           !default;
 
     // If EM Breakpoints are active, do it!
     @if $breakpoint-to-ems and type-of($value) == 'number' {
-      $value: breakpoint-to-base-em($value);
+      $value: breakpoint-to-base-em($value, $base-font-size);
     }
     // Build the Query
     $query: breakpoint-generate($media-string, $feature, $value, $first);
@@ -237,10 +239,10 @@ $breakpoint-no-query-wrappers: false           !default;
 
       // If EM Breakpoints are active, do it!
       @if $breakpoint-to-ems and type-of($min-value) == 'number' {
-        $min-value: breakpoint-to-base-em($min-value);
+        $min-value: breakpoint-to-base-em($min-value, $base-font-size);
       }
       @if $breakpoint-to-ems and type-of($max-value) == 'number' {
-        $max-value: breakpoint-to-base-em($max-value);
+        $max-value: breakpoint-to-base-em($max-value, $base-font-size);
       }
 
       // Min/Max for given
@@ -262,7 +264,7 @@ $breakpoint-no-query-wrappers: false           !default;
 
       // If EM Breakpoints are active, do it!
       @if $breakpoint-to-ems and type-of($value) == 'number' {
-        $value: breakpoint-to-base-em($value);
+        $value: breakpoint-to-base-em($value, $base-font-size);
       }
 
       // Build the Query
@@ -297,7 +299,7 @@ $breakpoint-no-query-wrappers: false           !default;
 
       // If EM Breakpoints are active, do it!
       @if $breakpoint-to-ems and type-of($value) == 'number' {
-        $value: breakpoint-to-base-em($value);
+        $value: breakpoint-to-base-em($value, $base-font-size);
       }
 
       // Build the Query
@@ -334,10 +336,10 @@ $breakpoint-no-query-wrappers: false           !default;
 
     // If EM Breakpoints are active, do it!
     @if $breakpoint-to-ems and type-of($min-value) == 'number' {
-      $min-value: breakpoint-to-base-em($min-value);
+      $min-value: breakpoint-to-base-em($min-value, $base-font-size);
     }
     @if $breakpoint-to-ems and type-of($max-value) == 'number' {
-      $max-value: breakpoint-to-base-em($max-value);
+      $max-value: breakpoint-to-base-em($max-value, $base-font-size);
     }
 
     @if breakpoint-min-max($feature) == true {
