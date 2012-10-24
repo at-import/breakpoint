@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3 - August 28th, 2012
+* better conversion to base-ems
+* fix floating point error
+
 ## 1.2 - August 16th, 2012
 * Added ability to force the 'all' media type to be written by setting `$breakpoint-force-media-all: true;`. Defaults to `false`.
 * Added ability to generate no query fallback code. See the README for full documentaiton.
