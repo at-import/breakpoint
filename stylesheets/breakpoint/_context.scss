@@ -38,4 +38,7 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 //////////////////////////////
 @mixin TXkgcmVzZXQhIEdvIGF3YXkh {
   $TXkgdmFyaWFibGUhIEdvIGF3YXkh: ();
+
+  // Defaults media to 'all'.
+  $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh('media', 'all');
 }
