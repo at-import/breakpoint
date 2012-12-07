@@ -1,3 +1,108 @@
 .foo {
   background-color: gainsboro;
 }
+@media (min-width: 31.25em) {
+  .foo {
+    /* simple breakpoint */
+    background-color: crimson;
+  }
+}
+@media (min-width: 31.25em) {
+  .foo {
+    /* breakpoint-get-context */
+    width: 31.25em;
+    background: purple;
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    /* no-query */
+    background-color: cyan;
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    /* no-query-wrapper */
+    background-color: bisque;
+  }
+}
+@media (height: 31.25em) {
+  .foo {
+    /* single value with feature */
+    background-color: crimson;
+  }
+}
+@media (lion: 31.25em) {
+  .foo {
+    /* single value with arbitrary feature */
+    background-color: blanchedalmond;
+  }
+}
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .foo {
+    /* min-width/max-width */
+    background: blueviolet;
+  }
+}
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .foo {
+    /* min/max of feature */
+    background: burlywood;
+  }
+}
+@media (min-width: 1) and (max-width: 1.5) {
+  .foo {
+    /* device-pixel-ratio conversion silliness */
+    background: cornflowerblue;
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    /* single value with keyword feature */
+    background: darkorchid;
+  }
+}
+@media (max-width: 43.75em) and (orientation: portrait) {
+  .foo {
+    /* multidimensional lists, assume each item is a feature value pair */
+    background: firebrick;
+  }
+}
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min-width: 1) and (max-width: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
+  .foo {
+    /* stack a ton of features */
+    background: bkptSuper;
+    breakpoint-get-context-min-width: 31.25em;
+    breakpoint-get-context-max-width: 37.5em;
+    breakpoint-get-context-max-height: 25em;
+    breakpoint-get-context-height: false;
+    breakpoint-get-context-monochrome: monochrome;
+    breakpoint-get-context-orientation: portrait;
+    breakpoint-get-context-resolution: 192dpi;
+    breakpoint-get-context--webkit-max-device-pixel-ratio: false;
+  }
+}
+@media (min-width: 18.75em) {
+  .foo {
+    /* minwidth (or default) */
+    background: ghostwhite;
+  }
+}
+@media (height: 18.75em) {
+  .foo {
+    /* feature value pair */
+    background: goldenrod;
+  }
+}
+@media (monochrome) {
+  .foo {
+    /* monochrome */
+    background: honeydew;
+  }
+}
+@media (min-width: 34.28571em) {
+  .foo {
+    /* use $base-font-size to calculate breakpoint-to-ems */
+    background: papayawhip;
+  }
+}
