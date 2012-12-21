@@ -3,29 +3,24 @@
   src: url('../fonts/252467_0_0.eot') format('embedded-opentype'), url('../fonts/252467_0_0.woff') format('woff'), url('../fonts/252467_0_0.ttf') format('truetype');
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/survivalkit-1\.0\.beta\.10\/stylesheets\/survivalkit\/extend\/_helpers\.scss}line{font-family:\000033}}
 .clearfix {
   zoom: 1;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/survivalkit-1\.0\.beta\.10\/stylesheets\/survivalkit\/mixins\/_helpers\.scss}line{font-family:\0000337}}
 .clearfix:after {
   content: "\0020";
   display: table;
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/survivalkit-1\.0\.beta\.10\/stylesheets\/survivalkit\/extend\/_helpers\.scss}line{font-family:\000037}}
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/survivalkit-1\.0\.beta\.10\/stylesheets\/survivalkit\/extend\/_helpers\.scss}line{font-family:\0000323}}
 .styletile .images ul li img {
   max-width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000354}}
 .ie6 .styletile #page, .ie7 .styletile #page, .ie8 .styletile #page {
   *zoom: 1;
   max-width: 24em;
@@ -35,14 +30,12 @@
   padding-left: 1em;
   padding-right: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
 .ie6 .styletile #page:after, .ie7 .styletile #page:after, .ie8 .styletile #page:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (max-width: 20.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000353}}
   .styletile #page {
     width: auto;
     margin-left: auto;
@@ -50,7 +43,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
   .styletile #page:after {
     content: "";
     display: table;
@@ -58,7 +50,6 @@
   }
 }
 @media (min-width: 20.0625em) and (max-width: 30.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000353}}
   .styletile #page {
     width: auto;
     margin-left: auto;
@@ -66,7 +57,6 @@
     padding-left: 0;
     padding-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
   .styletile #page:after {
     content: "";
     display: table;
@@ -74,7 +64,6 @@
   }
 }
 @media (min-width: 30.0625em) and (max-width: 45.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000353}}
   .styletile #page {
     width: auto;
     margin-left: auto;
@@ -82,31 +71,26 @@
     padding-left: 1em;
     padding-right: 1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
   .styletile #page:after {
     content: "";
     display: table;
     clear: both;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000378}}
   .styletile #page header .client-id {
     width: 48.27586%;
     float: left;
     margin-right: 3.44828%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000381}}
   .styletile #page header aside {
     width: 48.27586%;
     float: right;
     margin-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000386}}
   .styletile #page #main .text-examples {
     width: 48.27586%;
     float: left;
     margin-right: 3.44828%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000389}}
   .styletile #page #main .graphic-examples {
     width: 48.27586%;
     float: right;
@@ -114,7 +98,6 @@
   }
 }
 @media (min-width: 45.0625em) and (max-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000353}}
   .styletile #page {
     width: auto;
     margin-left: auto;
@@ -122,31 +105,26 @@
     padding-left: 1em;
     padding-right: 1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
   .styletile #page:after {
     content: "";
     display: table;
     clear: both;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003101}}
   .styletile #page header .client-id {
     width: 61.53846%;
     float: left;
     margin-right: 2.5641%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003104}}
   .styletile #page header aside {
     width: 35.89744%;
     float: right;
     margin-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003109}}
   .styletile #page #main .text-examples {
     width: 48.71795%;
     float: left;
     margin-right: 2.5641%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003112}}
   .styletile #page #main .graphic-examples {
     width: 48.71795%;
     float: right;
@@ -154,7 +132,6 @@
   }
 }
 @media (min-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\0000353}}
   .styletile #page {
     max-width: 59em;
     margin-left: auto;
@@ -162,31 +139,26 @@
     padding-left: 1em;
     padding-right: 1em;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
   .styletile #page:after {
     content: "";
     display: table;
     clear: both;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003124}}
   .styletile #page header .client-id {
     width: 66.10169%;
     float: left;
     margin-right: 1.69492%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003127}}
   .styletile #page header aside {
     width: 32.20339%;
     float: right;
     margin-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003132}}
   .styletile #page #main .text-examples {
     width: 49.15254%;
     float: left;
     margin-right: 1.69492%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003135}}
   .styletile #page #main .graphic-examples {
     width: 49.15254%;
     float: right;
@@ -194,131 +166,110 @@
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003148}}
 .styletile .colors ul {
   list-style-type: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/lists\/_inline-list\.scss}line{font-family:\000035}}
 .styletile .colors ul, .styletile .colors ul li {
   margin: 0px;
   padding: 0px;
   display: inline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
 .styletile .colors ul li {
   height: 120px;
   margin-bottom: 24px;
   border: 4px solid white;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003155}}
 .styletile .colors ul li:after {
   position: relative;
   top: 102%;
   color: gray;
 }
 @media (max-width: 20.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
   .styletile .colors ul li {
     width: 44.44444%;
     float: left;
     margin-right: 11.11111%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003162}}
   .styletile .colors ul li:nth-of-type(2n+2) {
     float: right;
     margin-right: 0;
   }
 }
 @media (min-width: 20.0625em) and (max-width: 30.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
   .styletile .colors ul li {
     width: 28.57143%;
     float: left;
     margin-right: 7.14286%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003169}}
   .styletile .colors ul li:nth-of-type(3n+3) {
     float: right;
     margin-right: 0;
   }
 }
 @media (min-width: 30.0625em) and (max-width: 45.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
   .styletile .colors ul li {
     width: 28.57143%;
     float: left;
     margin-right: 7.14286%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003176}}
   .styletile .colors ul li:nth-of-type(3n+3) {
     float: right;
     margin-right: 0;
   }
 }
 @media (min-width: 45.0625em) and (max-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
   .styletile .colors ul li {
     width: 21.05263%;
     float: left;
     margin-right: 5.26316%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003183}}
   .styletile .colors ul li:nth-of-type(4n+4) {
     float: right;
     margin-right: 0;
   }
 }
 @media (min-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003150}}
   .styletile .colors ul li {
     width: 13.7931%;
     float: left;
     margin-right: 3.44828%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003190}}
   .styletile .colors ul li:nth-of-type(6n+6) {
     float: right;
     margin-right: 0;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003201}}
 .styletile .images ul {
   list-style-type: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/lists\/_inline-list\.scss}line{font-family:\000035}}
 .styletile .images ul, .styletile .images ul li {
   margin: 0px;
   padding: 0px;
   display: inline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003203}}
 .styletile .images ul li {
   overflow: hidden;
   margin-bottom: 24px;
 }
 @media (min-width: 45.0625em) and (max-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003203}}
   .styletile .images ul li {
     width: 47.36842%;
     float: left;
     margin-right: 5.26316%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003208}}
   .styletile .images ul li:nth-of-type(2n+2) {
     float: right;
     margin-right: 0;
   }
 }
 @media (min-width: 64.0625em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003203}}
   .styletile .images ul li {
     width: 48.27586%;
     float: left;
     margin-right: 3.44828%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mason\/www\/breakpoint-site\/sass\/styletile-layout\.scss}line{font-family:\00003215}}
   .styletile .images ul li:nth-of-type(2n+2) {
     float: right;
     margin-right: 0;

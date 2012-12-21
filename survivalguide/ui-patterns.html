@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+  <!--<![endif]-->
+  
+
+
+<head>
+  <meta charset='utf-8' />
+  <meta content='' name='description' />
+  <meta content='' name='author' />
+  <title>UI Patterns</title>
+  <meta content='True' name='HandheldFriendly' />
+  <meta content='width=device-width, target-densitydpi=160, initial-scale=1.0' name='viewport' />
+  <link href='/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon-precomposed' sizes='114x114' />
+  <link href='/apple-touch-icon-72x72-precomposed.png' rel='apple-touch-icon-precomposed' sizes='72x72' />
+  <link href='/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed' />
+  <link href='/apple-touch-icon.png' rel='shortcut icon' />
+  <link href='/favicon.ico' rel='shortcut icon' />
+  <meta content='on' http-equiv='cleartype' />
+  <!-- CSS -->
+  <link href='/css/style.css?v=1' rel='stylesheet' />
+  <link href='/css/survivalguide.css?v=1' rel='stylesheet' />
+  <script src='/js/libs/modernizr-2.0.min.js'></script>
+</head>
+  
+  <!-- Typekit -->
+  <script type='text/javascript'>
+    //<![CDATA[
+      (function() {
+        var config = {
+          kitId: 'qdg4ggl',
+          scriptTimeout: 3000
+        };
+        var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+      })();
+    //]]>
+  </script>
+  <body class='survival-kit'>
+    <header class='kit-ui'>
+      <h1>
+        <a href='/'>Survival Guide</a>
+      </h1>
+      <div class='page-info'>
+        <h2>UI Patterns</h2>
+        
+      </div>
+    </header>
+    <div class='kit-ui' id='menu'>
+      <nav class='kit-nav'>
+        <ul>
+          <li>
+            <a href='/'>Back to Site</a>
+          </li>
+          <li>
+            <a href='common.html'>Common Markup</a>
+          </li>
+          <li>
+            <a href='custom.html'>Custom Markup</a>
+          </li>
+          <li>
+            <a href='typography.html'>Typography</a>
+          </li>
+          <li>
+            <a href='ui-patterns-drupal.html'>Drupal UI Patterns</a>
+          </li>
+          <li>
+            <a href='ui-patterns.html'>UI Patterns</a>
+          </li>
+          <li>
+            <a href='styletile.html'>Style Tile</a>
+          </li>
+          <li>
+            <a href='documentation'>Documentation</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class='section-nav'></nav>
+    </div>
+    <div id='page'>
+      <div id='main' role='main'>
+        
+<!-- Simple markup Patterns -->
+<section class='element-group' id='simple-patterns'>
+  <h1 class='section-title'>Common Patterns</h1>
+  <div class='element' id='inline-images-el'>
+    <h2 class='element-title'>Inline Images</h2>
+    <div class='markup'>
+      <p><img alt='image floated left' class='left' src='http://dummyimage.com/240x320/000/fff&amp;text=Left+Image' />Who would think, then, that such fine ladies and gentlemen should regale themselves with an essence found in the inglorious bowels of a sick whale! Yet so it is. By some, ambergris is supposed to be the cause, and by others the effect, of the dyspepsia in the whale. How to cure such a dyspepsia it were hard to say, unless by administering three or four boat loads of Brandreth's pills, and then running out of harm's way, as laborers do in blasting rocks.
+      </p>
+      <p><img alt='image floated right' class='right' src='http://dummyimage.com/240x320/000/fff&amp;text=Right+Image' />I have forgotten to say that there were found in this ambergris, certain hard, round, bony plates, which at first Stubb thought might be sailors' trowsers buttons; but it afterwards turned out that they were nothing more than pieces of small squid bones embalmed in that manner.
+      </p>
+    </div>
+  </div>
+  <div class='element' id='tables-el'>
+  <h2 class='element-title'>Tables</h2>
+  <div class='markup'>
+    <table>
+      <caption>
+        Table title goes here
+      </caption>
+      <thead>
+        <tr>
+          <th>Mauris</th>
+          <th>Tempor</th>
+          <th>Praesent lacus nulla</th>
+          <th>Quis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='odd'>
+          <td>Mauris</td>
+          <td>23.000</td>
+          <td>Suspendisse viverra</td>
+          <td>Yes</td>
+        </tr>
+        <tr class='even'>
+          <td>Trupis</td>
+          <td>1.000</td>
+          <td>Placerat tortor aesent semper</td>
+          <td>No</td>
+        </tr>
+        <tr class='odd'>
+          <td>Sagittis</td>
+          <td>122.000</td>
+          <td>Neque vel condimentum</td>
+          <td>No</td>
+        </tr>
+        <tr class='even'>
+          <td>Libero</td>
+          <td>500</td>
+          <td>Hendrerit, lectus elit pretium</td>
+          <td>Yes</td>
+        </tr>
+        <tr class='odd'>
+          <td>Tristique</td>
+          <td>100.000</td>
+          <td>Ligula nec consequat</td>
+          <td>Yes</td>
+        </tr>
+        <tr class='even'>
+          <td>Id Neque</td>
+          <td>600.000</td>
+          <td>Etiam sodales orci nec</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+  <div class='element' id='forms-el'>
+  <h2 class='element-title'>Forms</h2>
+  <div class='markup'>
+    <form accept-charset='UTF-8' action='/action' id='form' method='post'>
+      <fieldset>
+        <legend>Fieldset with legend</legend>
+        <div>
+          <label>Label for Radios</label>
+          <input name='radio' type='radio' value='' />
+          <input name='Radio' type='radio' value='' />
+          <input name='Radio' type='radio' value='' />
+        </div>
+        <div>
+          <label>Label for Checkboxes</label>
+          <input name='checkboxes' type='checkbox' value='' />
+          <input name='checkboxes' type='checkbox' value='' />
+          <input name='checkboxes' type='checkbox' value='' />
+        </div>
+        <div>
+          <label>Label for Textfield</label>
+          <input id='textfield' maxlength='12' size='50' type='text' value='input' />
+        </div>
+        <div>
+          <label>label for Textarea</label>
+          <textarea cols='50' id='text' rows='5'></textarea>
+        </div>
+        <div>
+          <label>label for Filefield</label>
+          <input name='files' size='50' type='file' />
+        </div>
+        <div>
+          <input name='button' type='button' value='Button' />
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+  <div class='element' id='block-el'>
+    <h2 class='element-title'>Nested Menu</h2>
+    <div class='markup'>
+      <ul class='nested-menu'>
+        <li>
+          <a href='/'>Lorem</a>
+          <ul>
+            <li>
+              <a href='/'>consectetuer</a>
+            </li>
+            <li>
+              <a href='/'>adipiscing</a>
+            </li>
+            <li>
+              <a href='/'>elit.</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='/'>ipsum</a>
+          <ul>
+            <li>
+              <a href='/'>consectetuer</a>
+            </li>
+            <li>
+              <a href='/'>adipiscing</a>
+            </li>
+            <li>
+              <a href='/'>elit.</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='/'>dolor</a>
+          <ul>
+            <li>
+              <a href='/'>consectetuer</a>
+            </li>
+            <li>
+              <a href='/'>adipiscing</a>
+            </li>
+            <li>
+              <a href='/'>elit.</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='/'>sit</a>
+          <ul>
+            <li>
+              <a href='/'>consectetuer</a>
+            </li>
+            <li>
+              <a href='/'>adipiscing</a>
+            </li>
+            <li>
+              <a href='/'>elit.</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='/'>amet</a>
+          <ul>
+            <li>
+              <a href='/'>consectetuer</a>
+            </li>
+            <li>
+              <a href='/'>adipiscing</a>
+            </li>
+            <li>
+              <a href='/'>elit.</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class='element' id='drupal-messages-el'>
+    <h2 class='element-title'>Messages</h2>
+    <div class='markup'>
+      <div class='messages status'>
+        <h2 class='element-invisible' style='display: none;'>Status message</h2>
+        <p>
+          This is
+          <em>status</em>
+          message.
+        </p>
+      </div>
+      <div class='messages warning'>
+        <h2 class='element-invisible' style='display: none;'>Status message</h2>
+        <p>
+          This is
+          <em>warning</em>
+          message.
+        </p>
+      </div>
+      <div class='messages error'>
+        <h2 class='element-invisible' style='display: none;'>Status message</h2>
+        <p>
+          This is
+          <em>error</em>
+          message.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class='element' id='pager-el'>
+  <h2 class='element-title'>Pager</h2>
+  <div class='markup'>
+    <ul class='pager'>
+      <li class='pager-first first'>
+        <a class='active' href='/node' title='Go to first page'>« first</a>
+      </li>
+      <li class='pager-previous'>
+        <a class='active' href='/node' title='Go to previous page'>‹ previous</a>
+      </li>
+      <li class='pager-item'>
+        <a class='active' href='/node' title='Go to page 1'>1</a>
+      </li>
+      <li class='pager-current'>2</li>
+      <li class='pager-item'>
+        <a class='active' href='/node?page=2' title='Go to page 3'>3</a>
+      </li>
+      <li class='pager-next'>
+        <a class='active' href='/node?page=2' title='Go to next page'>next ›</a>
+      </li>
+      <li class='pager-last last'>
+        <a class='active' href='/node?page=2' title='Go to last page'>last »</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</section>
+      </div>
+      <footer></footer>
+    </div>
+    
+    <!-- Grab jQuery #{@jQuery} from Google's CDN with a protocol relative URL -->
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
+    <script src='/js/script.js?v=1'></script>
+    <script src='/js/kit/jPanelMenu-1.0.0.min.js?v=1'></script>
+    <script src='/js/kit/kit-source.jquery.js?v=1'></script>
+  </body>
+</html>

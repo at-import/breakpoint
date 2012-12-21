@@ -1127,6 +1127,12 @@ header.kit-ui {
   list-style-type: none;
   margin-left: 0;
 }
+.kit-nav ul li, .section-nav ul li {
+  display: block;
+  float: none;
+  padding: 0;
+  margin: 0;
+}
 
 .no-js body,
 body.documentation {

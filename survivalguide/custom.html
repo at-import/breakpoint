@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+  <!--<![endif]-->
+  
+
+
+<head>
+  <meta charset='utf-8' />
+  <meta content='' name='description' />
+  <meta content='' name='author' />
+  <title>Custom Markup</title>
+  <meta content='True' name='HandheldFriendly' />
+  <meta content='width=device-width, target-densitydpi=160, initial-scale=1.0' name='viewport' />
+  <link href='/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon-precomposed' sizes='114x114' />
+  <link href='/apple-touch-icon-72x72-precomposed.png' rel='apple-touch-icon-precomposed' sizes='72x72' />
+  <link href='/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed' />
+  <link href='/apple-touch-icon.png' rel='shortcut icon' />
+  <link href='/favicon.ico' rel='shortcut icon' />
+  <meta content='on' http-equiv='cleartype' />
+  <!-- CSS -->
+  <link href='/css/style.css?v=1' rel='stylesheet' />
+  <link href='/css/survivalguide.css?v=1' rel='stylesheet' />
+  <script src='/js/libs/modernizr-2.0.min.js'></script>
+</head>
+  
+  <!-- Typekit -->
+  <script type='text/javascript'>
+    //<![CDATA[
+      (function() {
+        var config = {
+          kitId: 'qdg4ggl',
+          scriptTimeout: 3000
+        };
+        var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+      })();
+    //]]>
+  </script>
+  <body class='survival-kit'>
+    <header class='kit-ui'>
+      <h1>
+        <a href='/'>Survival Guide</a>
+      </h1>
+      <div class='page-info'>
+        <h2>Custom Markup</h2>
+        <div class="intro">(via <a href='#credit'>Pattern Primer</a>)</div>
+      </div>
+    </header>
+    <div class='kit-ui' id='menu'>
+      <nav class='kit-nav'>
+        <ul>
+          <li>
+            <a href='/'>Back to Site</a>
+          </li>
+          <li>
+            <a href='common.html'>Common Markup</a>
+          </li>
+          <li>
+            <a href='custom.html'>Custom Markup</a>
+          </li>
+          <li>
+            <a href='typography.html'>Typography</a>
+          </li>
+          <li>
+            <a href='ui-patterns-drupal.html'>Drupal UI Patterns</a>
+          </li>
+          <li>
+            <a href='ui-patterns.html'>UI Patterns</a>
+          </li>
+          <li>
+            <a href='styletile.html'>Style Tile</a>
+          </li>
+          <li>
+            <a href='documentation'>Documentation</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class='section-nav'></nav>
+    </div>
+    <div id='page'>
+      <div id='main' role='main'>
+        <section id='intro'>
+  <!-- %h1.section-title Custom Modules -->
+  <p>
+    Add your own custom markup
+  </p>
+</section>
+<!-- Common HTML Elements -->
+<section class='element-group' id='custom'>
+  <h1 class='section-title'>Custom Elements</h1>
+  <div class="element" id="blockquote-el"><h2 class="element-title">blockquote</h2><div class="example"><div class="markup"><blockquote>
+<p>This text is quoted. A block of quoted text like this is particularly useful when presented as a pull-quote within an article of text.</p>
+</blockquote>
+</div></div></div><div class="element" id="feedback-error-el"><h2 class="element-title">feedback-error</h2><div class="example"><div class="markup"><div class="feedback error">
+<p>This is an error feedback message.</p>
+</div>
+</div></div></div>
+</section>
+      </div>
+      <footer><div id='credit'>This section is inspired by <a href='http://adactio.com'>Jeremy Keith</a>'s <a href='http://patternprimer.adactio.com/'>Pattern Primer</a> project, and Michael Dijkstra's <a href='https://github.com/micdijkstra/Pattern-Primer-Ruby'>Ruby implementation</a>.</div></footer>
+    </div>
+    
+    <!-- Grab jQuery #{@jQuery} from Google's CDN with a protocol relative URL -->
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
+    <script src='/js/script.js?v=1'></script>
+    <script src='/js/kit/jPanelMenu-1.0.0.min.js?v=1'></script>
+    <script src='/js/kit/kit-source.jquery.js?v=1'></script>
+  </body>
+</html>
