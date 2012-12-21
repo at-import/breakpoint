@@ -1,0 +1,2919 @@
+#aggregator .feed-source .feed-title {
+  margin-top: 0;
+}
+#aggregator .feed-source .feed-image img {
+  margin-bottom: 0.75em;
+}
+#aggregator .feed-source .feed-icon {
+  float: right;
+  /* LTR */
+  display: block;
+}
+#aggregator .feed-item {
+  margin-bottom: 1.5em;
+}
+#aggregator .feed-item-title {
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+#aggregator .feed-item-meta, #aggregator .feed-item-body {
+  margin-bottom: 0.5em;
+}
+#aggregator .feed-item-categories {
+  font-size: 0.9em;
+}
+#aggregator td {
+  vertical-align: bottom;
+}
+#aggregator td.categorize-item {
+  white-space: nowrap;
+}
+#aggregator .categorize-item .news-item .body {
+  margin-top: 0;
+}
+#aggregator .categorize-item h3 {
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+#blocks tr.region-title td {
+  font-weight: bold;
+}
+#blocks tr.region-message {
+  font-weight: normal;
+  color: #999999;
+}
+#blocks tr.region-populated {
+  display: none;
+}
+
+.block-region {
+  background-color: #ffff66;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 3px;
+}
+
+a.block-demo-backlink {
+  background-color: #b4d7f0;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  color: black;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+  font-size: small;
+  line-height: 20px;
+  left: 20px;
+  /*LTR */
+  padding: 5px 10px;
+  position: fixed;
+  z-index: 499;
+}
+a.block-demo-backlink:link, a.block-demo-backlink:visited {
+  background-color: #b4d7f0;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  color: black;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+  font-size: small;
+  line-height: 20px;
+  left: 20px;
+  /*LTR */
+  padding: 5px 10px;
+  position: fixed;
+  z-index: 499;
+}
+a.block-demo-backlink:hover {
+  text-decoration: underline;
+}
+
+.book-navigation .menu {
+  border-top: 1px solid #888888;
+  padding: 1em 0 0 3em;
+  /* LTR */
+}
+.book-navigation .page-links {
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+  text-align: center;
+  padding: 0.5em;
+}
+.book-navigation .page-previous {
+  text-align: left;
+  width: 42%;
+  display: block;
+  float: left;
+  /* LTR */
+}
+.book-navigation .page-up {
+  margin: 0 5%;
+  width: 4%;
+  display: block;
+  float: left;
+  /* LTR */
+}
+.book-navigation .page-next {
+  text-align: right;
+  width: 42%;
+  display: block;
+  float: right;
+}
+
+#book-outline {
+  min-width: 56em;
+}
+
+.book-outline-form .form-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+html.js #edit-book-pick-book {
+  display: none;
+}
+
+.form-item-book-bid .description {
+  clear: both;
+}
+
+#book-admin-edit select {
+  margin-right: 24px;
+}
+#book-admin-edit select.progress-disabled {
+  margin-right: 0;
+}
+#book-admin-edit tr.ajax-new-content {
+  background-color: #ffffdd;
+}
+#book-admin-edit .form-item {
+  float: left;
+}
+
+/* Farbtastic placement */
+.color-form {
+  max-width: 50em;
+  position: relative;
+}
+
+#placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* LTR */
+}
+
+/* Palette */
+.color-form .form-item {
+  height: 2em;
+  line-height: 2em;
+  padding-left: 1em;
+  /* LTR */
+  margin: 0.5em 0;
+}
+.color-form label {
+  float: left;
+  /* LTR */
+  clear: left;
+  /* LTR */
+  width: 10em;
+}
+.color-form .form-text, .color-form .form-select {
+  float: left;
+  /* LTR */
+}
+.color-form .form-text {
+  text-align: center;
+  margin-right: 5px;
+  /* LTR */
+  cursor: pointer;
+}
+
+#palette .hook {
+  float: left;
+  /* LTR */
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+#palette .down, #palette .up, #palette .both {
+  background: url('../images/drupal/hook.png?1355806803') no-repeat 100% 0;
+  /* LTR */
+}
+#palette .up {
+  background-position: 100% -27px;
+  /* LTR */
+}
+#palette .both {
+  background-position: 100% -54px;
+  /* LTR */
+}
+#palette .lock {
+  float: left;
+  /* LTR */
+  position: relative;
+  top: -1.4em;
+  left: -10px;
+  /* LTR */
+  width: 20px;
+  height: 25px;
+  background: url('../images/drupal/lock.png?1355806803') no-repeat 50% 2px;
+  cursor: pointer;
+}
+#palette .unlocked {
+  background-position: 50% -22px;
+}
+#palette .form-item {
+  width: 20em;
+}
+#palette .item-selected {
+  background: #eeeeee;
+}
+
+/* Preview */
+#preview {
+  display: none;
+}
+
+html.js #preview {
+  display: block;
+  position: relative;
+  float: left;
+  /* LTR */
+}
+
+#comments {
+  margin-top: 15px;
+}
+
+.indented {
+  margin-left: 25px;
+  /* LTR */
+}
+
+.comment-unpublished {
+  background-color: #fff4f4;
+}
+
+.comment-preview {
+  background-color: #ffffea;
+}
+
+/*
+ * Contextual links regions. */
+.contextual-links-region {
+  outline: none;
+  position: relative;
+}
+
+.contextual-links-region-active {
+  outline: #999999 dashed 1px;
+}
+
+/*
+ * Contextual links. */
+div.contextual-links-wrapper {
+  display: none;
+  font-size: 90%;
+  position: absolute;
+  right: 5px;
+  /* LTR */
+  top: 2px;
+  z-index: 999;
+}
+
+html.js div.contextual-links-wrapper {
+  display: block;
+}
+
+a.contextual-links-trigger {
+  background: transparent url('../images/drupal/gear-select.png?1355806803') no-repeat 2px 0;
+  border: 1px solid transparent;
+  display: none;
+  height: 18px;
+  margin: 0;
+  padding: 0 2px;
+  outline: none;
+  text-indent: 34px;
+  /* LTR */
+  width: 28px;
+  overflow: hidden;
+  -khtml-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+a.contextual-links-trigger:hover {
+  background-position: 2px -18px;
+}
+
+div.contextual-links-active a.contextual-links-trigger {
+  background-position: 2px -18px;
+  background-position: 2px -18px;
+  background-color: white;
+  border-color: #cccccc;
+  border-bottom: none;
+  position: relative;
+  z-index: 1;
+  -moz-border-radius: 4px 4px 0 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-radius: 4px 4px 0 0;
+}
+div.contextual-links-wrapper ul.contextual-links {
+  background-color: white;
+  border: 1px solid #cccccc;
+  display: none;
+  margin: 0;
+  padding: 0.25em 0;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  top: 18px;
+  white-space: nowrap;
+  -moz-border-radius: 4px 0 4px 4px;
+  /* LTR */
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-top-right-radius: 0;
+  /* LTR */
+  -webkit-border-top-left-radius: 4px;
+  /* LTR */
+  border-radius: 4px 0 4px 4px;
+  /* LTR */
+}
+
+.contextual-links-region:hover a.contextual-links-trigger {
+  display: block;
+}
+
+div.contextual-links-active a.contextual-links-trigger, div.contextual-links-active ul.contextual-links {
+  display: block;
+}
+
+ul.contextual-links li {
+  line-height: 100%;
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.contextual-links-wrapper a {
+  text-decoration: none;
+}
+
+ul.contextual-links li a {
+  color: #333333 !important;
+  display: block;
+  margin: 0.25em 0;
+  padding: 0.25em 1em 0.25em 0.5em;
+}
+ul.contextual-links li a:hover {
+  background-color: #bfdcee;
+}
+
+#dashboard div.dashboard-region {
+  float: left;
+  min-height: 1px;
+}
+#dashboard div#dashboard_main {
+  width: 65%;
+  margin-right: 1%;
+  /* LTR */
+}
+#dashboard div#dashboard_sidebar {
+  width: 33%;
+}
+#dashboard div.block {
+  margin-bottom: 20px;
+}
+#dashboard .dashboard-region .block {
+  clear: both;
+}
+#dashboard div.block h2 {
+  float: none;
+}
+#dashboard #disabled-blocks .block, #dashboard .block-placeholder {
+  background: #e2e1dc;
+  padding: 6px 4px 6px 8px;
+  /* LTR */
+  margin: 3px 3px 3px 0;
+  /* LTR */
+  float: left;
+  /* LTR */
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+#dashboard .dashboard-add-other-blocks {
+  margin: 10px 0 0 0;
+}
+#dashboard .ui-sortable {
+  border: 2px dashed #cccccc;
+  padding: 10px;
+}
+#dashboard .canvas-content {
+  padding: 10px;
+}
+#dashboard #disabled-blocks .ui-sortable {
+  padding: 0;
+  background-color: #777777;
+  border: 0;
+}
+#dashboard .canvas-content a.button {
+  margin: 0 0 0 10px;
+  /* LTR */
+  color: #5a5a5a;
+  text-decoration: none;
+}
+#dashboard .region {
+  margin: 5px;
+}
+#dashboard #disabled-blocks {
+  padding: 5px 0;
+}
+#dashboard #disabled-blocks .region {
+  background-color: #e0e0d8;
+  border: #cccccc 1px solid;
+  padding: 10px;
+}
+#dashboard #disabled-blocks h2 {
+  display: inline;
+  font-weight: normal;
+  white-space: nowrap;
+}
+#dashboard #disabled-blocks .block {
+  background: #444444;
+  color: white;
+}
+#dashboard.customize-inactive #disabled-blocks .block:hover {
+  background: #0074bd;
+}
+#dashboard #disabled-blocks .block .content, #dashboard .ui-sortable-helper .content {
+  display: none;
+}
+#dashboard .ui-sortable .block {
+  cursor: move;
+  min-height: 1px;
+}
+#dashboard .ui-sortable .block h2 {
+  background: transparent url('../images/drupal/draggable.png?1355806803') no-repeat 0px -39px;
+  padding: 0 17px;
+}
+#dashboard.customize-inactive #disabled-blocks .block:hover h2 {
+  background: #0074bd url('../images/drupal/draggable.png?1355806803') no-repeat 0px -39px;
+  color: white;
+}
+#dashboard.customize-inactive .dashboard-region .ui-sortable .block:hover h2 {
+  background: #0074bd url('../images/drupal/draggable.png?1355806803') no-repeat;
+  background-position: 3px -36px;
+  color: white;
+}
+#dashboard .dashboard-region .block-placeholder {
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: block;
+  height: 1.6em;
+  width: 100%;
+}
+#dashboard #disabled-blocks .block-placeholder {
+  width: 30px;
+  height: 1.6em;
+}
+
+.form-item-type, .form-item-severity {
+  float: left;
+  /* LTR */
+  padding-right: 0.8em;
+  /* LTR */
+  margin: 0.1em;
+  /*
+   * In Opera 9, DOM elements with the property of "overflow: auto"
+   * will partially hide its contents with unnecessary scrollbars when
+   * its immediate child is floated without an explicit width set. */
+  width: 15em;
+}
+
+#dblog-filter-form .form-type-select select {
+  width: 100%;
+}
+#dblog-filter-form .form-actions {
+  float: left;
+  padding: 3ex 0 0 1em;
+}
+
+tr.dblog-user {
+  background: #ffffdd;
+}
+tr.dblog-user .active {
+  background: #eeeedd;
+}
+tr.dblog-content {
+  background: #ddddff;
+}
+tr.dblog-content .active {
+  background: #ccccee;
+}
+tr.dblog-page-not-found, tr.dblog-access-denied {
+  background: #ddffdd;
+}
+tr.dblog-page-not-found .active, tr.dblog-access-denied .active {
+  background: #cceecc;
+}
+tr.dblog-error {
+  background: #ffc9c9;
+}
+tr.dblog-error .active {
+  background: #eeb9b9;
+}
+
+table#admin-dblog td.icon {
+  background: no-repeat center;
+  width: 16px;
+}
+table#admin-dblog tr.dblog-warning td.icon {
+  background-image: url('../images/drupal/message-16-warning.png?1355806803');
+}
+table#admin-dblog tr.dblog-error td.icon {
+  background-image: url('../images/drupal/message-16-error.png?1355806803');
+}
+
+/* Field display */
+.field .field-label {
+  font-weight: bold;
+}
+
+.field-label-inline .field-label, .field-label-inline .field-items {
+  float: left;
+  /*LTR */
+}
+
+/* Form display */
+form .field-multiple-table {
+  margin: 0;
+}
+form .field-multiple-table th.field-label {
+  padding-left: 0;
+  /*LTR */
+}
+form .field-multiple-table td.field-multiple-drag {
+  width: 30px;
+  padding-right: 0;
+  /*LTR */
+}
+form .field-multiple-table td.field-multiple-drag a.tabledrag-handle {
+  padding-right: 0.5em;
+  /*LTR */
+}
+form .field-add-more-submit {
+  margin: 0.5em 0 0;
+}
+
+/* 'Manage fields' and 'Manage display' overviews */
+table.field-ui-overview tr.add-new .label-input {
+  float: left;
+  /* LTR */
+}
+table.field-ui-overview tr.add-new .tabledrag-changed {
+  display: none;
+}
+table.field-ui-overview tr.add-new .description {
+  margin-bottom: 0;
+}
+table.field-ui-overview tr.add-new .add-new-placeholder {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+table.field-ui-overview tr.region-title td {
+  font-weight: bold;
+}
+table.field-ui-overview tr.region-message td {
+  font-style: italic;
+}
+table.field-ui-overview tr.region-populated, table.field-ui-overview tr.region-add-new-title {
+  display: none;
+}
+
+/* 'Manage display' overview */
+#field-display-overview .field-formatter-summary-cell {
+  line-height: 1em;
+}
+#field-display-overview .field-formatter-summary {
+  float: left;
+  font-size: 0.9em;
+}
+#field-display-overview td.field-formatter-summary-cell span.warning {
+  display: block;
+  float: left;
+  margin-right: 0.5em;
+}
+#field-display-overview .field-formatter-settings-edit-wrapper, #field-display-overview .field-formatter-settings-edit {
+  float: right;
+}
+#field-display-overview tr.field-formatter-settings-editing td {
+  vertical-align: top;
+}
+#field-display-overview tr.field-formatter-settings-editing .field-formatter-type {
+  display: none;
+}
+#field-display-overview .field-formatter-settings-edit-form .formatter-name {
+  font-weight: bold;
+}
+
+#field-ui-display-overview-form #edit-refresh {
+  display: none;
+}
+
+/*
+ * Managed file element styles. */
+.form-managed-file .form-file, .form-managed-file .form-submit {
+  margin: 0;
+}
+.form-managed-file input.progress-disabled {
+  float: none;
+  display: inline;
+}
+.form-managed-file div.ajax-progress, .form-managed-file div.throbber {
+  display: inline;
+  float: none;
+  padding: 1px 5px 2px 5px;
+}
+.form-managed-file div.ajax-progress div {
+  display: inline;
+}
+.form-managed-file div.ajax-progress-bar {
+  display: none;
+  margin-top: 4px;
+  width: 28em;
+  padding: 0;
+}
+.form-managed-file div.ajax-progress-bar div.bar {
+  margin: 0;
+}
+
+.text-format-wrapper .form-item {
+  margin-bottom: 0;
+}
+
+.filter-wrapper {
+  border-top: 0;
+  margin: 0;
+  padding: 1.5em 0 1.5em;
+}
+.filter-wrapper .form-item {
+  float: left;
+  padding: 0 0 0.5em 1.5em;
+}
+.filter-wrapper .form-item label {
+  display: inline;
+}
+
+.filter-help {
+  float: right;
+  padding: 0 1.5em 0.5em;
+}
+.filter-help p {
+  margin: 0;
+}
+.filter-help a {
+  background: transparent url('../images/drupal/help.png?1355806803') right center no-repeat;
+  padding: 0 20px;
+}
+
+.filter-guidelines {
+  clear: left;
+  padding: 0 1.5em;
+}
+
+.text-format-wrapper .description {
+  margin-top: 0.5em;
+}
+
+#filter-order tr .form-item {
+  padding: 0.5em 0 0 3em;
+  white-space: normal;
+}
+#filter-order tr .form-type-checkbox .description {
+  padding: 0 0 0 2.5em;
+}
+
+input#edit-filters-filter-html-settings-allowed-html {
+  width: 100%;
+}
+
+.tips {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 0.9em;
+}
+
+#forum .description {
+  font-size: 0.9em;
+  margin: 0.5em;
+}
+#forum td.created, #forum td.posts, #forum td.topics, #forum td.last-reply, #forum td.replies, #forum td.pager {
+  white-space: nowrap;
+}
+#forum td.forum .icon {
+  background-image: url('../images/drupal/forum-icons.png?1355806803');
+  background-repeat: no-repeat;
+  float: left;
+  /* LTR */
+  height: 24px;
+  margin: 0 9px 0 0;
+  /* LTR */
+  width: 24px;
+}
+#forum td.forum .forum-status-new {
+  background-position: -24px 0;
+}
+#forum div.indent {
+  margin-left: 20px;
+}
+#forum .icon div {
+  background-image: url('../images/drupal/forum-icons.png?1355806803');
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+#forum .icon .topic-status-new {
+  background-position: -24px 0;
+}
+#forum .icon .topic-status-hot {
+  background-position: -48px 0;
+}
+#forum .icon .topic-status-hot-new {
+  background-position: -72px 0;
+}
+#forum .icon .topic-status-sticky {
+  background-position: -96px 0;
+}
+#forum .icon .topic-status-closed {
+  background-position: -120px 0;
+}
+
+.help-items {
+  float: left;
+  /* LTR */
+  width: 22%;
+  padding-right: 3%;
+  /* LTR */
+}
+
+.help-items-last {
+  padding-right: 0;
+  /* LTR */
+}
+
+/*
+ * Image style configuration pages. */
+div.image-style-new {
+  display: inline;
+}
+div.image-style-new div {
+  display: inline;
+}
+div.image-style-preview div.preview-image-wrapper {
+  float: left;
+  padding-bottom: 2em;
+  text-align: center;
+  top: 50%;
+  width: 48%;
+}
+div.image-style-preview div.preview-image {
+  margin: auto;
+  position: relative;
+}
+div.image-style-preview div.preview-image div.width {
+  border: 1px solid #666666;
+  border-top: none;
+  height: 2px;
+  left: -1px;
+  bottom: -6px;
+  position: absolute;
+}
+div.image-style-preview div.preview-image div.width span {
+  position: relative;
+  top: 4px;
+}
+div.image-style-preview div.preview-image div.height {
+  border: 1px solid #666666;
+  border-left: none;
+  position: absolute;
+  right: -6px;
+  top: -1px;
+  width: 2px;
+}
+div.image-style-preview div.preview-image div.height span {
+  height: 2em;
+  left: 10px;
+  margin-top: -1em;
+  position: absolute;
+  top: 50%;
+}
+
+/*
+ * Image anchor element. */
+table.image-anchor {
+  width: auto;
+}
+table.image-anchor tr.even, table.image-anchor tr.odd {
+  background: none;
+}
+table.image-anchor td {
+  border: 1px solid #cccccc;
+}
+
+/*
+ * Image upload widget. */
+div.image-preview {
+  float: left;
+  /* LTR */
+  padding: 0 10px 10px 0;
+  /* LTR */
+}
+div.image-widget-data {
+  float: left;
+  /* LTR */
+}
+div.image-widget-data input.text-field {
+  width: auto;
+}
+
+.locale-untranslated {
+  font-style: normal;
+  text-decoration: line-through;
+}
+
+#locale-translation-filter-form .form-item-language, #locale-translation-filter-form .form-item-translation, #locale-translation-filter-form .form-item-group {
+  float: left;
+  /* LTR */
+  padding-right: 0.8em;
+  /* LTR */
+  margin: 0.1em;
+  /*
+   * In Opera 9, DOM elements with the property of "overflow: auto"
+   * will partially hide its contents with unnecessary scrollbars when
+   * its immediate child is floated without an explicit width set. */
+  width: 15em;
+}
+#locale-translation-filter-form .form-type-select select {
+  width: 100%;
+}
+#locale-translation-filter-form .form-actions {
+  float: left;
+  /* LTR */
+  padding: 3ex 0 0 1em;
+  /* LTR */
+}
+
+.language-switcher-locale-session a.active {
+  color: #0062a0;
+}
+.language-switcher-locale-session a.session-active {
+  color: black;
+}
+
+.menu-operations {
+  width: 100px;
+}
+
+.menu-enabled {
+  width: 70px;
+}
+.menu-enabled input {
+  margin-left: 25px;
+}
+
+.node-unpublished {
+  background-color: #fff4f4;
+}
+
+.preview .node {
+  background-color: #ffffea;
+}
+
+td.revision-current {
+  background: #ffffcc;
+}
+
+#edit-openid-identifier {
+  background-image: url("login-bg.png");
+  background-position: left 50%;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  /* LTR */
+}
+
+div.form-item-openid-identifier {
+  display: block;
+}
+
+html.js #user-login-form div.form-item-openid-identifier, html.js #user-login div.form-item-openid-identifier {
+  display: none;
+}
+
+#user-login-form ul {
+  margin-top: 0;
+}
+
+#user-login ul {
+  margin: 0 0 5px;
+}
+#user-login ul li {
+  margin: 0;
+}
+
+#user-login-form .openid-links {
+  padding-bottom: 0;
+}
+
+#user-login .openid-links {
+  padding-left: 0;
+  /* LTR */
+}
+
+#user-login-form .openid-links li, #user-login .openid-links li {
+  display: none;
+  list-style: none;
+}
+
+html.js #user-login-form li.openid-link, html.js #user-login li.openid-link {
+  display: block;
+  margin-left: 0;
+  /* LTR */
+}
+
+#user-login-form li.openid-link a, #user-login li.openid-link a {
+  background-image: url("login-bg.png");
+  background-position: left top;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding: 0 0 0 1.5em;
+  /* LTR */
+}
+
+html.js {
+  background: transparent !important;
+  overflow-y: scroll;
+}
+html.js body {
+  background: transparent !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#overlay {
+  display: table;
+  margin: 0 auto;
+  min-height: 100px;
+  min-width: 700px;
+  position: relative;
+  padding: 0.2em;
+  padding-right: 26px;
+  /* LTR */
+  width: 88%;
+}
+
+#overlay-titlebar {
+  padding: 0 20px;
+  position: relative;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+#overlay-content {
+  background: white;
+  clear: both;
+  color: black;
+  padding: 0.5em 1em;
+  position: relative;
+}
+
+#overlay-title-wrapper {
+  overflow: hidden;
+}
+
+#overlay-title {
+  color: white;
+  float: left;
+  /* LTR */
+  font-size: 20px;
+  margin: 0;
+  padding: 0.3em 0;
+}
+#overlay-title:active, #overlay-title:focus {
+  outline: 0;
+}
+
+.overlay #skip-link {
+  margin-top: -20px;
+}
+.overlay #skip-link a {
+  color: white;
+  /* This is white to contrast with the dark background behind it. */
+}
+
+#overlay-close-wrapper {
+  position: absolute;
+  right: 0;
+  /* LTR */
+}
+
+#overlay-close {
+  background: transparent url('../images/drupal/close.png?1355806803') no-repeat;
+  /* LTR */
+  -moz-border-radius-topleft: 0;
+  /* LTR */
+  -webkit-border-top-left-radius: 0;
+  /* LTR */
+  border-top-left-radius: 0;
+  /* LTR */
+  display: block;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  /* Replace with position:fixed to get a scrolling close button. */
+  position: absolute;
+  width: 26px;
+}
+#overlay-close:hover {
+  background: transparent url('../images/drupal/close.png?1355806803') no-repeat;
+  /* LTR */
+  -moz-border-radius-topleft: 0;
+  /* LTR */
+  -webkit-border-top-left-radius: 0;
+  /* LTR */
+  border-top-left-radius: 0;
+  /* LTR */
+  display: block;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  /* Replace with position:fixed to get a scrolling close button. */
+  position: absolute;
+  width: 26px;
+}
+
+/*
+ * Tabs on the overlay. */
+#overlay-tabs {
+  line-height: 27px;
+  margin: -28px 0 0 0;
+  position: absolute;
+  right: 20px;
+  /* LTR */
+  text-transform: uppercase;
+}
+#overlay-tabs li {
+  display: inline;
+  list-style: none;
+  margin: 0 0 0 -3px;
+  /* LTR */
+  padding: 0;
+}
+#overlay-tabs li a {
+  background-color: #a6a7a2;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  color: black;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0 0 2px 0;
+  outline: 0;
+  padding: 0 14px;
+  text-decoration: none;
+}
+#overlay-tabs li a:active, #overlay-tabs li a:visited, #overlay-tabs li a:hover {
+  background-color: #a6a7a2;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  color: black;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0 0 2px 0;
+  outline: 0;
+  padding: 0 14px;
+  text-decoration: none;
+}
+#overlay-tabs li.active a {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 2px;
+}
+#overlay-tabs li.active a.active, #overlay-tabs li.active a:active, #overlay-tabs li.active a:visited {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 2px;
+}
+#overlay-tabs li a:focus, #overlay-tabs li a:hover {
+  color: white;
+}
+#overlay-tabs li.active a:focus, #overlay-tabs li.active a:hover {
+  color: black;
+}
+
+/*
+ * Add to shortcuts link */
+#overlay-titlebar .add-or-remove-shortcuts {
+  padding-top: 0.9em;
+}
+
+/*
+ * IE6 shows elements with position:fixed as position:static so replace
+ * it with position:absolute; */
+* html #overlay-close {
+  position: absolute;
+}
+* html #overlay-close:hover {
+  position: absolute;
+}
+
+/*
+ * Disable message. */
+#overlay-disable-message {
+  background-color: white;
+  margin: -20px auto 20px;
+  width: 80%;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+.overlay-disable-message-focused {
+  padding: 0.5em;
+}
+.overlay-disable-message-focused a {
+  display: block;
+  float: left;
+}
+.overlay-disable-message-focused #overlay-dismiss-message {
+  float: right;
+}
+
+html.overlay-open {
+  height: 100%;
+  overflow: hidden;
+}
+html.overlay-open body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#overlay-container, .overlay-modal-background, .overlay-element {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+}
+
+.overlay-modal-background {
+  /* Using a transparent png renders faster than using opacity */
+  background: transparent url('../images/drupal/background.png?1355806803') repeat;
+}
+
+.overlay-element {
+  background: transparent;
+  left: -200%;
+  z-index: 501;
+}
+.overlay-element.overlay-active {
+  left: 0;
+}
+
+html.overlay-open .displace-top, html.overlay-open .displace-bottom {
+  z-index: 600;
+}
+
+/*
+ * Within the overlay parent, the message about disabling the overlay is for
+ * screen-reader users only. It is always kept invisible with the
+ * element-invisible class, and removed from the tab order. Overlay-child.css
+ * contains styling for the same message appearing within the overlay, and
+ * intended for sighted users. */
+#overlay-disable-message {
+  display: none;
+}
+
+html.overlay-open #overlay-disable-message {
+  display: block;
+}
+
+.poll {
+  overflow: hidden;
+}
+.poll .bar {
+  height: 1em;
+  margin: 1px 0;
+  background-color: #dddddd;
+}
+.poll .bar .foreground {
+  background-color: black;
+  height: 1em;
+  float: left;
+  /* LTR */
+}
+.poll .links {
+  text-align: center;
+}
+.poll .percent {
+  text-align: right;
+  /* LTR */
+}
+.poll .total {
+  text-align: center;
+}
+.poll .vote-form {
+  text-align: center;
+}
+.poll .vote-form .choices {
+  text-align: left;
+  /* LTR */
+  margin: 0 auto;
+  display: table;
+}
+.poll .vote-form .choices .title {
+  font-weight: bold;
+}
+
+.node-form #edit-poll-more {
+  margin: 0;
+}
+.node-form #poll-choice-table .form-text {
+  display: inline;
+  width: auto;
+}
+.node-form #poll-choice-table td.choice-flag {
+  white-space: nowrap;
+  width: 4em;
+}
+
+td.poll-chtext {
+  width: 80%;
+}
+td.poll-chvotes .form-text {
+  width: 85%;
+}
+
+#profile-fields td.category {
+  font-weight: bold;
+}
+#profile-fields tr.category-message {
+  color: #999999;
+}
+#profile-fields tr.category-populated {
+  display: none;
+}
+
+.search-form {
+  margin-bottom: 1em;
+}
+.search-form input {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.search-results {
+  list-style: none;
+}
+.search-results p {
+  margin-top: 0;
+}
+.search-results .title {
+  font-size: 1.2em;
+}
+.search-results li {
+  margin-bottom: 1em;
+}
+.search-results .search-snippet-info {
+  padding-left: 1em;
+  /* LTR */
+}
+.search-results .search-info {
+  font-size: 0.85em;
+}
+
+.search-advanced .criterion {
+  float: left;
+  /* LTR */
+  margin-right: 2em;
+  /* LTR */
+}
+.search-advanced .action {
+  float: left;
+  /* LTR */
+  clear: left;
+  /* LTR */
+}
+
+.shortcut-slot-hidden {
+  display: none;
+}
+
+div.form-item-set div.form-item-new {
+  display: inline;
+}
+div#toolbar a#edit-shortcuts {
+  float: right;
+  padding: 5px 10px 5px 5px;
+  line-height: 24px;
+  color: #fefefe;
+}
+div#toolbar a#edit-shortcuts:focus, div#toolbar a#edit-shortcuts:hover, div#toolbar a#edit-shortcuts.active {
+  color: white;
+  text-decoration: underline;
+}
+div#toolbar div.toolbar-shortcuts ul {
+  padding: 5px 0 2px 0;
+  height: 28px;
+  line-height: 24px;
+  float: left;
+  /* LTR */
+  margin-left: 5px;
+  /* LTR */
+}
+div#toolbar div.toolbar-shortcuts ul li a {
+  padding: 0 5px 0 5px;
+  margin-right: 5px;
+  /* LTR */
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+div#toolbar div.toolbar-shortcuts ul li a:focus, div#toolbar div.toolbar-shortcuts ul li a:hover {
+  background: #555555;
+}
+div#toolbar div.toolbar-shortcuts ul li a.active {
+  background: black;
+}
+div#toolbar div.toolbar-shortcuts ul li a.active:focus {
+  background: #555555;
+}
+div#toolbar div.toolbar-shortcuts ul li a.active:hover {
+  background: black;
+}
+div#toolbar div.toolbar-shortcuts span.icon {
+  float: left;
+  /* LTR */
+  background: #444444;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  /* LTR */
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+div.add-or-remove-shortcuts {
+  padding-top: 5px;
+}
+div.add-or-remove-shortcuts a span.icon {
+  display: block;
+  width: 12px;
+  background: transparent url(shortcut.png) no-repeat scroll 0 0;
+  height: 12px;
+  float: left;
+  margin-left: 8px;
+}
+div.add-shortcut a:focus span.icon, div.add-shortcut a:hover span.icon {
+  background-position: 0 -12px;
+}
+div.remove-shortcut a span.icon {
+  background-position: -12px 0;
+}
+div.remove-shortcut a:focus span.icon, div.remove-shortcut a:hover span.icon {
+  background-position: -12px -12px;
+}
+div.add-or-remove-shortcuts a span.text {
+  float: left;
+  padding-left: 10px;
+  display: none;
+}
+div.add-or-remove-shortcuts a:focus span.text, div.add-or-remove-shortcuts a:hover span.text {
+  font-size: 10px;
+  line-height: 12px;
+  color: white;
+  background-color: #5f605b;
+  display: block;
+  padding-right: 6px;
+  /* LTR */
+  cursor: pointer;
+  -moz-border-radius: 0 5px 5px 0;
+  /* LTR */
+  -webkit-border-top-right-radius: 5px;
+  /* LTR */
+  -webkit-border-bottom-right-radius: 5px;
+  /* LTR */
+  border-radius: 0 5px 5px 0;
+  /* LTR */
+}
+
+#shortcut-set-switch .form-type-radios {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+#shortcut-set-switch .form-item-new {
+  padding-top: 0;
+  padding-left: 17px;
+  /* LTR */
+}
+
+/*
+ * @file
+ * Styles for administration pages. */
+/*
+ * Administration blocks. */
+div.admin-panel {
+  margin: 0;
+  padding: 5px 5px 15px 5px;
+}
+div.admin-panel .description {
+  margin: 0 0 3px;
+  padding: 2px 0 3px 0;
+}
+div.admin-panel .body {
+  padding: 0 4px 2px 8px;
+  /* LTR */
+}
+div.admin {
+  padding-top: 15px;
+}
+div.admin .left {
+  float: left;
+  /* LTR */
+  width: 47%;
+  margin-left: 1em;
+  /* LTR */
+}
+div.admin .right {
+  float: right;
+  /* LTR */
+  width: 47%;
+  margin-right: 1em;
+  /* LTR */
+}
+div.admin .expert-link {
+  text-align: right;
+  /* LTR */
+  margin-right: 1em;
+  /* LTR */
+  padding-right: 4px;
+  /* LTR */
+}
+
+/*
+ * Markup generated by theme_system_compact_link(). */
+.compact-link {
+  margin: 0 0 0.5em 0;
+}
+
+/*
+ * Quick inline admin links. */
+small .admin-link:before {
+  content: "[";
+}
+small .admin-link:after {
+  content: "]";
+}
+
+/*
+ * Modules page. */
+#system-modules div.incompatible {
+  font-weight: bold;
+}
+
+div.admin-requirements, div.admin-required {
+  font-size: 0.9em;
+  color: #444444;
+}
+
+span.admin-disabled {
+  color: #880000;
+}
+span.admin-enabled {
+  color: #008800;
+}
+span.admin-missing {
+  color: red;
+}
+
+a.module-link {
+  display: block;
+  padding: 1px 0 1px 20px;
+  /* LTR */
+  white-space: nowrap;
+}
+a.module-link-help {
+  background: url('../images/drupal/help.png?1355806803') 0 50% no-repeat;
+  /* LTR */
+}
+a.module-link-permissions {
+  background: url('../images/drupal/permissions.png?1355806803') 0 50% no-repeat;
+  /* LTR */
+}
+a.module-link-configure {
+  background: url('../images/drupal/configure.png?1355806803') 0 50% no-repeat;
+  /* LTR */
+}
+
+.module-help {
+  margin-left: 1em;
+  /* LTR */
+  float: right;
+  /* LTR */
+}
+
+/*
+ * Status report. */
+table.system-status-report td {
+  padding: 6px;
+  vertical-align: middle;
+}
+table.system-status-report tr.merge-up td {
+  padding: 0 6px 8px 28px;
+  /* LTR */
+}
+table.system-status-report td.status-icon {
+  width: 16px;
+  padding-right: 0;
+  /* LTR */
+}
+table.system-status-report td.status-icon div {
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+table.system-status-report tr.error td.status-icon div {
+  background-image: url('../images/drupal/message-16-error.png?1355806803');
+}
+table.system-status-report tr.warning td.status-icon div {
+  background-image: url('../images/drupal/message-16-warning.png?1355806803');
+}
+
+tr.merge-down {
+  border-bottom-width: 0 !important;
+}
+tr.merge-down td {
+  border-bottom-width: 0 !important;
+}
+tr.merge-up {
+  border-top-width: 0 !important;
+}
+tr.merge-up td {
+  border-top-width: 0 !important;
+}
+
+/*
+ * Theme settings. */
+.theme-settings-left {
+  float: left;
+  width: 49%;
+}
+
+.theme-settings-right {
+  float: right;
+  width: 49%;
+}
+
+.theme-settings-bottom {
+  clear: both;
+}
+
+/*
+ * Appearance page. */
+table.screenshot {
+  margin-right: 1em;
+  /* LTR */
+}
+
+.theme-info h2 {
+  margin-bottom: 0;
+}
+.theme-info p {
+  margin-top: 0;
+}
+
+.system-themes-list {
+  margin-bottom: 20px;
+}
+
+.system-themes-list-disabled {
+  border-top: 1px solid #cdcdcd;
+  padding-top: 20px;
+}
+
+.system-themes-list h2 {
+  margin: 0;
+}
+
+.theme-selector {
+  padding-top: 20px;
+}
+.theme-selector .screenshot, .theme-selector .no-screenshot {
+  border: 1px solid #e0e0d8;
+  padding: 2px;
+  vertical-align: bottom;
+  width: 294px;
+  height: 219px;
+  line-height: 219px;
+  text-align: center;
+}
+
+.theme-default .screenshot {
+  border: 1px solid #aaaaaa;
+}
+
+.system-themes-list-enabled .theme-selector .screenshot, .system-themes-list-enabled .theme-selector .no-screenshot {
+  float: left;
+  /* LTR */
+  margin: 0 20px 0 0;
+  /* LTR */
+}
+
+.system-themes-list-disabled .theme-selector .screenshot, .system-themes-list-disabled .theme-selector .no-screenshot {
+  width: 194px;
+  height: 144px;
+  line-height: 144px;
+}
+
+.theme-selector h3 {
+  font-weight: normal;
+}
+
+.theme-default h3 {
+  font-weight: bold;
+}
+
+.system-themes-list-enabled .theme-selector h3 {
+  margin-top: 0;
+}
+
+.system-themes-list-disabled .theme-selector {
+  width: 300px;
+  float: left;
+  /* LTR */
+  padding: 20px 20px 20px 0;
+  /* LTR */
+}
+
+.system-themes-list-enabled .theme-info {
+  max-width: 940px;
+}
+
+.system-themes-list-disabled .theme-info {
+  min-height: 170px;
+}
+
+.theme-selector .incompatible {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.theme-selector .operations {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+.theme-selector .operations li {
+  float: left;
+  /* LTR */
+  margin: 0;
+  padding: 0 0.7em;
+  list-style-type: none;
+  border-right: 1px solid #cdcdcd;
+  /* LTR */
+}
+.theme-selector .operations li.last {
+  padding: 0 0 0 0.7em;
+  /* LTR */
+  border-right: none;
+  /* LTR */
+}
+.theme-selector .operations li.first {
+  padding: 0 0.7em 0 0;
+  /* LTR */
+}
+
+#system-themes-admin-form {
+  clear: left;
+}
+
+/*
+ * Exposed filters. */
+.exposed-filters .filters {
+  float: left;
+  /* LTR */
+  margin-right: 1em;
+  /* LTR */
+  width: 25em;
+  /* IE6 */
+}
+.exposed-filters .form-item {
+  margin: 0 0 0.1em 0;
+  padding: 0;
+}
+.exposed-filters .form-item label {
+  float: left;
+  /* LTR */
+  font-weight: normal;
+  width: 10em;
+}
+.exposed-filters .form-select {
+  width: 14em;
+}
+.exposed-filters .current-filters {
+  margin-bottom: 1em;
+}
+.exposed-filters .current-filters .placeholder {
+  font-style: normal;
+  font-weight: bold;
+}
+.exposed-filters .additional-filters {
+  float: left;
+  /* LTR */
+  margin-right: 1em;
+  /* LTR */
+}
+
+/* Current filters */
+/*
+ * @file
+ * Generic theme-independent base styles. */
+/*
+ * Autocomplete.
+ *
+ * @see autocomplete.js */
+/* Suggestion list */
+#autocomplete {
+  border: 1px solid;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+}
+#autocomplete ul {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+#autocomplete li {
+  background: white;
+  color: black;
+  cursor: default;
+  white-space: pre;
+}
+
+/* Animated throbber */
+html.js input.form-autocomplete {
+  background-image: url('../images/drupal/throbber.gif?1355806803');
+  background-position: 100% 2px;
+  /* LTR */
+  background-repeat: no-repeat;
+}
+html.js input.throbbing {
+  background-position: 100% -18px;
+  /* LTR */
+}
+html.js fieldset.collapsed {
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  height: 1em;
+}
+html.js fieldset.collapsed .fieldset-wrapper {
+  display: none;
+}
+
+/*
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js */
+fieldset.collapsible {
+  position: relative;
+}
+fieldset.collapsible .fieldset-legend {
+  display: block;
+}
+
+/*
+ * Resizable textareas.
+ *
+ * @see textarea.js */
+.form-textarea-wrapper textarea {
+  display: block;
+  margin: 0;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.resizable-textarea .grippie {
+  background: #eeeeee url('../images/drupal/grippie.png?1355806803') no-repeat center 2px;
+  border: 1px solid #dddddd;
+  border-top-width: 0;
+  cursor: s-resize;
+  height: 9px;
+  overflow: hidden;
+}
+
+/*
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js */
+body.drag {
+  cursor: move;
+}
+
+.draggable a.tabledrag-handle {
+  cursor: move;
+  float: left;
+  /* LTR */
+  height: 1.7em;
+  margin: -0.4em 0 -0.4em -0.5em;
+  /* LTR */
+  padding: 0.42em 1.5em 0.42em 0.5em;
+  /* LTR */
+  text-decoration: none;
+}
+
+a.tabledrag-handle:hover {
+  text-decoration: none;
+}
+a.tabledrag-handle .handle {
+  background: url('../images/drupal/draggable.png?1355806803') no-repeat 0 0;
+  height: 13px;
+  margin-top: 4px;
+  width: 13px;
+}
+a.tabledrag-handle-hover .handle {
+  background-position: 0 -20px;
+}
+
+div.indentation {
+  float: left;
+  /* LTR */
+  height: 1.7em;
+  margin: -0.4em 0.2em -0.4em -0.4em;
+  /* LTR */
+  padding: 0.42em 0 0.42em 0.6em;
+  /* LTR */
+  width: 20px;
+}
+div.tree-child {
+  background: url('../images/drupal/tree.png?1355806803') no-repeat 11px center;
+  /* LTR */
+}
+div.tree-child-last {
+  background: url('../images/drupal/tree-bottom.png?1355806803') no-repeat 11px center;
+  /* LTR */
+}
+div.tree-child-horizontal {
+  background: url('../images/drupal/tree.png?1355806803') no-repeat -11px center;
+}
+
+.tabledrag-toggle-weight-wrapper {
+  text-align: right;
+  /* LTR */
+}
+
+/*
+ * TableHeader behavior.
+ *
+ * @see tableheader.js */
+table.sticky-header {
+  background-color: white;
+  margin-top: 0;
+}
+
+/*
+ * Progress behavior.
+ *
+ * @see progress.js */
+/* Bar */
+.progress .bar {
+  background-color: white;
+  border: 1px solid;
+}
+.progress .filled {
+  background-color: black;
+  height: 1.5em;
+  width: 5px;
+}
+.progress .percentage {
+  float: right;
+  /* LTR */
+}
+
+.progress-disabled {
+  float: left;
+  /* LTR */
+}
+
+/* Throbber */
+.ajax-progress {
+  float: left;
+  /* LTR */
+}
+.ajax-progress .throbber {
+  background: transparent url('../images/drupal/throbber.gif?1355806803') no-repeat 0px -18px;
+  float: left;
+  /* LTR */
+  height: 15px;
+  margin: 2px;
+  width: 15px;
+}
+
+tr .ajax-progress .throbber {
+  margin: 0 2px;
+}
+
+.ajax-progress-bar {
+  width: 16em;
+}
+
+/*
+ * Inline items. */
+.container-inline div, .container-inline label {
+  display: inline;
+}
+.container-inline .fieldset-wrapper {
+  display: block;
+}
+
+/* Fieldset contents always need to be rendered as block. */
+/*
+ * Prevent text wrapping. */
+.nowrap {
+  white-space: nowrap;
+}
+
+/*
+ * For anything you want to hide on page load when JS is enabled, so
+ * that you can use the JS to control visibility and avoid flicker. */
+html.js .js-hide, .element-hidden {
+  display: none;
+}
+
+/*
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be a collapsible fieldset that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions. */
+/*
+ * Hide elements visually, but keep them available for screen-readers.
+ *
+ * Used for information required for screen-reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides. */
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.element-invisible.element-focusable:active, .element-invisible.element-focusable:focus {
+  position: static !important;
+  clip: auto;
+}
+
+/*
+ * The .element-focusable class extends the .element-invisible class to allow
+ * the element to be focusable when navigated to via the keyboard. */
+/*
+ * Markup free clearing.
+ *
+ * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* IE6 */
+* html .clearfix {
+  height: 1%;
+}
+*:first-child + html .clearfix {
+  min-height: 1%;
+}
+
+/* IE7 */
+/*
+ * Update styles */
+#update-results {
+  margin-top: 3em;
+  padding: 0.25em;
+  border: 1px solid #cccccc;
+  background: #eeeeee;
+  font-size: smaller;
+}
+#update-results h2 {
+  margin-top: 0.25em;
+}
+#update-results h4 {
+  margin-bottom: 0.25em;
+}
+#update-results li.none {
+  color: #888888;
+  font-style: italic;
+}
+#update-results li.failure strong {
+  color: #b63300;
+}
+
+/*
+ * Authorize.php styles */
+.connection-settings-update-filetransfer-default-wrapper {
+  float: left;
+}
+
+#edit-submit-connection {
+  clear: both;
+}
+
+.filetransfer {
+  display: none;
+  clear: both;
+}
+
+#edit-connection-settings-change-connection-type {
+  margin: 2.6em 0.5em 0em 1em;
+}
+
+/*
+ * Installation task list */
+ol.task-list li.active {
+  font-weight: bold;
+}
+
+/*
+ * Installation clean URLs */
+#clean-url.install {
+  display: none;
+}
+
+/*
+ * @file
+ * Styles for menus and navigation markup. */
+/*
+ * Markup generated by theme_menu_tree(). */
+ul.menu {
+  border: none;
+  list-style: none;
+  text-align: left;
+  /* LTR */
+}
+ul.menu li {
+  margin: 0 0 0 0.5em;
+  /* LTR */
+}
+ul li.expanded {
+  list-style-image: url('../images/drupal/menu-expanded.png?1355806803');
+  list-style-type: circle;
+}
+ul li.collapsed {
+  list-style-image: url('../images/drupal/menu-collapsed.png?1355806803');
+  /* LTR */
+  list-style-type: disc;
+}
+ul li.leaf {
+  list-style-image: url('../images/drupal/menu-leaf.png?1355806803');
+  list-style-type: square;
+}
+
+li.expanded, li.collapsed, li.leaf {
+  padding: 0.2em 0.5em 0 0;
+  /* LTR */
+  margin: 0;
+}
+li a.active {
+  color: black;
+}
+
+td.menu-disabled {
+  background: #cccccc;
+}
+
+/*
+ * Markup generated by theme_links(). */
+ul.inline, ul.links.inline {
+  display: inline;
+  padding-left: 0;
+}
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 0.5em;
+}
+
+/*
+ * Markup generated by theme_breadcrumb(). */
+.breadcrumb {
+  padding-bottom: 0.5em;
+}
+
+/*
+ * Markup generated by theme_menu_local_tasks(). */
+ul.primary {
+  border-bottom: 1px solid #bbbbbb;
+  border-collapse: collapse;
+  height: auto;
+  line-height: normal;
+  list-style: none;
+  margin: 5px;
+  padding: 0 0 0 1em;
+  /* LTR */
+  white-space: nowrap;
+}
+ul.primary li {
+  display: inline;
+}
+ul.primary li a {
+  background-color: #dddddd;
+  border-color: #bbbbbb;
+  border-style: solid solid none solid;
+  border-width: 1px;
+  height: auto;
+  margin-right: 0.5em;
+  /* LTR */
+  padding: 0 1em;
+  text-decoration: none;
+}
+ul.primary li.active a {
+  background-color: white;
+  border: 1px solid #bbbbbb;
+  border-bottom: 1px solid white;
+}
+ul.primary li a:hover {
+  background-color: #eeeeee;
+  border-color: #cccccc;
+  border-bottom-color: #eeeeee;
+}
+ul.secondary {
+  border-bottom: 1px solid #bbbbbb;
+  padding: 0.5em 1em;
+  margin: 5px;
+}
+ul.secondary li {
+  border-right: 1px solid #cccccc;
+  /* LTR */
+  display: inline;
+  padding: 0 1em;
+}
+ul.secondary a {
+  padding: 0;
+  text-decoration: none;
+}
+ul.secondary a.active {
+  border-bottom: 4px solid #999999;
+}
+
+/*
+ * @file
+ * Styles for system messages. */
+div.messages {
+  background-position: 8px 8px;
+  /* LTR */
+  background-repeat: no-repeat;
+  border: 1px solid;
+  margin: 6px 0;
+  padding: 10px 10px 10px 50px;
+  /* LTR */
+}
+div.status {
+  background-image: url('../images/drupal/message-24-ok.png?1355806803');
+  border-color: #bbee77;
+  color: #234600;
+}
+
+.ok {
+  color: #234600;
+}
+
+div.status, table tr.ok {
+  background-color: #f8fff0;
+}
+
+div.warning {
+  background-image: url('../images/drupal/message-24-warning.png?1355806803');
+  border-color: #eedd55;
+  color: #884400;
+}
+
+.warning {
+  color: #884400;
+}
+
+div.warning, table tr.warning {
+  background-color: #fffce5;
+}
+
+div.error {
+  background-image: url('../images/drupal/message-24-error.png?1355806803');
+  border-color: #ed541d;
+  color: #8c2e0b;
+}
+
+.error {
+  color: #8c2e0b;
+}
+
+div.error, table tr.error {
+  background-color: #fef5f1;
+}
+
+div.error p.error {
+  color: #333333;
+}
+div.messages ul {
+  margin: 0 0 0 1em;
+  /* LTR */
+  padding: 0;
+}
+div.messages ul li {
+  list-style-image: none;
+}
+
+/*
+ * @file
+ * Basic styling for common markup. */
+/*
+ * HTML elements. */
+fieldset {
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: 1px solid gray;
+  height: 1px;
+}
+
+img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 3px solid #cccccc;
+  padding-right: 1em;
+  /* LTR */
+  text-align: left;
+  /* LTR */
+}
+
+tbody {
+  border-top: 1px solid #cccccc;
+}
+
+tr.even, tr.odd {
+  background-color: #eeeeee;
+  border-bottom: 1px solid #cccccc;
+  padding: 0.1em 0.6em;
+}
+
+/*
+ * Markup generated by theme_tablesort_indicator(). */
+th.active img {
+  display: inline;
+}
+
+td.active {
+  background-color: #dddddd;
+}
+
+/*
+ * Markup generated by theme_item_list(). */
+.item-list .title {
+  font-weight: bold;
+}
+.item-list ul {
+  margin: 0 0 0.75em 0;
+  padding: 0;
+}
+.item-list ul li {
+  margin: 0 0 0.25em 1.5em;
+  /* LTR */
+  padding: 0;
+}
+
+/*
+ * Markup generated by Form API. */
+.form-item, .form-actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+tr.odd .form-item, tr.even .form-item {
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.form-item .description {
+  font-size: 0.85em;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+label.option {
+  display: inline;
+  font-weight: normal;
+}
+
+.form-checkboxes .form-item, .form-radios .form-item {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.form-type-radio .description, .form-type-checkbox .description {
+  margin-left: 2.4em;
+}
+
+input.form-checkbox, input.form-radio {
+  vertical-align: middle;
+}
+
+.marker, .form-required {
+  color: red;
+}
+
+.form-item input.error, .form-item textarea.error, .form-item select.error {
+  border: 2px solid red;
+}
+
+/*
+ * Inline items. */
+.container-inline .form-actions, .container-inline.form-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*
+ * Markup generated by theme_more_link(). */
+.more-link {
+  text-align: right;
+  /* LTR */
+}
+
+/*
+ * Markup generated by theme_more_help_link(). */
+.more-help-link {
+  text-align: right;
+  /* LTR */
+}
+.more-help-link a {
+  background: url('../images/drupal/help.png?1355806803') 0 50% no-repeat;
+  /* LTR */
+  padding: 1px 0 1px 20px;
+  /* LTR */
+}
+
+/*
+ * Markup generated by theme_pager(). */
+.item-list .pager {
+  clear: both;
+  text-align: center;
+}
+.item-list .pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: 0.5em;
+}
+
+.pager-current {
+  font-weight: bold;
+}
+
+/*
+ * Autocomplete.
+ *
+ * @see autocomplete.js */
+/* Suggestion list */
+#autocomplete li.selected {
+  background: #0072b9;
+  color: white;
+}
+
+/*
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js */
+html.js fieldset.collapsible .fieldset-legend {
+  background: url('../images/drupal/menu-expanded.png?1355806803') 5px 65% no-repeat;
+  /* LTR */
+  padding-left: 15px;
+  /* LTR */
+}
+html.js fieldset.collapsed .fieldset-legend {
+  background-image: url('../images/drupal/menu-collapsed.png?1355806803');
+  /* LTR */
+  background-position: 5px 50%;
+  /* LTR */
+}
+
+.fieldset-legend span.summary {
+  color: #999999;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+/*
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js */
+tr.drag {
+  background-color: ivory;
+}
+tr.drag-previous {
+  background-color: #ffffdd;
+}
+
+.tabledrag-toggle-weight {
+  font-size: 0.9em;
+}
+
+body div.tabledrag-changed-warning {
+  margin-bottom: 0.5em;
+}
+
+/*
+ * TableSelect behavior.
+ *
+ * @see tableselect.js */
+tr.selected td {
+  background: #ffffcc;
+}
+
+td.checkbox, th.checkbox {
+  text-align: center;
+}
+
+/*
+ * Progress bar.
+ *
+ * @see progress.js */
+.progress {
+  font-weight: bold;
+}
+.progress .bar {
+  background: #cccccc;
+  border-color: #666666;
+  margin: 0 0.2em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.progress .filled {
+  background: #0072b9 url('../images/drupal/progress.gif?1355806803');
+}
+
+tr.taxonomy-term-preview {
+  background-color: #eeeeee;
+}
+tr.taxonomy-term-divider-top {
+  border-bottom: none;
+}
+tr.taxonomy-term-divider-bottom {
+  border-top: 1px dotted #cccccc;
+}
+
+.taxonomy-term-description {
+  margin: 5px 0 20px;
+}
+
+body.toolbar {
+  padding-top: 2.2em;
+}
+body.toolbar-drawer {
+  padding-top: 5.3em;
+}
+
+/*
+ * Aggressive resets so we can achieve a consistent look in hostile CSS
+ * environments. */
+#toolbar {
+  border: 0;
+  font-size: 100%;
+  line-height: inherit;
+  list-style: none;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  /* LTR */
+  vertical-align: baseline;
+  background: #666666;
+  color: #cccccc;
+  font: normal small "Lucida Grande", Verdana, sans-serif;
+  left: 0;
+  margin: 0 -20px;
+  padding: 0 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  -moz-box-shadow: 0 3px 20px black;
+  -webkit-box-shadow: 0 3px 20px black;
+  box-shadow: 0 3px 20px black;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10');
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10')";
+  z-index: 600;
+}
+#toolbar * {
+  border: 0;
+  font-size: 100%;
+  line-height: inherit;
+  list-style: none;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  /* LTR */
+  vertical-align: baseline;
+}
+#toolbar div.collapsed {
+  display: none;
+  visibility: hidden;
+}
+#toolbar a {
+  color: white;
+  font-size: 0.846em;
+  text-decoration: none;
+}
+#toolbar ul li {
+  float: left;
+  /* LTR */
+}
+#toolbar ul li a {
+  float: left;
+  /* LTR */
+}
+#toolbar div.toolbar-menu {
+  background: black;
+  line-height: 20px;
+  padding: 5px 50px 5px 10px;
+  /* LTR */
+  position: relative;
+}
+
+/*
+ * Base styles.
+ *
+ * We use a keyword for the toolbar font size to make it display consistently
+ * across different themes, while still allowing browsers to resize the text. */
+/*
+ * Administration menu. */
+#toolbar-home a span {
+  background: url(toolbar.png) no-repeat 0 -45px;
+  display: block;
+  height: 14px;
+  margin: 3px 0px;
+  text-indent: -9999px;
+  vertical-align: text-bottom;
+  width: 11px;
+}
+
+#toolbar-user {
+  float: right;
+  /* LTR */
+}
+
+#toolbar-menu {
+  float: left;
+  /* LTR */
+}
+
+#toolbar div.toolbar-menu a.toggle {
+  background: url(toolbar.png) 0 -20px no-repeat;
+  bottom: 0;
+  cursor: pointer;
+  height: 25px;
+  overflow: hidden;
+  position: absolute;
+  right: 10px;
+  /* LTR */
+  text-indent: -9999px;
+  width: 25px;
+}
+#toolbar div.toolbar-menu a.toggle:focus, #toolbar div.toolbar-menu a.toggle:hover {
+  background-position: -50px -20px;
+}
+#toolbar div.toolbar-menu a.toggle-active {
+  background-position: -25px -20px;
+}
+#toolbar div.toolbar-menu a.toggle-active.toggle:focus, #toolbar div.toolbar-menu a.toggle-active.toggle:hover {
+  background-position: -75px -20px;
+}
+#toolbar div.toolbar-menu ul li a {
+  padding: 0 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#toolbar div.toolbar-menu ul li a:focus, #toolbar div.toolbar-menu ul li a:hover, #toolbar div.toolbar-menu ul li a:active {
+  background: #444444;
+}
+#toolbar div.toolbar-menu ul li a.active {
+  background: url(toolbar.png) 0 0 repeat-x;
+  text-shadow: #333333 0 1px 0;
+}
+#toolbar div.toolbar-menu ul li a.active:focus {
+  background: #444444;
+}
+#toolbar div.toolbar-menu ul li a.active:hover, #toolbar div.toolbar-menu ul li a.active:active {
+  background: url(toolbar.png) 0 0 repeat-x;
+  text-shadow: #333333 0 1px 0;
+}
+#toolbar div.toolbar-menu ul li.active-trail a {
+  background: url(toolbar.png) 0 0 repeat-x;
+  text-shadow: #333333 0 1px 0;
+}
+#toolbar div.toolbar-drawer {
+  position: relative;
+  padding: 0 10px;
+}
+
+/*
+ * Collapsed drawer of additional toolbar content. */
+/*
+ * IE 6 Fix.
+ *
+ * IE 6 shows elements with position:fixed as position:static so we replace
+ * it with position:absolute; toolbar needs its z-index to stay above overlay. */
+* html #toolbar {
+  left: -20px;
+  margin: 0;
+  padding-right: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.page-tracker td.replies {
+  text-align: center;
+}
+.page-tracker table {
+  width: 100%;
+}
+
+.update .project {
+  font-weight: bold;
+  font-size: 110%;
+  padding-left: 0.25em;
+  /* LTR */
+  height: 22px;
+}
+.update .version-status {
+  float: right;
+  /* LTR */
+  padding-right: 10px;
+  /* LTR */
+  font-size: 110%;
+  height: 20px;
+}
+.update .version-status .icon {
+  padding-left: 0.5em;
+  /* LTR */
+}
+.update .version-date {
+  white-space: nowrap;
+}
+.update .info {
+  margin: 0;
+  padding: 1em 1em 0.25em 1em;
+}
+.update tr.even, .update tr.odd {
+  border: none;
+}
+.update tr td {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+.update tr.error {
+  background: #ffcccc;
+}
+.update tr.error .version-recommended {
+  background: #ffdddd;
+}
+.update tr.ok {
+  background: #ddffdd;
+}
+.update tr.warning {
+  background: #ffffdd;
+}
+.update tr.warning .version-recommended {
+  background: #ffffee;
+}
+
+.current-version, .new-version {
+  direction: ltr;
+  /* Note: version numbers should always be LTR. */
+}
+
+.update tr.unknown {
+  background: #dddddd;
+}
+
+table.update {
+  width: 100%;
+  margin-top: 0.5em;
+  border: none;
+}
+
+.update table.version {
+  width: 100%;
+  margin-top: 0.5em;
+  border: none;
+}
+.update table.version tbody {
+  border: none;
+}
+.update table.version tr, .update table.version td {
+  line-height: 0.9em;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+.update table.version .version-title {
+  padding-left: 1em;
+  /* LTR */
+  width: 14em;
+}
+.update table.version .version-details {
+  padding-right: 0.5em;
+  /* LTR */
+}
+.update table.version .version-links {
+  text-align: right;
+  /* LTR */
+  padding-right: 1em;
+  /* LTR */
+}
+.update table.version-security .version-title {
+  color: #970f00;
+}
+.update table.version-recommended-strong .version-title {
+  font-weight: bold;
+}
+.update .security-error {
+  font-weight: bold;
+  color: #970f00;
+}
+.update .check-manually {
+  padding-left: 1em;
+  /* LTR */
+}
+
+.update-major-version-warning {
+  color: red;
+}
+
+table tbody tr.update-security, table tbody tr.update-unsupported {
+  background: #ffcccc;
+}
+
+th.update-project-name {
+  width: 50%;
+}
+
+#permissions td.module {
+  font-weight: bold;
+}
+#permissions td.permission {
+  padding-left: 1.5em;
+  /* LTR */
+}
+#permissions tr.odd .form-item, #permissions tr.even .form-item {
+  white-space: normal;
+}
+
+#user-admin-settings fieldset .fieldset-description {
+  font-size: 0.85em;
+  padding-bottom: 0.5em;
+}
+
+/*
+ * Override default textfield float to put the "Add role" button next to
+ * the input textfield. */
+#user-admin-roles td.edit-name {
+  clear: both;
+}
+#user-admin-roles .form-item-name {
+  float: left;
+  /* LTR */
+  margin-right: 1em;
+  /* LTR */
+}
+
+/*
+ * Password strength indicator. */
+.password-strength {
+  width: 17em;
+  float: right;
+  /* LTR */
+  margin-top: 1.4em;
+}
+
+.password-strength-title {
+  display: inline;
+}
+
+.password-strength-text {
+  float: right;
+  /* LTR */
+  font-weight: bold;
+}
+
+.password-indicator {
+  background-color: #c4c4c4;
+  height: 0.3em;
+  width: 100%;
+}
+.password-indicator div {
+  height: 100%;
+  width: 0%;
+  background-color: #47c965;
+}
+
+input.password-confirm, input.password-field {
+  width: 16em;
+  margin-bottom: 0.4em;
+}
+
+div.password-confirm {
+  float: right;
+  /* LTR */
+  margin-top: 1.5em;
+  visibility: hidden;
+  width: 17em;
+}
+div.form-item div.password-suggestions {
+  padding: 0.2em 0.5em;
+  margin: 0.7em 0;
+  width: 38.5em;
+  border: 1px solid #b4b4b4;
+}
+div.password-suggestions ul {
+  margin-bottom: 0;
+}
+
+.confirm-parent, .password-parent {
+  clear: left;
+  /* LTR */
+  margin: 0;
+  width: 36.3em;
+}
+
+/* Generated by user.module but used by profile.module: */
+.profile {
+  clear: both;
+  margin: 1em 0;
+}
+.profile .user-picture {
+  float: right;
+  /* LTR */
+  margin: 0 1em 1em 0;
+  /* LTR */
+}
+.profile h3 {
+  border-bottom: 1px solid #cccccc;
+}
+.profile dl {
+  margin: 0 0 1.5em 0;
+}
+.profile dt {
+  margin: 0 0 0.2em 0;
+  font-weight: bold;
+}
+.profile dd {
+  margin: 0 0 1em 0;
+}
