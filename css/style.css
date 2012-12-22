@@ -744,7 +744,7 @@ pre, code, kbd, tt {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: futura-pt-condensed, sans-serif;
+  font-family: futura-pt, sans-serif;
 }
 
 * {
@@ -1184,7 +1184,7 @@ h1.title {
   text-shadow: rgba(127, 54, 5, 0.5) 0 0 8px;
   margin: 0 auto;
   position: relative;
-  min-height: 80px;
+  height: 82px;
   -webkit-transform: skewY(-2deg);
   -moz-transform: skewY(-2deg);
   -ms-transform: skewY(-2deg);
@@ -1231,11 +1231,12 @@ h1.title:after {
     height: 100%;
     top: 0;
     background-color: transparent;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(33.6%, transparent), color-stop(33.6%, rgba(255, 255, 255, 0.1)), color-stop(46.6%, rgba(255, 255, 255, 0.1)), color-stop(46.6%, transparent), color-stop(49.6%, transparent), color-stop(49.6%, rgba(255, 255, 255, 0.3)), color-stop(53.6%, rgba(255, 255, 255, 0.3)), color-stop(53.6%, transparent), color-stop(56.6%, transparent), color-stop(56.6%, rgba(255, 255, 255, 0.1)), color-stop(71.6%, rgba(255, 255, 255, 0.1)), color-stop(71.6%, transparent));
-    background-image: -webkit-linear-gradient(top, transparent 33.6%, rgba(255, 255, 255, 0.1) 33.6%, rgba(255, 255, 255, 0.1) 46.6%, transparent 46.6%, transparent 49.6%, rgba(255, 255, 255, 0.3) 49.6%, rgba(255, 255, 255, 0.3) 53.6%, transparent 53.6%, transparent 56.6%, rgba(255, 255, 255, 0.1) 56.6%, rgba(255, 255, 255, 0.1) 71.6%, transparent 71.6%);
-    background-image: -moz-linear-gradient(top, transparent 33.6%, rgba(255, 255, 255, 0.1) 33.6%, rgba(255, 255, 255, 0.1) 46.6%, transparent 46.6%, transparent 49.6%, rgba(255, 255, 255, 0.3) 49.6%, rgba(255, 255, 255, 0.3) 53.6%, transparent 53.6%, transparent 56.6%, rgba(255, 255, 255, 0.1) 56.6%, rgba(255, 255, 255, 0.1) 71.6%, transparent 71.6%);
-    background-image: -o-linear-gradient(top, transparent 33.6%, rgba(255, 255, 255, 0.1) 33.6%, rgba(255, 255, 255, 0.1) 46.6%, transparent 46.6%, transparent 49.6%, rgba(255, 255, 255, 0.3) 49.6%, rgba(255, 255, 255, 0.3) 53.6%, transparent 53.6%, transparent 56.6%, rgba(255, 255, 255, 0.1) 56.6%, rgba(255, 255, 255, 0.1) 71.6%, transparent 71.6%);
-    background-image: linear-gradient(top, transparent 33.6%, rgba(255, 255, 255, 0.1) 33.6%, rgba(255, 255, 255, 0.1) 46.6%, transparent 46.6%, transparent 49.6%, rgba(255, 255, 255, 0.3) 49.6%, rgba(255, 255, 255, 0.3) 53.6%, transparent 53.6%, transparent 56.6%, rgba(255, 255, 255, 0.1) 56.6%, rgba(255, 255, 255, 0.1) 71.6%, transparent 71.6%);
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(30%, transparent), color-stop(30%, rgba(255, 255, 255, 0.1)), color-stop(45%, rgba(255, 255, 255, 0.1)), color-stop(45%, transparent), color-stop(48%, transparent), color-stop(48%, rgba(255, 255, 255, 0.3)), color-stop(52%, rgba(255, 255, 255, 0.3)), color-stop(52%, transparent), color-stop(55%, transparent), color-stop(55%, rgba(255, 255, 255, 0.1)), color-stop(70%, rgba(255, 255, 255, 0.1)), color-stop(70%, transparent));
+    background-image: -webkit-linear-gradient(top, transparent 30%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 45%, transparent 48%, rgba(255, 255, 255, 0.3) 48%, rgba(255, 255, 255, 0.3) 52%, transparent 52%, transparent 55%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0.1) 70%, transparent 70%);
+    background-image: -moz-linear-gradient(top, transparent 30%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 45%, transparent 48%, rgba(255, 255, 255, 0.3) 48%, rgba(255, 255, 255, 0.3) 52%, transparent 52%, transparent 55%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0.1) 70%, transparent 70%);
+    background-image: -o-linear-gradient(top, transparent 30%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 45%, transparent 48%, rgba(255, 255, 255, 0.3) 48%, rgba(255, 255, 255, 0.3) 52%, transparent 52%, transparent 55%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0.1) 70%, transparent 70%);
+    background-image: linear-gradient(top, transparent 30%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 45%, transparent 48%, rgba(255, 255, 255, 0.3) 48%, rgba(255, 255, 255, 0.3) 52%, transparent 52%, transparent 55%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0.1) 70%, transparent 70%);
+    border-radius: 45% 60% 60% 45%;
   }
 }
 h1.title + h2 {
@@ -1289,20 +1290,47 @@ nav ul {
   line-height: 1.2em;
 }
 
-i {
-  font-size: 1.25em;
-  line-height: 1.2em;
-  font-style: normal;
-  font-weight: bold;
+b {
+  font-style: italic;
+  font-weight: normal;
   position: relative;
-  top: 21px;
-  color: #5f6464;
+  color: #bfc8c8;
+  -webkit-transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  -o-transform: translateY(-4px);
+  transform: translateY(-4px);
+  display: inline-block;
+  background: white;
+  padding: 1px 0.5em;
+  background: white;
+  border: 1px solid #bfc8c8;
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+b:after {
+  content: "\0020";
+  position: absolute;
+  bottom: 0px;
+  right: -7px;
+  border: 1px solid #bfc8c8;
+  z-index: 1;
+  width: 6px;
+  height: 6px;
+  border-radius: 0 0 0 6px;
+  border-width: 0 0 1px 1px;
+  box-shadow: -2px 2px 0 white;
+}
+
+b + pre {
+  margin-top: -5px;
 }
 
 pre {
   background: white;
   padding: 0.5em;
-  border: 1px solid #effafa;
+  border: 1px solid #bfc8c8;
 }
 
 @media print {
