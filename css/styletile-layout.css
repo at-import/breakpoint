@@ -183,7 +183,7 @@
 .styletile .colors ul li:after {
   position: relative;
   top: 102%;
-  color: gray;
+  color: #78777b;
 }
 @media (max-width: 20.0625em) {
   .styletile .colors ul li {
