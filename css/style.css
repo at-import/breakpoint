@@ -1313,7 +1313,7 @@ b:after {
   content: "\0020";
   position: absolute;
   bottom: 0px;
-  right: -7px;
+  right: -6px;
   border: 1px solid #bfc8c8;
   z-index: 1;
   width: 6px;
