@@ -1350,6 +1350,9 @@ pre {
   -ms-transform: translateY(-47px) translateX(44px);
   -o-transform: translateY(-47px) translateX(44px);
   transform: translateY(-47px) translateX(44px);
+  -webkit-filter: drop-shadow(rgba(30, 29, 35, 0.3) 0 2px 4px);
+  -moz-filter: drop-shadow(rgba(30, 29, 35, 0.3) 0 2px 4px);
+  filter: drop-shadow(rgba(30, 29, 35, 0.3) 0 2px 4px);
 }
 @media (min-width: 600px) {
   #pitch > figure:nth-of-type(1):before {
