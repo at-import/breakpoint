@@ -1431,7 +1431,7 @@ pre {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  width: 34em;
+  width: 100%;
   height: 200px;
   border-bottom: 4px solid #ff6c0a;
   left: 50%;
