@@ -79,39 +79,39 @@
     </figure>
     <p>That just did two things that are really helpful. First, we reduced the media query down to the one value that really matters here, the min-width value. (You can also build complex queries and override the defaults. We&#8217;ll get to those.) And second, we gave that media query a meaningful name. And once we start calling media queries by name we can start managing them systematically. <span class='woah'>Whoa.</span></p>
     
-    <p>Let&#8217;s add a few more.</p>
+    <h3 id='lets_add_a_few_more'>Let&#8217;s add a few more.</h3>
     <figure>
     <figcaption>scss</figcaption>
     <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together with commas, assume each item is a feature value pair&#x000A;$surfboard-height: min-height 1000px, orientation portrait;&#x000A;$no-parachute: 1500px;&#x000A;</code></pre>
     </figure>
-    <p>Let&#8217;s look at each in turn.</p>
+    <h4 id='and_look_at_each_in_turn'>And look at each in turn.</h4>
     
     <ol>
     <li>
     <p><code>$high-tide</code> uses the defaults. Pass Breakpoint just a number and it assumes you want it to write a <strong>min-width</strong> query.</p>
     <figure>
-     <figcaption>scss</figcaption>
+     <figcaption>css</figcaption>
      <pre><code>&#x000A; @media (min-width: 500px) {&#x000A;   .reagan {&#x000A;     content: 'High tide';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </figure></li>
     
     <li>
     <p><code>$ex-presidents</code> is made up of two numbers. When Breakpoint sees that it will turn that into a <strong>min-width/max-width</strong> query.</p>
     <figure>
-     <figcaption>scss</figcaption>
+     <figcaption>css</figcaption>
      <pre><code>&#x000A; @media (min-width: 600px) and (max-width: 800px) {&#x000A;   .nixon {&#x000A;     content: 'Ex-Presidents';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </figure></li>
     
     <li>
     <p><code>$surfboard-width</code> is made up of a number and the name of a feature to test. Breakpoint will turn these into <strong>feature/value pairs</strong>.</p>
     <figure>
-     <figcaption>scss</figcaption>
+     <figcaption>css</figcaption>
      <pre><code>&#x000A; @media (max-width: 1000px) {&#x000A;   .johnson {&#x000A;     content: 'Surfboard Width';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </figure></li>
     
     <li>
     <p><code>$surfboard-height</code> has a feature/value pair, and adds a second non-numeric pair. Breakpoint can interpret <strong>text-based tests</strong> and can <strong>string together as many queries as you need</strong>.</p>
     <figure>
-     <figcaption>scss</figcaption>
+     <figcaption>css</figcaption>
      <pre><code>&#x000A; @media (min-height: 1000px) and (orientation: portrait) {&#x000A;   .carter {&#x000A;     content: 'Surfboard Height, Portrait';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </figure></li>
     </ol>
@@ -119,9 +119,8 @@
     <p>That&#8217;s the basics, but wait there&#8217;s more.</p>
     
     <p>Breakpoint also builds in special handling for <a href='tktktk'>device-pixel-ratio</a>, the ability to pass the <span>media query context</span> to your own custom mixins, and robust support for <a href='tktktk'>no query fallbacks</a>.</p>
-    <hr />
   </div>
-  <div class='section'>
+  <div class='section' id='get-started'>
     <h2 id='get_started'>Get Started</h2>
     
     <p>Breakpoint is a Compass extension, so make sure you have <a href='http://compass-style.org/install/'>Sass and Compass Installed</a> in order to use its awesomeness!</p>
@@ -174,7 +173,6 @@
     </ul>
     
     <p>PLEASE NOTE! If you&#8217;re a savvy reader, you&#8217;ll have noticed that we&#8217;ve not included <code>-o-device-pixel-ratio</code> as a prefixed option, and we would encourage you not to either. Opera has decided that <a href='http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/#device-pixel-ratio'>their implementation should be written as a fraction, not as a decimal</a>, and we are currently not prepared to support automatic conversion of decimals to fractions. This leaves us in the position of either supporting only fractions for unprefixed <code>device-pixel-ratio</code>, which is counter to the way the two largest browsers support the query, or suggesting that if you want to use <code>-o-device-pixel-ratio</code> that you write a separate media query for it, and we&#8217;ve chosen the later.</p>
-    <hr />
   </div>
   <div class='section' id='learn-more'>
     <h2 id='using_breakpoint'>Using Breakpoint</h2>

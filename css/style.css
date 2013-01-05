@@ -947,6 +947,24 @@ del {
   text-decoration: line-through;
 }
 
+#page {
+  max-width: 34em;
+}
+@media (min-width: 25em) {
+  #page {
+    max-width: 36em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  #page:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 #main-menu {
   margin: 0;
   padding: 0;
@@ -1126,7 +1144,7 @@ ul.inline, ul.inline li {
 }
 
 .breakpoint header {
-  max-width: 550px;
+  max-width: 34em;
   margin: 0 auto;
   padding: 0.5em 0;
   background: url('../images/point-break/no-chute.png?1356018355') no-repeat top center;
@@ -1162,11 +1180,6 @@ ul.inline, ul.inline li {
 
 .da-content {
   padding: 0 0.5em;
-}
-
-.breakpoint #page {
-  max-width: 550px;
-  margin: 0 auto;
 }
 
 h1.title {
@@ -1341,6 +1354,31 @@ pre {
   border: 1px solid #bfc8c8;
 }
 
+.section {
+  *zoom: 1;
+  border-bottom: 0.0625em solid #f4eaba;
+  margin-bottom: 2em;
+  padding-bottom: 1.9375em;
+}
+.section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.section:last-child {
+  padding-bottom: 0;
+  border-bottom-width: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 28.75em) {
+  #pitch > figure:nth-of-type(1) {
+    width: 47.22222%;
+    float: left;
+    margin-right: 5.55556%;
+    display: inline;
+  }
+}
 #pitch > figure:nth-of-type(1):before {
   position: absolute;
   content: "\0020";
@@ -1393,7 +1431,7 @@ pre {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  width: 550px;
+  width: 34em;
   height: 200px;
   border-bottom: 4px solid #ff6c0a;
   left: 50%;
@@ -1445,6 +1483,37 @@ pre {
     -o-transform: translateY(-56px) translateX(20px);
     transform: translateY(-56px) translateX(20px);
   }
+}
+
+#get-started > h2:first-of-type {
+  text-transform: uppercase;
+  font-weight: bold;
+  background: black;
+  color: #f9f7e0;
+  padding: 0 0.5em;
+  background-image: url('../images/point-break/bodhi-fire.gif?1357411079');
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 4em;
+  position: relative;
+}
+#get-started > h2:first-of-type:before, #get-started > h2:first-of-type:after {
+  position: absolute;
+  content: "\0020";
+  background: black;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+#get-started > h2:first-of-type:before {
+  left: -100%;
+}
+#get-started > h2:first-of-type:after {
+  right: -100%;
 }
 
 /**
