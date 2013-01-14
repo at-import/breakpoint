@@ -79,7 +79,7 @@ $breakpoint-medium-width-em: 30em;
 // set min-width/max-width if both values are numbers
 $breakpoint-medium-not-wide: 500px 700px;
 // set min/max of feature if there are two numbers
-$breakpoint-medium-height: 300px 700px 'height';
+$breakpoint-medium-height: height 300px 700px;
 // if one value is a string, assume a feature/value pair
 $breakpoint-kind-of-wide: min-width 700px;
 $breakpoint-not-too-wide: max-width 700px;
