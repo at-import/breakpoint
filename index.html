@@ -44,13 +44,18 @@
     <div class='main-navigation'>
       <nav>
         <ul>
-        <li><a href='#get_started'>Get Started</a></li>
-        
-        <li><a href='#advanced'>Advanced Features</a></li>
-        
-        <li><a href='#credits'>Credits</a></li>
-        
-        <li><a href='https://github.com/canarymason/breakpoint'>Contribute</a></li>
+          <li>
+            <a href='#get_started'>Get Started</a>
+          </li>
+          <li>
+            <a href='#advanced'>Advanced Features</a>
+          </li>
+          <li>
+            <a href='#credits'>Credits</a>
+          </li>
+          <li>
+            <a class='ss-icon' href='https://github.com/canarymason/breakpoint'>Octocat</a>
+          </li>
         </ul>
       </nav>
       
@@ -67,7 +72,7 @@
   <div class='section' id='pitch'>
     <p class='lead-in'>Breakpoint makes writing media queries in Sass super simple. <br /><span> Here's one:</span></p><div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-ex1' checked='' type='radio' id='tab-ex1-1' />
+    <input checked='' id='tab-ex1-1' name='tab-group-ex1' type='radio' />
     <label for='tab-ex1-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;$high-tide: 500px;&#x000A;</code></pre>
@@ -77,14 +82,14 @@
     <p>I told you it was simple. Check it out. You can use that variable in the Breakpoint mixin like this.</p>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-simple-use' checked='' type='radio' id='tab-simple-use-1' />
+    <input checked='' id='tab-simple-use-1' name='tab-group-simple-use' type='radio' />
     <label for='tab-simple-use-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;.johnny-utah {&#x000A;  @include breakpoint($high-tide) {&#x000A;    content: 'Whoa.';&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-simple-use' type='radio' id='tab-simple-use-2' />
+    <input id='tab-simple-use-2' name='tab-group-simple-use' type='radio' />
     <label for='tab-simple-use-2'>css</label>
     <div class='content'>
     <pre><code>&#x000A;@media (min-width: 500px) {&#x000A;  .johnny-utah {&#x000A;    content: 'Whoa.';&#x000A;  }&#x000A;}&#x000A;</code></pre>
@@ -96,7 +101,7 @@
     <h3 id='lets_add_a_few_more'>Let&#8217;s add a few more.</h3>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-variables' checked='' type='radio' id='tab-variables-1' />
+    <input checked='' id='tab-variables-1' name='tab-group-variables' type='radio' />
     <label for='tab-variables-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together with commas, assume each item is a feature value pair&#x000A;$surfboard-height: min-height 1000px, orientation portrait;&#x000A;$no-parachute: 1500px;&#x000A;</code></pre>
@@ -110,14 +115,14 @@
     <p><code>$high-tide</code> uses the defaults. Pass Breakpoint just a number and it assumes you want it to write a <strong>min-width</strong> query.</p>
     <div class='tabs voila'>
      <figure class='tab scss'>
-     <input name='tab-group-ex-hightide' checked='' type='radio' id='tab-ex-hightide-1' />
+     <input checked='' id='tab-ex-hightide-1' name='tab-group-ex-hightide' type='radio' />
      <label for='tab-ex-hightide-1'>scss</label>
      <div class='content'>
      <pre><code>&#x000A; .reagan {&#x000A;   @include breakpoint($high-tide) {&#x000A;     content: 'High tide';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </div>
      </figure>
      <figure class='tab css'>
-     <input name='tab-group-ex-hightide' type='radio' id='tab-ex-hightide-2' />
+     <input id='tab-ex-hightide-2' name='tab-group-ex-hightide' type='radio' />
      <label for='tab-ex-hightide-2'>css</label>
      <div class='content'>
      <pre><code>&#x000A; @media (min-width: 500px) {&#x000A;   .reagan {&#x000A;     content: 'High tide';&#x000A;   }&#x000A; }&#x000A; </code></pre>
@@ -129,14 +134,14 @@
     <p><code>$ex-presidents</code> is made up of two numbers. When Breakpoint sees that it will turn that into a <strong>min-width/max-width</strong> query.</p>
     <div class='tabs voila'>
      <figure class='tab scss'>
-     <input name='tab-group-ex-expresidents' checked='' type='radio' id='tab-ex-expresidents-1' />
+     <input checked='' id='tab-ex-expresidents-1' name='tab-group-ex-expresidents' type='radio' />
      <label for='tab-ex-expresidents-1'>scss</label>
      <div class='content'>
      <pre><code>&#x000A; .nixon {&#x000A;   @include breakpoint($ex-presidents) {&#x000A;     content: 'Ex-Presidents';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </div>
      </figure>
      <figure class='tab css'>
-     <input name='tab-group-ex-expresidents' type='radio' id='tab-ex-expresidents-2' />
+     <input id='tab-ex-expresidents-2' name='tab-group-ex-expresidents' type='radio' />
      <label for='tab-ex-expresidents-2'>css</label>
      <div class='content'>
      <pre><code>&#x000A; @media (min-width: 600px) and (max-width: 800px) {&#x000A;   .nixon {&#x000A;     content: 'Ex-Presidents';&#x000A;   }&#x000A; }&#x000A; </code></pre>
@@ -148,14 +153,14 @@
     <p><code>$surfboard-width</code> is made up of a number and the name of a feature to test. Breakpoint will turn these into <strong>feature/value pairs</strong>6</p>
     <div class='tabs voila'>
      <figure class='tab scss'>
-     <input name='tab-group-ex-surfboardwidth' checked='' type='radio' id='tab-ex-surfboardwidth-1' />
+     <input checked='' id='tab-ex-surfboardwidth-1' name='tab-group-ex-surfboardwidth' type='radio' />
      <label for='tab-ex-surfboardwidth-1'>scss</label>
      <div class='content'>
      <pre><code>&#x000A; .johnson {&#x000A;   @include breakpoint($surfboard-width) {&#x000A;     content: 'Surfboard Width';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </div>
      </figure>
      <figure class='tab css'>
-     <input name='tab-group-ex-surfboardwidth' type='radio' id='tab-ex-surfboardwidth-2' />
+     <input id='tab-ex-surfboardwidth-2' name='tab-group-ex-surfboardwidth' type='radio' />
      <label for='tab-ex-surfboardwidth-2'>css</label>
      <div class='content'>
      <pre><code>&#x000A; @media (max-width: 1000px) {&#x000A;   .johnson {&#x000A;     content: 'Surfboard Width';&#x000A;   }&#x000A; }&#x000A; </code></pre>
@@ -167,14 +172,14 @@
     <p><code>$surfboard-height</code> has a feature/value pair, and adds a second non-numeric pair. Breakpoint can interpret <strong>text-based tests</strong> and can <strong>string together as many queries as you need</strong>.</p>
     <div class='tabs voila'>
      <figure class='tab scss'>
-     <input name='tab-group-ex-surfboardheight' checked='' type='radio' id='tab-ex-surfboardheight-1' />
+     <input checked='' id='tab-ex-surfboardheight-1' name='tab-group-ex-surfboardheight' type='radio' />
      <label for='tab-ex-surfboardheight-1'>scss</label>
      <div class='content'>
      <pre><code>&#x000A; .carter {&#x000A;   @include breakpoint($surfboard-height) {&#x000A;     content: 'Surfboard Height, Portrait';&#x000A;   }&#x000A; }&#x000A; </code></pre>
      </div>
      </figure>
      <figure class='tab css'>
-     <input name='tab-group-ex-surfboardheight' type='radio' id='tab-ex-surfboardheight-2' />
+     <input id='tab-ex-surfboardheight-2' name='tab-group-ex-surfboardheight' type='radio' />
      <label for='tab-ex-surfboardheight-2'>css</label>
      <div class='content'>
      <pre><code>&#x000A; @media (min-height: 1000px) and (orientation: portrait) {&#x000A;   .carter {&#x000A;     content: 'Surfboard Height, Portrait';&#x000A;   }&#x000A; }&#x000A; </code></pre>
@@ -193,7 +198,7 @@
     <p>Breakpoint is a Compass extension, so make sure you have <a href='http://compass-style.org/install/'>Sass and Compass Installed</a> in order to use its awesomeness!</p>
     <div class='tabs voila'>
     <figure class='tab command-line'>
-    <input name='tab-group-install-sass' checked='' type='radio' id='tab-install-sass-1' />
+    <input checked='' id='tab-install-sass-1' name='tab-group-install-sass' type='radio' />
     <label for='tab-install-sass-1'>command line</label>
     <div class='content'>
     <pre><code>&#x000A;gem install sass&#x000A;</code></pre>
@@ -203,7 +208,7 @@
     <h2 id='install_and_add_breakpoint_to_your_project'>Install and Add Breakpoint to Your Project</h2>
     <div class='tabs voila'>
     <figure class='tab command-line'>
-    <input name='tab-group-install-breakpoint' checked='' type='radio' id='tab-install-breakpoint-1' />
+    <input checked='' id='tab-install-breakpoint-1' name='tab-group-install-breakpoint' type='radio' />
     <label for='tab-install-breakpoint-1'>command line</label>
     <div class='content'>
     <pre><code>&#x000A;gem install breakpoint&#x000A;</code></pre>
@@ -213,14 +218,14 @@
     <p>If creating a new project or adding to existing project, in config.rb</p>
     <div class='tabs too-long-two'>
     <figure class='tab commandline'>
-    <input name='tab-group-project' checked='' type='radio' id='tab-create-project-1' />
+    <input checked='' id='tab-create-project-1' name='tab-group-project' type='radio' />
     <label for='tab-create-project-1'>command line - new project</label>
     <div class='content'>
     <pre><code>&#x000A;compass create MY_PROJECT -r breakpoint&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab config-rb'>
-    <input name='tab-group-project' type='radio' id='tab-require-1' />
+    <input id='tab-require-1' name='tab-group-project' type='radio' />
     <label for='tab-require-1'>config.rb existing project</label>
     <div class='content'>
     <pre><code>&#x000A;require 'breakpoint'&#x000A;</code></pre>
@@ -230,7 +235,7 @@
     <p>Import the breakpoint partial at the top of your working file</p>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-import-breakpoint' checked='' type='radio' id='tab-import-breakpoint-1' />
+    <input checked='' id='tab-import-breakpoint-1' name='tab-group-import-breakpoint' type='radio' />
     <label for='tab-import-breakpoint-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;@import "breakpoint";&#x000A;</code></pre>
@@ -262,7 +267,7 @@
     <h3 id='first_we_set_up_our_breakpoint_variables'>First, we set up our breakpoint variables.</h3>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-all-variables' checked='' type='radio' id='tab-all-variables-1' />
+    <input checked='' id='tab-all-variables-1' name='tab-group-all-variables' type='radio' />
     <label for='tab-all-variables-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;// create $breakpoint variables like so&#x000A;// assume min-width (by default) if only a number&#x000A;$breakpoint-medium-width: 500px;&#x000A;$breakpoint-medium-width-em: 30em;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$breakpoint-medium-not-wide: 500px 700px;&#x000A;// set min/max of feature if there are two numbers&#x000A;$breakpoint-medium-height: height 300px 700px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$breakpoint-kind-of-wide: min-width 700px;&#x000A;$breakpoint-not-too-wide: max-width 700px;&#x000A;// for multidimensional lists, assume each item is a feature value pair&#x000A;$breakpoint-wide-portrait: max-width 700px, orientation portrait;&#x000A;// handle one-sided features (ie. monochrome)&#x000A;$breakpoint-wide-portrait-mono: max-width 700px, orientation portrait, monochrome;&#x000A;$breakpoint-mono: monochrome;&#x000A;$breakpoint-hi-rez: 2 device-pixel-ratio;&#x000A;</code></pre>
@@ -272,21 +277,21 @@
     <p>Call the mixin and pass one of your breakpoint variables. You can also call it with a la carte arguments.</p>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-all-variables-examples' checked='' type='radio' id='tab-all-variables-examples-1' />
+    <input checked='' id='tab-all-variables-examples-1' name='tab-group-all-variables-examples' type='radio' />
     <label for='tab-all-variables-examples-1'>scss</label>
     <div class='content'>
     <pre><code>&#x000A;.foo {&#x000A;  @include breakpoint($breakpoint-medium-width) {&#x000A;    content: 'medium widths';&#x000A;  }&#x000A;}&#x000A;.bar {&#x000A;  @include breakpoint($breakpoint-medium-width-em) {&#x000A;    content: 'medium widths measured in ems';&#x000A;  }&#x000A;}&#x000A;.baz {&#x000A;  @include breakpoint($breakpoint-medium-not-wide) {&#x000A;    content: 'medium, but not too wide';&#x000A;  }&#x000A;}&#x000A;.tgif {&#x000A; @include breakpoint($breakpoint-medium-height) {&#x000A;   content: 'medium heights';&#x000A; }&#x000A;}&#x000A;.omg {&#x000A;  @include breakpoint($breakpoint-kind-of-wide) {&#x000A;    content: 'kind of wide';&#x000A;  }&#x000A;}&#x000A;.wtf {&#x000A;  @include breakpoint($breakpoint-not-too-wide) {&#x000A;    content: 'not too wide';&#x000A;  }&#x000A;}&#x000A;.bbq {&#x000A;  @include breakpoint($breakpoint-wide-portrait) {&#x000A;    content: 'wide, portrait';&#x000A;  }&#x000A;}&#x000A;.zztop {&#x000A;  @include breakpoint($breakpoint-wide-portrait-mono) {&#x000A;    content: 'wide, portrait, monochrome';&#x000A;  }&#x000A;}&#x000A;.csny {&#x000A;  @include breakpoint($breakpoint-mono) {&#x000A;    content: 'monochrome';&#x000A;  }&#x000A;}&#x000A;.elp {&#x000A;  @include breakpoint($breakpoint-mono, print) {&#x000A;    content: 'monochrome, print';&#x000A;  }&#x000A;}&#x000A;.omgdpr {&#x000A; @include breakpoint($breakpoint-hi-rez) {&#x000A;  content: 'hi resolutions';&#x000A; }&#x000A;}&#x000A;&#x000A;// You can use breakpoint without variables too.&#x000A;.rhcp {&#x000A;  @include breakpoint(30em 40em) {&#x000A;    content: 'between 30 and 40ems';&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-all-variables-examples' type='radio' id='tab-all-variables-examples-2' />
+    <input id='tab-all-variables-examples-2' name='tab-group-all-variables-examples' type='radio' />
     <label for='tab-all-variables-examples-2'>css</label>
     <div class='content'>
     <pre><code>&#x000A;@media (min-width: 500px) {&#x000A;  .foo {&#x000A;    content: 'medium widths';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) {&#x000A;  .bar {&#x000A;    content: 'medium widths measured in ems';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 500px) and (max-width: 700px) {&#x000A;  .baz {&#x000A;    content: 'medium, but not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-height: 300px) and (max-height: 700px) {&#x000A;  .tgif {&#x000A;    content: 'medium heights';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 700px) {&#x000A;  .omg {&#x000A;    content: 'kind of wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) {&#x000A;  .wtf {&#x000A;    content: 'not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) {&#x000A;  .bbq {&#x000A;    content: 'wide, portrait';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) and (monochrome) {&#x000A;  .zztop {&#x000A;    content: 'wide, portrait, monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (monochrome) {&#x000A;  .csny {&#x000A;    content: 'monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media print and (monochrome) {&#x000A;  .elp {&#x000A;    content: 'monochrome, print';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (-webkit-device-pixel-ratio: 2) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (-moz-device-pixel-ratio: 2) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) and (max-width: 40em) {&#x000A;  .rhcp {&#x000A;    content: 'between 30 and 40ems';&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-all-variables-examples' type='radio' id='tab-all-variables-examples-3' />
+    <input id='tab-all-variables-examples-3' name='tab-group-all-variables-examples' type='radio' />
     <label for='tab-all-variables-examples-3'>css with `$breakpoint-to-ems: true;`</label>
     <div class='content'>
     <pre><code>&#x000A;@media (min-width: 31.25em) {&#x000A;  .foo {&#x000A;    content: 'medium widths';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) {&#x000A;  .bar {&#x000A;    content: 'medium widths measured in ems';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 31.25em) and (max-width: 43.75em) {&#x000A;  .baz {&#x000A;    content: 'medium, but not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-height: 18.75em) and (max-height: 43.75em) {&#x000A;  .tgif {&#x000A;    content: 'medium heights';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 43.75em) {&#x000A;  .omg {&#x000A;    content: 'kind of wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 43.75em) {&#x000A;  .wtf {&#x000A;    content: 'not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 43.75em) and (orientation: portrait) {&#x000A;  .bbq {&#x000A;    content: 'wide, portrait';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 43.75em) and (orientation: portrait) and (monochrome) {&#x000A;  .zztop {&#x000A;    content: 'wide, portrait, monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media print and (monochrome) {&#x000A;  .elp {&#x000A;    content: 'monochrome, print';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) and (max-width: 40em) {&#x000A;  .rhcp {&#x000A;    content: 'between 30 and 40ems';&#x000A;  }&#x000A;}&#x000A;</code></pre>
@@ -318,14 +323,14 @@
     <h3 id='wrapping_selector_same_stylesheet'>Wrapping Selector, Same Stylesheet</h3>
     <div class='tabs voila'>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-nowrap-same' checked='' type='radio' id='tab-noquery-nowrap-same-1' />
+    <input checked='' id='tab-noquery-nowrap-same-1' name='tab-group-noquery-nowrap-same' type='radio' />
     <label for='tab-noquery-nowrap-same-1'>style.scss</label>
     <div class='content'>
     <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: true;&#x000A;&#x000A;#foo {&#x000A;  background: red;&#x000A;  @include breakpoint(567px, $no-query: '.no-mqs') {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-noquery-nowrap-same' type='radio' id='tab-noquery-nowrap-same-2' />
+    <input id='tab-noquery-nowrap-same-2' name='tab-group-noquery-nowrap-same' type='radio' />
     <label for='tab-noquery-nowrap-same-2'>style.css</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;.no-mqs #foo {&#x000A;  background: green;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
@@ -335,35 +340,35 @@
     <h3 id='no_wrapping_selector_separate_stylesheet'>No Wrapping Selector, Separate Stylesheet</h3>
     <div class='tabs voila too-long-five'>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-nowrap-separate' checked='' type='radio' id='tab-noquery-nowrap-separate-1' />
+    <input checked='' id='tab-noquery-nowrap-separate-1' name='tab-group-noquery-nowrap-separate' type='radio' />
     <label for='tab-noquery-nowrap-separate-1'>_layout.scss</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;  @include breakpoint(567px, $no-query: true) {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-2' />
+    <input id='tab-noquery-nowrap-separate-2' name='tab-group-noquery-nowrap-separate' type='radio' />
     <label for='tab-noquery-nowrap-separate-2'>style.scss</label>
     <div class='content'>
     <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-3' />
+    <input id='tab-noquery-nowrap-separate-3' name='tab-group-noquery-nowrap-separate' type='radio' />
     <label for='tab-noquery-nowrap-separate-3'>no-mq.scss</label>
     <div class='content'>
     <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-4' />
+    <input id='tab-noquery-nowrap-separate-4' name='tab-group-noquery-nowrap-separate' type='radio' />
     <label for='tab-noquery-nowrap-separate-4'>style.css</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-5' />
+    <input id='tab-noquery-nowrap-separate-5' name='tab-group-noquery-nowrap-separate' type='radio' />
     <label for='tab-noquery-nowrap-separate-5'>no-mq.css</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
@@ -373,35 +378,35 @@
     <h3 id='wrapping_selector_separate_stylesheet'>Wrapping Selector, Separate Stylesheet</h3>
     <div class='tabs voila too-long-five'>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-wrap-separate' checked='' type='radio' id='tab-noquery-wrap-separate-1' />
+    <input checked='' id='tab-noquery-wrap-separate-1' name='tab-group-noquery-wrap-separate' type='radio' />
     <label for='tab-noquery-wrap-separate-1'>_layout.scss</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;  @include breakpoint(567px, $no-query: '.no-mq') {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-2' />
+    <input id='tab-noquery-wrap-separate-2' name='tab-group-noquery-wrap-separate' type='radio' />
     <label for='tab-noquery-wrap-separate-2'>style.scss</label>
     <div class='content'>
     <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
-    <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-3' />
+    <input id='tab-noquery-wrap-separate-3' name='tab-group-noquery-wrap-separate' type='radio' />
     <label for='tab-noquery-wrap-separate-3'>no-mq.scss</label>
     <div class='content'>
     <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-wrappers: true;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-4' />
+    <input id='tab-noquery-wrap-separate-4' name='tab-group-noquery-wrap-separate' type='radio' />
     <label for='tab-noquery-wrap-separate-4'>style.css</label>
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
-    <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-5' />
+    <input id='tab-noquery-wrap-separate-5' name='tab-group-noquery-wrap-separate' type='radio' />
     <label for='tab-noquery-wrap-separate-5'>no-mq.css</label>
     <div class='content'>
     <pre><code>&#x000A;.no-mq #foo {&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
@@ -425,8 +430,8 @@
           <a href='http://thecodingdesigner.com/'>Mason Wendell</a>
         </strong>
         <br>
-          <a href='https://github.com/canarymason/'>Octocat</a>
-          <a href='https://twitter.com/codingdesigner'>twitter</a>
+          <a class='ss-icon' href='https://github.com/canarymason/'>Octocat</a>
+          <a class='ss-icon' href='https://twitter.com/codingdesigner'>twitter</a>
         </br>
       </p>
       <div class='amp'>&</div>
@@ -435,22 +440,26 @@
           <a href='http://snugug.com/'>Sam Richard</a>
         </strong>
         <br>
-          <a href='https://github.com/snugug/'>Octocat</a>
-          <a href='https://twitter.com/snugug'>twitter</a>
+          <a class='ss-icon' href='https://github.com/snugug/'>Octocat</a>
+          <a class='ss-icon' href='https://twitter.com/snugug'>twitter</a>
         </br>
       </p>
     </div>
     <div class='other-contributors'>
       <p>With contributions from</p>
-      
       <ul>
-      <li><a href='https://github.com/robwierzbowski'>Rob Wierzbowski</a></li>
-      
-      <li><a href='https://github.com/lolmaus'>lolmaus</a></li>
-      
-      <li><a href='https://github.com/alanburke'>Alan Burke</a></li>
-      
-      <li><a href='https://github.com/adamstac'>Adam Stacoviak</a></li>
+        <li>
+          <a class='ss-octocat' href='https://github.com/robwierzbowski'>Rob Wierzbowski</a>
+        </li>
+        <li>
+          <a class='ss-octocat' href='https://github.com/lolmaus'>lolmaus</a>
+        </li>
+        <li>
+          <a class='ss-octocat' href='https://github.com/alanburke'>Alan Burke</a>
+        </li>
+        <li>
+          <a class='ss-octocat' href='https://github.com/adamstac'>Adam Stacoviak</a>
+        </li>
       </ul>
     </div>
     <div class='license'>
@@ -468,9 +477,19 @@
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
     <script src='/js/ss-social.js?v=1'></script>
     <script src='/js/ss-standard.js?v=1'></script>
+    <script src='/js/jquery.details.min.js?v=1'></script>
     <script src='/js/script.js?v=1'></script>
     <script src='/js/prism.js?v=1'></script>
     <script src='/js/kit/jPanelMenu-1.0.0.min.js?v=1'></script>
     <script src='/js/kit/kit-source.jquery.js?v=1'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        // Respond.js
+        yepnope({
+          test : Modernizr.mq('(only all)'),
+          nope : ['/js/libs/respond.min.js']
+        });
+      //]]>
+    </script>
   </body>
 </html>

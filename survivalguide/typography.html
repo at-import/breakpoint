@@ -200,9 +200,19 @@
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
     <script src='/js/ss-social.js?v=1'></script>
     <script src='/js/ss-standard.js?v=1'></script>
+    <script src='/js/jquery.details.min.js?v=1'></script>
     <script src='/js/script.js?v=1'></script>
     <script src='/js/prism.js?v=1'></script>
     <script src='/js/kit/jPanelMenu-1.0.0.min.js?v=1'></script>
     <script src='/js/kit/kit-source.jquery.js?v=1'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        // Respond.js
+        yepnope({
+          test : Modernizr.mq('(only all)'),
+          nope : ['/js/libs/respond.min.js']
+        });
+      //]]>
+    </script>
   </body>
 </html>

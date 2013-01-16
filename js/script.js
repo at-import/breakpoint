@@ -2,6 +2,7 @@
 *  [your name here]
 */
 
+// fix heights and spacing on tab groups
 $(document).ready(function(){
   $('html').addClass('tabs-processed');
   $tabs = $('.tabs');
@@ -29,4 +30,9 @@ $(document).ready(function(){
       fix_tabs_min_height($(el));
     });
   });
+});
+
+// <details> polyfill
+$(document).ready(function(){
+  $('details').details();
 });

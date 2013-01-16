@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 &lt;details> fallback using jQuery: demo</title>
+		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<style>
+			details, summary { display: block; border: 1px solid #666; padding: 1em; }
+			/* Apply a pointer cursor and style the background upon hover to indicate <summary> is a clickable element. */
+			/* These styles can be applied regardless of whether the fallback is needed */
+			summary { cursor: pointer; }
+			summary:hover, summary:focus { background: #ddd; }
+
+			/* The following styles are not really needed, since the jQuery script takes care of hiding/displaying the elements. */
+			/* However, we’re still gonna use CSS as well to prevent FOUC in browsers that understand these selectors. */
+			/* Remember: by default (and probably most of the time), the contents of the <details> element are hidden. */
+			.no-details details > * { display: none; }
+			/* This doesn’t work very well in Firefox 3.6.x */
+			/* .no-details details[open] > * { display: block; } */
+			/* The following doesn’t toggle correctly in WebKit:
+			.no-details details > summary:before { content: '► '; }
+			.no-details details[open] > summary:before { content: '▼ '; }
+			*/
+			/* And yes, it should really be ::before, but that doesn’t work in IE8 */
+			.no-details details > summary:before { float: left; width: 20px; content: '► '; }
+			.no-details details.open > summary:before { content: '▼ '; }
+			/* For IE6 and IE7, who don’t support generated content, you could use padding-left + a background image instead */
+			/* I really couldn’t be bothered though. */
+			/*
+			.no-details details > summary { padding-left: 20px; background: url(img/arrow-sprite.png) no-repeat 0 0; }
+			.no-details details.open > summary { background-position: 0 -20px; }
+			*/
+			/* Make sure summary remains visible */
+			.no-details details summary { display: block; }
+		</style>
+	</head>
+	<body>
+		<p>See <a href="http://mathiasbynens.be/notes/html5-details-jquery" title="HTML5 &lt;details> fallback with jQuery">HTML5 <code>&lt;details></code> fallback with jQuery</a>.</p>
+		<!-- Example taken from http://www.w3.org/TR/html5/interactive-elements.html#the-details-element -->
+		<section class="progress window">
+			<h1>Copying “Really Achieving Your Childhood Dreams” (<code>details</code> with <code>summary</code>)</h1>
+			<details>
+				<summary>Copying… <progress max="375505392" value="97543282"></progress> 25%</summary>
+				<dl>
+					<dt>Transfer rate:</dt>
+					 <dd>452KB/s</dd>
+					<dt>Local filename:</dt>
+					 <dd>/home/rpausch/raycd.m4v</dd>
+					<dt>Remote filename:</dt>
+					 <dd>/var/www/lectures/raycd.m4v</dd>
+					<dt>Duration:</dt>
+					 <dd>01:16:27</dd>
+					<dt>Color profile:</dt>
+					 <dd>SD (6-1-6)</dd>
+					<dt>Dimensions:</dt>
+					 <dd>320×240</dd>
+				</dl>
+			</details>
+		</section>
+		<!-- Same example, but now without a <summary> -->
+		<!-- Note that omitting the <summary> element results in invalid HTML, and prevents the custom open/close events from firing in browsers that natively support `<details>`. Don’t do this! -->
+		<section class="progress window">
+			<h1>Copying “Really Achieving Your Childhood Dreams” (<code>details</code> without <code>summary</code> — this is invalid HTML!)</h1>
+			<details>
+				<dl>
+					<dt>Transfer rate:</dt>
+					 <dd>452KB/s</dd>
+					<dt>Local filename:</dt>
+					 <dd>/home/rpausch/raycd.m4v</dd>
+					<dt>Remote filename:</dt>
+					 <dd>/var/www/lectures/raycd.m4v</dd>
+					<dt>Duration:</dt>
+					 <dd>01:16:27</dd>
+					<dt>Color profile:</dt>
+					 <dd>SD (6-1-6)</dd>
+					<dt>Dimensions:</dt>
+					 <dd>320×240</dd>
+				</dl>
+			</details>
+		</section>
+		<!-- Same example, but now without the `open` attribute -->
+		<section class="progress window">
+			<h1>Copying “Really Achieving Your Childhood Dreams” (<code>details</code> with <code>open</code> attribute)</h1>
+			<details open>
+				<summary>Copying… <progress max="375505392" value="97543282"></progress> 25%</summary>
+				<dl>
+					<dt>Transfer rate:</dt>
+					 <dd>452KB/s</dd>
+					<dt>Local filename:</dt>
+					 <dd>/home/rpausch/raycd.m4v</dd>
+					<dt>Remote filename:</dt>
+					 <dd>/var/www/lectures/raycd.m4v</dd>
+					<dt>Duration:</dt>
+					 <dd>01:16:27</dd>
+					<dt>Color profile:</dt>
+					 <dd>SD (6-1-6)</dd>
+					<dt>Dimensions:</dt>
+					 <dd>320×240</dd>
+				</dl>
+			</details>
+		</section>
+		<!-- <details> element containing only text, as requested by Shelley Powers -->
+		<!-- Note that omitting the <summary> element results in invalid HTML, and prevents the custom open/close events from firing in browsers that natively support `<details>`. Don’t do this! -->
+		<section>
+			<h1><code>details</code> element containing only text</h1>
+			<details>
+				Test
+			</details>
+		</section>
+		<!-- <details> element containing some direct child text nodes in addition to other children -->
+		<!-- Note that omitting the <summary> element results in invalid HTML, and prevents the custom open/close events from firing in browsers that natively support `<details>`. Don’t do this! -->
+		<section>
+			<h1><code>details</code> element containing some children and some child text nodes</h1>
+			<details>
+				<!-- An HTML comment -->
+				<p>Foo</p>
+				<!-- Another HTML comment -->
+				Bar
+				<p>Baz<!-- Another HTML comment --></p>
+				Inga
+			</details>
+		</section>
+		<section>
+			<h1>Nested <code>details</code> elements</h1>
+			<details>
+				<summary>Nested</summary>
+				<details>
+					<summary>Nested</summary>
+					<p>lolwat</p>
+					<details>
+						<summary>Nested</summary>
+						<p>lolwat</p>
+					</details>
+				</details>
+				<details>
+					<summary>Nested</summary>
+					<p>lolwat</p>
+				</details>
+				<details>
+					<summary>Nested</summary>
+					<p>lolwat</p>
+				</details>
+				<p>lolwat</p>
+			</details>
+		</section>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="jquery.details.js"></script>
+		<script>
+			window.console || (window.console = { 'log': alert });
+			$(function() {
+
+				// Add conditional classname based on support
+				$('html').addClass($.fn.details.support ? 'details' : 'no-details');
+
+				// Show a message based on support
+				$('body').prepend($.fn.details.support ? 'Native support detected; the plugin will only add ARIA annotations and fire custom open/close events.' : 'Emulation active; you are watching the plugin in action!');
+
+				// Emulate <details> where necessary and enable open/close event handlers
+				$('details').details();
+
+				// Bind some example event handlers
+				$('details').on({
+					'open.details': function() {
+						console.log('opened');
+					},
+					'close.details': function() {
+						console.log('closed');
+					}
+				});
+
+			});
+		</script>
+	</body>
+</html>
