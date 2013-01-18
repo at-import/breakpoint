@@ -282,6 +282,17 @@ $breakpoint-base-font-size: false;
 @function bp-feature-print($feature, $value) {
   $string: '';
 
+  // If media hasn't been set, then we set to default.
+  @if $media == false {
+    $media: $breakpoint-default-media;
+  }
+
+  @if $media != 'all' or $breakpoint-force-media-all {
+    // Print out the media bit first.
+    $query: unquote("#{$media} ");
+  }
+
+
   // TODO: Add in the handling for prefixes here.
 
   @if $feature != 'monochrome' {
