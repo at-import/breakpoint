@@ -1,9 +1,3 @@
 .foo {
   background-color: gainsboro;
-  /* no-query */
-  background-color: cyan;
-}
-.no-query .foo {
-  /* no-query-wrapper */
-  background-color: bisque;
 }

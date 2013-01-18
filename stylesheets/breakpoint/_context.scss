@@ -21,14 +21,44 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 // Private function to set context
 //////////////////////////////
 @function U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value) {
+
   @if $value == 'monochrome' {
     $feature: 'monochrome';
   }
 
-  $append: $feature;
-  $append: join($append, $value, space);
+  $holder: () !default;
+  $swap: false;
 
-  $TXkgdmFyaWFibGUhIEdvIGF3YXkh: append($TXkgdmFyaWFibGUhIEdvIGF3YXkh, $append, comma);
+  @if length($TXkgdmFyaWFibGUhIEdvIGF3YXkh) > 0 {
+    @each $item in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+      @if nth($item, 1) == $feature {
+        $append: $feature;
+        $append: join($append, $value, space);
+
+        $holder: append($holder, $append, comma);
+
+        $swap: true;
+      }
+      @else {
+        $holder: append($holder, $item, comma);
+      }
+    }
+
+    @if not $swap {
+      $append: $feature;
+      $append: join($append, $value, space);
+
+      $holder: append($holder, $append, comma);
+    }
+
+    $TXkgdmFyaWFibGUhIEdvIGF3YXkh: $holder;
+  }
+  @else {
+    $append: $feature;
+    $append: join($append, $value, space);
+
+    $TXkgdmFyaWFibGUhIEdvIGF3YXkh: append($TXkgdmFyaWFibGUhIEdvIGF3YXkh, $append, comma);
+  }
 
   @return true;
 }

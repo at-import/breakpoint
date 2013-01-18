@@ -105,11 +105,11 @@ $breakpoint-em-1: 30em;
     width: breakpoint-get-context('min-width');
     @include my-background;
   }
-  @include breakpoint($breakpoint2, $no-query: true) {
+  @include breakpoint($breakpoint2) {
     /* no-query */
     background-color: cyan;
   }
-  @include breakpoint($breakpoint2, $no-query: ".no-query") {
+  @include breakpoint($breakpoint2) {
     /* no-query-wrapper */
     background-color: bisque;
   }
@@ -175,9 +175,9 @@ $breakpoint-em-1: 30em;
     /* use $base-font-size to calculate breakpoint-to-ems */
     background: papayawhip;
   }
-  // @include breakpoint($breakpoint-fail1) {
-  //   background: hotpink;
-  // }
+  @include breakpoint($breakpoint-fail1) {
+     background: hotpink;
+  }
   // @include breakpoint($breakpoint-fail2) {
   //   background: indianred;
   // }
