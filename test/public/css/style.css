@@ -68,12 +68,12 @@
     background: firebrick;
   }
 }
-@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min-width: 1) and (max-width: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 43.75em) and (max-width: 2) and (monochrome) and (orientation: portrait) and (resolution: 192dpi) {
   .foo {
     /* stack a ton of features */
     background: bkptSuper;
-    breakpoint-get-context-min-width: 31.25em;
-    breakpoint-get-context-max-width: 37.5em;
+    breakpoint-get-context-min-width: 43.75em;
+    breakpoint-get-context-max-width: 2;
     breakpoint-get-context-max-height: 25em;
     breakpoint-get-context-height: false;
     breakpoint-get-context-monochrome: monochrome;
@@ -104,5 +104,10 @@
   .foo {
     /* use $base-font-size to calculate breakpoint-to-ems */
     background: papayawhip;
+  }
+}
+@media (device-pixel-ratio: 1), (-webkit-device-pixel-ratio: 1), (-moz-device-pixel-ratio: 1) {
+  .foo {
+    background: hotpink;
   }
 }

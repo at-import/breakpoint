@@ -24,6 +24,7 @@ $breakpoint-base-font-size: false;
 // Breakpoint Mixin
 //////////////////////////////
 @mixin breakpoint($breakpoint, $base-font-size: $breakpoint-base-font-size) {
+  $query: '' !default;
 
   // Reset Context
   @include TXkgcmVzZXQhIEdvIGF3YXkh;
@@ -38,8 +39,20 @@ $breakpoint-base-font-size: false;
     }
   }
 
+  @if breakpoint-prefix-needed() {
+    // We will need to run this several times to do each prefixing.
+    $query:  bp-print();
 
-  $query:  bp-print();
+    @each $prefix in $breakpoint-prefixes {
+      $prefixed_query: bp-print($prefix);
+
+      $query: $query + unquote(", #{$prefixed_query}");
+    }
+  }
+  @else {
+    // This is a simple media query without prefixing.
+    $query:  bp-print();
+  }
 
   $no-query: breakpoint-get-context('no query');
 
@@ -73,6 +86,18 @@ $breakpoint-base-font-size: false;
   @include TXkgcmVzZXQhIEdvIGF3YXkh;
 }
 
+@function breakpoint-prefix-needed() {
+
+  @each $breakpoint in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+    $feature: first_value_of($breakpoint);
+
+    @if featureExists($feature, $breakpoint-prefixed-queries) {
+      @return true;
+    }
+  }
+
+  @return false;
+}
 
 @function bp-generate($breakpoint, $base-font-size) {
 
@@ -171,20 +196,6 @@ $breakpoint-base-font-size: false;
         $value: nth($breakpoint, 1);
       }
 
-      @if $feature == 'device-pixel-ratio' or $feature == 'min-device-pixel-ratio' or $feature == 'max-device-pixel-ratio' {
-        $feature: breakpoint-experimental($feature, $prefix);
-        //$value: 96 * $value * 1dpi;
-        //        @if $feature == 'device-pixel-ratio' {
-        //          $feature: 'resolution';
-        //        }
-        //        @else if $feature == 'min-device-pixel-ratio' {
-        //          $feature: 'min-resolution';
-        //        }
-        //        @else if $feature == 'max-device-pixel-ratio' {
-        //          $feature: 'max-resolution';
-        //        }
-      }
-
       // If EM Breakpoints are active, do it!
       @if $breakpoint-to-ems and type-of($value) == 'number' {
         $value: breakpoint-to-base-em($value, $base-font-size);
@@ -250,10 +261,15 @@ $breakpoint-base-font-size: false;
   @return true;
 }
 
-@function bp-print() {
+@function bp-print($prefix: false) {
   $query: '' !default;
 
   $media:  breakpoint-get-context('media');
+
+  // If media hasn't been set, then we set to default.
+  @if $media == false {
+    $media: $breakpoint-default-media;
+  }
 
   @if $media != 'all' or $breakpoint-force-media-all {
     // Print out the media bit first.
@@ -270,7 +286,7 @@ $breakpoint-base-font-size: false;
       @if $query != '' {
         $query: $query + unquote("and ");
       }
-      $query: $query + bp-feature-print($feature, $value);
+      $query: $query + bp-feature-print($feature, $value, $prefix);
 
     }
   }
@@ -279,28 +295,16 @@ $breakpoint-base-font-size: false;
 }
 
 
-@function bp-feature-print($feature, $value) {
-  $string: '';
+@function bp-feature-print($feature, $value, $prefix) {
 
-  // If media hasn't been set, then we set to default.
-  @if $media == false {
-    $media: $breakpoint-default-media;
+  @if (featureExists($feature, $breakpoint-prefixed-queries) and $prefix) {
+    $prefix_feature: breakpoint-experimental($feature, $prefix);
+    @return unquote("(#{$prefix_feature}: #{$value}) ");
   }
-
-  @if $media != 'all' or $breakpoint-force-media-all {
-    // Print out the media bit first.
-    $query: unquote("#{$media} ");
-  }
-
-
-  // TODO: Add in the handling for prefixes here.
-
-  @if $feature != 'monochrome' {
-    $string: unquote("(#{$feature}: #{$value}) ");
+  @else if $feature != 'monochrome' {
+    @return unquote("(#{$feature}: #{$value}) ");
   }
   @else {
-    $string: unquote("(#{$value}) ");
+    @return unquote("(#{$value}) ");
   }
-
-  @return $string;
 }
