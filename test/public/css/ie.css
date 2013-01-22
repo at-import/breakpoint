@@ -1,9 +1,70 @@
-.foo {
-  background-color: gainsboro;
-  /* no-query */
-  background-color: cyan;
+/*
+ * Assume $breakpoint-default-feature
+ * if only a number
+ * $single-pixel-value: 500px;
+ * $single-em-value: 30em;
+ */
+/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+/*
+ * Set min/max of feature
+ * if there are two numbers and a feature
+ * $feature-min-max : height 300px 700px;
+ * $min-max-feature : 300px 700px height;
+ * $invalid-feature-min-max : lion 300px 700px;
+ */
+/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : max-width 700px, orientation portrait;
+ */
+/*
+ * Device-pixel-ratio conversion,
+ * $dpr-min-max : device-pixel-ratio 1.5 1;
+ * $min-max-dpr : 1.5 1 device-pixel-ratio;
+ * $min-dpr : min-device-pixel-ratio 2;
+ * $dpr-min : 2 min-device-pixel-ratio;
+ * $namespace-dpr : -webkit-device-pixel-ratio 3;
+ */
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $multidimensional-plus-one-sided : max-width 700px, orientation portrait, monochrome;
+ */
+/*
+ * Large, Complex Media Query
+ * $complex : 300px 400px "height", 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 192dpi resolution;
+ */
+/*
+ * Override $base-font-size
+ * for calculating breakpoint-to-ems
+ * $override-base-font-size : 30em;
+ */
+/*
+ * Get context
+ * $get-context-test-value : 500px;
+ * $get-context-test-value-complex : 300px 400px "height", 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 192dpi resolution;
+ */
+/*
+ * No Query Options
+ * $no-query-test-value : 500px;
+ */
+.test-media-query-support {
+  content: 'style before the media query';
+  content: '$no-query: true';
+  content: 'style within a media query, also intended for non-mq browsers';
 }
-.no-query .foo {
-  /* no-query-wrapper */
-  background-color: bisque;
+.no-query .test-media-query-support {
+  content: '$no-query: ".no-query"';
+  content: 'style within a media query, also nested in a .no-query selector';
 }
