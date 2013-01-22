@@ -1,112 +1,246 @@
-.foo {
-  background-color: gainsboro;
-}
+/*
+ * Assume $breakpoint-default-feature
+ * if only a number
+ * $single-pixel-value: 500px;
+ * $single-em-value: 30em;
+ */
 @media (min-width: 31.25em) {
-  .foo {
-    /* simple breakpoint */
-    background-color: crimson;
-  }
-}
-@media (min-width: 31.25em) {
-  .foo {
-    /* breakpoint-get-context */
-    width: 31.25em;
-    background: purple;
+  .breakpoint-default-feature {
+    content: '$single-pixel-value';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (min-width: 31.25em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (min-width: 500px)';
   }
 }
 @media (min-width: 30em) {
-  .foo {
-    /* no-query */
-    background-color: cyan;
+  .breakpoint-default-feature {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
   }
 }
-.no-query .foo {
-  /* no-query-wrapper */
-  background-color: bisque;
-}
-@media (min-width: 30em) {
-  .foo {
-    /* no-query-wrapper */
-    background-color: bisque;
+
+/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+@media (height: 31.25em) {
+  .feature-value-pair {
+    content: '$feature-first';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (height: 31.25em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (height: 500px)';
   }
 }
 @media (height: 31.25em) {
-  .foo {
-    /* single value with feature */
-    background-color: crimson;
+  .feature-value-pair {
+    content: '$value-first';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (height: 31.25em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (height: 500px)';
   }
 }
 @media (lion: 31.25em) {
-  .foo {
-    /* single value with arbitrary feature */
-    background-color: blanchedalmond;
-  }
-}
-@media (min-width: 31.25em) and (max-width: 43.75em) {
-  .foo {
-    /* min-width/max-width */
-    background: blueviolet;
-  }
-}
-@media (min-height: 18.75em) and (max-height: 43.75em) {
-  .foo {
-    /* min/max of feature */
-    background: burlywood;
-  }
-}
-@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 1.5) {
-  .foo {
-    /* device-pixel-ratio conversion silliness */
-    background: cornflowerblue;
+  .feature-value-pair {
+    content: '$arbitrary-feature';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (lion: 31.25em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (lion: 500px)';
   }
 }
 @media (orientation: portrait) {
-  .foo {
-    /* single value with keyword feature */
-    background: darkorchid;
+  .feature-value-pair {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
   }
 }
+
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .min-max-default-feature {
+    content: '$min-max-default-feature';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+
+/*
+ * Set min/max of feature
+ * if there are two numbers and a feature
+ * $feature-min-max : height 300px 700px;
+ * $min-max-feature : 300px 700px height;
+ * $invalid-feature-min-max : lion 300px 700px;
+ */
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature {
+    content: '$feature-min-max';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (min-height: 300px) and (max-height: 700px)';
+  }
+}
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature {
+    content: '$min-max-feature';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (min-height: 300px) and (max-height: 700px)';
+  }
+}
+
+/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : max-width 700px, orientation portrait;
+ */
 @media (max-width: 43.75em) and (orientation: portrait) {
-  .foo {
-    /* multidimensional lists, assume each item is a feature value pair */
-    background: firebrick;
+  .multidimensional {
+    content: '$multidimensional';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (max-width: 43.75em) and (orientation: portrait)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
   }
 }
-@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi), (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
-  .foo {
-    /* stack a ton of features */
-    background: bkptSuper;
-    breakpoint-get-context-min-width: 31.25em;
-    breakpoint-get-context-max-width: 37.5em;
-    breakpoint-get-context-max-height: 25em;
-    breakpoint-get-context-height: false;
-    breakpoint-get-context-monochrome: monochrome;
-    breakpoint-get-context-orientation: portrait;
-    breakpoint-get-context-resolution: 192dpi;
-    breakpoint-get-context--webkit-max-device-pixel-ratio: 2;
+
+/*
+ * Device-pixel-ratio conversion,
+ * $dpr-min-max : device-pixel-ratio 1.5 1;
+ * $min-max-dpr : 1.5 1 device-pixel-ratio;
+ * $min-dpr : min-device-pixel-ratio 2;
+ * $dpr-min : 2 min-device-pixel-ratio;
+ * $namespace-dpr : -webkit-device-pixel-ratio 3;
+ */
+@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 1.5) {
+  .device-pixel-ratio {
+    content: '$dpr-min-max';
+    content: '@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 1.5)';
   }
 }
-@media (min-width: 18.75em) {
-  .foo {
-    /* minwidth (or default) */
-    background: ghostwhite;
+@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 1.5) {
+  .device-pixel-ratio {
+    content: '$min-max-dpr';
+    content: '@media (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 1.5)';
   }
 }
-@media (height: 18.75em) {
-  .foo {
-    /* feature value pair */
-    background: goldenrod;
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .device-pixel-ratio {
+    content: '$min-dpr';
+    content: '@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
   }
 }
+@media (-webkit-device-pixel-ratio: 3) {
+  .device-pixel-ratio {
+    content: '$namespace-dpr';
+    content: '@media (-webkit-device-pixel-ratio: 3)';
+  }
+}
+
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $multidimensional-plus-one-sided : max-width 700px, orientation portrait, monochrome;
+ */
 @media (monochrome) {
-  .foo {
-    /* monochrome */
-    background: honeydew;
+  .one-sided {
+    content: '$monochrome';
+    content: '@media (monochrome)';
   }
 }
+@media (max-width: 43.75em) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: '$multidimensional-plus-one-sided';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (max-width: 43.75em) and (orientation: portrait) and (monochrome)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (max-width: 700px) and (orientation: portrait) and (monochrome)';
+  }
+}
+
+/*
+ * Large, Complex Media Query
+ * $complex : 300px 400px "height", 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 700px, 192dpi resolution;
+ */
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi), (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi) {
+  .complex {
+    content: '$complex';
+    content: 'if $breakpoint-to-ems: true';
+    content: '@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi), (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 43.75em) and (resolution: 192dpi)';
+    content: 'if $breakpoint-to-ems: false';
+    content: '@media (min-height: 300px) and (max-height: 400px) and (min-width: 500px) and (max-width: 600px) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (min-width: 700px) and (resolution: 192dpi), (min-height: 300px) and (max-height: 400px) and (min-width: 500px) and (max-width: 600px) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (min-width: 700px) and (resolution: 192dpi)';
+  }
+}
+
+/*
+ * Override $base-font-size
+ * for calculating breakpoint-to-ems
+ * $override-base-font-size : 30em;
+ */
 @media (min-width: 34.28571em) {
-  .foo {
-    /* use $base-font-size to calculate breakpoint-to-ems */
-    background: papayawhip;
+  .override-base-font-size {
+    content: '$override-base-font-size, $base-font-size: 14px';
+    content: '@media (min-width: 34.28571em)';
+  }
+}
+
+/*
+ * Get context
+ * $get-context-test-value : 500px;
+ * $get-context-test-value-complex : 300px 400px "height", 500px 600px, monochrome, orientation portrait, 1 2 device-pixel-ratio, 192dpi resolution;
+ */
+@media (min-width: 31.25em) {
+  .get-context {
+    content: '$get-context-test-value';
+    content: "breakpoint-get-context('min-width'):; 31.25em";
+  }
+}
+@media (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-max-device-pixel-ratio: 2) and (resolution: 192dpi), (min-height: 18.75em) and (max-height: 25em) and (min-width: 31.25em) and (max-width: 37.5em) and (monochrome) and (orientation: portrait) and (min--moz-device-pixel-ratio: 1) and (max--moz-device-pixel-ratio: 2) and (resolution: 192dpi) {
+  .get-context {
+    content: '$get-context-test-value-complex';
+    content: "breakpoint-get-context('min-height') - 18.75em";
+    content: "breakpoint-get-context('max-height') - 25em";
+    content: "breakpoint-get-context('min-width') - 31.25em";
+    content: "breakpoint-get-context('max-width') - 37.5em";
+    content: "breakpoint-get-context('monochrome') - monochrome";
+    content: "breakpoint-get-context('orientation') - portrait";
+    content: "breakpoint-get-context('-webkit-max-device-pixel-ratio') - 2";
+    content: "breakpoint-get-context('resolution') - 192dpi";
+    /* @mixin my-background */
+    /* $min-width-context > 30em */
+    background: purple;
+  }
+}
+
+/*
+ * No Query Options
+ * $no-query-test-value : 500px;
+ */
+.test-media-query-support {
+  content: 'style before the media query';
+}
+@media (min-width: 31.25em) {
+  .test-media-query-support {
+    content: '$no-query: true';
+    content: 'style within a media query, also intended for non-mq browsers';
+  }
+}
+@media (min-width: 31.25em) {
+  .test-media-query-support {
+    content: '$no-query: ".no-query"';
+    content: 'style within a media query, also nested in a .no-query selector';
   }
 }
