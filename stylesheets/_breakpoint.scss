@@ -15,8 +15,36 @@ $breakpoint-resolution:         true;
 $breakpoint-no-queries:       false;
 $breakpoint-no-query-wrappers: false;
 
-@mixin breakpoint($query) {
-  @debug $query;
+//////////////////////////////
+// Imports
+//////////////////////////////
+@import 'breakpoint/context';
+@import 'breakpoint/helpers';
+@import 'breakpoint/parsers';
 
-  @content;
+//////////////////////////////
+// Breakpoint Mixin
+//////////////////////////////
+
+@mixin breakpoint($query) {
+  // Internal Variables
+  $query-string: 'all';
+
+  // Test to see if it's a comma-separated list
+  $or-list: is-breakpoint-list($query);
+
+
+  @if ($or-list != false) {
+
+  }
+  @else {
+    $query-string: breakpoint-parse($query);
+  }
+
+
+  // Print Out Query String
+  @media #{$query-string} {
+    @content;
+  }
+
 }
