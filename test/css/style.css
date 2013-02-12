@@ -1,44 +1,19 @@
-#basic {
-  content: "@media all and (min-width: 500px)";
+@media (min-width: 500px) {
+  #basic {
+    content: "@media all and (min-width: 500px)";
+    content: "Force All: false";
+    content: "To Ems: false";
+  }
 }
 
-#double {
-  content: "@media all and (min-{$breakpoint-default-pair}: 500px) and (max-{$breakpoint-default-pair}: 700px)";
+@media not screen {
+  #not {
+    content: '@media not screen';
+  }
 }
 
-#feature {
-  content: "@media all and (max-width: 500px)";
-}
-
-#resolution {
-  content: "@media all and (resolution: 96dpi), all and (-webkit-device-pixel-ratio: 1)";
-}
-
-#dpr {
-  content: "@media all and (-webkit-min-device-pixel-ratio: 2), all and (min--moz-device-pixel-ratio: 2), all and (min-resolution: 2ppx), all and (min-resolution: 192dpi)";
-}
-
-#not {
-  content: '@media not screen';
-}
-
-#only {
-  content: '@media only tv';
-}
-
-#media-and {
-  content: "@media screen and (min-width: 500px)";
-}
-
-#or {
-  content: "@media all and (min-width: 500px), (orientation: landscape)";
-}
-
-#no-query {
-  content: "@media all and (min-width: 500px)";
-  content: '.lte-ie9{}';
-}
-
-#advanced {
-  content: "@media only screen and (min-width: 500px) and (max-resolution: 144dpi), @media only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.4), (min-width: 700px) and (min-resolution: 1.4dppx), (min-width: 700px) and (min-resolution: 134.4dpi)";
+@media only tv {
+  #only {
+    content: '@media only tv';
+  }
 }
