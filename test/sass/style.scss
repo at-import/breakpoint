@@ -1,199 +1,99 @@
-// path to local mixin
 @import "../../stylesheets/breakpoint";
-// @import "breakpoint";
 
-$breakpoint-to-ems: true;
+//////////////////////////////
+// Media Queries
+//////////////////////////////
+$basic: 500px;
+$double: 500px 700px;
+$feature: 'max-width' 500px;
+$resolution: 'resolution' 96dpi;
+$dpr: 'min-device-pixel-ratio' 2;
+$not: 'not screen';
+$only: 'only tv';
+$media-and: 'screen' 'and' 500px;
+$or: 500px, 'orientation' 'landscape';
+$no-query: 500px, 'no-query' '.lte-ie9';
 
-//$breakpoint-force-media-all: true;
+$advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 'device-pixel-ratio' 1.4, 'no-query' '.no-mq';
 
-//$breakpoint-default-feature: min-width !default;
-
-// create $breakpoint variables like so
-// assume $breakpoint-default-feature if only a number
-$breakpoint1: 500px;
-$breakpoint2: 30em;
-
-// single value with feature
-$bkpt3: 500px 'height';
-$bkpt4: 'lion' 500px;
-$bkptSt: portrait orientation;
-
-// set min-width/max-width if both values are numbers
-$breakpoint3: 500px 700px;
-// set min/max of feature if there are two numbers and a feature
-$breakpoint4: 300px 700px height;
-
-// failing bkpt
-$bkptFail: 300px 700px lion;
-
-// if one value is a string, assume a feature/value pair
-$breakpoint5: min-width 700px;
-$breakpoint6: max-width 700px;
-
-// for multidimensional lists, assume each item is a feature value pair
-$breakpoint7: max-width 700px, orientation portrait;
-
-$bkptSuper: 300px 400px 'height',
-            500px 600px,
-            monochrome,
-            orientation portrait,
-            1 2 device-pixel-ratio,
-            700px,
-            192dpi resolution;
-
-$breakpoint-minwidth: 300px;
-$breakpoint-valuepair: 300px height;
-$breakpoint-mono: monochrome;
-$breakpoint-fail1: 1 device-pixel-ratio;
-$breakpoint-fail2: 1 2 device-pixel-ratio;
-$breakpoint-fail3: 300px, 200px 300px height;
-$breakpoint-fail4: 300px, 1 2 device-pixel-ratio;
-$breakpoint-fail5: 100px 200px height;
-$breakpoint-fail6: 300px, monochrome;
-
-// $breakpoint-webkit: 1 -webkit-device-pixel-ratio;
-// $breakpoint-moz: 1 -moz-device-pixel-ratio;
-
-// handle one-sided features (ie. monochrome)
-$breakpoint8: max-width 700px, orientation portrait, monochrome;
-$breakpoint9: monochrome;
-
-// device-pixel-ratio conversion silliness
-$breakpoint10: 1.5 1 device-pixel-ratio;
-$breakpoint11: 2 min-device-pixel-ratio;
-$breakpoint12: 3 -webkit-device-pixel-ratio;
-
-$bkpt-fail: 400px 600px "height", 400px "min-width";
-
-
-// $breakpoint-no-queries: true;
-$breakpoint-no-query-wrappers: true;
-
-// em calculator tests
-// $breakpoint-base-font-size: 14px;
-$breakpoint-em-1: 500px;
-$breakpoint-em-1: 30em;
-
-// .fuuu {
-//   @include breakpoint($bkpt-fail, 'screen') {
-//     background: green;
-//   }
-// }
-
-
-@mixin my-background {
-  $min-width-context: breakpoint-get-context('min-width');
-  // @debug $min-width-context;
-  @if $min-width-context > 30em {
-    background: purple;
-  }
-  @else {
-    background: red;
+//////////////////////////////
+// Tests
+//////////////////////////////
+#basic {
+  @include breakpoint($basic) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
   }
 }
 
-// Use it
-.foo {
-  background-color: gainsboro;
-  @include breakpoint($breakpoint1) {
-    /* simple breakpoint */
-    background-color: crimson;
+#double {
+  @include breakpoint($double) {
+    content: '@media #{$breakpoint-default-media} and (min-{$breakpoint-default-pair}: 500px) and (max-{$breakpoint-default-pair}: 700px)';
   }
-  @include breakpoint($breakpoint1) {
-    /* breakpoint-get-context */
-    // @debug breakpoint-get-context('min-width');
-    width: breakpoint-get-context('min-width');
-    @include my-background;
+}
+
+#feature {
+  @include breakpoint($feature) {
+    content: '@media #{$breakpoint-default-media} and (max-width: 500px)';
   }
-  @include breakpoint($breakpoint2) {
-    /* no-query */
-    background-color: cyan;
+}
+
+#resolution {
+  @include breakpoint($resolution) {
+    @if ($breakpoint-resolution) {
+      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi), #{$breakpoint-default-media} and (-webkit-device-pixel-ratio: 1)';
+    }
+    @else {
+      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi)';
+    }
+
   }
-  @include breakpoint($breakpoint2) {
-    /* no-query-wrapper */
-    background-color: bisque;
+}
+
+#dpr {
+  @include breakpoint($dpr) {
+    content: '@media #{$breakpoint-default-media} and (-webkit-min-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min--moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min-resolution: 2ppx), #{$breakpoint-default-media} and (min-resolution: 192dpi)';
   }
-  // should fail
-  // @debug breakpoint-get-context('min-width');
-  @include breakpoint($bkpt3) {
-    /* single value with feature */
-    background-color: crimson;
+}
+
+#not {
+  @include breakpoint($not) {
+    content: '@media not screen';
   }
-  @include breakpoint($bkpt4) {
-    /* single value with arbitrary feature */
-    background-color: blanchedalmond;
+}
+
+#only {
+  @include breakpoint($only) {
+    content: '@media only tv';
   }
-  @include breakpoint($breakpoint3) {
-    /* min-width/max-width */
-    background: blueviolet;
+}
+
+#media-and {
+  @include breakpoint($media-and) {
+    content: '@media screen and (#{$breakpoint-default-feature}: 500px)';
   }
-  @include breakpoint($breakpoint4) {
-    /* min/max of feature */
-    background: burlywood;
+}
+
+#or {
+  @include breakpoint($or) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), (orientation: landscape)';
   }
-  @include breakpoint($breakpoint10) {
-    /* device-pixel-ratio conversion silliness */
-    background: cornflowerblue;
+}
+
+#no-query {
+  @include breakpoint($no-query) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
+    content: '.lte-ie9{}';
   }
-  @include breakpoint($bkptSt) {
-    /* single value with keyword feature */
-    background: darkorchid;
+}
+
+#advanced {
+  @include breakpoint($advanced) {
+    @if ($breakpoint-resolution) {
+      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution: 144dpi), @media only screen and (#{$breakpoint-default-feature}: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
+    }
+    @else {
+      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution 144dpi), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
+    }
+
   }
-  // @include breakpoint($bkptFail) {
-  //   /* fail: this feature can't have min/max */
-  //   background: deeppink;
-  // }
-  @include breakpoint($breakpoint7) {
-    /* multidimensional lists, assume each item is a feature value pair */
-    background: firebrick;
-  }
-  @include breakpoint($bkptSuper) {
-    /* stack a ton of features */
-    background: bkptSuper;
-    breakpoint-get-context-min-width: breakpoint-get-context('min-width');
-    breakpoint-get-context-max-width: breakpoint-get-context('max-width');
-    breakpoint-get-context-max-height: breakpoint-get-context('max-height');
-    breakpoint-get-context-height: breakpoint-get-context('height'); // false
-    breakpoint-get-context-monochrome: breakpoint-get-context('monochrome');
-    breakpoint-get-context-orientation: breakpoint-get-context('orientation');
-    breakpoint-get-context-resolution: breakpoint-get-context('resolution');
-    breakpoint-get-context--webkit-max-device-pixel-ratio: breakpoint-get-context('-webkit-max-device-pixel-ratio');
-  }
-  @include breakpoint($breakpoint-minwidth) {
-    /* minwidth (or default) */
-    background: ghostwhite;
-  }
-  @include breakpoint($breakpoint-valuepair) {
-    /* feature value pair */
-    background: goldenrod;
-  }
-  @include breakpoint($breakpoint-mono) {
-    /* monochrome */
-    background: honeydew;
-  }
-  @include breakpoint($breakpoint-em-1, $base-font-size: 14px) {
-    /* use $base-font-size to calculate breakpoint-to-ems */
-    background: papayawhip;
-  }
-  @include breakpoint($breakpoint-fail1) {
-     background: hotpink;
-  }
-  // @include breakpoint($breakpoint-fail2) {
-  //   background: indianred;
-  // }
-  // @include breakpoint($breakpoint-fail3) {
-  //   background: lavenderblush;
-  // }
-  // @include breakpoint($breakpoint-fail4) {
-  //   background: lawngreen;
-  // }
-  // @include breakpoint($breakpoint-fail5) {
-  //   background: lemonchiffon;
-  // }
-  // @include breakpoint($breakpoint-fail6) {
-  //   background: linen;
-  // }
-  // @include breakpoint(1.3em) {
-  //   background: teal;
-  // }
 }
