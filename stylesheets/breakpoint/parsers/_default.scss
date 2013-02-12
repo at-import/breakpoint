@@ -1,0 +1,14 @@
+@function breakpoint-parse-default($feature, $force-all, $first) {
+  $default: '(' + $breakpoint-default-feature;
+
+  @if not $force-all and not $first {
+    $default: 'and #{$default}';
+  }
+
+  @if ($breakpoint-to-ems == true) and (type-of($feature) == 'number') {
+    @return '#{$default}: #{breakpoint-to-base-em($feature)})';
+  }
+  @else {
+    @return '#{$default}: #{$feature})';
+  }
+}
