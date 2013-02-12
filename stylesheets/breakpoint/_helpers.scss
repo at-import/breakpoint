@@ -98,3 +98,19 @@
     @return '-#{$prefix}-#{$property}';
   }
 }
+
+//////////////////////////////
+// Tests to see if prefixes are needed
+//////////////////////////////
+@function breakpoint-prefix-needed() {
+
+  @each $breakpoint in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+    $feature: first_value_of($breakpoint);
+
+    @if featureExists($feature, $breakpoint-prefixed-queries) {
+      @return true;
+    }
+  }
+
+  @return false;
+}
