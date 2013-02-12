@@ -1,164 +1,264 @@
 //////////////////////////////
-// Parses a list for a feature
+// Import Parser Pieces
 //////////////////////////////
-@function bp-generate($breakpoint, $base-font-size) {
 
-  $feature:       false !default;
-  $min-feature:   "min-#{$breakpoint-default-pair}" !default;
-  $max-feature:   "max-#{$breakpoint-default-pair}" !default;
-  $value:         false !default;
-  $min-value:     false !default;
-  $max-value:     false !default;
-  $length:        false !default;
-  $query:         false !default;
+@import "parsers/media";
+@import "parsers/no-query";
+
+@import "parsers/default";
+@import "parsers/default-pair";
+
+@import "parsers/double";
+@import "parsers/double-string";
+@import "parsers/double-number";
+
+@import "parsers/triple";
+
+//////////////////////////////
+// General Breakpoint Parser
+//////////////////////////////
+@function breakpoint-parse($query) {
+  // Set up Media Type
+  $query-print: '';
+
+  $force-all: (($breakpoint-force-media-all == true) and ($breakpoint-default-media == 'all'));
+  @if ($force-all == true) or ($breakpoint-default-media != 'all') {
+    // Force the print of the default media type if (force all is true and default media type is all) or (default media type is not all)
+    $query-print: $breakpoint-default-media;
+  }
 
 
-  $length: length($breakpoint);
+  $query-resolution: false;
 
-  @if first_value_of($breakpoint) == "no query" {
-    // Special handler for no-query.
-    @if $length == 1 {
-      $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("no query", true);
+  // Parse features out of an individual query
+  $feature-holder: ();
+  $query-holder: ();
+
+  @each $feature in $query {
+    @if ($feature != 'and') {
+      $feature-holder: append($feature-holder, $feature, space);
     }
     @else {
-      $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("no query", nth($breakpoint, 2));
-    }
-  }
-  @else if first_value_of($breakpoint) == 'media' {
-    // Special handler for media type.
-    $media: reject($breakpoint, 'media');
-
-    $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("media", $media);
-  }
-  @else if $length == 1 {
-    $value: $breakpoint;
-    @if type-of($breakpoint) == 'number' {
-      $feature: $breakpoint-default-feature;
-    }
-
-    // If EM Breakpoints are active, do it!
-    @if $breakpoint-to-ems and type-of($value) == 'number' {
-      $value: breakpoint-to-base-em($value, $base-font-size);
-    }
-
-    // Set Context
-    $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
-  }
-  @else if $length == 2 {
-    // If both are numbers, we've got a double!
-    @if type-of(nth($breakpoint, 1)) == 'number' and type-of(nth($breakpoint, 2)) == 'number' {
-      // See which is larger.
-      @if nth($breakpoint, 1) > nth($breakpoint, 2) {
-        $min-value: nth($breakpoint, 2);
-        $max-value: nth($breakpoint, 1);
-      }
-      @else {
-        $min-value: nth($breakpoint, 1);
-        $max-value: nth($breakpoint, 2);
-      }
-
-      // If EM Breakpoints are active, do it!
-      @if $breakpoint-to-ems and type-of($min-value) == 'number' {
-        $min-value: breakpoint-to-base-em($min-value, $base-font-size);
-      }
-      @if $breakpoint-to-ems and type-of($max-value) == 'number' {
-        $max-value: breakpoint-to-base-em($max-value, $base-font-size);
-      }
-
-      // Set Context
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
-    }
-    @else if type-of(nth($breakpoint, 1)) == 'string' and type-of(nth($breakpoint, 2)) == 'string' {
-      @if breakpoint-string-value(nth($breakpoint, 1)) == true {
-        $feature: nth($breakpoint, 1);
-        $value: nth($breakpoint, 2);
-      }
-      @else {
-        $feature: nth($breakpoint, 2);
-        $value: nth($breakpoint, 1);
-      }
-
-      // If EM Breakpoints are active, do it!
-      @if $breakpoint-to-ems and type-of($value) == 'number' {
-        $value: breakpoint-to-base-em($value, $base-font-size);
-      }
-
-      // Set Context
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
-    }
-    @else {
-      // Because we can have either the first or second option be the feature, we switch on it.
-      @if type-of(nth($breakpoint, 1)) == string {
-        $feature: nth($breakpoint, 1);
-        $value: nth($breakpoint, 2);
-      }
-      @else if type-of(nth($breakpoint, 2)) == string {
-        $feature: nth($breakpoint, 2);
-        $value: nth($breakpoint, 1);
-      }
-
-      // If EM Breakpoints are active, do it!
-      @if $breakpoint-to-ems and type-of($value) == 'number' {
-        $value: breakpoint-to-base-em($value, $base-font-size);
-      }
-
-      // Set Context
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
-    }
-  }
-  @else if $length == 3 {
-    @if type-of(nth($breakpoint, 1)) == 'string' {
-      $feature: nth($breakpoint, 1);
-      // See which is larger.
-      @if nth($breakpoint, 2) > nth($breakpoint, 3) {
-        $min-value: nth($breakpoint, 3);
-        $max-value: nth($breakpoint, 2);
-      }
-      @else {
-        $min-value: nth($breakpoint, 2);
-        $max-value: nth($breakpoint, 3);
-      }
-    }
-    @else {
-      $feature: nth($breakpoint, 3);
-      // See which is larger.
-      @if nth($breakpoint, 1) > nth($breakpoint, 2) {
-        $min-value: nth($breakpoint, 2);
-        $max-value: nth($breakpoint, 1);
-      }
-      @else {
-        $min-value: nth($breakpoint, 1);
-        $max-value: nth($breakpoint, 2);
-      }
-    }
-
-    // If EM Breakpoints are active, do it!
-    @if $breakpoint-to-ems and type-of($min-value) == 'number' {
-      $min-value: breakpoint-to-base-em($min-value, $base-font-size);
-    }
-    @if $breakpoint-to-ems and type-of($max-value) == 'number' {
-      $max-value: breakpoint-to-base-em($max-value, $base-font-size);
-    }
-
-    @if breakpoint-min-max($feature) == true {
-      @if $feature == 'device-pixel-ratio' {
-//        $min-feature: breakpoint-experimental('min-#{$feature}', $prefix);
-//        $max-feature: breakpoint-experimental('max-#{$feature}', $prefix);
-      }
-      @else {
-        $min-feature: 'min-#{$feature}';
-        $max-feature: 'max-#{$feature}';
-      }
-
-      // Set Context
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
-      $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
-    }
-    @else {
-      @warn '#{$feature} cannot have a min/max value!';
+      $query-holder: append($query-holder, $feature-holder, comma);
+      $feature-holder: ();
     }
   }
 
-  @return true;
+  $query-holder: append($query-holder, $feature-holder, comma);
+
+
+  // Loop over each parsed out query and write it to $query-print
+  $first: true;
+
+  @each $feature in $query-holder {
+    $length: length($feature);
+
+    @if ($length == 1) {
+      // Feature is currenty a list, grab the actual value
+      $feature: nth($feature, 1);
+
+      // Media Type must by convention be the first item, so it's safe to flat override $query-print, which right now should only be the default media type
+      @if (breakpoint-is-media($feature)) {
+        @if (($breakpoint-force-media-all == true) and ($feature == 'all')) or ($feature != 'all') {
+          // Force the print of the default media type if (force all is true and default media type is all) or (default media type is not all)
+          $query-print: $feature;
+
+          /* Context Needed */
+        }
+      }
+      // If it's a single feature that can stand alone, we let it
+      @else if (breakpoint-string-value($feature)) {
+        @if ($force-all) and ($first) {
+          // We attach the string using an and
+          $query-print: '#{$query-print} (#{$feature})';
+          $first: false;
+        }
+        @else {
+          // We attach the string using an and
+          $query-print: '#{$query-print} and (#{$feature})';
+        }
+
+        /* Context Needed */
+      }
+      // If it's not a stand alone feature, we pass it off to the default handler.
+      @else {
+        $parsed: breakpoint-parse-default($feature, $force-all, $first);
+
+        // We attach the string using an and
+        $query-print: '#{$query-print} #{$parsed}';
+        $first: false;
+
+        /* Context Needed */
+      }
+    }
+  }
+
+  // @debug $query-print;
+
+  @return $query-print;
 }
+
+// //////////////////////////////
+// // Parses a list for a feature
+// //////////////////////////////
+// @function bp-generate($breakpoint, $base-font-size) {
+
+//   $feature:       false !default;
+//   $min-feature:   "min-#{$breakpoint-default-pair}" !default;
+//   $max-feature:   "max-#{$breakpoint-default-pair}" !default;
+//   $value:         false !default;
+//   $min-value:     false !default;
+//   $max-value:     false !default;
+//   $length:        false !default;
+//   $query:         false !default;
+
+
+//   $length: length($breakpoint);
+
+//   @if first_value_of($breakpoint) == "no query" {
+//     // Special handler for no-query.
+//     @if $length == 1 {
+//       $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("no query", true);
+//     }
+//     @else {
+//       $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("no query", nth($breakpoint, 2));
+//     }
+//   }
+//   @else if first_value_of($breakpoint) == 'media' {
+//     // Special handler for media type.
+//     $media: reject($breakpoint, 'media');
+
+//     $context: UU2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh("media", $media);
+//   }
+//   @else if $length == 1 {
+//     $value: $breakpoint;
+//     @if type-of($breakpoint) == 'number' {
+//       $feature: $breakpoint-default-feature;
+//     }
+
+//     // If EM Breakpoints are active, do it!
+//     @if $breakpoint-to-ems and type-of($value) == 'number' {
+//       $value: breakpoint-to-base-em($value, $base-font-size);
+//     }
+
+//     // Set Context
+//     $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
+//   }
+//   @else if $length == 2 {
+//     // If both are numbers, we've got a double!
+//     @if type-of(nth($breakpoint, 1)) == 'number' and type-of(nth($breakpoint, 2)) == 'number' {
+//       // See which is larger.
+//       @if nth($breakpoint, 1) > nth($breakpoint, 2) {
+//         $min-value: nth($breakpoint, 2);
+//         $max-value: nth($breakpoint, 1);
+//       }
+//       @else {
+//         $min-value: nth($breakpoint, 1);
+//         $max-value: nth($breakpoint, 2);
+//       }
+
+//       // If EM Breakpoints are active, do it!
+//       @if $breakpoint-to-ems and type-of($min-value) == 'number' {
+//         $min-value: breakpoint-to-base-em($min-value, $base-font-size);
+//       }
+//       @if $breakpoint-to-ems and type-of($max-value) == 'number' {
+//         $max-value: breakpoint-to-base-em($max-value, $base-font-size);
+//       }
+
+//       // Set Context
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
+//     }
+//     @else if type-of(nth($breakpoint, 1)) == 'string' and type-of(nth($breakpoint, 2)) == 'string' {
+//       @if breakpoint-string-value(nth($breakpoint, 1)) == true {
+//         $feature: nth($breakpoint, 1);
+//         $value: nth($breakpoint, 2);
+//       }
+//       @else {
+//         $feature: nth($breakpoint, 2);
+//         $value: nth($breakpoint, 1);
+//       }
+
+//       // If EM Breakpoints are active, do it!
+//       @if $breakpoint-to-ems and type-of($value) == 'number' {
+//         $value: breakpoint-to-base-em($value, $base-font-size);
+//       }
+
+//       // Set Context
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
+//     }
+//     @else {
+//       // Because we can have either the first or second option be the feature, we switch on it.
+//       @if type-of(nth($breakpoint, 1)) == string {
+//         $feature: nth($breakpoint, 1);
+//         $value: nth($breakpoint, 2);
+//       }
+//       @else if type-of(nth($breakpoint, 2)) == string {
+//         $feature: nth($breakpoint, 2);
+//         $value: nth($breakpoint, 1);
+//       }
+
+//       // If EM Breakpoints are active, do it!
+//       @if $breakpoint-to-ems and type-of($value) == 'number' {
+//         $value: breakpoint-to-base-em($value, $base-font-size);
+//       }
+
+//       // Set Context
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value);
+//     }
+//   }
+//   @else if $length == 3 {
+//     @if type-of(nth($breakpoint, 1)) == 'string' {
+//       $feature: nth($breakpoint, 1);
+//       // See which is larger.
+//       @if nth($breakpoint, 2) > nth($breakpoint, 3) {
+//         $min-value: nth($breakpoint, 3);
+//         $max-value: nth($breakpoint, 2);
+//       }
+//       @else {
+//         $min-value: nth($breakpoint, 2);
+//         $max-value: nth($breakpoint, 3);
+//       }
+//     }
+//     @else {
+//       $feature: nth($breakpoint, 3);
+//       // See which is larger.
+//       @if nth($breakpoint, 1) > nth($breakpoint, 2) {
+//         $min-value: nth($breakpoint, 2);
+//         $max-value: nth($breakpoint, 1);
+//       }
+//       @else {
+//         $min-value: nth($breakpoint, 1);
+//         $max-value: nth($breakpoint, 2);
+//       }
+//     }
+
+//     // If EM Breakpoints are active, do it!
+//     @if $breakpoint-to-ems and type-of($min-value) == 'number' {
+//       $min-value: breakpoint-to-base-em($min-value, $base-font-size);
+//     }
+//     @if $breakpoint-to-ems and type-of($max-value) == 'number' {
+//       $max-value: breakpoint-to-base-em($max-value, $base-font-size);
+//     }
+
+//     @if breakpoint-min-max($feature) == true {
+//       @if $feature == 'device-pixel-ratio' {
+// //        $min-feature: breakpoint-experimental('min-#{$feature}', $prefix);
+// //        $max-feature: breakpoint-experimental('max-#{$feature}', $prefix);
+//       }
+//       @else {
+//         $min-feature: 'min-#{$feature}';
+//         $max-feature: 'max-#{$feature}';
+//       }
+
+//       // Set Context
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($min-feature, $min-value);
+//       $context: U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($max-feature, $max-value);
+//     }
+//     @else {
+//       @warn '#{$feature} cannot have a min/max value!';
+//     }
+//   }
+
+//   @return true;
+// }
