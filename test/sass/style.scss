@@ -118,12 +118,12 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
 //   }
 // }
 
-// #no-query {
-//   @include breakpoint($no-query) {
-//     content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
-//     content: '.lte-ie9{}';
-//   }
-// }
+#no-query {
+  @include breakpoint($no-query) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
+    content: '.lte-ie9 #no-query {}';
+  }
+}
 
 // #advanced {
 //   @include breakpoint($advanced) {
