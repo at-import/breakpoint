@@ -1,9 +1,29 @@
+// Import Breakpoint
 @import "../../stylesheets/breakpoint";
+
+//////////////////////////////
+// Breakpoint Flags
+//////////////////////////////
+// Default Features
+// $breakpoint-default-media:    'screen';
+// $breakpoint-default-feature:  'max-width';
+// $breakpoint-default-pair:     'width';
+
+// Default Transforms
+// $breakpoint-force-media-all:    true;
+// $breakpoint-to-ems:             false;
+// $breakpoint-resolution:         true;
+
+// Default No Query Options
+// $breakpoint-no-queries:       false;
+// $breakpoint-no-query-wrappers: false;
 
 //////////////////////////////
 // Media Queries
 //////////////////////////////
 $basic: 500px;
+$basic-and: 500px 'and' 'monochrome';
+$basic-or: 500px, 'tv' 'and' 700px 'and' 'color';
 $double: 500px 700px;
 $feature: 'max-width' 500px;
 $resolution: 'resolution' 96dpi;
@@ -22,6 +42,22 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
 #basic {
   @include breakpoint($basic) {
     content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
+    content: 'Force All: #{$breakpoint-force-media-all}';
+    content: 'To Ems: #{$breakpoint-to-ems}';
+  }
+}
+
+#basic-and {
+  @include breakpoint($basic-and) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px) and (monochrome)';
+    content: 'Force All: #{$breakpoint-force-media-all}';
+    content: 'To Ems: #{$breakpoint-to-ems}';
+  }
+}
+
+#basic-or {
+  @include breakpoint($basic-or) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), tv and (#{$breakpoint-default-feature}: 700px) and (color)';
     content: 'Force All: #{$breakpoint-force-media-all}';
     content: 'To Ems: #{$breakpoint-to-ems}';
   }
