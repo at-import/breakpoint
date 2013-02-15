@@ -24,17 +24,18 @@
 $basic: 500px;
 $basic-and: 500px 'and' 'monochrome';
 $basic-or: 500px, 'tv' 'and' 700px 'and' 'color';
-$double: 500px 700px;
-$feature: 'max-width' 500px;
+$double: 700px 500px;
+$double-string: 'orientation' 'landscape';
+$dobule-mixed: 'max-width' 500px;
 $resolution: 'resolution' 96dpi;
-$dpr: 'min-device-pixel-ratio' 2;
+$dpr: 'resolution' 2dppx;
 $not: 'not screen';
 $only: 'only tv';
-$media-and: 'screen' 'and' 'max-resolution' 500px;
+$media-and: 'screen' 'and' 'max-width' 500px;
 $or: 500px, 'orientation' 'landscape';
 $no-query: 500px, 'no-query' '.lte-ie9';
 
-$advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 'device-pixel-ratio' 1.4, 'no-query' '.no-mq';
+$advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 'min-resolution' 1.5dppx, 'no-query' '.no-mq';
 
 //////////////////////////////
 // Tests
@@ -64,35 +65,41 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
 }
 
 
-// #double {
-//   @include breakpoint($double) {
-//     content: '@media #{$breakpoint-default-media} and (min-{$breakpoint-default-pair}: 500px) and (max-{$breakpoint-default-pair}: 700px)';
-//   }
-// }
+#double {
+  @include breakpoint($double) {
+    content: '@media #{$breakpoint-default-media} and (min-#{$breakpoint-default-pair}: 500px) and (max-#{$breakpoint-default-pair}: 700px)';
+  }
+}
 
-// #feature {
-//   @include breakpoint($feature) {
-//     content: '@media #{$breakpoint-default-media} and (max-width: 500px)';
-//   }
-// }
+#double-string {
+  @include breakpoint($double-string) {
+    content: '@media #{$breakpoint-default-media} and (orientation: landscape)';
+  }
+}
 
-// #resolution {
-//   @include breakpoint($resolution) {
-//     @if ($breakpoint-resolution) {
-//       content: '@media #{$breakpoint-default-media} and (resolution: 96dpi), #{$breakpoint-default-media} and (-webkit-device-pixel-ratio: 1)';
-//     }
-//     @else {
-//       content: '@media #{$breakpoint-default-media} and (resolution: 96dpi)';
-//     }
+#double-mixed {
+  @include breakpoint($dobule-mixed) {
+    content: '@media #{$breakpoint-default-media} and (max-width: 500px)';
+  }
+}
 
-//   }
-// }
+#resolution {
+  @include breakpoint($resolution) {
+    @if ($breakpoint-resolutions) {
+      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi), #{$breakpoint-default-media} and (-webkit-device-pixel-ratio: 1)';
+    }
+    @else {
+      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi)';
+    }
 
-// #dpr {
-//   @include breakpoint($dpr) {
-//     content: '@media #{$breakpoint-default-media} and (-webkit-min-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min--moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min-resolution: 2ppx), #{$breakpoint-default-media} and (min-resolution: 192dpi)';
-//   }
-// }
+  }
+}
+
+#dpr {
+  @include breakpoint($dpr) {
+    content: '@media #{$breakpoint-default-media} and (-webkit-min-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min--moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min-resolution: 2ppx), #{$breakpoint-default-media} and (min-resolution: 192dpi)';
+  }
+}
 
 #not {
   @include breakpoint($not) {
@@ -106,17 +113,17 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
   }
 }
 
-// #media-and {
-//   @include breakpoint($media-and) {
-//     content: '@media screen and (#{$breakpoint-default-feature}: 500px)';
-//   }
-// }
+#media-and {
+  @include breakpoint($media-and) {
+    content: '@media screen and (#{$breakpoint-default-feature}: 500px)';
+  }
+}
 
-// #or {
-//   @include breakpoint($or) {
-//     content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), (orientation: landscape)';
-//   }
-// }
+#or {
+  @include breakpoint($or) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), (orientation: landscape)';
+  }
+}
 
 #no-query {
   @include breakpoint($no-query) {
@@ -125,14 +132,14 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
   }
 }
 
-// #advanced {
-//   @include breakpoint($advanced) {
-//     @if ($breakpoint-resolution) {
-//       content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution: 144dpi), @media only screen and (#{$breakpoint-default-feature}: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
-//     }
-//     @else {
-//       content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution 144dpi), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
-//     }
+#advanced {
+  @include breakpoint($advanced) {
+    @if ($breakpoint-resolutions) {
+      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution: 144dpi), @media only screen and (#{$breakpoint-default-feature}: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
+    }
+    @else {
+      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution 144dpi), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
+    }
 
-//   }
-// }
+  }
+}
