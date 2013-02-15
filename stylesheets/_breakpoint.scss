@@ -2,18 +2,18 @@
 // Default Variables
 //////////////////////////////
 // Default Features
-$breakpoint-default-media:    'all';
-$breakpoint-default-feature:  'min-width';
-$breakpoint-default-pair:     'width';
+$breakpoint-default-media:      'all' !default;
+$breakpoint-default-feature:    'min-width' !default;
+$breakpoint-default-pair:       'width' !default;
 
 // Default Transforms
-$breakpoint-force-media-all:    false;
-$breakpoint-to-ems:             false;
-$breakpoint-resolution:         true;
+$breakpoint-force-media-all:    false !default;
+$breakpoint-to-ems:             false !default;
+$breakpoint-resolution:         true !default;
 
 // Default No Query Options
-$breakpoint-no-queries:       false;
-$breakpoint-no-query-wrappers: false;
+$breakpoint-no-queries:         false !default;
+$breakpoint-no-query-wrappers:  false !default;
 
 //////////////////////////////
 // Imports
@@ -21,6 +21,7 @@ $breakpoint-no-query-wrappers: false;
 @import 'breakpoint/context';
 @import 'breakpoint/helpers';
 @import 'breakpoint/parsers';
+@import 'breakpoint/no-query';
 
 //////////////////////////////
 // Breakpoint Mixin
@@ -32,10 +33,21 @@ $breakpoint-no-query-wrappers: false;
 
   // Test to see if it's a comma-separated list
   $or-list: is-breakpoint-list($query);
+  $query-fallback: false;
 
 
   @if ($or-list != false) {
     $length: length($query);
+
+    $last: nth($query, $length);
+    // @debug $last;
+    $query-fallback: breakpoint-no-query($last);
+    // @debug $query-fallback;
+
+    @if ($query-fallback != false) {
+      $length: $length - 1;
+    }
+
     @for $i from 1 through $length {
       @if $i == 1 {
         $query-string: breakpoint-parse(nth($query, $i));
@@ -49,9 +61,22 @@ $breakpoint-no-query-wrappers: false;
     $query-string: breakpoint-parse($query);
   }
 
+  // @debug $query-string;
+
   // Print Out Query String
-  @media #{$query-string} {
-    @content;
+
+  @if not $breakpoint-no-queries {
+    @media #{$query-string} {
+      @content;
+    }
+  }
+
+  @if $breakpoint-no-query-wrappers {
+    @if $query-fallback != false {
+      #{$query-fallback} & {
+        @content;
+      }
+    }
   }
 
 }
