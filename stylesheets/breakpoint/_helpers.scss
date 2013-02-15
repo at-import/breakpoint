@@ -58,7 +58,7 @@
 // Returns whether the feature can have a string value
 //////////////////////////////
 @function breakpoint-string-value($feature) {
-  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' or $feature == 'resolution' or $feature == 'min-resolution' or $feature == 'max-resolution' {
+  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' {
     @return true;
   }
   @else {
@@ -84,11 +84,30 @@
 //////////////////////////////
 // Returns whether the feature can stand alone
 //////////////////////////////
-@function breakpoint-string-value($feature) {
+@function breakpoint-single-string($feature) {
   @if $feature == 'color' or $feature == 'color-index' or $feature == 'grid' or $feature == 'monochrome' {
     @return true;
   }
   @else {
     @return false;
   }
+}
+
+//////////////////////////////
+// Returns whether the feature
+//////////////////////////////
+@function breakpoint-is-resolution($feature) {
+  $resolutions: 'device-pixel-ratio', 'dpr';
+
+  @if $breakpoint-webkit-resolution {
+    $resolutions: append($resolutions, 'resolution');
+  }
+
+  @each $reso in $resolutions {
+    @if index($feature, $reso) or index($feature, 'min-#{$reso}') or index($feature, 'max-#{$reso}') {
+      @return true;
+    }
+  }
+
+  @return false;
 }
