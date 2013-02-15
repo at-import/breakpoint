@@ -28,19 +28,26 @@ $breakpoint-no-query-wrappers: false;
 
 @mixin breakpoint($query) {
   // Internal Variables
-  $query-string: 'all';
+  $query-string: '';
 
   // Test to see if it's a comma-separated list
   $or-list: is-breakpoint-list($query);
 
 
   @if ($or-list != false) {
-
+    $length: length($query);
+    @for $i from 1 through $length {
+      @if $i == 1 {
+        $query-string: breakpoint-parse(nth($query, $i));
+      }
+      @else {
+        $query-string: $query-string + ', ' + breakpoint-parse(nth($query, $i));
+      }
+    }
   }
   @else {
     $query-string: breakpoint-parse($query);
   }
-
 
   // Print Out Query String
   @media #{$query-string} {
