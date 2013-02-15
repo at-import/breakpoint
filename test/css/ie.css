@@ -6,6 +6,22 @@
   }
 }
 
+@media (min-width: 500px) and (monochrome) {
+  #basic-and {
+    content: "@media all and (min-width: 500px) and (monochrome)";
+    content: "Force All: false";
+    content: "To Ems: false";
+  }
+}
+
+@media (min-width: 500px), tv and (min-width: 700px) and (color) {
+  #basic-or {
+    content: "@media all and (min-width: 500px), tv and (min-width: 700px) and (color)";
+    content: "Force All: false";
+    content: "To Ems: false";
+  }
+}
+
 @media not screen {
   #not {
     content: '@media not screen';
