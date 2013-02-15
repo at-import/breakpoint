@@ -1,0 +1,28 @@
+//////////////////////////////
+// Import Pieces
+//////////////////////////////
+@import "single/default";
+
+@function breakpoint-parse-single($feature, $empty-media, $first) {
+  $parsed: '';
+
+  // If it's a single feature that can stand alone, we let it
+  @if (breakpoint-string-value($feature)) {
+    $parsed: '#{$feature}';
+    /* Context Needed */
+  }
+  // If it's not a stand alone feature, we pass it off to the default handler.
+  @else {
+    $parsed: breakpoint-parse-default($feature);
+
+    /* Context Needed */
+  }
+
+  // If we're forcing
+  @if ($empty-media) and ($first) {
+    @return '(#{$parsed})';
+  }
+  @else {
+    @return 'and (#{$parsed})';
+  }
+}
