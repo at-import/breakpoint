@@ -2,6 +2,9 @@
 // Import Parser Pieces
 //////////////////////////////
 @import "parsers/single";
+@import "parsers/double";
+@import "parsers/tripple";
+@import "parsers/resolution";
 
 //////////////////////////////
 // General Breakpoint Parser
@@ -44,6 +47,7 @@
   @each $feature in $query-holder {
     $length: length($feature);
 
+    // Parse a single feature
     @if ($length == 1) {
       // Feature is currenty a list, grab the actual value
       $feature: nth($feature, 1);
@@ -63,10 +67,29 @@
         $query-print: '#{$query-print} #{$parsed}';
         $first: false;
       }
-    } // End Single Length Feature
-
+    }
+    // Parse a double feature
+    @else if ($length == 2) {
+      @if (breakpoint-is-resolution($feature) != false) {
+        $query-resolution: $feature;
+      }
+      @else {
+        $parsed: breakpoint-parse-double($feature, $empty-media, $first);
+        $query-print: '#{$query-print} #{$parsed}';
+        $first: false;
+      }
+    }
+    // Parse a tripple feature
 
   }
+
+  @if ($query-resolution != false) {
+    $query-print: breakpoint-build-resolution($query-print, $query-resolution, $empty-media, $first);
+  }
+
+  // @if $query-holder;
+
+  // @return 'all';
 
   @return $query-print;
 }
