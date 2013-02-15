@@ -22,6 +22,36 @@
   }
 }
 
+@media (min-width: 500px) and (max-width: 700px) {
+  #double {
+    content: "@media all and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+
+@media (orientation: landscape) {
+  #double-string {
+    content: "@media all and (orientation: landscape)";
+  }
+}
+
+@media (max-width: 500px) {
+  #double-mixed {
+    content: "@media all and (max-width: 500px)";
+  }
+}
+
+@media (min-resolution: 96dpi), (-webkit-min-device-pixel-ratio: 1) {
+  #resolution {
+    content: "@media all and (resolution: 96dpi), all and (-webkit-device-pixel-ratio: 1)";
+  }
+}
+
+@media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #dpr {
+    content: "@media all and (-webkit-min-device-pixel-ratio: 2), all and (min--moz-device-pixel-ratio: 2), all and (min-resolution: 2ppx), all and (min-resolution: 192dpi)";
+  }
+}
+
 @media not screen {
   #not {
     content: '@media not screen';
@@ -34,9 +64,27 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  #media-and {
+    content: "@media screen and (min-width: 500px)";
+  }
+}
+
+@media (min-width: 500px), (orientation: landscape) {
+  #or {
+    content: "@media all and (min-width: 500px), (orientation: landscape)";
+  }
+}
+
 @media (min-width: 500px) {
   #no-query {
     content: "@media all and (min-width: 500px)";
     content: '.lte-ie9 #no-query {}';
+  }
+}
+
+@media only screen and (min-width: 500px) and (min-resolution: 144dpi), only screen and (min-width: 500px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 700px) and (min-resolution: 1.5dppx), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.5), (min-width: 700px) and (min-resolution: 144dpi) {
+  #advanced {
+    content: "@media only screen and (min-width: 500px) and (max-resolution: 144dpi), @media only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.4), (min-width: 700px) and (min-resolution: 1.4dppx), (min-width: 700px) and (min-resolution: 134.4dpi)";
   }
 }
