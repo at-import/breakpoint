@@ -1,35 +1,4 @@
-@media (min-width: 500px) {
-  #basic {
-    content: "@media all and (min-width: 500px)";
-    content: "Force All: false";
-    content: "To Ems: false";
-  }
-}
-
-@media (min-width: 500px) and (monochrome) {
-  #basic-and {
-    content: "@media all and (min-width: 500px) and (monochrome)";
-    content: "Force All: false";
-    content: "To Ems: false";
-  }
-}
-
-@media (min-width: 500px), tv and (min-width: 700px) and (color) {
-  #basic-or {
-    content: "@media all and (min-width: 500px), tv and (min-width: 700px) and (color)";
-    content: "Force All: false";
-    content: "To Ems: false";
-  }
-}
-
-@media not screen {
-  #not {
-    content: '@media not screen';
-  }
-}
-
-@media only tv {
-  #only {
-    content: '@media only tv';
-  }
+.lte-ie9 #no-query {
+  content: "@media all and (min-width: 500px)";
+  content: '.lte-ie9 #no-query {}';
 }

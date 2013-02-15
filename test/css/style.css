@@ -33,3 +33,10 @@
     content: '@media only tv';
   }
 }
+
+@media (min-width: 500px) {
+  #no-query {
+    content: "@media all and (min-width: 500px)";
+    content: '.lte-ie9 #no-query {}';
+  }
+}
