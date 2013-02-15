@@ -99,7 +99,7 @@
 @function breakpoint-is-resolution($feature) {
   $resolutions: 'device-pixel-ratio', 'dpr';
 
-  @if $breakpoint-webkit-resolution {
+  @if $breakpoint-resolutions {
     $resolutions: append($resolutions, 'resolution');
   }
 

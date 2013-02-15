@@ -7,7 +7,7 @@
     $leader: 'and ';
   }
 
-  @if $breakpoint-webkit-resolution and $resolution {
+  @if $breakpoint-resolutions and $resolution {
     $resolutions: breakpoint-make-resolutions($query-resolution);
     $length: length($resolutions);
     $query-holder: '';
