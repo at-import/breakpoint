@@ -5,9 +5,14 @@
 
 @function breakpoint-parse-single($feature, $empty-media, $first) {
   $parsed: '';
+  $leader: '';
+  // If we're forcing
+  @if not ($empty-media) or not ($first) {
+    $leader: 'and ';
+  }
 
   // If it's a single feature that can stand alone, we let it
-  @if (breakpoint-string-value($feature)) {
+  @if (breakpoint-single-string($feature)) {
     $parsed: '#{$feature}';
     /* Context Needed */
   }
@@ -18,11 +23,5 @@
     /* Context Needed */
   }
 
-  // If we're forcing
-  @if ($empty-media) and ($first) {
-    @return '(#{$parsed})';
-  }
-  @else {
-    @return 'and (#{$parsed})';
-  }
+  @return $leader + '(' + $parsed + ')';
 }
