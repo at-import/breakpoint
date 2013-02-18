@@ -3,7 +3,7 @@
 //////////////////////////////
 @import "parsers/single";
 @import "parsers/double";
-@import "parsers/tripple";
+@import "parsers/triple";
 @import "parsers/resolution";
 
 //////////////////////////////
@@ -79,7 +79,13 @@
         $first: false;
       }
     }
-    // Parse a tripple feature
+    // Parse a triple feature
+    @else if ($length == 3) {
+      @debug ($feature);
+      $parsed: breakpoint-parse-triple($feature, $empty-media, $first);
+      $query-print: '#{$query-print} #{$parsed}';
+      $first: false;
+    }
 
   }
 

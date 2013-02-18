@@ -26,7 +26,8 @@ $basic-and: 500px 'and' 'monochrome';
 $basic-or: 500px, 'tv' 'and' 700px 'and' 'color';
 $double: 700px 500px;
 $double-string: 'orientation' 'landscape';
-$dobule-mixed: 'max-width' 500px;
+$double-mixed: 'max-width' 500px;
+$triple: 'height' 500px 700px;
 $resolution: 'resolution' 96dpi;
 $dpr: 'resolution' 2dppx;
 $not: 'not screen';
@@ -78,8 +79,14 @@ $advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 
 }
 
 #double-mixed {
-  @include breakpoint($dobule-mixed) {
+  @include breakpoint($double-mixed) {
     content: '@media #{$breakpoint-default-media} and (max-width: 500px)';
+  }
+}
+
+#triple {
+  @include breakpoint($triple) {
+    content: '@media #{$breakpoint-default-media} and (min-height: 500px) and (max-height: 700px)';
   }
 }
 
