@@ -16,10 +16,10 @@
     }
 
     // Determine min/max/standard
-    @if index-of($resolution, 'min-resolution') {
+    @if index($resolution, 'min-resolution') {
       $feature: 'min-';
     }
-    @else if index-of($resolution, 'max-resolution') {
+    @else if index($resolution, 'max-resolution') {
       $feature: 'max-';
     }
 
