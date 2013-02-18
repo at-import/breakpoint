@@ -29,7 +29,5 @@
     $parsed: breakpoint-parse-double-default($first, $second);
   }
 
-
-
   @return $leader + $parsed;
 }
