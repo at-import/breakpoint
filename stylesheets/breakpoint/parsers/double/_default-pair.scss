@@ -4,14 +4,8 @@
   $max: '';
 
   // Sort into min and max
-  @if $first > $second {
-    $min: $second;
-    $max: $first;
-  }
-  @else {
-    $min: $first;
-    $max: $second;
-  }
+  $min: min($first, $second);
+  $max: max($first, $second);
 
   // Make them EMs if need be
   @if ($breakpoint-to-ems == true) {
