@@ -1,6 +1,7 @@
 //////////////////////////////
 // Import Parser Pieces
 //////////////////////////////
+@import "parsers/query";
 @import "parsers/single";
 @import "parsers/double";
 @import "parsers/triple";
@@ -24,21 +25,8 @@
 
   $query-resolution: false;
 
-  // Parse features out of an individual query
-  $feature-holder: ();
-  $query-holder: ();
+  $query-holder: breakpoint-parse-query($query);
 
-  @each $feature in $query {
-    @if ($feature != 'and') {
-      $feature-holder: append($feature-holder, $feature, space);
-    }
-    @else {
-      $query-holder: append($query-holder, $feature-holder, comma);
-      $feature-holder: ();
-    }
-  }
-
-  $query-holder: append($query-holder, $feature-holder, comma);
 
 
   // Loop over each parsed out query and write it to $query-print
@@ -91,8 +79,6 @@
   @if ($query-resolution != false) {
     $query-print: breakpoint-build-resolution($query-print, $query-resolution, $empty-media, $first);
   }
-
-  // @if $query-holder;
 
   // @return 'all';
 
