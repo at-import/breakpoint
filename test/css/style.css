@@ -46,13 +46,13 @@
   }
 }
 
-@media (resolution: 96dpi),  (-webkit-device-pixel-ratio: 1),  (-moz-device-pixel-ratio: 1) {
+@media (resolution: 96dpi), (-webkit-device-pixel-ratio: 1), (-moz-device-pixel-ratio: 1) {
   #resolution {
     content: "@media all and (resolution: 96dpi), all and (-webkit-device-pixel-ratio: 1)";
   }
 }
 
-@media (resolution: 2dppx),  (-webkit-device-pixel-ratio: 2),  (-moz-device-pixel-ratio: 2),  (resolution: 192dpi) {
+@media (min-resolution: 1.4dppx), (-webkit-min-device-pixel-ratio: 1.4), (min--moz-device-pixel-ratio: 1.4), (min-resolution: 134.4dpi) {
   #dpr {
     content: "@media all and (-webkit-min-device-pixel-ratio: 2), all and (min--moz-device-pixel-ratio: 2), all and (min-resolution: 2ppx), all and (min-resolution: 192dpi)";
   }
@@ -76,7 +76,7 @@
   }
 }
 
-@media (min-width: 500px),  (orientation: landscape) {
+@media (min-width: 500px), (orientation: landscape) {
   #or {
     content: "@media all and (min-width: 500px), (orientation: landscape)";
   }
@@ -89,7 +89,7 @@
   }
 }
 
-@media only screen and (min-width: 500px) and (max-resolution: 144dpi), only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), only screen and (min-width: 500px) and (max--moz-device-pixel-ratio: 1.5),  (min-width: 700px) and (min-resolution: 1.5dppx),  (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.5),  (min-width: 700px) and (min--moz-device-pixel-ratio: 1.5),  (min-width: 700px) and (min-resolution: 144dpi) {
+@media only screen and (min-width: 500px) and (max-resolution: 144dpi), only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), only screen and (min-width: 500px) and (max--moz-device-pixel-ratio: 1.5), (min-width: 500px) and (max-width: 700px) and (min-resolution: 1.5dppx), (min-width: 500px) and (max-width: 700px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 500px) and (max-width: 700px) and (min--moz-device-pixel-ratio: 1.5), (min-width: 500px) and (max-width: 700px) and (min-resolution: 144dpi) {
   #advanced {
     content: "@media only screen and (min-width: 500px) and (max-resolution: 144dpi), @media only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.4), (min-width: 700px) and (min-resolution: 1.4dppx), (min-width: 700px) and (min-resolution: 134.4dpi)";
   }
