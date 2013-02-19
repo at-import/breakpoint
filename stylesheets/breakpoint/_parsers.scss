@@ -81,7 +81,6 @@
     }
     // Parse a triple feature
     @else if ($length == 3) {
-      @debug ($feature);
       $parsed: breakpoint-parse-triple($feature, $empty-media, $first);
       $query-print: '#{$query-print} #{$parsed}';
       $first: false;
