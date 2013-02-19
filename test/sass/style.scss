@@ -5,8 +5,8 @@
 // Breakpoint Flags
 //////////////////////////////
 // Default Features
-// $breakpoint-default-media:    'screen';
-// $breakpoint-default-feature:  'max-width';
+// $breakpoint-default-media:    screen;
+// $breakpoint-default-feature:  max-width;
 // $breakpoint-default-pair:     'width';
 
 // Default Transforms
@@ -22,21 +22,21 @@
 // Media Queries
 //////////////////////////////
 $basic: 500px;
-$basic-and: 500px 'and' 'monochrome';
-$basic-or: 500px, 'tv' 'and' 700px 'and' 'color';
+$basic-and: 500px 'and' monochrome;
+$basic-or: 500px, tv 'and' 700px 'and' color;
 $double: 700px 500px;
-$double-string: 'orientation' 'landscape';
-$double-mixed: 'max-width' 500px;
-$triple: 'height' 500px 700px;
-$resolution: 'resolution' 96dpi;
-$dpr: 'resolution' 2dppx;
+$double-string: orientation landscape;
+$double-mixed: max-width 500px;
+$triple: height 500px 700px;
+$resolution: resolution 96dpi;
+$dpr: resolution 2dppx;
 $not: 'not screen';
 $only: 'only tv';
-$media-and: 'screen' 'and' 'max-width' 500px;
-$or: 500px, 'orientation' 'landscape';
-$no-query: 500px, 'no-query' '.lte-ie9';
+$media-and: screen 'and' max-width 500px;
+$or: 500px, orientation landscape;
+$no-query: 500px, no-query '.lte-ie9';
 
-$advanced: 'only screen' 'and' 500px 'and' 'max-resolution' 144dpi, 700px 'and' 'min-resolution' 1.5dppx, 'no-query' '.no-mq';
+$advanced: 'only screen' 'and' 500px 'and' max-resolution 144dpi, 700px 'and' min-resolution 1.5dppx, no-query '.no-mq';
 
 //////////////////////////////
 // Tests
