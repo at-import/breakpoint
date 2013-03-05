@@ -94,3 +94,15 @@
     content: "@media only screen and (min-width: 500px) and (max-resolution: 144dpi), @media only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.4), (min-width: 700px) and (min-resolution: 1.4dppx), (min-width: 700px) and (min-resolution: 134.4dpi)";
   }
 }
+
+@media (min-width: 20em) and (color) {
+  #rob-edge-pre {
+    content: "@media all and (min-width: 20em) and (color)";
+  }
+}
+
+@media (min-width: 20em) and (color) and (resolution: 2dppx), (min-width: 20em) and (color) and (-webkit-device-pixel-ratio: 2), (min-width: 20em) and (color) and (-moz-device-pixel-ratio: 2), (min-width: 20em) and (color) and (resolution: 192dpi) {
+  #rob-edge {
+    content: "@media all and (min-width: 20em) and (color) and (-webkit-device-pixel-ratio: 2), all and (min-width: 20em) and (color) and (moz-device-pixel-ratio: 2), all and (min-width: 20em) and (color) and (resolution: 2ppx), all and (min-width: 20em) and (color) and (resolution: 192dpi)";
+  }
+}
