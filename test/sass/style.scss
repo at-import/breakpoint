@@ -38,6 +38,9 @@ $no-query: 500px, no-query '.lte-ie9';
 
 $advanced: 'only screen' 500px (max-resolution 144dpi), (500px 700px) (min-resolution 1.5dppx), no-query '.no-mq';
 
+$nest-pre: 20em color;
+$nest: append($nest-pre, (resolution 2.0dppx));
+
 //////////////////////////////
 // Tests
 //////////////////////////////
@@ -148,5 +151,17 @@ $advanced: 'only screen' 500px (max-resolution 144dpi), (500px 700px) (min-resol
       content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution 144dpi), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
     }
 
+  }
+}
+
+#nest-pre {
+  @include breakpoint($nest-pre) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color)';
+  }
+}
+
+#nest {
+  @include breakpoint($nest) {
+    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (-webkit-device-pixel-ratio: 2), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (resolution: 2ppx), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (resolution: 192dpi)';
   }
 }
