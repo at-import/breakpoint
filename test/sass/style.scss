@@ -95,7 +95,7 @@ $breakpoint-to-ems: false;
 }
 /* $breakpoint-to-ems: true; */
 $breakpoint-to-ems: true;
-.feature-value-pair {
+.feature-value-pair-to-ems {
   @include breakpoint($feature-first) {
     content: '$feature-first';
     content: '@media (height: 31.25em)';
@@ -110,6 +110,29 @@ $breakpoint-to-ems: true;
   }
 }
 
+
+
+$min-max-default-feature: 500px 700px;
+$breakpoint-to-ems: false;
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : #{$min-max-default-feature};
+ */
+.min-max-default-feature {
+  @include breakpoint($min-max-default-feature) {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.min-max-default-feature-to-ems {
+  @include breakpoint($min-max-default-feature) {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
+  }
+}
 
 
 ////////////////////////////
