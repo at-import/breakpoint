@@ -48,6 +48,7 @@ $breakpoint-to-ems: false;
     content: '@media (min-width: 30em)';
   }
 }
+/* $breakpoint-to-ems: true; */
 $breakpoint-to-ems: true;
 .breakpoint-default-feature-to-ems {
   @include breakpoint($single-pixel-value) {
@@ -57,6 +58,55 @@ $breakpoint-to-ems: true;
   @include breakpoint($single-em-value) {
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
+  }
+}
+
+
+
+$feature-first: height 500px ;
+$value-first: 500px height;
+$arbitrary-feature: lion 500px;
+$feature-value-both-strings: portrait orientation;
+$breakpoint-to-ems: false;
+/*
+ * Single value with feature
+ * $feature-first : #{$feature-first};
+ * $value-first : #{$value-first};
+ * $arbitrary-feature : #{$arbitrary-feature};
+ * $feature-value-both-strings : #{$feature-value-both-strings};
+ */
+.feature-value-pair {
+  @include breakpoint($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+  @include breakpoint($value-first) {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+  @include breakpoint($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+  @include breakpoint($feature-value-both-strings) {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.feature-value-pair {
+  @include breakpoint($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include breakpoint($value-first) {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include breakpoint($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
   }
 }
 
