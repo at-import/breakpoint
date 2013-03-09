@@ -7,3 +7,12 @@
  * $single-pixel-value: 500px;
  * $single-em-value: 30em;
  */
+/* $breakpoint-to-ems: true; */
+/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+/* $breakpoint-to-ems: true; */
