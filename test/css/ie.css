@@ -16,3 +16,9 @@
  * $feature-value-both-strings : portrait orientation;
  */
 /* $breakpoint-to-ems: true; */
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+/* $breakpoint-to-ems: true; */

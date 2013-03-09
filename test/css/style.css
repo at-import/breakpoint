@@ -68,20 +68,40 @@
 
 /* $breakpoint-to-ems: true; */
 @media (height: 31.25em) {
-  .feature-value-pair {
+  .feature-value-pair-to-ems {
     content: '$feature-first';
     content: '@media (height: 31.25em)';
   }
 }
 @media (height: 31.25em) {
-  .feature-value-pair {
+  .feature-value-pair-to-ems {
     content: '$value-first';
     content: '@media (height: 31.25em)';
   }
 }
 @media (lion: 31.25em) {
-  .feature-value-pair {
+  .feature-value-pair-to-ems {
     content: '$arbitrary-feature';
     content: '@media (lion: 31.25em)';
+  }
+}
+
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+@media (min-width: 500px) and (max-width: 700px) {
+  .min-max-default-feature {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+
+/* $breakpoint-to-ems: true; */
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .min-max-default-feature-to-ems {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
   }
 }
