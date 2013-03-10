@@ -22,6 +22,20 @@
  * $min-max-default-feature : 500px 700px;
  */
 /* $breakpoint-to-ems: true; */
+/*
+ * Set min/max of feature
+ * if there are two numbers and a feature
+ * $feature-min-max : height 300px 700px;
+ * $min-max-feature : 300px 700px height;
+ * $arbitrary-feature-min-max : lion 300px 700px;
+ */
+/* $breakpoint-to-ems: true; */
+/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : max-width 700px orientation portrait;
+ */
+/* $breakpoint-to-ems: true; */
 .lte-ie9 #no-query {
   content: "@media all and (min-width: 500px)";
   content: '.lte-ie9 #no-query {}';
