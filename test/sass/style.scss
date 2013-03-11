@@ -275,3 +275,37 @@ $breakpoint-to-ems: false;
   }
 }
 
+
+$aspect-ratio: 'min-aspect-ratio' '300/250';
+$device-aspect-ratio: 'max-device-aspect-ratio' '320/480';
+$breakpoint-to-ems: false;
+/*
+ * Double string feature (i.e. string: string)
+ * $aspect-ratio : #{$aspect-ratio};
+ * $device-aspect-ratio : #{$device-aspect-ratio};
+ */
+.aspect-ratio {
+  @include breakpoint($aspect-ratio) {
+    content: '$aspect-ratio';
+    content: '@media (min-aspect-ratio: 300/250)';
+  }
+  @include breakpoint($device-aspect-ratio) {
+    content: '$device-aspect-ratio';
+    content: '@media (max-device-pixel-ratio: 320/480)';
+  }
+}
+
+$legacy: 'not screen', 500px, 'no-query' '.no-mq';
+$breakpoint-to-ems: false;
+$breakpoint-legacy-syntax: true;
+/*
+ * One-sided features (ie. monochrome)
+ * $not : #{$not};
+ */
+.legacy {
+  @include breakpoint($legacy) {
+    content: '$legacy';
+    content: '@media not screen and (min-width: 500px)';
+  }
+}
+$breakpoint-legacy-syntax: false;
