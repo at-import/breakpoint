@@ -202,160 +202,60 @@ $breakpoint-to-ems: true;
 }
 
 
-
-
-
-
-
-////////////////////////////
-// OLD TESTS
-////////////////////////////
-
-
-//////////////////////////////
-// Media Queries
-//////////////////////////////
-$basic: 500px;
-$basic-and: 500px monochrome;
 $basic-or: 500px, tv 700px color;
-$double: 700px 500px;
-$double-string: orientation landscape;
-$double-mixed: max-width 500px;
-$triple: height 500px 700px;
-$resolution: resolution 96dpi;
-$dpr: min-resolution 1.4dppx;
-$not: 'not screen';
-$only: 'only tv';
-$media-and: screen (max-width 500px);
-$or: 500px, orientation landscape;
-$no-query: 500px, no-query '.lte-ie9';
-
-$advanced: 'only screen' 500px (max-resolution 144dpi), (500px 700px) (min-resolution 1.5dppx), no-query '.no-mq';
-
-$nest-pre: 20em color;
-$nest: append($nest-pre, (resolution 2.0dppx));
-
-//////////////////////////////
-// Tests
-//////////////////////////////
-#basic {
-  @include breakpoint($basic) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
-    content: 'Force All: #{$breakpoint-force-media-all}';
-    content: 'To Ems: #{$breakpoint-to-ems}';
-  }
-}
-
-#basic-and {
-  @include breakpoint($basic-and) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px) and (monochrome)';
-    content: 'Force All: #{$breakpoint-force-media-all}';
-    content: 'To Ems: #{$breakpoint-to-ems}';
-  }
-}
-
-#basic-or {
+$breakpoint-to-ems: false;
+/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : #{$basic-or};
+ */
+.basic-or {
   @include breakpoint($basic-or) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), tv and (#{$breakpoint-default-feature}: 700px) and (color)';
-    content: 'Force All: #{$breakpoint-force-media-all}';
-    content: 'To Ems: #{$breakpoint-to-ems}';
+    content: '$basic-or';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.basic-or-to-ems {
+  @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (max-width: 43.75em) and (orientation: portrait)';
   }
 }
 
 
-#double {
-  @include breakpoint($double) {
-    content: '@media #{$breakpoint-default-media} and (min-#{$breakpoint-default-pair}: 500px) and (max-#{$breakpoint-default-pair}: 700px)';
+$monochrome: monochrome;
+$multidimensional-plus-one-sided: (max-width 700px) (orientation portrait) (monochrome);
+$breakpoint-to-ems: false;
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : #{$monochrome};
+ * $multidimensional-plus-one-sided : #{$multidimensional-plus-one-sided};
+ */
+.one-sided {
+  @include breakpoint($monochrome) {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+  @include breakpoint($multidimensional-plus-one-sided) {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 700px) and (orientation: portrait) and (monochrome)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.one-sided-to-ems {
+  @include breakpoint($monochrome) {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+  @include breakpoint($multidimensional-plus-one-sided) {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 43.75em) and (orientation: portrait) and (monochrome)';
   }
 }
 
-#double-string {
-  @include breakpoint($double-string) {
-    content: '@media #{$breakpoint-default-media} and (orientation: landscape)';
-  }
-}
 
-#double-mixed {
-  @include breakpoint($double-mixed) {
-    content: '@media #{$breakpoint-default-media} and (max-width: 500px)';
-  }
-}
 
-#triple {
-  @include breakpoint($triple) {
-    content: '@media #{$breakpoint-default-media} and (min-height: 500px) and (max-height: 700px)';
-  }
-}
 
-#resolution {
-  @include breakpoint($resolution) {
-    @if ($breakpoint-resolutions) {
-      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi), #{$breakpoint-default-media} and (-webkit-device-pixel-ratio: 1)';
-    }
-    @else {
-      content: '@media #{$breakpoint-default-media} and (resolution: 96dpi)';
-    }
-
-  }
-}
-
-#dpr {
-  @include breakpoint($dpr) {
-    content: '@media #{$breakpoint-default-media} and (-webkit-min-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min--moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (min-resolution: 2ppx), #{$breakpoint-default-media} and (min-resolution: 192dpi)';
-  }
-}
-
-#not {
-  @include breakpoint($not) {
-    content: '@media not screen';
-  }
-}
-
-#only {
-  @include breakpoint($only) {
-    content: '@media only tv';
-  }
-}
-
-#media-and {
-  @include breakpoint($media-and) {
-    content: '@media screen and (#{$breakpoint-default-feature}: 500px)';
-  }
-}
-
-#or {
-  @include breakpoint($or) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px), (orientation: landscape)';
-  }
-}
-
-#no-query {
-  @include breakpoint($no-query) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 500px)';
-    content: '.lte-ie9 #no-query {}';
-  }
-}
-
-#advanced {
-  @include breakpoint($advanced) {
-    @if ($breakpoint-resolutions) {
-      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution: 144dpi), @media only screen and (#{$breakpoint-default-feature}: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
-    }
-    @else {
-      content: '@media only screen and (#{$breakpoint-default-feature}: 500px) and (max-resolution 144dpi), (#{$breakpoint-default-feature}: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min--moz-device-pixel-ratio: 1.4), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 1.4dppx), (#{$breakpoint-default-feature}: 700px) and (min-resolution: 134.4dpi)';
-    }
-
-  }
-}
-
-#nest-pre {
-  @include breakpoint($nest-pre) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color)';
-  }
-}
-
-#nest {
-  @include breakpoint($nest) {
-    content: '@media #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (-webkit-device-pixel-ratio: 2), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (moz-device-pixel-ratio: 2), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (resolution: 2ppx), #{$breakpoint-default-media} and (#{$breakpoint-default-feature}: 20em) and (color) and (resolution: 192dpi)';
-  }
-}
