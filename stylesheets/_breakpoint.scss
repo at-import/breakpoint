@@ -9,14 +9,17 @@ $breakpoint-default-pair:       'width' !default;
 // Default Transforms
 $breakpoint-force-media-all:    false !default;
 $breakpoint-to-ems:             false !default;
-$breakpoint-resolutions:  true !default;
+$breakpoint-resolutions:        true !default;
 
 // Default No Query Options
 $breakpoint-no-queries:         false !default;
 $breakpoint-no-query-wrappers:  false !default;
 
 // Deftault Base Font Size
-$breakpoint-base-font-size: 16px;
+$breakpoint-base-font-size:     16px !default;
+
+// Legacy Syntax Support
+$breakpoint-legacy-syntax:      false !default;
 
 //////////////////////////////
 // Imports
@@ -39,7 +42,7 @@ $breakpoint-base-font-size: 16px;
   $query-fallback: false;
 
 
-  @if ($or-list != false) {
+  @if ($or-list != false and $breakpoint-legacy-syntax == false) {
     $length: length($query);
 
     $last: nth($query, $length);
@@ -61,7 +64,29 @@ $breakpoint-base-font-size: 16px;
     }
   }
   @else {
-    $query-string: breakpoint-parse($query);
+    @if ($breakpoint-legacy-syntax == true) {
+      $length: length($query);
+
+      $last: nth($query, $length);
+      // @debug $last;
+      $query-fallback: breakpoint-no-query($last);
+      // @debug $query-fallback;
+
+      @if ($query-fallback != false) {
+        $length: $length - 1;
+      }
+
+      $mq: ();
+
+      @for $i from 1 through $length {
+        $mq: append($mq, nth($query, $i), comma);
+      }
+
+      $query-string: breakpoint-parse($mq);
+    }
+    @else {
+      $query-string: breakpoint-parse($query);
+    }
   }
 
   // @debug $query-string;
