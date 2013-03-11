@@ -36,11 +36,15 @@
  * $multidimensional : max-width 700px orientation portrait;
  */
 /* $breakpoint-to-ems: true; */
-.lte-ie9 #no-query {
-  content: "@media all and (min-width: 500px)";
-  content: '.lte-ie9 #no-query {}';
-}
-
-.no-mq #advanced {
-  content: "@media only screen and (min-width: 500px) and (max-resolution: 144dpi), @media only screen and (min-width: 500px) and (-webkit-max-device-pixel-ratio: 1.5), (min-width: 700px) and (-webkit-min-device-pixel-ratio: 1.4), (min-width: 700px) and (min--moz-device-pixel-ratio: 1.4), (min-width: 700px) and (min-resolution: 1.4dppx), (min-width: 700px) and (min-resolution: 134.4dpi)";
-}
+/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : 500px, tv 700px color;
+ */
+/* $breakpoint-to-ems: true; */
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $multidimensional-plus-one-sided : max-width 700px orientation portrait monochrome;
+ */
+/* $breakpoint-to-ems: true; */
