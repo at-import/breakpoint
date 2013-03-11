@@ -52,3 +52,16 @@
  * One-sided features (ie. monochrome)
  * $not : not screen;
  */
+/*
+ * Double string feature (i.e. string: string)
+ * $aspect-ratio : "min-aspect-ratio" "300/250";
+ * $device-aspect-ratio : "max-device-aspect-ratio" "320/480";
+ */
+/*
+ * One-sided features (ie. monochrome)
+ * $not : not screen;
+ */
+.no-mq .legacy {
+  content: '$legacy';
+  content: '@media not screen and (min-width: 500px)';
+}
