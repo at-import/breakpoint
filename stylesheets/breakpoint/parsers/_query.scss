@@ -28,6 +28,12 @@
           @return $query-holder;
         }
       }
+      // If the string is a media type, split the query
+      @if breakpoint-is-media($value) {
+        $query-holder: append($query-holder, nth($query, 1));
+        $query-holder: append($query-holder, nth($query, 2));
+        @return $query-holder;
+      }
       // If it's not a single feature, we're just going to assume it's a proper string/value pair, and roll with it.
       @else {
         $feature-holder: append($value, $number, space);
