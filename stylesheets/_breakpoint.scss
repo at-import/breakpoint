@@ -101,8 +101,28 @@ $breakpoint-legacy-syntax:      false !default;
     }
   }
 
-  @if $breakpoint-no-query-wrappers {
-    @if $query-fallback != false {
+  @if $breakpoint-no-query-wrappers != false {
+
+    $type: type-of($breakpoint-no-query-wrappers);
+    $print: false;
+
+    @if ($type == 'bool') {
+      $print: true;
+    }
+    @else if ($type == 'string') {
+      @if $query-fallback == $breakpoint-no-query-wrappers {
+        $print: true;
+      }
+    }
+    @else if ($type == 'list') {
+      @each $wrapper in $breakpoint-no-query-wrappers {
+        @if $query-fallback == $wrapper {
+          $print: true;
+        }
+      }
+    }
+
+    @if ($query-fallback != false) and ($print == true) {
       #{$query-fallback} & {
         @content;
       }
