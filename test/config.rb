@@ -11,10 +11,11 @@
 # http_javascripts_path = '/js'
 
 # File system locations
-sass_dir              = 'sass'
-css_dir               = 'css'
+sass_dir                = 'sass'
+css_dir                  = 'css'
 images_dir            = 'images'
 javascripts_dir       = 'js'
+add_import_path       '../stylesheets'
 
 # Set to true for easier debugging
 line_comments         = false
