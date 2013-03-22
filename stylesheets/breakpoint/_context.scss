@@ -1,14 +1,14 @@
 //////////////////////////////
 // Private Breakpoint Variables
 //////////////////////////////
-$TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
+$private-breakpoint-context-holder: () !default;
 
 //////////////////////////////
 // Breakpoint Get Context
 // $feature: Input feature to get it's current MQ context. Returns false if no context
 //////////////////////////////
 @function breakpoint-get-context($feature) {
-  @each $context in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+  @each $context in $private-breakpoint-context-holder {
     @if $feature == nth($context, 1) {
       @return nth($context, 2);
     }
@@ -20,7 +20,7 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 //////////////////////////////
 // Private function to set context
 //////////////////////////////
-@function U2V0IHlvdXIgb3duIGRhbW4gY29udGV4dHMh($feature, $value) {
+@function private-breakpoint-set-context($feature, $value) {
 
   @if $value == 'monochrome' {
     $feature: 'monochrome';
@@ -29,8 +29,8 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
   $holder: () !default;
   $swap: false;
 
-  @if length($TXkgdmFyaWFibGUhIEdvIGF3YXkh) > 0 {
-    @each $item in $TXkgdmFyaWFibGUhIEdvIGF3YXkh {
+  @if length($private-breakpoint-context-holder) > 0 {
+    @each $item in $private-breakpoint-context-holder {
       @if nth($item, 1) == $feature {
         $append: $feature;
         $append: join($append, $value, space);
@@ -51,13 +51,13 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
       $holder: append($holder, $append, comma);
     }
 
-    $TXkgdmFyaWFibGUhIEdvIGF3YXkh: $holder;
+    $private-breakpoint-context-holder: $holder;
   }
   @else {
     $append: $feature;
     $append: join($append, $value, space);
 
-    $TXkgdmFyaWFibGUhIEdvIGF3YXkh: append($TXkgdmFyaWFibGUhIEdvIGF3YXkh, $append, comma);
+    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $append, comma);
   }
 
   @return true;
@@ -66,6 +66,6 @@ $TXkgdmFyaWFibGUhIEdvIGF3YXkh: () !default;
 //////////////////////////////
 // Private function to reset context
 //////////////////////////////
-@mixin TXkgcmVzZXQhIEdvIGF3YXkh {
-  $TXkgdmFyaWFibGUhIEdvIGF3YXkh: ();
+@mixin private-breakpoint-reset-contexts {
+  $private-breakpoint-context-holder: ();
 }
