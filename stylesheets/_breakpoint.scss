@@ -39,6 +39,9 @@ $breakpoint-legacy-syntax:      false !default;
   // Internal Variables
   $query-string: '';
 
+  // Reset contexts
+  @include private-breakpoint-reset-contexts();
+
   // Test to see if it's a comma-separated list
   $or-list: is-breakpoint-list($query);
   $query-fallback: false;
