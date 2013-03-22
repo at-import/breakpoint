@@ -29,6 +29,8 @@ $breakpoint-legacy-syntax:      false !default;
 @import 'breakpoint/parsers';
 @import 'breakpoint/no-query';
 
+@import 'breakpoint/respond-to';
+
 //////////////////////////////
 // Breakpoint Mixin
 //////////////////////////////
