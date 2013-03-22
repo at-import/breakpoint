@@ -32,6 +32,10 @@
 $single-pixel-value: 500px;
 $single-em-value: 30em;
 $breakpoint-to-ems: false;
+
+$breakpoints: add-breakpoint('single pixel value', $single-pixel-value);
+$breakpoints: add-breakpoint('single pixel value, em', $single-em-value);
+
 /*
  * Assume $breakpoint-default-feature
  * if only a number
@@ -44,6 +48,15 @@ $breakpoint-to-ems: false;
     content: '@media (min-width: 500px)';
   }
   @include breakpoint($single-em-value) {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+
+  @include respond-to('single pixel value') {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+  @include respond-to('single pixel value, em') {
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
   }
@@ -204,6 +217,8 @@ $breakpoint-to-ems: true;
 
 $basic-or: 500px, tv 700px color;
 $breakpoint-to-ems: false;
+
+$breakpoints: add-breakpoint('basic or', $basic-or);
 /*
  * 'OR' mediaqueries.
  * tests separated by commas
@@ -211,6 +226,10 @@ $breakpoint-to-ems: false;
  */
 .basic-or {
   @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+  @include respond-to('basic or') {
     content: '$basic-or';
     content: '@media (max-width: 700px) and (orientation: portrait)';
   }
@@ -309,3 +328,29 @@ $breakpoint-legacy-syntax: true;
   }
 }
 $breakpoint-legacy-syntax: false;
+
+$device-pixel-ratio: 'resolution' 2dppx;
+$resolution: 'min-resolution' 192dpi;
+$breakpoint-resolutions: true;
+
+$breakpoints: add-breakpoint('device pixel ratio', $device-pixel-ratio);
+/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: #{$device-pixel-ratio}
+ * $resolution: #{$resolution}
+ */
+.resolution {
+  @include breakpoint($device-pixel-ratio) {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+  @include breakpoint($resolution) {
+    content: $resolution;
+    content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
+  }
+
+  @include respond-to('device pixel ratio') {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+}
