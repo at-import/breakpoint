@@ -1,3 +1,7 @@
 $breakpoint-no-queries: true;
-$breakpoint-no-query-wrappers: true;
+$breakpoint-no-query-wrappers: '.no-mq';
+// $breakpoint-no-query-wrappers: '.touch';
+
+
+
 @import 'style';
