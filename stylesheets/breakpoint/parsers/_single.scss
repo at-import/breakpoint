@@ -15,7 +15,7 @@
   @if (breakpoint-single-string($feature)) {
     $parsed: '#{$feature}';
     // Set Context
-    $context: private-breakpoint-set-context($feature, $feature);
+    $context-setter: private-breakpoint-set-context($feature, $feature);
   }
   // If it's not a stand alone feature, we pass it off to the default handler.
   @else {

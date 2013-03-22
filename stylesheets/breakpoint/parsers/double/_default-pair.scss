@@ -8,8 +8,8 @@
   $max: max($first, $second);
 
   // Set Context
-  $context: private-breakpoint-set-context(min-#{$default}, $min);
-  $context: private-breakpoint-set-context(max-#{$default}, $max);
+  $context-setter: private-breakpoint-set-context(min-#{$default}, $min);
+  $context-setter: private-breakpoint-set-context(max-#{$default}, $max);
 
   // Make them EMs if need be
   @if ($breakpoint-to-ems == true) {

@@ -2,7 +2,7 @@
   $default: $breakpoint-default-feature;
 
   // Set Context
-  $context: private-breakpoint-set-context($default, $feature);
+  $context-setter: private-breakpoint-set-context($default, $feature);
 
   @if ($breakpoint-to-ems == true) and (type-of($feature) == 'number') {
     @return '#{$default}: #{breakpoint-to-base-em($feature)}';

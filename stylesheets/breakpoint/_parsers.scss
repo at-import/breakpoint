@@ -47,7 +47,8 @@
           $query-print: $feature;
           $empty-media: false;
 
-          /* Context Needed */
+          // Set Context
+          $context-setter: private-breakpoint-set-context(media, $query-print);
         }
       }
       @else {
