@@ -73,7 +73,7 @@
     content: '@media (lion: 500px)';
   }
 }
-@media (portrait: orientation) {
+@media (orientation: portrait) {
   .feature-value-pair {
     content: '$feature-value-both-strings';
     content: '@media (orientation: portrait)';
