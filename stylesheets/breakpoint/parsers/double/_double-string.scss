@@ -12,5 +12,8 @@
     $value: $first;
   }
 
+  // Set Context
+  $context: private-breakpoint-set-context($feature, $value);
+
   @return '(#{$feature}: #{$value})';
 }

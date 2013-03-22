@@ -14,13 +14,12 @@
   // If it's a single feature that can stand alone, we let it
   @if (breakpoint-single-string($feature)) {
     $parsed: '#{$feature}';
-    /* Context Needed */
+    // Set Context
+    $context: private-breakpoint-set-context($feature, $feature);
   }
   // If it's not a stand alone feature, we pass it off to the default handler.
   @else {
     $parsed: breakpoint-parse-default($feature);
-
-    /* Context Needed */
   }
 
   @return $leader + '(' + $parsed + ')';
