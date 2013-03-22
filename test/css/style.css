@@ -19,6 +19,18 @@
     content: '@media (min-width: 30em)';
   }
 }
+@media (min-width: 500px) {
+  .breakpoint-default-feature {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+}
+@media (min-width: 30em) {
+  .breakpoint-default-feature {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+}
 
 /* $breakpoint-to-ems: true; */
 @media (min-width: 31.25em) {
@@ -183,6 +195,12 @@
     content: '@media (max-width: 700px) and (orientation: portrait)';
   }
 }
+@media (min-width: 500px), tv and (min-width: 700px) and (color) {
+  .basic-or {
+    content: '$basic-or';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+}
 
 /* $breakpoint-to-ems: true; */
 @media (min-width: 31.25em), tv and (min-width: 43.75em) and (color) {
@@ -267,5 +285,29 @@
   .legacy {
     content: '$legacy';
     content: '@media not screen and (min-width: 500px)';
+  }
+}
+
+/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: "resolution" 2dppx
+ * $resolution: "min-resolution" 192dpi
+ */
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
 }
