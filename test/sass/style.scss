@@ -53,12 +53,10 @@ $breakpoints: add-breakpoint('single pixel value, em', $single-em-value);
   }
 
   @include respond-to('single pixel value') {
-    content: 'respond-to';
     content: '$single-pixel-value';
     content: '@media (min-width: 500px)';
   }
   @include respond-to('single pixel value, em') {
-    content: 'respond-to';
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
   }
@@ -232,7 +230,6 @@ $breakpoints: add-breakpoint('basic or', $basic-or);
     content: '@media (max-width: 700px) and (orientation: portrait)';
   }
   @include respond-to('basic or') {
-    content: 'respond-to';
     content: '$basic-or';
     content: '@media (max-width: 700px) and (orientation: portrait)';
   }
@@ -248,17 +245,23 @@ $breakpoint-to-ems: true;
 
 
 $monochrome: monochrome;
+$monochrome-double: 300px monochrome;
 $multidimensional-plus-one-sided: (max-width 700px) (orientation portrait) (monochrome);
 $breakpoint-to-ems: false;
 /*
  * One-sided features (ie. monochrome)
  * $monochrome : #{$monochrome};
+ * $monochrome-double : #{$monochrome-double};
  * $multidimensional-plus-one-sided : #{$multidimensional-plus-one-sided};
  */
 .one-sided {
   @include breakpoint($monochrome) {
     content: '$monochrome';
     content: '@media (monochrome)';
+  }
+  @include breakpoint($monochrome-double) {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
   }
   @include breakpoint($multidimensional-plus-one-sided) {
     content: '$multidimensional-plus-one-sided';
@@ -268,9 +271,9 @@ $breakpoint-to-ems: false;
 /* $breakpoint-to-ems: true; */
 $breakpoint-to-ems: true;
 .one-sided-to-ems {
-  @include breakpoint($monochrome) {
-    content: '$monochrome';
-    content: '@media (monochrome)';
+  @include breakpoint($monochrome-double) {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
   }
   @include breakpoint($multidimensional-plus-one-sided) {
     content: '$multidimensional-plus-one-sided';
@@ -353,33 +356,75 @@ $breakpoints: add-breakpoint('device pixel ratio', $device-pixel-ratio);
   }
 
   @include respond-to('device pixel ratio') {
-    content: 'respond-to';
     content: $device-pixel-ratio;
     content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
 }
 
-$complex: 'not tv' 600px (300px 700px 'height') ('max-resolution' 1.5dppx), 'screen' (500px 600px) 'monochrome' ('resolution' 153dpi), 'no-query' '.touch';
-
-$breakpoints: add-breakpoint('complex', $complex);
-
-$breakpoint-no-queries: false;
-$breakpoint-no-query-wrappers: '.touch';
-
-$breakpoint-to-ems: false;
+$context-simple: 500px;
+$context-single: monochrome;
+$context-and: 500px 700px;
+$context-max: max-width 700px;
+$context-string: orientation portrait;
+$context-triple: height 800px 1000px;
+$context-media-type: (print);
+$context-or: (500px) (max-height 1200px), 600px 700px;
+$context-complex: 500px, (screen) (500px 700px), (300px) (monochrome);
 /*
- * Complex media query involving multiple media types, ors, and no-query
- * $complex: #{$complex}
+ * Queries to test Breakpoint Get Context
+ * $context-simple: #{$context-simple}
+ * $context-single: #{$context-single}
+ * $context-and: #{$context-and}
+ * $context-max: #{$context-max}
+ * $context-string: #{$context-string}
+ * $context-triple: #{$context-triple}
+ * $context-media-type: #{$context-media-type}
+ * $context-or: #{$context-or}
+ * $context-complex: #{$context-complex}
  */
- .complex {
-  @include breakpoint($complex) {
-    content: $complex;
-    content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
+.context {
+  @include breakpoint($context-simple) {
+    content: '@media (min-width: 500px)';
+    // @debug breakpoint-get-context(min-width);
   }
-
-  @include respond-to('complex') {
-    content: 'respond-to';
-    content: $complex;
-    content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
+  @include breakpoint($context-single) {
+    content: '@media (monochrome)';
+    // @debug breakpoint-get-context(monochrome);
   }
- }
+  @include breakpoint($context-and) {
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+    // @debug breakpoint-get-context(min-width);
+    // @debug breakpoint-get-context(max-width);
+  }
+  @include breakpoint($context-max) {
+    content: '@media (max-width: 700px)';
+    // @debug breakpoint-get-context(max-width);
+  }
+  @include breakpoint($context-string) {
+    content: '@media (orientation: portrait)';
+    // @debug breakpoint-get-context(orientation);
+  }
+  @include breakpoint($context-triple) {
+    content: '@media (min-height: 800px) and (max-height: 1000px)';
+    // @debug breakpoint-get-context(min-height);
+    // @debug breakpoint-get-context(max-height);
+  }
+  @include breakpoint($context-media-type) {
+    content: '@media print';
+    // @debug breakpoint-get-context(media);
+  }
+  @include breakpoint($context-or) {
+    content: '@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)';
+    // @debug breakpoint-get-context(min-width);
+    // @debug breakpoint-get-context(max-width);
+    // @debug breakpoint-get-context(max-height);
+    // @debug breakpoint-get-context(orientation);
+  }
+  @include breakpoint($context-complex) {
+    content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
+    // @debug breakpoint-get-context(min-width);
+    // @debug breakpoint-get-context(max-width);
+    // @debug breakpoint-get-context(media);
+    // @debug breakpoint-get-context(monochrome);
+  }
+}
