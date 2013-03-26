@@ -21,7 +21,9 @@ $private-breakpoint-context-holder: () !default;
 // Private function to set context
 //////////////////////////////
 @function private-breakpoint-set-context($feature, $value) {
-
+@debug 'PBSC';
+// @debug $feature;
+// @debug $value;
   @if $value == 'monochrome' {
     $feature: 'monochrome';
   }
@@ -29,21 +31,23 @@ $private-breakpoint-context-holder: () !default;
   $holder: () !default;
   $swap: false;
 
+  // if not the first feature
   @if length($private-breakpoint-context-holder) > 0 {
     @each $item in $private-breakpoint-context-holder {
+@debug $item;
+      // if the current feature is already in our set
       @if nth($item, 1) == $feature {
-        $append: $feature;
-        $append: join($append, $value, space);
-
-        $holder: append($holder, $append, comma);
-
-        $swap: true;
+        // add new feature/value to the existing item
+        @debug 'yep';
       }
+      // if the current feature is not in our set
       @else {
-        $holder: append($holder, $item, comma);
+        //
+        @debug 'nope';
       }
     }
 
+    //
     @if not $swap {
       $append: $feature;
       $append: join($append, $value, space);

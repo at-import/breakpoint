@@ -21,14 +21,12 @@
 }
 @media (min-width: 500px) {
   .breakpoint-default-feature {
-    content: 'respond-to';
     content: '$single-pixel-value';
     content: '@media (min-width: 500px)';
   }
 }
 @media (min-width: 30em) {
   .breakpoint-default-feature {
-    content: 'respond-to';
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
   }
@@ -199,7 +197,6 @@
 }
 @media (min-width: 500px), tv and (min-width: 700px) and (color) {
   .basic-or {
-    content: 'respond-to';
     content: '$basic-or';
     content: '@media (max-width: 700px) and (orientation: portrait)';
   }
@@ -216,12 +213,19 @@
 /*
  * One-sided features (ie. monochrome)
  * $monochrome : monochrome;
+ * $monochrome-double : 300px monochrome;
  * $multidimensional-plus-one-sided : max-width 700px orientation portrait monochrome;
  */
 @media (monochrome) {
   .one-sided {
     content: '$monochrome';
     content: '@media (monochrome)';
+  }
+}
+@media (monochrome: 300px) {
+  .one-sided {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
   }
 }
 @media (max-width: 700px) and (orientation: portrait) and (monochrome) {
@@ -232,10 +236,10 @@
 }
 
 /* $breakpoint-to-ems: true; */
-@media (monochrome) {
+@media (monochrome: 18.75em) {
   .one-sided-to-ems {
-    content: '$monochrome';
-    content: '@media (monochrome)';
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
   }
 }
 @media (max-width: 43.75em) and (orientation: portrait) and (monochrome) {
@@ -310,35 +314,65 @@
 }
 @media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
   .resolution {
-    content: 'respond-to';
     content: "resolution" 2dppx;
     content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
 }
 
 /*
- * Complex media query involving multiple media types, ors, and no-query
- * $complex: "not tv" 600px 300px 700px "height" "max-resolution" 1.5dppx, "screen" 500px 600px "monochrome" "resolution" 153dpi, "no-query" ".touch"
+ * Queries to test Breakpoint Get Context
+ * $context-simple: 500px
+ * $context-single: monochrome
+ * $context-and: 500px 700px
+ * $context-max: max-width 700px
+ * $context-string: orientation portrait
+ * $context-triple: height 800px 1000px
+ * $context-media-type: print
+ * $context-or: 500px max-height 1200px, 600px 700px
+ * $context-complex: 500px, screen 500px 700px, 300px monochrome
  */
-@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375) {
-  .complex {
-    content: "not tv" 600px 300px 700px "height" "max-resolution" 1.5dppx, "screen" 500px 600px "monochrome" "resolution" 153dpi, "no-query" ".touch";
-    content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
+@media (min-width: 500px) {
+  .context {
+    content: '@media (min-width: 500px)';
   }
 }
-.touch .complex {
-  content: "not tv" 600px 300px 700px "height" "max-resolution" 1.5dppx, "screen" 500px 600px "monochrome" "resolution" 153dpi, "no-query" ".touch";
-  content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
-}
-@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375) {
-  .complex {
-    content: 'respond-to';
-    content: "not tv" 600px 300px 700px "height" "max-resolution" 1.5dppx, "screen" 500px 600px "monochrome" "resolution" 153dpi, "no-query" ".touch";
-    content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
+@media (monochrome) {
+  .context {
+    content: '@media (monochrome)';
   }
 }
-.touch .complex {
-  content: 'respond-to';
-  content: "not tv" 600px 300px 700px "height" "max-resolution" 1.5dppx, "screen" 500px 600px "monochrome" "resolution" 153dpi, "no-query" ".touch";
-  content: '@media not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 1.5dppx), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (-webkit-max-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max--moz-device-pixel-ratio: 1.5), not tv and (min-width: 600px) and (min-height: 300px) and (max-height: 700px) and (max-resolution: 144dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (resolution: 153dpi), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-webkit-device-pixel-ratio: 1.59375), screen and (min-width: 500px) and (max-width: 600px) and (monochrome) and (-moz-device-pixel-ratio: 1.59375)';
+@media (min-width: 500px) and (max-width: 700px) {
+  .context {
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+@media (max-width: 700px) {
+  .context {
+    content: '@media (max-width: 700px)';
+  }
+}
+@media (orientation: portrait) {
+  .context {
+    content: '@media (orientation: portrait)';
+  }
+}
+@media (min-height: 800px) and (max-height: 1000px) {
+  .context {
+    content: '@media (min-height: 800px) and (max-height: 1000px)';
+  }
+}
+@media print {
+  .context {
+    content: '@media print';
+  }
+}
+@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px) {
+  .context {
+    content: '@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)';
+  }
+}
+@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome: 300px) {
+  .context {
+    content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
+  }
 }
