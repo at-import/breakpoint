@@ -59,7 +59,11 @@ $breakpoint-legacy-syntax:      false !default;
       $length: $length - 1;
     }
 
+    $private-breakpoint-context-placeholder: 0;
+    @debug $length;
     @for $i from 1 through $length {
+      $private-breakpoint-context-placeholder: $private-breakpoint-context-placeholder + 1;
+      @debug $i;
       @if $i == 1 {
         $query-string: breakpoint-parse(nth($query, $i));
       }
@@ -67,6 +71,7 @@ $breakpoint-legacy-syntax:      false !default;
         $query-string: $query-string + ', ' + breakpoint-parse(nth($query, $i));
       }
     }
+    @debug $private-breakpoint-context-placeholder;
   }
   @else {
     @if ($breakpoint-legacy-syntax == true) {

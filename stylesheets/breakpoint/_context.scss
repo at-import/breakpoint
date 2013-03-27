@@ -2,6 +2,7 @@
 // Private Breakpoint Variables
 //////////////////////////////
 $private-breakpoint-context-holder: () !default;
+$private-breakpoint-context-placeholder: 0;
 
 //////////////////////////////
 // Breakpoint Get Context
@@ -28,41 +29,44 @@ $private-breakpoint-context-holder: () !default;
     $feature: 'monochrome';
   }
 
-  $holder: () !default;
-  $swap: false;
+  // build a keyed list of feature/value pairs
+  @debug $private-breakpoint-context-placeholder;
 
-  // if not the first feature
-  @if length($private-breakpoint-context-holder) > 0 {
-    @each $item in $private-breakpoint-context-holder {
-@debug $item;
-      // if the current feature is already in our set
-      @if nth($item, 1) == $feature {
-        // add new feature/value to the existing item
-        @debug 'yep';
-      }
-      // if the current feature is not in our set
-      @else {
-        //
-        @debug 'nope';
-      }
-    }
+  // $holder: () !default;
+  // $swap: false;
 
-    //
-    @if not $swap {
-      $append: $feature;
-      $append: join($append, $value, space);
+  // // if not the first feature
+  // @if length($private-breakpoint-context-holder) > 0 {
+  //   @each $item in $private-breakpoint-context-holder {
+  //     @debug $item;
+  //     // if the current feature is already in our set
+  //     @if nth($item, 1) == $feature {
+  //       // add new feature/value to the existing item
+  //       @debug 'yep';
+  //     }
+  //     // if the current feature is not in our set
+  //     @else {
+  //       //
+  //       @debug 'nope';
+  //     }
+  //   }
 
-      $holder: append($holder, $append, comma);
-    }
+  //   //
+  //   @if not $swap {
+  //     $append: $feature;
+  //     $append: join($append, $value, space);
 
-    $private-breakpoint-context-holder: $holder;
-  }
-  @else {
-    $append: $feature;
-    $append: join($append, $value, space);
+  //     $holder: append($holder, $append, comma);
+  //   }
 
-    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $append, comma);
-  }
+  //   $private-breakpoint-context-holder: $holder;
+  // }
+  // @else {
+  //   $append: $feature;
+  //   $append: join($append, $value, space);
+
+  //   $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $append, comma);
+  // }
 
   @return true;
 }
