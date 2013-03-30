@@ -21,8 +21,9 @@ $private-breakpoint-context-placeholder: 0;
 //////////////////////////////
 // Private function to set context
 //////////////////////////////
+$bar: null;
 @function private-breakpoint-set-context($feature, $value) {
-@debug 'PBSC';
+// @debug 'PBSC';
 // @debug $feature;
 // @debug $value;
   @if $value == 'monochrome' {
@@ -30,8 +31,68 @@ $private-breakpoint-context-placeholder: 0;
   }
 
   // build a keyed list of feature/value pairs
-  @debug $private-breakpoint-context-placeholder;
+  // @debug $private-breakpoint-context-placeholder;
+  // $foo: (min-width (500px 700px)) (orientation (portrait false)) (max-width (false 1000px));
+  // @debug nth($foo, 1);
 
+  // $bar: append($bar, min-width 500px);
+  // @debug $bar;
+  $position-replace: false;
+  $holder: null;
+  @if $private-breakpoint-context-placeholder == 1 {
+    // create a nested list of contexts
+    $holder: ($feature $value);
+    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder);
+  } @else {
+    // loop thru the contexts so far
+    // to check if this feature was in the last 'or' statement
+    $feature-used-before: false;
+    $position: 0;
+
+    @each $context in $private-breakpoint-context-holder {
+      $position: $position + 1;
+      @debug '---';
+      @debug $feature;
+      @debug nth($context, 1);
+      @if $feature == nth($context, 1) {
+        $feature-used-before: true;
+        $values: append(nth($context, 2), $value);
+        $holder: $feature ($values);
+        $position-replace: $position;
+
+        // $context: $holder;
+        // nth($private-breakpoint-context-holder, 1): $holder;
+
+        @debug $values;
+        @debug $holder;
+        @debug nth($holder, 1);
+        @debug nth($holder, 2);
+
+
+      }
+      @debug $feature-used-before;
+    }
+    // if this context does not match the current one append false
+  }
+  // @debug nth($private-breakpoint-context-holder, 1);
+  @debug $position-replace;
+  @debug $holder;
+  @if $position-replace != false {
+    $rebuild: null;
+    @for $i from 1 through length($private-breakpoint-context-holder) {
+      @debug $i;
+      @if $i == $position-replace {
+        $rebuild: append($rebuild, $holder);
+      } @else {
+        $rebuild: append($rebuild, nth($private-breakpoint-context-holder, $i));
+      }
+      @debug $rebuild;
+    }
+    $private-breakpoint-context-holder: $rebuild;
+  }
+  @debug $private-breakpoint-context-holder;
+  //
+  //
   // $holder: () !default;
   // $swap: false;
 

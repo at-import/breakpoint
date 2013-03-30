@@ -2,9 +2,9 @@
 // Default Variables
 //////////////////////////////
 // Default Features
-$breakpoint-default-media:      'all' !default;
-$breakpoint-default-feature:    'min-width' !default;
-$breakpoint-default-pair:       'width' !default;
+$breakpoint-default-media:      all !default;
+$breakpoint-default-feature:    min-width !default;
+$breakpoint-default-pair:       width !default;
 
 // Default Transforms
 $breakpoint-force-media-all:    false !default;
@@ -60,7 +60,6 @@ $breakpoint-legacy-syntax:      false !default;
     }
 
     $private-breakpoint-context-placeholder: 0;
-    @debug $length;
     @for $i from 1 through $length {
       $private-breakpoint-context-placeholder: $private-breakpoint-context-placeholder + 1;
       @debug $i;
