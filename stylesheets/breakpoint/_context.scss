@@ -30,104 +30,25 @@ $bar: null;
     $feature: 'monochrome';
   }
 
-  // build a keyed list of feature/value pairs
-  // @debug $private-breakpoint-context-placeholder;
-  // $foo: (min-width (500px 700px)) (orientation (portrait false)) (max-width (false 1000px));
-  // @debug nth($foo, 1);
 
-  // $bar: append($bar, min-width 500px);
-  // @debug $bar;
-  $position-replace: false;
-  $holder: null;
-  @if $private-breakpoint-context-placeholder == 1 {
-    // create a nested list of contexts
-    $holder: ($feature $value);
-    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder);
-  } @else {
-    // loop thru the contexts so far
-    // to check if this feature was in the last 'or' statement
-    $feature-used-before: false;
-    $position: 0;
+  // $holder: ($feature $value);
+  // $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder);
+  // @debug $private-breakpoint-context-holder;
+  // @debug breakpoint-get-context($feature);
 
-    @each $context in $private-breakpoint-context-holder {
-      $position: $position + 1;
-      @debug '---';
-      @debug $feature;
-      @debug nth($context, 1);
-      @if $feature == nth($context, 1) {
-        $feature-used-before: true;
-        $values: append(nth($context, 2), $value);
-        $holder: $feature ($values);
-        $position-replace: $position;
-
-        // $context: $holder;
-        // nth($private-breakpoint-context-holder, 1): $holder;
-
-        @debug $values;
-        @debug $holder;
-        @debug nth($holder, 1);
-        @debug nth($holder, 2);
-
-
-      }
-      @debug $feature-used-before;
-    }
-    // if this context does not match the current one append false
-  }
-  // @debug nth($private-breakpoint-context-holder, 1);
-  @debug $position-replace;
-  @debug $holder;
-  @if $position-replace != false {
-    $rebuild: null;
-    @for $i from 1 through length($private-breakpoint-context-holder) {
-      @debug $i;
-      @if $i == $position-replace {
-        $rebuild: append($rebuild, $holder);
-      } @else {
-        $rebuild: append($rebuild, nth($private-breakpoint-context-holder, $i));
-      }
-      @debug $rebuild;
-    }
-    $private-breakpoint-context-holder: $rebuild;
-  }
-  @debug $private-breakpoint-context-holder;
-  //
-  //
-  // $holder: () !default;
-  // $swap: false;
-
-  // // if not the first feature
-  // @if length($private-breakpoint-context-holder) > 0 {
-  //   @each $item in $private-breakpoint-context-holder {
-  //     @debug $item;
-  //     // if the current feature is already in our set
-  //     @if nth($item, 1) == $feature {
-  //       // add new feature/value to the existing item
-  //       @debug 'yep';
-  //     }
-  //     // if the current feature is not in our set
-  //     @else {
-  //       //
-  //       @debug 'nope';
-  //     }
-  //   }
-
-  //   //
-  //   @if not $swap {
-  //     $append: $feature;
-  //     $append: join($append, $value, space);
-
-  //     $holder: append($holder, $append, comma);
-  //   }
-
-  //   $private-breakpoint-context-holder: $holder;
-  // }
-  // @else {
-  //   $append: $feature;
-  //   $append: join($append, $value, space);
-
-  //   $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $append, comma);
-  // }
+  // What position are we?
+  // Has $feature been used?
+    // yes:
+      // grab context($feature);
+      // rebuild context
+      // create a swap context variable
+      // loop thru context
+      // is this feature the same as the current feature?
+        // yes: recreate this feature list
+          // recreate this feature, adding 'false' for empty iterations
+        // no: bring the correstponding item from swap
+    // no:
+      // create a context for this feature, adding 'false' for empty iterations
 
   @return true;
 }
