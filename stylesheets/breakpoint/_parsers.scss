@@ -63,9 +63,24 @@
         $query-resolution: $feature;
       }
       @else {
-        $parsed: breakpoint-parse-double($feature, $empty-media, $first);
-        $query-print: '#{$query-print} #{$parsed}';
-        $first: false;
+        $parsed: null;
+        // If it's a string/number pair,
+        // we check to see if one is a single-string value,
+        // then we parse it as a normal double
+        $alpha: nth($feature, 1);
+        $beta: nth($feature, 2);
+        @if breakpoint-single-string($alpha) or breakpoint-single-string($beta) {
+          $parsed: breakpoint-parse-single($alpha, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+          $first: false;
+          $parsed: breakpoint-parse-single($beta, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+        }
+        @else {
+          $parsed: breakpoint-parse-double($feature, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+          $first: false;
+        }
       }
     }
     // Parse a triple feature
