@@ -26,7 +26,6 @@ $private-breakpoint-context-placeholder: 0;
 //////////////////////////////
 // Private function to set context
 //////////////////////////////
-$bar: null;
 @function private-breakpoint-set-context($feature, $value) {
   @if $value == 'monochrome' {
     $feature: 'monochrome';
@@ -91,4 +90,5 @@ $bar: null;
 //////////////////////////////
 @mixin private-breakpoint-reset-contexts {
   $private-breakpoint-context-holder: ();
+  $private-breakpoint-context-placeholder: 0;
 }

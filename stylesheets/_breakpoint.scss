@@ -57,9 +57,8 @@ $breakpoint-legacy-syntax:      false !default;
       $length: $length - 1;
     }
 
-    $private-breakpoint-context-placeholder: 0;
+
     @for $i from 1 through $length {
-      $private-breakpoint-context-placeholder: $private-breakpoint-context-placeholder + 1;
       @if $i == 1 {
         $query-string: breakpoint-parse(nth($query, $i));
       }
