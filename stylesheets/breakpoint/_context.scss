@@ -11,7 +11,13 @@ $private-breakpoint-context-placeholder: 0;
 @function breakpoint-get-context($feature) {
   @each $context in $private-breakpoint-context-holder {
     @if $feature == nth($context, 1) {
-      @return nth($context, 2);
+      // @return nth($context, 2);
+      // strip feature name
+      $values: null;
+      @for $i from 2 through length($context) {
+        $values: append($values, nth($context, $i), comma);
+      }
+      @return $values;
     }
   }
 
@@ -113,9 +119,32 @@ $bar: null;
       $rebuild: append($private-breakpoint-context-holder, $holder, comma);
     }
 
+
+
     @debug $rebuild;
     $private-breakpoint-context-holder: $rebuild;
     @debug $private-breakpoint-context-holder;
+
+
+
+    // // add trailing 'false's
+    // $rebuild: null;
+    // @debug $placeholder-plus-one;
+    // @debug $private-breakpoint-context-holder;
+    // @debug length($private-breakpoint-context-holder);
+    // @each $context in $private-breakpoint-context-holder {
+    //   // @debug length($context);
+    //   @debug $context;
+    //   // @if length($context) < $placeholder-plus-one {
+    //   //   @debug $context;
+    //   //   $context: append($context, false, space);
+    //   // }
+    //   // $rebuild: append($rebuild, $context, comma);
+
+    // }
+    // // $private-breakpoint-context-holder: $rebuild;
+    // // @debug $private-breakpoint-context-holder;
+
     // }
 
 
