@@ -23,19 +23,13 @@ $private-breakpoint-context-placeholder: 0;
 //////////////////////////////
 $bar: null;
 @function private-breakpoint-set-context($feature, $value) {
-// @debug 'PBSC';
-// @debug $feature;
-// @debug $value;
   @if $value == 'monochrome' {
     $feature: 'monochrome';
   }
-
+  $placeholder-plus-one: ($private-breakpoint-context-placeholder + 1);
 
   // $holder: ($feature $value);
   // $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder);
-  // @debug $private-breakpoint-context-holder;
-  // @debug breakpoint-get-context($feature);
-  // @debug $private-breakpoint-context-placeholder;
 
   // $builder: null;
   $holder: null;
@@ -43,44 +37,86 @@ $bar: null;
   @if $private-breakpoint-context-placeholder == 1 {
     $holder: ($feature $value);
     $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma);
+    @return true;
   } @else {
-    // @debug 'your mom';
     // Has $feature been used?
-    $existing-feature: false;
+    // $rebuild-context: false;
+    $feature-used: false;
     @each $context in $private-breakpoint-context-holder {
-      // @debug nth($context, 1);
       @if nth($context, 1) == $feature {
+        $feature-used: $context;
         // yes:
-        $existing-feature: true;
-        // @debug $context;
-        // @debug $holder;
-        // @debug 'THIS';
-        $holder: $feature;
-        @for $i from 2 through ($private-breakpoint-context-placeholder + 1) {
-          // @debug $i;
-          @if $i <= length($context)  {
-            // @debug nth($context, $i);
-            $holder: append($holder, nth($context, $i), space);
-            // @debug $holder;
-            // @debug 'THAT';
-          } @elseif $i < ($private-breakpoint-context-placeholder + 1) {
-            // @debug 'NOT DONE YET';
-            $holder: append($holder, false, space);
-          } @else {
-            $holder: append($holder, $value, space);
-          }
-          // @debug $holder;
-          // @debug 'YOUR MOM';
-          // @debug nth($context, $i);
+        // $rebuild-context: true;
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+      }
+      // @else {
+      //   // add 'false' placeholders if needed
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      // }
+    }
+    @if $feature-used != false {
+      @debug "THE FEATURE HAS BEEN USED BEFORE";
+      $holder: $feature;
+      @for $i from 2 through $placeholder-plus-one {
+        @if $i <= length($feature-used)  {
+          $holder: append($holder, nth($feature-used, $i), space);
+        } @elseif $i < $placeholder-plus-one {
+          $holder: append($holder, false, space);
+        } @else {
+          $holder: append($holder, $value, space);
         }
       }
     }
-    // rebuild context
-    @if $existing-feature == true {
-      @debug 'EXISTING FEATURE';
-      @debug $holder;
-      @debug $private-breakpoint-context-holder;
+    @elseif $feature-used == false {
+      @debug "THE FEATURE HAS NOT BEEN USED BEFORE";
+      $holder: $feature;
+      @for $i from 2 through $placeholder-plus-one {
+        @if $i < $placeholder-plus-one {
+          $holder: append($holder, false, space);
+        } @else {
+          $holder: append($holder, $value, space);
+        }
+      }
     }
+    @debug $holder;
+
+
+    // rebuild context
+    // @if $rebuild-context == true {
+    $rebuild: null;
+    @if $feature-used != false {
+      @each $context in $private-breakpoint-context-holder {
+        @debug $context;
+        @if nth($context, 1) == nth($holder, 1) {
+          $rebuild: append($rebuild, $holder, comma);
+        } @else {
+          $rebuild: append($rebuild, $context, comma);
+        }
+      }
+    } @else {
+      $rebuild: append($private-breakpoint-context-holder, $holder, comma);
+    }
+
+    @debug $rebuild;
+    $private-breakpoint-context-holder: $rebuild;
+    @debug $private-breakpoint-context-holder;
+    // }
 
 
 
@@ -99,13 +135,7 @@ $bar: null;
 
 
 
-  // @debug ($holder);
-  // @debug ($private-breakpoint-context-holder);
   // @if length($private-breakpoint-context-holder) > 1 {
-    // @debug (nth($private-breakpoint-context-holder, 1));
-    // @debug (nth(nth($private-breakpoint-context-holder, 1), 2));
-    // @debug (nth($private-breakpoint-context-holder, 2));
-    // @debug (nth(nth($private-breakpoint-context-holder, 2), 2));
   // }
 
   @return true;
