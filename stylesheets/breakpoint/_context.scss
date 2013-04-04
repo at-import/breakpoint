@@ -35,20 +35,78 @@ $bar: null;
   // $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder);
   // @debug $private-breakpoint-context-holder;
   // @debug breakpoint-get-context($feature);
+  // @debug $private-breakpoint-context-placeholder;
 
+  // $builder: null;
+  $holder: null;
   // What position are we?
-  // Has $feature been used?
-    // yes:
-      // grab context($feature);
-      // rebuild context
-      // create a swap context variable
-      // loop thru context
-      // is this feature the same as the current feature?
-        // yes: recreate this feature list
-          // recreate this feature, adding 'false' for empty iterations
-        // no: bring the correstponding item from swap
-    // no:
-      // create a context for this feature, adding 'false' for empty iterations
+  @if $private-breakpoint-context-placeholder == 1 {
+    $holder: ($feature $value);
+    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma);
+  } @else {
+    // @debug 'your mom';
+    // Has $feature been used?
+    $existing-feature: false;
+    @each $context in $private-breakpoint-context-holder {
+      // @debug nth($context, 1);
+      @if nth($context, 1) == $feature {
+        // yes:
+        $existing-feature: true;
+        // @debug $context;
+        // @debug $holder;
+        // @debug 'THIS';
+        $holder: $feature;
+        @for $i from 2 through ($private-breakpoint-context-placeholder + 1) {
+          // @debug $i;
+          @if $i <= length($context)  {
+            // @debug nth($context, $i);
+            $holder: append($holder, nth($context, $i), space);
+            // @debug $holder;
+            // @debug 'THAT';
+          } @elseif $i < ($private-breakpoint-context-placeholder + 1) {
+            // @debug 'NOT DONE YET';
+            $holder: append($holder, false, space);
+          } @else {
+            $holder: append($holder, $value, space);
+          }
+          // @debug $holder;
+          // @debug 'YOUR MOM';
+          // @debug nth($context, $i);
+        }
+      }
+    }
+    // rebuild context
+    @if $existing-feature == true {
+      @debug 'EXISTING FEATURE';
+      @debug $holder;
+      @debug $private-breakpoint-context-holder;
+    }
+
+
+
+        // grab context($feature);
+        // rebuild context
+        // create a swap context variable
+        // loop thru context
+        // is this feature the same as the current feature?
+          // yes: recreate this feature list
+            // recreate this feature, adding 'false' for empty iterations
+          // no: bring the correstponding item from swap
+      // no:
+        // create a context for this feature, adding 'false' for empty iterations
+
+  }
+
+
+
+  // @debug ($holder);
+  // @debug ($private-breakpoint-context-holder);
+  // @if length($private-breakpoint-context-holder) > 1 {
+    // @debug (nth($private-breakpoint-context-holder, 1));
+    // @debug (nth(nth($private-breakpoint-context-holder, 1), 2));
+    // @debug (nth($private-breakpoint-context-holder, 2));
+    // @debug (nth(nth($private-breakpoint-context-holder, 2), 2));
+  // }
 
   @return true;
 }
