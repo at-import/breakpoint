@@ -385,46 +385,46 @@ $context-complex: 500px, (screen) (500px 700px), (300px) (monochrome);
 .context {
   @include breakpoint($context-simple) {
     content: '@media (min-width: 500px)';
-    // @debug breakpoint-get-context(min-width);
+    @debug breakpoint-get-context(min-width);
   }
   @include breakpoint($context-single) {
     content: '@media (monochrome)';
-    // @debug breakpoint-get-context(monochrome);
+    @debug breakpoint-get-context(monochrome);
   }
   @include breakpoint($context-and) {
     content: '@media (min-width: 500px) and (max-width: 700px)';
-    // @debug breakpoint-get-context(min-width);
-    // @debug breakpoint-get-context(max-width);
+    @debug breakpoint-get-context(min-width);
+    @debug breakpoint-get-context(max-width);
   }
   @include breakpoint($context-max) {
     content: '@media (max-width: 700px)';
-    // @debug breakpoint-get-context(max-width);
+    @debug breakpoint-get-context(max-width);
   }
   @include breakpoint($context-string) {
     content: '@media (orientation: portrait)';
-    // @debug breakpoint-get-context(orientation);
+    @debug breakpoint-get-context(orientation);
   }
   @include breakpoint($context-triple) {
     content: '@media (min-height: 800px) and (max-height: 1000px)';
-    // @debug breakpoint-get-context(min-height);
-    // @debug breakpoint-get-context(max-height);
+    @debug breakpoint-get-context(min-height);
+    @debug breakpoint-get-context(max-height);
   }
   @include breakpoint($context-media-type) {
     content: '@media print';
-    // @debug breakpoint-get-context(media);
+    @debug breakpoint-get-context(media);
   }
   @include breakpoint($context-or) {
     content: '@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)';
-    // @debug breakpoint-get-context(min-width);
-    // @debug breakpoint-get-context(max-width);
-    // @debug breakpoint-get-context(max-height);
-    // @debug breakpoint-get-context(orientation);
+    @debug breakpoint-get-context(min-width);
+    @debug breakpoint-get-context(max-width);
+    @debug breakpoint-get-context(max-height);
+    @debug breakpoint-get-context(orientation);
   }
   @include breakpoint($context-complex) {
     content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
-    // @debug breakpoint-get-context(min-width);
-    // @debug breakpoint-get-context(max-width);
-    // @debug breakpoint-get-context(media);
-    // @debug breakpoint-get-context(monochrome);
+    @debug breakpoint-get-context(min-width);
+    @debug breakpoint-get-context(max-width);
+    @debug breakpoint-get-context(media);
+    @debug breakpoint-get-context(monochrome);
   }
 }
