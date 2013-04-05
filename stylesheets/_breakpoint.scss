@@ -128,4 +128,5 @@ $breakpoint-legacy-syntax:      false !default;
     }
   }
 
+  @include private-breakpoint-reset-contexts();
 }
