@@ -428,3 +428,49 @@ $context-complex: 500px, (screen) (500px 700px), (300px) (monochrome);
     @debug breakpoint-get-context(monochrome);
   }
 }
+
+
+$dynamic-context: 400px ('min-height' 200px), (300px 325px) (orientation portriat) monochrome;
+$test: 350px;
+
+@mixin context-test() {
+  $min-width: breakpoint-get-context('foo');
+
+  $found: false;
+
+  @if $min-width {
+    @each $context in $min-width {
+      @if $context != false {
+        @if ($test > $context) {
+          content: 'In Context!';
+          $found: true;
+        }
+      }
+    }
+  }
+  @else {
+    content: 'No Context!';
+    $found: true;
+  }
+
+  @if not $found {
+    content: 'Not In Context';
+  }
+}
+
+#dynamic {
+  @include context-test;
+
+  @include breakpoint($dynamic-context) {
+    @include context-test;
+  }
+}
+
+
+$multi-media: 300px, print, 200px;
+
+#multi-media {
+  @include breakpoint($multi-media) {
+    @debug breakpoint-get-context('media');
+  }
+}
