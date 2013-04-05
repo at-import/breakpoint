@@ -7,11 +7,12 @@ Gem::Specification.new do |s|
 
   # Gem Details
   s.name = "breakpoint"
+  s.rubyforge_project = "breakpoint"
   s.description = %q{Really simple media queries in Sass}
   s.summary = %q{An easy to use system for writing and managing media queries.}
   s.authors = ["Mason Wendell", "Sam Richard"]
   s.email = ["mason@zivtech.com", "sam@snug.ug"]
-  s.homepage = "https://github.com/canarymason/breakpoint"
+  s.homepage = "https://github.com/Team-Sass/breakpoint"
 
   # Gem Files
   s.files = ["README.markdown"]
