@@ -84,3 +84,6 @@
  * $context-or: 500px max-height 1200px, 600px 700px
  * $context-complex: 500px, screen 500px 700px, 300px monochrome
  */
+#dynamic {
+  content: 'No Context!';
+}

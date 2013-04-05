@@ -376,3 +376,12 @@
     content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
   }
 }
+
+#dynamic {
+  content: 'No Context!';
+}
+@media (min-width: 400px) and (min-height: 200px), (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome) {
+  #dynamic {
+    content: 'No Context!';
+  }
+}
