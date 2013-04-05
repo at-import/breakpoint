@@ -1,7 +1,7 @@
 //////////////////////////////
 // Private Breakpoint Variables
 //////////////////////////////
-$private-breakpoint-context-holder: () !default;
+$private-breakpoint-context-holder: ();
 $private-breakpoint-context-placeholder: 0;
 
 //////////////////////////////
@@ -12,10 +12,21 @@ $private-breakpoint-context-placeholder: 0;
   @each $context in $private-breakpoint-context-holder {
     @if $feature == nth($context, 1) {
       // strip feature name
-      $values: null;
+      $values: ();
       @for $i from 2 through length($context) {
         $values: append($values, nth($context, $i), comma);
       }
+
+      $length: length($values) + 1;
+      @for $i from $length through $private-breakpoint-context-placeholder {
+        @if $feature == 'media' {
+          $values: append($values, $breakpoint-default-media, comma);
+        }
+        @else {
+          $values: append($values, false, comma);
+        }
+      }
+
       @return $values;
     }
   }
@@ -31,7 +42,7 @@ $private-breakpoint-context-placeholder: 0;
     $feature: 'monochrome';
   }
   $placeholder-plus-one: ($private-breakpoint-context-placeholder + 1);
-  $holder: null;
+  $holder: ();
   @if $private-breakpoint-context-placeholder == 1 {
     $holder: ($feature $value);
     $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma);
@@ -67,7 +78,7 @@ $private-breakpoint-context-placeholder: 0;
     }
 
     // Rebuild context
-    $rebuild: null;
+    $rebuild: ();
     @if $feature-used != false {
       @each $context in $private-breakpoint-context-holder {
         @if nth($context, 1) == nth($holder, 1) {
