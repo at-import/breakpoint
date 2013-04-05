@@ -19,6 +19,7 @@ $private-breakpoint-context-placeholder: 0;
 
       $length: length($values) + 1;
       @for $i from $length through $private-breakpoint-context-placeholder {
+        // Apply the Default Media type if feature is media
         @if $feature == 'media' {
           $values: append($values, $breakpoint-default-media, comma);
         }
@@ -41,12 +42,16 @@ $private-breakpoint-context-placeholder: 0;
   @if $value == 'monochrome' {
     $feature: 'monochrome';
   }
+
   $placeholder-plus-one: ($private-breakpoint-context-placeholder + 1);
+
   $holder: ();
+
   @if $private-breakpoint-context-placeholder == 1 {
     $holder: ($feature $value);
     $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma);
     @return true;
+
   } @else {
     $feature-used: false;
     @each $context in $private-breakpoint-context-holder {
@@ -54,6 +59,7 @@ $private-breakpoint-context-placeholder: 0;
         $feature-used: $context;
       }
     }
+
     @if $feature-used != false {
       $holder: $feature;
       @for $i from 2 through $placeholder-plus-one {
@@ -70,7 +76,14 @@ $private-breakpoint-context-placeholder: 0;
       $holder: $feature;
       @for $i from 2 through $placeholder-plus-one {
         @if $i < $placeholder-plus-one {
-          $holder: append($holder, false, space);
+          // Apply the Default Media type if feature is media
+          @if $feature == 'media' {
+            $holder: append($holder, $breakpoint-default-media, space);
+          }
+          @else {
+            $holder: append($holder, false, space);
+          }
+
         } @else {
           $holder: append($holder, $value, space);
         }
@@ -87,12 +100,13 @@ $private-breakpoint-context-placeholder: 0;
           $rebuild: append($rebuild, $context, comma);
         }
       }
+
     } @else {
       $rebuild: append($private-breakpoint-context-holder, $holder, comma);
     }
     $private-breakpoint-context-holder: $rebuild;
-
   }
+
   @return true;
 }
 
