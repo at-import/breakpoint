@@ -35,7 +35,7 @@ $breakpoint-legacy-syntax:      false !default;
 // Breakpoint Mixin
 //////////////////////////////
 
-@mixin breakpoint($query) {
+@mixin breakpoint($query, $no-query: false) {
   // Internal Variables
   $query-string: '';
 
@@ -91,9 +91,13 @@ $breakpoint-legacy-syntax:      false !default;
     }
   }
 
+  // Allow for an as-needed override or usage of no query fallback.
+  @if $no-query != false {
+    $query-fallback: $no-query;
+  }
+
 
   // Print Out Query String
-
   @if not $breakpoint-no-queries {
     @media #{$query-string} {
       @content;
