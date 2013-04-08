@@ -3,8 +3,8 @@ require 'compass'
 Compass::Frameworks.register("breakpoint", :path => "#{File.dirname(__FILE__)}/..")
 
 module Breakpoint
-  VERSION = "2.0.1"
-  DATE = "2012-04-05"
+  VERSION = "2.0.2"
+  DATE = "2012-04-08"
 end
 
 module Sass::Script::Functions
