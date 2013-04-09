@@ -31,6 +31,7 @@ We love contributors! Yes we do! If you would like to contribute to Breakpoint, 
 Breakpoint is designed to be a Media Query engine to power everything from design tweaks to media query contexts to full media query fallbacks. But we also know that our users will build awesome thing with these tools. Build a Breakpoint powered mixin for new media query semantics? We want to hear about it! Build something cool with Context? Let us know! If you would like to add your Awesome Thing to the list, please issue a Pull Request to add it!
 
 * [Singularity](https://github.com/Team-Sass/Singularity) - Semantic Grid System
+* [Breakpoint Slicer](https://github.com/lolmaus/breakpoint-slicer) - quick and efficient alternative syntax for Breakpoint
 
 ## License
 
