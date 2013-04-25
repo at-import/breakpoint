@@ -125,8 +125,18 @@ $breakpoint-legacy-syntax:      false !default;
       }
     }
 
+    // Write Fallback
     @if ($query-fallback != false) and ($print == true) {
-      #{$query-fallback} & {
+      $type-fallback: type-of($query-fallback);
+      @debug $query-fallback;
+      @debug $type-fallback;
+
+      @if ($type-fallback != 'bool') {
+	#{$query-fallback} & {
+	  @content;
+	}
+      }
+      @else {
         @content;
       }
     }
