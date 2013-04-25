@@ -13,7 +13,7 @@ $breakpoint-resolutions:        true !default;
 
 // Default No Query Options
 $breakpoint-no-queries:         false !default;
-$breakpoint-no-query-wrappers:  false !default;
+$breakpoint-no-query-fallbacks: false !default;
 
 // Deftault Base Font Size
 $breakpoint-base-font-size:     16px !default;
@@ -104,21 +104,21 @@ $breakpoint-legacy-syntax:      false !default;
     }
   }
 
-  @if $breakpoint-no-query-wrappers != false {
+  @if $breakpoint-no-query-fallbacks != false {
 
-    $type: type-of($breakpoint-no-query-wrappers);
+    $type: type-of($breakpoint-no-query-fallbacks);
     $print: false;
 
     @if ($type == 'bool') {
       $print: true;
     }
     @else if ($type == 'string') {
-      @if $query-fallback == $breakpoint-no-query-wrappers {
+      @if $query-fallback == $breakpoint-no-query-fallbacks {
         $print: true;
       }
     }
     @else if ($type == 'list') {
-      @each $wrapper in $breakpoint-no-query-wrappers {
+      @each $wrapper in $breakpoint-no-query-fallbacks {
         @if $query-fallback == $wrapper {
           $print: true;
         }
