@@ -1,0 +1,11 @@
+{
+  "name": "compass-breakpoint",
+  "version": "2.0.5",
+  "main": "stylesheets/_breakpoint.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test"
+  ]
+}
