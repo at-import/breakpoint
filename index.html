@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html class='no-js' lang='en'>
   <!--<![endif]-->
-  
+
 
 
 <head>
@@ -31,7 +31,7 @@
     <script src='/js/libs/selectivizr-min.js'></script>
   <![endif]-->
 </head>
-  
+
   <!-- Typekit -->
   <script type='text/javascript'>
     //<![CDATA[
@@ -65,7 +65,7 @@
           </li>
         </ul>
       </nav>
-      
+
     </div>
     <header>
       <h1 class='title'>Breakpoint</h1>
@@ -112,7 +112,7 @@
     </div>
     </div>
     <p>That just did two things that are really helpful. First, <strong>we reduced the media query down to the one value</strong> that really matters here, the min-width value. (You can also build complex queries and override the defaults. We&#8217;ll get to those.) And second, <strong>we gave that media query a meaningful name</strong>. And once we start calling media queries by name we can <strong>start managing them systematically</strong>. <span class='whoa'>Whoa.</span></p>
-    
+
     <h3 id='lets_add_a_few_more'>Let&#8217;s add a few more.</h3>
     <div class='tabset voila'>
     <div class='tabs'>
@@ -122,13 +122,13 @@
     <figure class='tab scss'>
     <input name='tab-group-variables' type='radio' checked='' id='tab-variables-1' />
     <div class='content'>
-    <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together with commas, assume each item is a feature value pair&#x000A;$surfboard-height: min-height 1000px, orientation portrait;&#x000A;$no-parachute: 1500px;&#x000A;</code></pre>
+    <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together with commas, assume each item is a feature value pair&#x000A;$surfboard-height: (min-height 1000px) (orientation portrait);&#x000A;$no-parachute: 1500px;&#x000A;</code></pre>
     </div>
     </figure>
     </div>
     </div>
     <h4 id='and_look_at_each_in_turn'>And look at each in turn.</h4>
-    
+
     <ol>
     <li>
     <p><code>$high-tide</code> uses the defaults. Pass Breakpoint just a number and it assumes you want it to write a <strong>min-width</strong> query.</p>
@@ -152,7 +152,7 @@
      </figure>
      </div>
      </div></li>
-    
+
     <li>
     <p><code>$ex-presidents</code> is made up of two numbers. When Breakpoint sees that it will turn that into a <strong>min-width/max-width</strong> query.</p>
     <div class='tabset voila'>
@@ -174,9 +174,9 @@
      </div>
      </figure>
      </div>
-    
+
      </div></li>
-    
+
     <li>
     <p><code>$surfboard-width</code> is made up of a number and the name of a feature to test. Breakpoint will turn these into <strong>feature/value pairs</strong>6</p>
     <div class='tabset voila'>
@@ -199,7 +199,7 @@
      </figure>
      </div>
      </div></li>
-    
+
     <li>
     <p><code>$surfboard-height</code> has a feature/value pair, and adds a second non-numeric pair. Breakpoint can interpret <strong>text-based tests</strong> and can <strong>string together as many queries as you need</strong>.</p>
     <div class='tabset voila'>
@@ -223,14 +223,16 @@
      </div>
      </div></li>
     </ol>
-    
+
     <p>That&#8217;s the basics, but wait there&#8217;s more.</p>
-    
+
     <p>Breakpoint also builds in robust support for <a href='#no_query_fallback'>no query fallbacks</a>, the ability to pass the <a href='media_query_context'>media query context</a> to your own custom mixins, and special handling for <a href='devicepixelratio'>device-pixel-ratio</a>.</p>
   </div>
   <div class='section' id='get-started'>
     <h2 id='get_started'>Get Started</h2>
-    
+
+    <p class="important">For the full documentation, check out our <a href="https://github.com/Team-Sass/breakpoint/wiki">wiki</a>. Read on for an overview.</p>
+
     <p>Breakpoint is a Compass extension, so make sure you have <a href='http://compass-style.org/install/'>Sass and Compass Installed</a> in order to use its awesomeness!</p>
     <div class='tabset voila'>
     <div class='tabs'>
@@ -294,28 +296,28 @@
     </figure>
     </div>
     </div>
-    <h2 id='setup'>Setup</h2>
-    
+    <!-- <h2 id='setup'>Setup</h2>
+
     <h3 id='breakpoint_options'>Breakpoint Options</h3>
-    
+
     <p>Breakpoint provides a few default options that you can change.</p>
-    
+
     <ul>
     <li><code>$breakpoint-default-media</code> - Defaults to &#8216;all&#8217;. <span class='more-detail'>If you do not pass a media type into the breakpoint mixin, this is the media type that will be used.</span></li>
-    
+
     <li><code>$breakpoint-default-feature</code> - Defaults to &#8216;min-width&#8217;. <span class='more-detail'>If you write a breakpoint with only a number, this is the feature that is used.</span></li>
-    
+
     <li><code>$breakpoint-default-pair</code> - Defaults to &#8216;width&#8217;. <span class='more-detail'>If you write a breakpoint with two numbers but do not specify the feature, this is the feature that is used.</span></li>
-    
+
     <li><code>$breakpoint-to-ems</code> - Defaults to &#8216;false&#8217;. <span class='more-detail'>If set to true, all pt/px/percent numbers will be converted to em units for better, more accessable media queries.</span></li>
-    
+
     <li><code>$breakpoint-prefixes</code> - Defines the prefixes to write for prefixed media features. <span class='more-detail'>Defaults to `'webkit' 'moz'`.</span></li>
-    
+
     <li><code>$breakpoint-prefixed-queries</code> - Defines what queries should be prefixed. <span class='more-detail'>Defaults to `'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'`.</span></li>
-    </ul>
-    
+    </ul> -->
+
     <h2 id='using_breakpoint'>Using Breakpoint</h2>
-    
+
     <h3 id='first_we_set_up_our_breakpoint_variables'>First, we set up our breakpoint variables.</h3>
     <div class='tabset voila'>
     <div class='tabs'>
@@ -325,7 +327,7 @@
     <figure class='tab scss'>
     <input name='tab-group-all-variables' type='radio' checked='' id='tab-all-variables-1' />
     <div class='content'>
-    <pre><code>&#x000A;// create $breakpoint variables like so&#x000A;// assume min-width (by default) if only a number&#x000A;$breakpoint-medium-width: 500px;&#x000A;$breakpoint-medium-width-em: 30em;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$breakpoint-medium-not-wide: 500px 700px;&#x000A;// set min/max of feature if there are two numbers&#x000A;$breakpoint-medium-height: height 300px 700px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$breakpoint-kind-of-wide: min-width 700px;&#x000A;$breakpoint-not-too-wide: max-width 700px;&#x000A;// for multidimensional lists, assume each item is a feature value pair&#x000A;$breakpoint-wide-portrait: max-width 700px, orientation portrait;&#x000A;// handle one-sided features (ie. monochrome)&#x000A;$breakpoint-wide-portrait-mono: max-width 700px, orientation portrait, monochrome;&#x000A;$breakpoint-mono: monochrome;&#x000A;$breakpoint-hi-rez: 2 device-pixel-ratio;&#x000A;</code></pre>
+    <pre><code>&#x000A;// create $breakpoint variables like so&#x000A;// assume min-width (by default) if only a number&#x000A;$breakpoint-medium-width: 500px;&#x000A;$breakpoint-medium-width-em: 30em;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$breakpoint-medium-not-wide: 500px 700px;&#x000A;// set min/max of feature if there are two numbers&#x000A;$breakpoint-medium-height: height 300px 700px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$breakpoint-kind-of-wide: min-width 700px;&#x000A;$breakpoint-not-too-wide: max-width 700px;&#x000A;// for multidimensional lists, assume each item is a feature value pair&#x000A;$breakpoint-wide-portrait: (max-width 700px) (orientation portrait);&#x000A;// handle one-sided features (ie. monochrome)&#x000A;$breakpoint-wide-portrait-mono: (max-width 700px) (orientation portrait) (monochrome);&#x000A;$breakpoint-mono: monochrome;&#x000A;$breakpoint-hi-rez: 2 device-pixel-ratio;&#x000A;</code></pre>
     </div>
     </figure>
     </div>
@@ -362,25 +364,13 @@
   </div>
   <div class='section' id='advanced'>
     <h2 id='advanced_features'>Advanced Features</h2>
-    
-    <h3 id='media_query_context'>Media Query Context</h3>
-    
-    <p>Ever wanted to get the context of a media query from within a mixin or function? Well we have, so we&#8217;ve made that possible! Simply call the <code>breakpoint-get-context($feature)</code> function which will either return the contextual value for that feature (<code>min-width</code>, <code>max-width</code>, etc…) or <code>false</code>. You can then do all the awesomeness that you&#8217;ve ever wanted to do with that information.</p>
-    
-    <p>Caviats with Media Query context:</p>
-    
-    <ul>
-    <li>If you have <code>$breakpoint-to-ems</code> set to true, you will get returns in base ems. You can run non-em based values through <code>breakpoint-to-base-em($value)</code> to convert them to base ems.</li>
-    
-    <li>If you are testing for a prefixed feature (such as <code>device-pixel-ratio</code>), you need to test for the prefixed value (<code>-webkit-device-pixel-ratio</code>, <code>min--moz-device-pixel-ratio</code>, etc…).</li>
-    </ul>
-    
+
     <h2 id='no_query_fallback'>No Query Fallback</h2>
-    
+
     <p>Breakpoint provides a way to generate fallback CSS for if you would like the CSS to apply even if media queries aren&#8217;t available. There are three methidologies we discovered cover most, if not all, of the stylistic options a user could have in a system like this: a wrapping selector within the same stylesheet, a seperate stylesheet with no wrapping selector, and a seperate stylesheet with a wrapping selector. For both of these, bare in mind that Sass cannot create separate stylesheets automatically (<a href='https://github.com/nex3/sass/issues/241'>yet</a>), so you&#8217;re going to need to do it by hand, but the tools we&#8217;ve provided are very powerful, so we think you&#8217;ll like.</p>
-    
-    <p>There are now two new breakpoint flags to set that control no query support, <code>$breakpoint-no-queries</code> for specifying that only no query output should be output by Breakpoint and <code>$breakpoint-no-query-wrappers</code> for specifying that you want no query wrappers to be printed. Both of the new flags, <code>$breakpoint-no-queries</code> and <code>$breakpoint-no-query-wrappers</code> default to <code>false</code>, toggling them to <code>true</code> activates them. For the purposes of clarity in the following code samples, I&#8217;m including both flags even though the <code>false</code> flags are not explicitly needed. When passing in a wrapper, you must write the whole wrapper and may include a compound wrapper, <em>i.e.</em> <code>&#39;.no-mqs&#39;</code> or <code>&#39;#print&#39;</code> or <code>&#39;.high-dpi.no-mqs&#39;</code>. Variables may also be passed in, but they still require the whole wrapper.</p>
-    
+
+    <p>There are now two new breakpoint flags to set that control no query support, <code>$breakpoint-no-queries</code> for specifying that only no query output should be output by Breakpoint and <code>$breakpoint-no-query-fallbacks</code> for specifying that you want no query wrappers to be printed. Both of the new flags, <code>$breakpoint-no-queries</code> and <code>$breakpoint-no-query-fallbacks</code> default to <code>false</code>, toggling them to <code>true</code> activates them. For the purposes of clarity in the following code samples, I&#8217;m including both flags even though the <code>false</code> flags are not explicitly needed. When passing in a wrapper, you must write the whole wrapper and may include a compound wrapper, <em>i.e.</em> <code>&#39;.no-mqs&#39;</code> or <code>&#39;#print&#39;</code> or <code>&#39;.high-dpi.no-mqs&#39;</code>. Variables may also be passed in, but they still require the whole wrapper.</p>
+
     <h3 id='wrapping_selector_same_stylesheet'>Wrapping Selector, Same Stylesheet</h3>
     <div class='tabset voila'>
     <div class='tabs'>
@@ -390,14 +380,14 @@
     <div class='details'>
     <figure class='tab scss'>
     <input name='tab-group-noquery-nowrap-same' type='radio' checked='' id='tab-noquery-nowrap-same-1' />
-    
+
     <div class='content'>
-    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: true;&#x000A;&#x000A;#foo {&#x000A;  background: red;&#x000A;  @include breakpoint(567px, $no-query: '.no-mqs') {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
+    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-fallbacks: true;&#x000A;&#x000A;#foo {&#x000A;  background: red;&#x000A;  @include breakpoint(567px, $no-query: '.no-mqs') {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
     <input name='tab-group-noquery-nowrap-same' type='radio' id='tab-noquery-nowrap-same-2' />
-    
+
     <div class='content'>
     <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;.no-mqs #foo {&#x000A;  background: green;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
@@ -423,13 +413,13 @@
     <figure class='tab scss'>
     <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-2' />
     <div class='content'>
-    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
+    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-fallbacks: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
     <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-3' />
     <div class='content'>
-    <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
+    <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-fallbacks: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
@@ -465,13 +455,13 @@
     <figure class='tab scss'>
     <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-2' />
     <div class='content'>
-    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-wrappers: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
+    <pre><code>&#x000A;$breakpoint-no-queries: false;&#x000A;$breakpoint-no-query-fallbacks: false;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab scss'>
     <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-3' />
     <div class='content'>
-    <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-wrappers: true;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
+    <pre><code>&#x000A;$breakpoint-no-queries: true;&#x000A;$breakpoint-no-query-fallbacks: true;&#x000A;&#x000A;@import 'layout';&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
@@ -488,6 +478,20 @@
     </figure>
     </div>
     </div>
+
+    <h3 id='media_query_context'>Media Query Context</h3>
+
+    <p>Ever wanted to get the context of a media query from within a mixin or function? Well we have, so we&#8217;ve made that possible! Simply call the <code>breakpoint-get-context($feature)</code> function which will either return the contextual value for that feature (<code>min-width</code>, <code>max-width</code>, etc…) or <code>false</code>. You can then do all the awesomeness that you&#8217;ve ever wanted to do with that information.</p>
+
+    <p>Caviats with Media Query context:</p>
+
+    <ul>
+    <li>If you have <code>$breakpoint-to-ems</code> set to true, you will get returns in base ems. You can run non-em based values through <code>breakpoint-to-base-em($value)</code> to convert them to base ems.</li>
+
+    <li>If you are testing for a prefixed feature (such as <code>device-pixel-ratio</code>), you need to test for the prefixed value (<code>-webkit-device-pixel-ratio</code>, <code>min--moz-device-pixel-ratio</code>, etc…).</li>
+    </ul>
+
+
     <h3 id='devicepixelratio'>device-pixel-ratio</h3>
     <details>
       <summary>Note re: `-o-device-pixel-ratio`</summary>
@@ -498,7 +502,7 @@
 </div>
 <div class='section' id='credits'>
   <h2 id='credits'>Credits</h2>
-  
+
   <h2 id='by_your_friends'>By Your Friends,</h2>
   <div class='main-contributors'>
     <div class='mason'>
@@ -540,14 +544,14 @@
   </div>
   <div class='license'>
     <h2 id='license'>License</h2>
-    
+
     <p>Licensed under GPL2/MIT: <a href='http://www.gnu.org/licenses/gpl-2.0.html'>GPL2 license</a> <a href='http://www.opensource.org/licenses/mit-license.php'>MIT license</a></p>
   </div>
 </div>
       </div>
       <footer></footer>
     </div>
-    
+
     <!-- Grab jQuery #{@jQuery} from Google's CDN with a protocol relative URL -->
     <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'></script>
     <script src='/js/ss-social.js?v=1'></script>
