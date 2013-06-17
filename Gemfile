@@ -1,0 +1,14 @@
+# Pull gems from RubyGems
+source 'https://rubygems.org'
+
+gem 'compass', '0.12.2'
+gem 'singularitygs', '~>1.0.7'
+
+group :test do
+  gem 'rake'
+  gem 'mocha'
+end
+
+group :local do
+  gem 'ruby-debug'
+end

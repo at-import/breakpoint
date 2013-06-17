@@ -1,0 +1,27 @@
+@import 'variables';
+
+/*
+ * Assume $breakpoint-default-feature
+ * if only a number
+ * $single-pixel-value: #{$single-pixel-value};
+ * $single-em-value: #{$single-em-value};
+ */
+.foo {
+  @include breakpoint($single-pixel-value) {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+  @include breakpoint($single-em-value) {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+
+  @include respond-to('single pixel value') {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+  @include respond-to('single pixel value, em') {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+}

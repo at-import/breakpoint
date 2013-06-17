@@ -1,0 +1,9 @@
+@import 'breakpoint';
+
+$single-pixel-value: 500px;
+$single-em-value: 30em;
+$breakpoint-to-ems: false;
+
+$breakpoints: add-breakpoint('single pixel value', $single-pixel-value);
+$breakpoints: add-breakpoint('single pixel value, em', $single-em-value);
+
