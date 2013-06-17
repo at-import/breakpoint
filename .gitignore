@@ -7,4 +7,4 @@ Gemfile.lock
 test/test
 
 # Sass Files
-.sass_cache
+.sass-cache
