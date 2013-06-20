@@ -6,7 +6,6 @@ gem 'singularitygs', '~>1.0.7'
 
 group :test do
   gem 'rake'
-  gem 'mocha'
 end
 
 group :local do
