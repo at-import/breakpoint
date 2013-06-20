@@ -1,13 +1,16 @@
+
 task :default => [:test]
+
 task :test do
+  require 'fileutils'
+
   Dir.chdir('test') do
     output_dir = 'test'
-    FileUtil.mkdir_p output_dir
+    FileUtils.mkdir_p output_dir
     ruby 'unit_tests.rb'
-    FileUtil.rm_rf output_dir
+    FileUtils.rm_rf output_dir
   end
 end
-
 
 desc 'Compile baseline CSS'
 task :other do
