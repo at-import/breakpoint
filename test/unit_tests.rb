@@ -1,39 +1,23 @@
 require 'compass'
+require 'compass/exec'
 require 'test/unit'
-require 'rake'
-require 'fileutils'
 
 
 class TestCompassOutput < Test::Unit::TestCase
 
-  Compass.add_configuration('config.rb')
-  temp_dir = Compass.configuration.css_dir;
+  Compass.add_configuration 'config.rb'
+  Compass.configuration.project_path = Dir.pwd
 
-  FileList['sass/*.scss'].exclude('sass/_*.scss').each do |test|
-
-
-    test_name = test.chomp(File.extname(test) ).gsub("sass/", "")
-    full_path = File.join(Dir.pwd, test)
-
+  Compass.compiler.sass_files.each do |sass_file|
+    test_name = File.basename(sass_file, '.*')
 
     define_method "test_#{test_name}_compile" do
+      css_file = Compass.compiler.corresponding_css_file(sass_file)
+      Compass.compiler.compile sass_file, css_file  # Raises exception upon error
 
-      puts "\nCompiling #{test}"
-      puts "=" * "Compiling #{test}".length
-      exit_code = system "compass compile #{Dir.pwd} #{full_path} --force"
-
-      assert_equal(true, exit_code)
-
-      css_output = test.gsub(".scss", ".css");
-      test_output = css_output.gsub("sass", temp_dir)
-
-      assert_equal(true, FileUtils.compare_file(test_output, css_output.gsub("sass", "css")))
-
+      baseline_file = "#{Dir.pwd}/css/#{File.basename(css_file)}"
+      assert FileUtils.compare_file(css_file, baseline_file)
     end
-
-    FileUtils.rm_rf(temp_dir)
-
   end
+
 end
-
-
