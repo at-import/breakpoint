@@ -1,7 +1,6 @@
 # Bundler Files
 .bundle
 vendor/bundle
-Gemfile.lock
 
 # Testing Files
 test/test
