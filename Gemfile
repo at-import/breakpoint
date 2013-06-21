@@ -8,6 +8,6 @@ group :test do
   gem 'rake'
 end
 
-group :local do
+group :development do
   gem 'ruby-debug'
 end
