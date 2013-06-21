@@ -1,0 +1,43 @@
+@import 'variables';
+/*
+ * Single value with feature
+ * $feature-first : #{$feature-first};
+ * $value-first : #{$value-first};
+ * $arbitrary-feature : #{$arbitrary-feature};
+ * $feature-value-both-strings : #{$feature-value-both-strings};
+ */
+
+.foo {
+  @include breakpoint($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+  @include breakpoint($value-first) {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+  @include breakpoint($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+  @include breakpoint($feature-value-both-strings) {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
+}
+
+$breakpoint-to-ems: true;
+.bar {
+  @include breakpoint($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include breakpoint($value-first) {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include breakpoint($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
+  }
+}

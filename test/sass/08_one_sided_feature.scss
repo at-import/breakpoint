@@ -1,0 +1,33 @@
+@import 'variables';
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : #{$monochrome};
+ * $monochrome-double : #{$monochrome-double};
+ * $multidimensional-plus-one-sided : #{$multidimensional-plus-one-sided};
+ */
+.one-sided {
+  @include breakpoint($monochrome) {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+  @include breakpoint($monochrome-double) {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
+  }
+  @include breakpoint($multidimensional-plus-one-sided) {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 700px) and (orientation: portrait) and (monochrome)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.one-sided-to-ems {
+  @include breakpoint($monochrome-double) {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
+  }
+  @include breakpoint($multidimensional-plus-one-sided) {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 43.75em) and (orientation: portrait) and (monochrome)';
+  }
+}

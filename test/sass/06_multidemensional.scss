@@ -1,0 +1,20 @@
+@import 'variables';
+/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : #{$multidimensional};
+ */
+.multidimensional {
+  @include breakpoint($multidimensional) {
+    content: '$multidimensional';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.multidimensional-to-ems {
+  @include breakpoint($multidimensional) {
+    content: '$multidimensional';
+    content: '@media (max-width: 43.75em) and (orientation: portrait)';
+  }
+}

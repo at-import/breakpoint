@@ -13,7 +13,7 @@ task :test do
 end
 
 desc 'Compile baseline CSS'
-task :other do
+task :compile do
   require 'compass'
   require 'compass/exec'
 

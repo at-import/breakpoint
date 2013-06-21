@@ -1,0 +1,38 @@
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $monochrome-double : 300px monochrome;
+ * $multidimensional-plus-one-sided : height 500px portrait orientation monochrome;
+ */
+@media (monochrome) {
+  .one-sided {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+}
+@media (min-width: 300px), (monochrome) {
+  .one-sided {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
+  }
+}
+@media (height: 500px), (orientation: portrait), (monochrome) {
+  .one-sided {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 700px) and (orientation: portrait) and (monochrome)';
+  }
+}
+
+/* $breakpoint-to-ems: true; */
+@media (min-width: 18.75em), (monochrome) {
+  .one-sided-to-ems {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
+  }
+}
+@media (height: 31.25em), (orientation: portrait), (monochrome) {
+  .one-sided-to-ems {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (max-width: 43.75em) and (orientation: portrait) and (monochrome)';
+  }
+}

@@ -1,0 +1,24 @@
+@import 'variables';
+/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : #{$basic-or};
+ */
+.basic-or {
+  @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+  @include respond-to('basic or') {
+    content: '$basic-or';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+}
+/* $breakpoint-to-ems: true; */
+$breakpoint-to-ems: true;
+.basic-or-to-ems {
+  @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (max-width: 43.75em) and (orientation: portrait)';
+  }
+}

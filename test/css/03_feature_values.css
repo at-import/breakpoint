@@ -1,0 +1,50 @@
+/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+@media (min-width: height), (min-width: 500px) {
+  .foo {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (min-width: 500px), (min-width: height) {
+  .foo {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (min-width: lion), (min-width: 500px) {
+  .foo {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+}
+@media (min-width: portrait), (min-width: orientation) {
+  .foo {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
+}
+
+@media (min-width: height), (min-width: 31.25em) {
+  .bar {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (min-width: 31.25em), (min-width: height) {
+  .bar {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (min-width: lion), (min-width: 31.25em) {
+  .bar {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
+  }
+}

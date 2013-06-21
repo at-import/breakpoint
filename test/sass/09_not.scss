@@ -1,0 +1,15 @@
+@import 'variables';
+/*
+ * One-sided features (ie. monochrome)
+ * $not : #{$not};
+ */
+.not {
+  @include breakpoint($not) {
+    content: '$not';
+    content: '@media not screen';
+  }
+  @include breakpoint($not-plus-default) {
+    content: '$not-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+}

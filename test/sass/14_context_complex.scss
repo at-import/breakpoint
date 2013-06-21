@@ -1,0 +1,22 @@
+@import 'variables';
+/**
+ * Dynamic contexts.
+ */
+
+
+#dynamic {
+  // What test do we want here?
+
+  @include breakpoint($dynamic-context) {
+    // What test do we want here?
+  }
+}
+
+
+$multi-media: 300px, print, 200px;
+
+#multi-media {
+  @include breakpoint($multi-media) {
+    -foo:  breakpoint-get-context('media');
+  }
+}

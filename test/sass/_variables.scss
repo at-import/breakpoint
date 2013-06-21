@@ -7,3 +7,36 @@ $breakpoint-to-ems: false;
 $breakpoints: add-breakpoint('single pixel value', $single-pixel-value);
 $breakpoints: add-breakpoint('single pixel value, em', $single-em-value);
 
+$feature-first: height 500px;
+$value-first: 500px height;
+$arbitrary-feature: lion 500px;
+$feature-value-both-strings: portrait orientation;
+
+$min-max-default-feature: 500px 700px;
+
+$feature-min-max: height 300px 700px;
+$min-max-feature: 300px 700px height;
+$arbitrary-feature-min-max: lion 300px 700px;
+
+$multidimensional: ($feature-first) ($feature-value-both-strings);
+
+$basic-or: 500px, tv 700px color;
+$breakpoints: add-breakpoint('basic or', $basic-or);
+
+$monochrome: monochrome;
+$monochrome-double: 300px monochrome;
+$multidimensional-plus-one-sided: ($feature-first) ($feature-value-both-strings) ($monochrome);
+
+$not: 'not screen';
+$not-plus-default: 'not tv' 500px;
+
+$aspect-ratio: 'min-aspect-ratio' '300/250';
+$device-aspect-ratio: 'max-device-aspect-ratio' '320/480';
+
+$legacy: 'not screen', 500px, 'no-query' '.no-mq';
+
+$device-pixel-ratio: 'resolution' 2dppx;
+$resolution: 'min-resolution' 192dpi;
+$breakpoints: add-breakpoint('device pixel ratio', $device-pixel-ratio);
+
+$dynamic-context: 400px ('min-height' 200px), (300px 325px) (orientation portriat) monochrome;

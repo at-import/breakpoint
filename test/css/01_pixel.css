@@ -5,28 +5,24 @@
  * $single-em-value: 30em;
  */
 @media (min-width: 500px) {
-  /* line 9, ../sass/pixel.scss */
   .foo {
     content: '$single-pixel-value';
     content: '@media (min-width: 500px)';
   }
 }
 @media (min-width: 30em) {
-  /* line 9, ../sass/pixel.scss */
   .foo {
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
   }
 }
 @media (min-width: 500px) {
-  /* line 9, ../sass/pixel.scss */
   .foo {
     content: '$single-pixel-value';
     content: '@media (min-width: 500px)';
   }
 }
 @media (min-width: 30em) {
-  /* line 9, ../sass/pixel.scss */
   .foo {
     content: '$single-em-value';
     content: '@media (min-width: 30em)';

@@ -1,0 +1,19 @@
+/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : height 500px portrait orientation;
+ */
+@media (height: 500px), (orientation: portrait) {
+  .multidimensional {
+    content: '$multidimensional';
+    content: '@media (max-width: 700px) and (orientation: portrait)';
+  }
+}
+
+/* $breakpoint-to-ems: true; */
+@media (height: 31.25em), (orientation: portrait) {
+  .multidimensional-to-ems {
+    content: '$multidimensional';
+    content: '@media (max-width: 43.75em) and (orientation: portrait)';
+  }
+}

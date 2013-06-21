@@ -1,0 +1,23 @@
+@import 'variables';
+/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: #{$device-pixel-ratio}
+ * $resolution: #{$resolution}
+ */
+$breakpoint-resolutions: true;
+
+.resolution {
+  @include breakpoint($device-pixel-ratio) {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+  @include breakpoint($resolution) {
+    content: $resolution;
+    content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
+  }
+
+  @include respond-to('device pixel ratio') {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+}

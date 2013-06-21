@@ -1,13 +1,11 @@
 /* $breakpoint-to-ems: true; */
 @media (min-width: 31.25em) {
-  /* line 5, ../sass/pixel_to_em.scss */
   .breakpoint-default-feature-to-ems {
     content: '$single-pixel-value';
     content: '@media (min-width: 31.25em)';
   }
 }
 @media (min-width: 30em) {
-  /* line 5, ../sass/pixel_to_em.scss */
   .breakpoint-default-feature-to-ems {
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
