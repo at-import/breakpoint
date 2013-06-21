@@ -1,0 +1,9 @@
+@import 'variables';
+/**
+ * IE no-query fallbacks.
+ */
+
+$breakpoint-no-queries: true;
+$breakpoint-no-query-fallbacks: '.no-mq';
+
+@import '11_legacy_syntax';
