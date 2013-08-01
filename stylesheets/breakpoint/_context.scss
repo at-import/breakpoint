@@ -5,6 +5,20 @@ $private-breakpoint-context-holder: ();
 $private-breakpoint-context-placeholder: 0;
 
 //////////////////////////////
+// Breakpoint Has Context
+// Returns whether or not you are inside a Breakpoint query
+//////////////////////////////
+@function breakpoint-has-context() {
+  @if length($private-breakpoint-context-placeholder) {
+    @return true;
+  }
+  @else {
+    @return false;
+  }
+}
+
+
+//////////////////////////////
 // Breakpoint Get Context
 // $feature: Input feature to get it's current MQ context. Returns false if no context
 //////////////////////////////
