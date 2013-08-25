@@ -96,7 +96,6 @@ $breakpoint-legacy-syntax:      false !default;
     $query-fallback: $no-query;
   }
 
-
   // Print Out Query String
   @if not $breakpoint-no-queries {
     @media #{$query-string} {
@@ -104,7 +103,7 @@ $breakpoint-legacy-syntax:      false !default;
     }
   }
 
-  @if $breakpoint-no-query-fallbacks != false {
+  @if $breakpoint-no-query-fallbacks != false or $breakpoint-no-queries == true {
 
     $type: type-of($breakpoint-no-query-fallbacks);
     $print: false;
