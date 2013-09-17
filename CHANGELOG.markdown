@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.6 - Sept 17th, 2013
+## 2.0.7 - Sept 17th, 2013
 * fix fallback support for 1.x
 
 ## 2.0.0 - The Past
