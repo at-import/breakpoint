@@ -329,11 +329,28 @@ $breakpoint-legacy-syntax: true;
  */
 .legacy {
   @include breakpoint($legacy) {
-    content: '$legacy';
+    content: '$legacy: #{$legacy}';
     content: '@media not screen and (min-width: 500px)';
   }
 }
 $breakpoint-legacy-syntax: false;
+
+$noquery: 500px, 'no-query' true;
+$noquery2: 500px, 'no-query' '.with-fallback';
+$breakpoint-to-ems: false;
+/*
+ * Queries using $breakpoint-no-queries
+ */
+.no-query {
+  @include breakpoint($noquery) {
+    content: '$noquery: #{$noquery}';
+    content: '@media (min-width: 500px)';
+  }
+  @include breakpoint($noquery2) {
+    content: '$noquery2: #{$noquery2}';
+    content: '@media (min-width: 500px)';
+  }
+}
 
 $device-pixel-ratio: 'resolution' 2dppx;
 $resolution: 'min-resolution' 192dpi;

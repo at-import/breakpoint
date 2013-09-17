@@ -294,10 +294,18 @@
     content: '@media not screen and (min-width: 500px)';
   }
 }
+.no-mq .legacy {
+  content: '$legacy: "not screen", 500px, "no-query" ".no-mq"';
+  content: '@media not screen and (min-width: 500px)';
+}
 
 /*
  * Queries using $breakpoint-no-queries
  */
+.no-query {
+  content: '$noquery: 500px, "no-query" true';
+  content: '@media (min-width: 500px)';
+}
 @media (min-width: 500px) {
   .no-query {
     content: '$noquery: 500px, "no-query" true';
@@ -309,6 +317,10 @@
     content: '$noquery2: 500px, "no-query" ".with-fallback"';
     content: '@media (min-width: 500px)';
   }
+}
+.with-fallback .no-query {
+  content: '$noquery2: 500px, "no-query" ".with-fallback"';
+  content: '@media (min-width: 500px)';
 }
 
 /*
