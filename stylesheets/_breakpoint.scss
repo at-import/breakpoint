@@ -47,7 +47,10 @@ $breakpoint-legacy-syntax:      false !default;
   $query-fallback: false;
 
 
-  @if ($or-list != false and $breakpoint-legacy-syntax == false) {
+  @if ($or-list == false and $breakpoint-legacy-syntax == false) {
+    $query-string: breakpoint-parse($query);
+  }
+  @else {
     $length: length($query);
 
     $last: nth($query, $length);
@@ -57,27 +60,7 @@ $breakpoint-legacy-syntax:      false !default;
       $length: $length - 1;
     }
 
-
-    @for $i from 1 through $length {
-      @if $i == 1 {
-        $query-string: breakpoint-parse(nth($query, $i));
-      }
-      @else {
-        $query-string: $query-string + ', ' + breakpoint-parse(nth($query, $i));
-      }
-    }
-  }
-  @else {
     @if ($breakpoint-legacy-syntax == true) {
-      $length: length($query);
-
-      $last: nth($query, $length);
-      $query-fallback: breakpoint-no-query($last);
-
-      @if ($query-fallback != false) {
-        $length: $length - 1;
-      }
-
       $mq: ();
 
       @for $i from 1 through $length {
@@ -87,7 +70,10 @@ $breakpoint-legacy-syntax:      false !default;
       $query-string: breakpoint-parse($mq);
     }
     @else {
-      $query-string: breakpoint-parse($query);
+      $query-string: '';
+      @for $i from 1 through $length {
+        $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+      }
     }
   }
 
