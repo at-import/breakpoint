@@ -122,7 +122,7 @@
     <figure class='tab scss'>
     <input name='tab-group-variables' type='radio' checked='' id='tab-variables-1' />
     <div class='content'>
-    <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together with commas, assume each item is a feature value pair&#x000A;$surfboard-height: (min-height 1000px) (orientation portrait);</code></pre>
+    <pre><code>&#x000A;// assume min-width (by default) if only a number&#x000A;$high-tide: 500px;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$ex-presidents: 600px 800px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$surfboard-width: max-width 1000px;&#x000A;// string tests together within parentheses, assume each item is a feature value pair&#x000A;$surfboard-height: (min-height 1000px) (orientation portrait);</code></pre>
     </div>
     </figure>
     </div>
@@ -178,7 +178,7 @@
      </div></li>
 
     <li>
-    <p><code>$surfboard-width</code> is made up of a number and the name of a feature to test. Breakpoint will turn these into <strong>feature/value pairs</strong>6</p>
+    <p><code>$surfboard-width</code> is made up of a number and the name of a feature to test. Breakpoint will turn these into <strong>feature/value pairs</strong></p>
     <div class='tabset voila'>
      <div class='tabs'>
      <label for='tab-ex-surfboardwidth-1'>scss</label>
@@ -367,7 +367,7 @@
 
     <h2 id='no_query_fallback'>No Query Fallback</h2>
 
-    <p>Breakpoint provides a way to generate fallback CSS for if you would like the CSS to apply even if media queries aren&#8217;t available. There are three methidologies we discovered cover most, if not all, of the stylistic options a user could have in a system like this: a wrapping selector within the same stylesheet, a seperate stylesheet with no wrapping selector, and a seperate stylesheet with a wrapping selector. For both of these, bare in mind that Sass cannot create separate stylesheets automatically (<a href='https://github.com/nex3/sass/issues/241'>yet</a>), so you&#8217;re going to need to do it by hand, but the tools we&#8217;ve provided are very powerful, so we think you&#8217;ll like.</p>
+    <p>Breakpoint provides a way to generate fallback CSS for if you would like the CSS to apply even if media queries aren&#8217;t available. There are three methodologies we discovered cover most, if not all, of the stylistic options a user could have in a system like this: a wrapping selector within the same stylesheet, a seperate stylesheet with no wrapping selector, and a seperate stylesheet with a wrapping selector. For both of these, bare in mind that Sass cannot create separate stylesheets automatically (<a href='https://github.com/nex3/sass/issues/241'>yet</a>), so you&#8217;re going to need to do it by hand, but the tools we&#8217;ve provided are very powerful, so we think you&#8217;ll like.</p>
 
     <p>There are now two new breakpoint flags to set that control no query support, <code>$breakpoint-no-queries</code> for specifying that only no query output should be output by Breakpoint and <code>$breakpoint-no-query-fallbacks</code> for specifying that you want no query wrappers to be printed. Both of the new flags, <code>$breakpoint-no-queries</code> and <code>$breakpoint-no-query-fallbacks</code> default to <code>false</code>, toggling them to <code>true</code> activates them. For the purposes of clarity in the following code samples, I&#8217;m including both flags even though the <code>false</code> flags are not explicitly needed. When passing in a wrapper, you must write the whole wrapper and may include a compound wrapper, <em>i.e.</em> <code>&#39;.no-mqs&#39;</code> or <code>&#39;#print&#39;</code> or <code>&#39;.high-dpi.no-mqs&#39;</code>. Variables may also be passed in, but they still require the whole wrapper.</p>
 
