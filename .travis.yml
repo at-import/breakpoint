@@ -8,4 +8,4 @@ gemfile:
 branches:
   only:
     - 2.x.x
-    - 2.x.x-testing
+
