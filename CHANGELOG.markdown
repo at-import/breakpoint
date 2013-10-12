@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.7 - Sept 17th, 2013
+* fix fallback support for 1.x
+
+## 2.0.0 - The Past
+* Looks like we forgot relase notes for 2.0. oops
+
 ## 1.3 - August 28th, 2012
 * better conversion to base-ems
 * fix floating point error

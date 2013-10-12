@@ -1,3 +1,6 @@
+# Gem Files
+*.gem
+
 # Bundler Files
 .bundle
 vendor/bundle
@@ -8,3 +11,4 @@ test/test
 
 # Sass Files
 .sass-cache
+
