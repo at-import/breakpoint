@@ -11,7 +11,7 @@
 // General Breakpoint Parser
 //////////////////////////////
 @function breakpoint-parse($query) {
-  $private-breakpoint-context-placeholder: $private-breakpoint-context-placeholder + 1;
+  $private-breakpoint-context-placeholder: $private-breakpoint-context-placeholder + 1 !global;
 
   // Set up Media Type
   $query-print: '';

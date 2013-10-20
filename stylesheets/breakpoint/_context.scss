@@ -63,7 +63,7 @@ $private-breakpoint-context-placeholder: 0;
 
   @if $private-breakpoint-context-placeholder == 1 {
     $holder: ($feature $value);
-    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma);
+    $private-breakpoint-context-holder: append($private-breakpoint-context-holder, $holder, comma) !global;
     @return true;
 
   } @else {
@@ -118,7 +118,7 @@ $private-breakpoint-context-placeholder: 0;
     } @else {
       $rebuild: append($private-breakpoint-context-holder, $holder, comma);
     }
-    $private-breakpoint-context-holder: $rebuild;
+    $private-breakpoint-context-holder: $rebuild !global;
   }
 
   @return true;
@@ -128,6 +128,6 @@ $private-breakpoint-context-placeholder: 0;
 // Private function to reset context
 //////////////////////////////
 @mixin private-breakpoint-reset-contexts {
-  $private-breakpoint-context-holder: ();
-  $private-breakpoint-context-placeholder: 0;
+  $private-breakpoint-context-holder: () !global;
+  $private-breakpoint-context-placeholder: 0 !global;
 }
