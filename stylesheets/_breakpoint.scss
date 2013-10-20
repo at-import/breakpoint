@@ -43,7 +43,7 @@ $breakpoint-legacy-syntax:      false !default;
   @include private-breakpoint-reset-contexts();
 
   // Test to see if it's a comma-separated list
-  $or-list: is-breakpoint-list($query);
+  $or-list: if(list-separator($query) == 'comma', true, false);
   $query-fallback: false;
 
 
