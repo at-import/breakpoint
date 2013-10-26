@@ -9,7 +9,7 @@ $breakpoint-resolutions: true;
 .resolution {
   @include breakpoint($device-pixel-ratio) {
     content: $device-pixel-ratio;
-    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
   @include breakpoint($resolution) {
     content: $resolution;
@@ -18,6 +18,6 @@ $breakpoint-resolutions: true;
 
   @include respond-to('device pixel ratio') {
     content: $device-pixel-ratio;
-    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-mox-device-pixel-ratio: 2), (resolution: 192dpi)';
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
 }
