@@ -16,7 +16,7 @@
   }
   @include breakpoint($multidimensional-plus-one-sided) {
     content: '$multidimensional-plus-one-sided';
-    content: '@media (max-width: 700px) and (orientation: portrait) and (monochrome)';
+    content: '@media (height: 500px) and (orientation: portrait) and (monochrome)';
   }
 }
 /* $breakpoint-to-ems: true; */
@@ -28,6 +28,6 @@ $breakpoint-to-ems: true;
   }
   @include breakpoint($multidimensional-plus-one-sided) {
     content: '$multidimensional-plus-one-sided';
-    content: '@media (max-width: 43.75em) and (orientation: portrait) and (monochrome)';
+    content: '@media (height: 31.25em) and (orientation: portrait) and (monochrome)';
   }
 }
