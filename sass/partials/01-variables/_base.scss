@@ -1,0 +1,190 @@
+////////////////////////////
+// Kit Default Variables
+////////////////////////////
+
+// Pick a reset or normalization
+// accepted values: 'meyer' (default), 'normalize', 'none'
+// choose to reset header sizes (applies to 'normalize' only)
+// $init-headers: true;
+$init-type: normalize;
+// use [Formalize](http://formalize.me/)
+$formalize: true;
+
+// pixel-normalize
+// [A List Apart](http://www.alistapart.com/articles/a-pixel-identity-crisis/)
+$pixel-normalize: true;
+
+// Font size and line-height
+$base-font-size: 16px;
+$base-line-height: $base-font-size * 1.5;
+
+// Modular Scale (used by 04-base)
+// values used to determine modular scale values
+// and http://modularscale.com/
+$ratio: golden_ratio() major_third();
+$base-size: $base-font-size;
+
+// Dimensions
+// basic values, independant of any css framework
+$kit-baseline: $base-line-height;
+$kit-baseline-half: $kit-baseline * 0.5;
+$kit-baseline-neg: $kit-baseline * -1;
+$kit-gutter: ms(2);
+$kit-gutter-half: $kit-gutter * 0.5;
+$kit-gutter-neg: $kit-gutter * -1;
+
+
+// use the Compass baseline system
+$establish-baseline: true;
+
+// Headers
+// create a list of header sizes, H1 - H6
+$header-sizes: ms(9) ms(4) ms(4) ms(3) ms(2) ms(1);
+// Use Compass's adjust-font-size-to function
+$adjust-font-size-to: true;
+// fancy apersands - for .amp within headers
+$header-ampersands: false;
+
+// Links
+// replace normal link underlines with bottom borders
+$border-links: true;
+// animate link hovers. use a 'time' value, like '0.5s'
+$link-transitions: 0.5s;
+
+// Forms
+$kit-form-defaults: false;
+
+// Grid Variables
+// note: set grid system-specific variables in the grid section (06)
+$show-grid: false;
+$show-baseline: false;
+
+// Breakpoint Variables
+$one-col-width: 34em;
+$banner-covers-arm: 400px;
+$surfboard-2: 480px;
+$surfboard-3: 520px;
+$show-arrow-margins: 600px;
+$whoa-circle-small: 500px;
+$whoa-circle: 770px;
+$susy-two-cols-min: calc-em(460px, 16px);
+$long-tabs-two: max-width 414px;
+$long-tabs-five: max-width 458px;
+$compress-nav: max-width 350px;
+$license-one-line: 440px;
+$friends-side-by-side: 538px;
+$wide-nav: 400px;
+
+// Animate all the things
+// useful for previewing css changes.
+// do something more targeted in production, ok?
+$animate-all-the-things: false;
+
+////////////////////////////
+// COMPASS DEFAULTS
+////////////////////////////
+
+// SUPPORT
+// legacy and experimental browser support
+// $legacy-support-for-ie: true;
+// $legacy-support-for-ie6: $legacy-support-for-ie;
+// $legacy-support-for-ie7: $legacy-support-for-ie;
+// $legacy-support-for-ie8: $legacy-support-for-ie;
+// $experimental-support-for-mozilla      : true;
+// $experimental-support-for-webkit       : true;
+// $support-for-original-webkit-gradients : true;
+// $experimental-support-for-opera        : true;
+// $experimental-support-for-microsoft    : true;
+// $experimental-support-for-khtml        : false;
+// $experimental-support-for-svg          : false;
+// $experimental-support-for-pie          : false;
+
+
+// CSS3
+
+// background clip
+// $default-background-clip: padding-box;
+
+// background origin
+// $default-background-origin: content-box;
+
+// background size
+// $default-background-size: 100% auto;
+
+// border radius
+// $default-border-radius: 5px;
+
+// box
+// $default-box-orient: horizontal;
+// $default-box-align: stretch;
+// $default-box-flex: 0;
+// $default-box-flex-group: 1;
+// $default-box-ordinal-group: 1;
+// $default-box-direction: normal;
+// $default-box-lines: single;
+// $default-box-pack: start;
+
+// box shadow
+// $default-box-shadow-color: #333333;
+// $default-box-shadow-h-offset: 0px;
+// $default-box-shadow-v-offset: 0px;
+// $default-box-shadow-blur: 5px;
+// $default-box-shadow-spread: false;
+// $default-box-shadow-inset: false;
+
+// css3 pie
+// $pie-base-class: false;
+// $pie-default-approach: relative;
+// $pie-behavior: stylesheet-url("PIE.htc");
+
+// text shadow
+// $default-text-shadow-color: #aaaaaa;
+// $default-text-shadow-h-offset: 0px;
+// $default-text-shadow-v-offset: 0px;
+// $default-text-shadow-blur: 1px;
+
+// transform
+// $default-origin-x: 50%;
+// $default-origin-y: 50%;
+// $default-origin-z: 50%;
+// $default-scale-x: 1.25;
+// $default-scale-y: $default-scale-x;
+// $default-scale-z: $default-scale-x;
+// $default-rotate: 45deg;
+// $default-vector-x: 1;
+// $default-vector-y: 1;
+// $default-vector-z: 1;
+// $default-translate-x: 1em;
+// $default-translate-y: $default-translate-x;
+// $default-translate-z: $default-translate-x;
+// $default-skew-x: 5deg;
+// $default-skew-y: 5deg;
+
+// transition
+// $default-transition-property: all;
+// $default-transition-duration: 1s;
+// $default-transition-function: false;
+// $default-transition-delay: false;
+// $transitionable-prefixed-values: transform, transform-origin;
+
+// LAYOUT
+
+// grid background
+// $grid-background-column-color: rgba(100, 100, 225, 0.25);
+// $grid-background-gutter-color: rgba(0, 0, 0, 0);
+// $grid-background-total-columns: 24;
+// $grid-background-column-width: 30px;
+// $grid-background-gutter-width: 10px;
+// $grid-background-offset: 0px;
+// $grid-background-baseline-color: rgba(0, 0, 0, 0.5);
+// $grid-background-baseline-height: 1.5em;
+// $show-column-grid-backgrounds: true;
+// $show-baseline-grid-backgrounds: true;
+// $show-grid-backgrounds: true;
+// $grid-background-force-fluid: false;
+
+// UTILITIES
+// color
+// $contrasted-dark-default: black;
+// $contrasted-light-default: white;
+// $contrasted-lightness-threshold: 30%;

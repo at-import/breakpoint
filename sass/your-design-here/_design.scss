@@ -1,0 +1,610 @@
+// Create the design for your site below
+// SITE-WIDE DESIGN --------------------------------------------------------------
+
+// NAVIGATION
+// touch nav
+#touch-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 44px;
+  min-height: 44px;
+  border-color: $black;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  background: rgba($not-black, 0.2);
+  line-height: 44px;
+  color: $white;
+  text-align: center;
+  cursor: pointer;
+  @include text-shadow(rgba($black, 0.5) 1px 1px 1px);
+  @include breakpoint($wide-nav) {
+    display: none;
+  }
+
+  &.open + .main-navigation {
+    margin-top: 0 !important;
+  }
+}
+
+// main navigation
+nav {
+  font-family: $font-nav-fallback;
+  text-transform: uppercase;
+  @include adjust-font-size-to(ms(1));
+  .wf-futuraptcondensed-n5-active & {
+    font-family: $font-nav;
+  }
+  @include breakpoint($wide-nav) {
+    @include horizontal-list;
+  }
+
+  ul {
+    padding-left: 0;
+    @include no-bullets;
+  }
+}
+
+.main-navigation {
+  background: {
+    color: $not-black;
+    image: image-url("stressed_linen.png");
+  };
+  @include transition(margin-top 0.5s ease);
+  @include breakpoint($wide-nav) {
+    margin-top: 0 !important;
+  }
+
+  nav {
+    display: table;
+    margin: 0 auto;
+    overflow: visible;
+    @include breakpoint($compress-nav) {
+      li {
+        padding: 0;
+      }
+    }
+  }
+  ul {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  li {
+    text-align: center;
+  }
+  a {
+    position: relative;
+    padding: 0 0.5em;
+    line-height: 44px;
+    @include link-colors($white, $lightgray, $lightgray, $white);
+    @include border-links($lightgray, $orange, $orange, $lightgray);
+    &:not([href*="github"]):after {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      content: $space;
+      border-color: $white transparent transparent transparent;
+      border-width: 3px 3px 0 3px;
+      border-style: solid;
+      @include transform(translateX(-50%));
+      @include transition(border-color 0.5s ease);
+    }
+    &:hover {
+      &:not([href*="github"]):after {
+        border-color: $orange transparent transparent transparent;
+      }
+    }
+    &[href*="github"] {
+      display: inline-block;
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      padding-left: 0em;
+      padding-right: 0em;
+      @include link-colors($black, $black, $black, $black);
+      @include undo-border-links;
+      @include breakpoint($wide-nav) {
+        margin-left: 0.75em;
+      }
+
+      // *
+      .ss-standard {
+        position: relative;
+        display: inline-block;
+        z-index: 2;
+        @include transform(translateY(-15px));
+        @include transition(transform 0.5s ease);
+      }
+      .ss-social {
+        position: absolute;
+        display: inline-block;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        font-size: 2.8em;
+        color: white;
+        opacity: 0.3;
+        @include transform(translateY(7px) translateX(-18px));
+        @include transition(opacity 0.5s ease);
+      }
+      &:hover {
+        .ss-standard {
+          @include transform(translateY(-8px));
+        }
+        .ss-social {
+          color: white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// MAIN CONTENT
+// header
+.breakpoint {
+  header {
+    max-width: $one-col-width;
+    margin: 0 auto;
+    padding: 115px 0 0.5em;
+    background: image-url("point-break/no-chute.png") no-repeat top center;
+    @include background-size(contain);
+    @include breakpoint($banner-covers-arm) {
+      padding-top: 128px;
+    }
+
+    @include breakpoint($surfboard-2) {
+      padding-top: 148px;
+      @include background-size(100%);
+    }
+
+    @include breakpoint($surfboard-3) {
+      position: relative;
+      padding-top: 140px;
+      @include background-size(90%);
+    }
+  }
+}
+
+
+// PAGE TITLE
+h1.title {
+  position: relative;
+  margin: 0 auto;
+  z-index: 2;
+  height: 82px;
+  font-family: $font-logo;
+  letter-spacing: 2px;
+  text-align: center;
+  text-indent: 0;
+  text-transform: uppercase;
+  color: white;
+  background-color: $orange;
+  @include background-image(linear-gradient(left, rgba($black, 0.3%), transparent 30%));
+  @include text-shadow(rgba($not-black, 0.5) 0 0 8px);
+  @include transform(skewY(-2deg));
+  @include filter(drop-shadow(rgba($not-black, 0.3) 0 2px 4px));
+  @include transition(all 0.5s ease);
+  @include breakpoint($surfboard-2) {
+    border-radius: 45% 60% 60% 45%;
+    line-height: 1.02;
+    text-indent: -1em;
+    @include box-shadow(rgba($not-black, 0.5) 0 0 0 2px inset);
+    @include transform(skewY(0deg) rotateZ(0deg));
+  }
+
+  @include breakpoint($surfboard-3) {
+    @include transform(skewY(0deg) rotateZ(-2deg));
+  }
+
+  &:after {
+    position: absolute;
+    content: $space;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $white-trans-1;
+    @include breakpoint($surfboard-2) {
+      top: 0;
+      height: 100%;
+      background-color: transparent;
+      @include background-image(linear-gradient(top, transparent 30%, $white-trans-1 30%, $white-trans-1 45%, transparent 45%, transparent 48%, $white-trans-3 48%, $white-trans-3 52%, transparent 52%, transparent 55%, $white-trans-1 55%, $white-trans-1 70%, transparent 70%));
+      border-radius: 45% 60% 60% 45%;
+    }
+  }
+  + h2 {
+    max-width: 11em;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1em;
+    text-align: center;
+    @include breakpoint($surfboard-2) {
+      margin-top: 0em;
+      line-height: 1.54839em;
+    }
+  }
+}
+
+// FIRST PARAGRAPH
+.lead-in {
+  @include adjust-font-size-to(ms(1));
+  span {
+    border-bottom: 1px dotted $orange;
+  }
+}
+
+// code blocks
+pre {
+  color: $gray;
+}
+
+// section of body content
+.section {
+  margin-bottom: 4em;
+  > h2 {
+    &:first-of-type {
+      padding-left: 1em;
+      @include text-shadow(rgba($not-black, 0.5) 2px 2px 0);
+    }
+  }
+}
+
+// SECTION 1. THE PITCH
+#pitch {
+  > .tabset {
+    &:nth-of-type(1) {
+      @include breakpoint($susy-two-cols-min) {
+        @include span-columns(1);
+      }
+
+      &:before {
+        position: absolute;
+        content: $space;
+        top: 0;
+        left: 0;
+        width: 92px;
+        height: 68px;
+        background: {
+          image: inline-image("arrow2.svg");
+          repeat: no-repeat;
+          position: 0 0;
+        };
+        @include transform(translateY(-47px) translateX(44px));
+        // @include filter(drop-shadow(rgba($not-black, 0.3) 0 2px 4px));
+        @include breakpoint($show-arrow-margins) {
+          width: 25px;
+          height: 65px;
+          background-image: inline-image("arrow.svg");
+          @include transform(translateY(-46px) translateX(-24px));
+        }
+      }
+    }
+  }
+  .whoa {
+    position: relative;
+    display: block;
+    margin: 0.125em -8px 3.5em;
+    padding: 0 0.125em;
+    height: 0.6em;
+    background-color: $orange;
+    color: $light-blue;
+    font-size: ms(9);
+    line-height: 0.7;
+    font-weight: bold;
+    text-align: center;
+    .csstransforms & {
+      &:after {
+        position: absolute;
+        content: $space;
+        left: 50%;
+        top: 100%;
+        width: 100%;
+        height: 200px;
+        background: {
+          image: image-url("point-break/utah-thumb.gif");
+          repeat: no-repeat;
+          position: 50% 50%;
+        };
+        @include background-size(cover);
+        border-bottom: 4px solid $orange;
+        @include filter(drop-shadow(rgba($not-black, 0.3) 0 2px 4px));
+        @include transform(translateX(-50%));
+      }
+      @include breakpoint($whoa-circle-small) {
+        display: inline-block;
+        margin: -1.75em 0 3em;
+        width: 3.5em;
+        height: 3.5em;
+        line-height: 3.5;
+        border-radius: 50%;
+        font-size: 1em;
+        @include transform(translateY(11px) translateX(-1px));
+        &:after {
+          left: 0;
+          width: 100px;
+          height: 100px;
+          border: 4px solid $orange;
+          border-radius: 50%;
+          @include transform(translateY(-40px) translateX(35px));
+        }
+      }
+
+      @include breakpoint($whoa-circle) {
+        margin-top: 0;
+        float: right;
+        @include transform(translateY(0) translateX(-18px));
+        &:after {
+          width: 200px;
+          height: 200px;
+          @include transform(translateY(-56px) translateX(20px));
+        }
+      }
+    }
+  }
+}
+
+
+// SECTION 2. GET STARTED
+#get-started {
+  > h2 {
+    &:first-of-type {
+      @include section-header('point-break/bodhi-fire.gif', $background-position: 50% 60%, $side-wings: $black);
+    }
+  }
+}
+
+// SECTION 3. ADVANCED
+#advanced {
+  > h2 {
+    &:first-of-type {
+      @include section-header('point-break/ex-presidents.jpg', $background-position: 8% 40%, $side-wings: #d8d4c8, $padding-top: 6em);
+    }
+  }
+}
+
+// DETAILS / SUMMARY
+@mixin details-marker($moz: false, $webkit: false, $o: false, $ms: false, $khtml: false, $official: false) {
+  color: $border-color;
+  font-size: 0.8em;
+  @include experimental(transform, translateY(-2px), $moz, $webkit, $o, $ms, $khtml, $official);
+}
+
+summary {
+  margin-bottom: 0.5em;
+  margin-left: -1em;
+  font-style: italic;
+  &:focus {
+    outline: none;
+    background-color: shade($background-color, 5%);
+  }
+  &::-webkit-details-marker {
+    @include details-marker($webkit: true);
+  }
+  &::-moz-details-marker {
+    @include details-marker($moz: true);
+  }
+  &::-o-details-marker {
+    @include details-marker($o: true);
+  }
+  &::-ms-details-marker {
+    @include details-marker($ms: true);
+  }
+  &::details-marker {
+    @include details-marker($official: true);
+  }
+  details[open] & {
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+.aaargh {
+  width: 100%;
+  height: 10em;
+  background: {
+    image: image-url("point-break/fire-into-the-air-and-say-aaargh.gif");
+    // image: image-url("point-break/sky-circle.gif")
+    repeat: no-repeat;
+    position: 50% 40%;
+  };
+  @include background-size(cover);
+}
+
+// SECTION 4. CREDITS
+#credits.section {
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 4em;
+  color: $white;
+  text-align: center;
+  background: $not-black;
+  background: {
+    image: image-url("stressed_linen.png");
+  };
+  > h2 {
+    &:first-of-type {
+      position: relative;
+      padding-top: 5em;
+      padding-left: 0;
+      font-family: $font-body;
+      font-weight: bold;
+      color: $light-cream;
+      text-transform: uppercase;
+      background: $black;
+      background: {
+        image: image-url("point-break/sky-circle.gif");
+        repeat: no-repeat;
+        position: 50% 40%;
+      };
+      @include background-size(cover);
+      &:before, &:after {
+        position: absolute;
+        content: $space;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &:before {
+        left: -100%;
+      }
+      &:after {
+        right: -100%;
+      }
+    }
+  }
+  a {
+    @include link-colors($orange, $white, $white, $orange);
+  }
+  ol, ul {
+    padding-left: 0;
+    @include no-bullets;
+  }
+}
+
+// MASON AND SAM
+.main-contributors {
+  position: relative;
+  @include adjust-font-size-to(ms(2));
+  @include breakpoint($friends-side-by-side) {
+    max-height: 12em;
+    margin-top: -2em;
+  }
+
+  .mason, .sam, .amp {
+    position: relative;
+    margin: 0 auto;
+    .borderradius & {
+      border-radius: 50%;
+    }
+    .backgroundsize & {
+      @include filter(drop-shadow(rgba($black, 0.8) 0 2px 4px));
+    }
+    .textshadow & {
+      @include text-shadow(rgba($not-black, 0.9) 2px 2px 0);
+    }
+    .csstransitions & {
+      @include transition(transform 0.5s ease);
+    }
+  }
+  .mason, .sam {
+    z-index: 1;
+    width: 8em;
+    height: 8em;
+    padding-top: 2.5em;
+    background-color: $black;
+    .backgroundsize & {
+      background: {
+        repeat: no-repeat;
+        position: 50% 50%;
+      };
+      @include background-size(cover);
+    }
+    .no-backgroundsize #credits & {
+      background-color: $orange;
+      a {
+        @include link-colors($white, $white, $white, $white);
+        @include border-links($white, $white, $white, $white);
+        &[href*="github"] {
+          @include undo-border-links;
+        }
+        &[href*="twitter"] {
+          @include undo-border-links;
+        }
+      }
+    }
+    a {
+      @include link-colors($white, $orange, $orange, $white);
+      @include border-links($orange, $white, $white, $orange);
+    }
+  }
+  .mason {
+    @include transform(translatey(-0.5em));
+    .backgroundsize & {
+      background: {
+        image: image-url("https://secure.gravatar.com/avatar/00065382e220ffbc1f20668c1ac3454a?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png");
+      };
+    }
+  }
+  .sam {
+    @include transform(translatey(0.25em));
+    .backgroundsize & {
+      background: {
+        image: image-url("https://secure.gravatar.com/avatar/54ca779e5872ed570f29b0f751df1376?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png");
+      };
+    }
+  }
+  .amp {
+    z-index: 0;
+    margin-top: -1.25em;
+    margin-bottom: -1.25em;
+    width: 3em;
+    height: 3em;
+    line-height: 3em;
+    color: $white;
+    font-style: italic;
+    font-weight: bold;
+    background-color: $orange-dark;
+    @include transform(translateY(0));
+    .backgroundsize & {
+      background-color: $orange;
+    }
+  }
+  @include breakpoint($friends-side-by-side) {
+    .mason {
+      @include transform(translateX(-4.75em) translateY(2.5em));
+    }
+    .sam {
+      @include transform(translateX(4.75em) translateY(-6em));
+    }
+    .amp {
+      @include transform(translateY(-1.5em));
+    }
+  }
+
+  a {
+    &[href*="github"] {
+      @include undo-border-links;
+    }
+    &[href*="twitter"] {
+      @include undo-border-links;
+    }
+  }
+}
+
+.other-contributors {
+  a {
+    &[href*="github"] {
+      @include undo-border-links;
+      &:before {
+        padding-right: 0.5em;
+      }
+    }
+  }
+}
+
+.license {
+  a {
+    display: block;
+    @include undo-border-links;
+    @include breakpoint($license-one-line) {
+      display: inline-block;
+      &:first-of-type {
+        padding-right: 0.5em;
+        border-right: 1px solid $white;
+      }
+      &:last-of-type {
+        padding-left: 0.5em;
+      }
+    }
+  }
+}
+
+.more-detail {
+  opacity: 0.4;
+}
+
+.important {
+  @include adjust-font-size-to(ms(2));
+  border-bottom: 2px solid $orange;
+}

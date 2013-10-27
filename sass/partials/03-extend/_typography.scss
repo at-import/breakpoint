@@ -1,0 +1,40 @@
+// The following classes are for use with @extend.
+%serif {
+  font-family: $font-serifs;
+}
+
+%sans {
+  font-family: $font-sans;
+}
+
+%mono {
+  font-family: $font-mono;
+}
+
+%caps {
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+}
+
+%headers {
+  font-family: $font-headline;
+}
+
+%allcaps {
+  @extend %caps;
+  text-transform: uppercase;
+}
+
+%amp {
+  font-family: $font-amp;
+}
+
+%smallcaps {
+  @extend %caps;
+  font-variant: small-caps;
+}
+
+%dquo {
+  margin-left: -0.5em;
+  font-family: $font-amp;
+}

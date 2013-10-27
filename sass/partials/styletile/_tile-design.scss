@@ -1,0 +1,213 @@
+// Create the design for your site below
+
+.styletile {
+  header {
+    @include clearfix;
+    @include trailer;
+    aside {
+      text-align: right;
+      color: $gray;
+      @extend .sans;
+    }
+  }
+
+  .group {
+    @include clearfix;
+    @include trailer(2);
+  }
+
+  .label {
+    color: $gray;
+    @include adjust-font-size-to(ms(0));
+    text-transform: uppercase;
+    font-family: $font-sans;
+  }
+
+  .colors {
+    ul {
+      li {
+        @include box-shadow(rgba($black, 0.1) 0px 2px 4px);
+      }
+    }
+  }
+
+  .images {
+    ul {
+      counter-reset: section;
+      li {
+        position: relative;
+        overflow: visible;
+        // +scatter($child: img)
+        &:after {
+          position: relative;
+          top: 102%;
+          display: block;
+          color: $gray;
+          counter-increment: section;
+          content: "Image " counter(section);
+        }
+        img {
+          @include box-shadow(rgba($black, 0.1) 0px 2px 4px);
+          border: 4px solid $white;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+// CLIENT NAME ------------------------------------------------------------------------------------------------------------------------------
+
+.styletile {
+  header {
+    h1.client-name {
+      // some styles
+    }
+  }
+}
+
+// STYLE TILE #1 ------------------------------------------------------------------------------------------------------------------------------
+
+// type examples
+.styletile-1 {
+  .text-examples {
+    .logos {
+      counter-reset: logos;
+      h1 {
+        counter-increment: logos;
+        &:before {
+          @extend .label;
+          display: block;
+          font-weight: normal;
+          line-height: 1;
+        }
+        &.opt-1 {
+          // add your own styles, if you like
+          &:before {
+            content: counter(logos) " - #{$font-sans}";
+          }
+        }
+      }
+    }
+    .headers {
+      h1 {
+        // add your own styles, if you like
+      }
+      h2 {
+        // add your own styles, if you like
+      }
+      h3 {
+        // add your own styles, if you like
+      }
+      a {
+        // add your own styles, if you like
+      }
+    }
+    .serif {
+      font-family: $font-serifs;
+      .label:after {
+        content: " - #{$font-serifs}";
+      }
+      p {
+        //
+      }
+    }
+    .quotes {
+      // add your own styles, if you like
+      .quote {
+        // add your own styles, if you like
+        .quote-mark {
+          // add your own styles, if you like
+        }
+      }
+      .source {
+        // add your own styles, if you like
+      }
+    }
+    .sans {
+      font-family: $font-sans;
+      .label:after {
+        content: " - #{$font-sans}";
+      }
+      p {
+        // add your own styles, if you like
+      }
+    }
+  }
+}
+
+// graphic examples
+
+// colors
+.styletile-1 {
+  .colors {
+    ul {
+      li {
+        &.color-1 {
+          background-color: $color-tile1-1;
+          &:after {
+            content: #{$color-tile1-1};
+          }
+        }
+        &.color-2 {
+          background-color: $color-tile1-2;
+          &:after {
+            content: #{$color-tile1-2};
+          }
+        }
+        &.color-3 {
+          background-color: $color-tile1-3;
+          &:after {
+            content: #{$color-tile1-3};
+          }
+        }
+        &.color-4 {
+          background-color: $color-tile1-4;
+          &:after {
+            content: #{$color-tile1-4};
+          }
+        }
+        &.color-5 {
+          background-color: $color-tile1-5;
+          &:after {
+            content: #{$color-tile1-5};
+          }
+        }
+        &.color-6 {
+          background-color: $color-tile1-6;
+          &:after {
+            content: #{$color-tile1-6};
+          }
+        }
+      }
+    }
+  }
+}
+
+.styletile-1 {
+  .images {
+    ul {
+      li {
+        &.image-1 {
+          // add your own styles, if you like
+        }
+        &.image-2 {
+          // add your own styles, if you like
+        }
+        &.image-3 {
+          // add your own styles, if you like
+        }
+        &.image-4 {
+          // add your own styles, if you like
+        }
+        &.image-5 {
+          // add your own styles, if you like
+        }
+        &.image-6 {
+          // add your own styles, if you like
+        }
+      }
+    }
+  }
+}

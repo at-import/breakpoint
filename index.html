@@ -242,7 +242,7 @@
     <figure class='tab command-line'>
     <input name='tab-group-install-sass' type='radio' checked='' id='tab-install-sass-1' />
     <div class='content'>
-    <pre><code>gem install sass</code></pre>
+    <pre><code>gem install compass</code></pre>
     </div>
     </figure>
     </div>
@@ -327,7 +327,7 @@
     <figure class='tab scss'>
     <input name='tab-group-all-variables' type='radio' checked='' id='tab-all-variables-1' />
     <div class='content'>
-    <pre><code>&#x000A;// create $breakpoint variables like so&#x000A;// assume min-width (by default) if only a number&#x000A;$breakpoint-medium-width: 500px;&#x000A;$breakpoint-medium-width-em: 30em;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$breakpoint-medium-not-wide: 500px 700px;&#x000A;// set min/max of feature if there are two numbers&#x000A;$breakpoint-medium-height: height 300px 700px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$breakpoint-kind-of-wide: min-width 700px;&#x000A;$breakpoint-not-too-wide: max-width 700px;&#x000A;// for multidimensional lists, assume each item is a feature value pair&#x000A;$breakpoint-wide-portrait: (max-width 700px) (orientation portrait);&#x000A;// handle one-sided features (ie. monochrome)&#x000A;$breakpoint-wide-portrait-mono: (max-width 700px) (orientation portrait) (monochrome);&#x000A;$breakpoint-mono: monochrome;&#x000A;$breakpoint-hi-rez: 2 device-pixel-ratio;&#x000A;</code></pre>
+    <pre><code>&#x000A;// create $breakpoint variables like so&#x000A;// assume min-width (by default) if only a number&#x000A;$breakpoint-medium-width: 500px;&#x000A;$breakpoint-medium-width-em: 30em;&#x000A;// set min-width/max-width if both values are numbers&#x000A;$breakpoint-medium-not-wide: 500px 700px;&#x000A;// set min/max of feature if there are two numbers&#x000A;$breakpoint-medium-height: height 300px 700px;&#x000A;// if one value is a string, assume a feature/value pair&#x000A;$breakpoint-kind-of-wide: min-width 700px;&#x000A;$breakpoint-not-too-wide: max-width 700px;&#x000A;// for multidimensional lists, assume each item is a feature value pair&#x000A;$breakpoint-wide-portrait: (max-width 700px) (orientation portrait);&#x000A;// handle one-sided features (ie. monochrome)&#x000A;$breakpoint-wide-portrait-mono: (max-width 700px) (orientation portrait) (monochrome);&#x000A;$breakpoint-mono: monochrome;&#x000A;$breakpoint-hi-rez: min-resolution 1.5dppx;&#x000A;</code></pre>
     </div>
     </figure>
     </div>
@@ -350,7 +350,7 @@
     <figure class='tab css'>
     <input name='tab-group-all-variables-examples' type='radio' id='tab-all-variables-examples-2' />
     <div class='content'>
-    <pre><code>&#x000A;@media (min-width: 500px) {&#x000A;  .foo {&#x000A;    content: 'medium widths';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) {&#x000A;  .bar {&#x000A;    content: 'medium widths measured in ems';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 500px) and (max-width: 700px) {&#x000A;  .baz {&#x000A;    content: 'medium, but not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-height: 300px) and (max-height: 700px) {&#x000A;  .tgif {&#x000A;    content: 'medium heights';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 700px) {&#x000A;  .omg {&#x000A;    content: 'kind of wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) {&#x000A;  .wtf {&#x000A;    content: 'not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) {&#x000A;  .bbq {&#x000A;    content: 'wide, portrait';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) and (monochrome) {&#x000A;  .zztop {&#x000A;    content: 'wide, portrait, monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (monochrome) {&#x000A;  .csny {&#x000A;    content: 'monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media print and (monochrome) {&#x000A;  .elp {&#x000A;    content: 'monochrome, print';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (-webkit-device-pixel-ratio: 2) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (-moz-device-pixel-ratio: 2) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) and (max-width: 40em) {&#x000A;  .rhcp {&#x000A;    content: 'between 30 and 40ems';&#x000A;  }&#x000A;}&#x000A;</code></pre>
+    <pre><code>&#x000A;@media (min-width: 500px) {&#x000A;  .foo {&#x000A;    content: 'medium widths';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) {&#x000A;  .bar {&#x000A;    content: 'medium widths measured in ems';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 500px) and (max-width: 700px) {&#x000A;  .baz {&#x000A;    content: 'medium, but not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-height: 300px) and (max-height: 700px) {&#x000A;  .tgif {&#x000A;    content: 'medium heights';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 700px) {&#x000A;  .omg {&#x000A;    content: 'kind of wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) {&#x000A;  .wtf {&#x000A;    content: 'not too wide';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) {&#x000A;  .bbq {&#x000A;    content: 'wide, portrait';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (max-width: 700px) and (orientation: portrait) and (monochrome) {&#x000A;  .zztop {&#x000A;    content: 'wide, portrait, monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (monochrome) {&#x000A;  .csny {&#x000A;    content: 'monochrome';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media print and (monochrome) {&#x000A;  .elp {&#x000A;    content: 'monochrome, print';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (-webkit-device-pixel-ratio: 2) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {&#x000A;  .omgdpr {&#x000A;    content: 'hi resolutions';&#x000A;  }&#x000A;}&#x000A;&#x000A;@media (min-width: 30em) and (max-width: 40em) {&#x000A;  .rhcp {&#x000A;    content: 'between 30 and 40ems';&#x000A;  }&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     <figure class='tab css'>
@@ -389,7 +389,7 @@
     <input name='tab-group-noquery-nowrap-same' type='radio' id='tab-noquery-nowrap-same-2' />
 
     <div class='content'>
-    <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;.no-mqs #foo {&#x000A;  background: green;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;</code></pre>
+    <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;@media (min-width: 567px) {&#x000A;  #foo {&#x000A;    background: green;&#x000A;  }&#x000A;}&#x000A;.no-mqs #foo {&#x000A;  background: green;&#x000A;}&#x000A;&#x000A;</code></pre>
     </div>
     </figure>
     </div>
@@ -431,7 +431,7 @@
     <figure class='tab css'>
     <input name='tab-group-noquery-nowrap-separate' type='radio' id='tab-noquery-nowrap-separate-5' />
     <div class='content'>
-    <pre><code>&#x000A;#foo {&#x000A;  background: red;&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
+    <pre><code>#foo {&#x000A;  background: red;&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     </div>
@@ -473,7 +473,7 @@
     <figure class='tab css'>
     <input name='tab-group-noquery-wrap-separate' type='radio' id='tab-noquery-wrap-separate-5' />
     <div class='content'>
-    <pre><code>&#x000A;.no-mq #foo {&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
+    <pre><code>#foo {&#x000A;  background: red;&#x000A;}&#x000A;&#x000A;.no-mq #foo {&#x000A;  background: green;&#x000A;}&#x000A;</code></pre>
     </div>
     </figure>
     </div>
@@ -529,16 +529,20 @@
     <p>With contributions from</p>
     <ul>
       <li>
+        <a class='ss-octocat' href='https://github.com/ChinggizKhan'>Ian Carrico</a>
+      </li>
+      <li>
+        <a class='ss-octocat' href='https://github.com/JohnAlbin'>John Albin Wilkins</a>
+      </li>
+      <li>
         <a class='ss-octocat' href='https://github.com/robwierzbowski'>Rob Wierzbowski</a>
       </li>
       <li>
-        <a class='ss-octocat' href='https://github.com/lolmaus'>lolmaus</a>
+        <a class='ss-octocat' href='https://github.com/jamesreggio'>James Reggio</a>
       </li>
       <li>
-        <a class='ss-octocat' href='https://github.com/alanburke'>Alan Burke</a>
-      </li>
       <li>
-        <a class='ss-octocat' href='https://github.com/adamstac'>Adam Stacoviak</a>
+        <a class='ss-octocat' href='https://github.com/Team-Sass/breakpoint/graphs/contributors'>and more</a>
       </li>
     </ul>
   </div>

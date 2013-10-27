@@ -1,0 +1,194 @@
+/**
+ * prism.js Monokai theme for CSS & Sass/Scss
+ *
+ * @todo test for JavaScript & HTML
+ *
+ * @author @MoOx
+ */
+
+$prism-font-family:   $font-mono !default;
+$prism-font-size:     14px !default;
+$prism-padding:     0.5em !default;
+$prism-line-height:   18px !default;
+$prism-border-radius:   0px !default;
+$prism-border:      1px solid $dark-blue !default;
+$prism-background:    $white !default;
+$prism-color:       $not-black !default;
+$prism-color-neutral: $dark-blue !default;
+// $prism-text-shadow:   0 1px 0 rgba($not-black, 0.5) !default;
+
+// $prism-linenums-padding:   7px !default;
+// $prism-linenums-width:       40px !default;
+// $prism-linenums-background:    #444 !default;
+// $prism-linenums-border-color:  #555 !default;
+// $prism-linenums-border-width:  1px !default;
+
+$prism-color-comment:   $gray !default;
+$prism-color-keyword:   color-schemer(primary) !default;
+$prism-color-keyword:   $dark-blue !default;
+$prism-color-value:     $blue !default;
+$prism-color-string:    color-schemer(secondary) !default;
+$prism-color-name:      color-schemer(secondary) !default;
+$prism-color-number:    $orange-dark !default;
+$prism-color-variable:    color-schemer(tertiary)  !default;
+$prism-color-selector:    color-schemer(quadrary) !default;
+$prism-color-punctuation: $prism-color-neutral !default;
+//$prism-color-funtion: #dc322f !default;
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  // whitespace management
+  white-space: pre; // fallback
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  // theme
+  font-family: $prism-font-family;
+  font-size:  $prism-font-size;
+  line-height: $prism-line-height;
+
+  color: $prism-color;
+  // text-shadow: $prism-text-shadow;
+}
+
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+  background: $prism-background;
+}
+:not(pre) > code[class*="language-"] {
+  display: inline-block;
+}
+
+// Code blocks
+pre[class*="language-"] {
+  padding: $prism-padding;
+  border-radius: $prism-border-radius;
+  border: $prism-border;
+
+  // &.linenums {
+  //  box-shadow: inset $prism-linenums-width 0 0 $prism-linenums-background, inset ($prism-linenums-width + $prism-linenums-border-width) 0 0 $prism-linenums-border-color;
+  //  padding-left: $prism-linenums-padding;
+  // }
+
+  // // Specify class=linenums on a pre to get line numbering
+  // ol.linenums {
+  //  // IE indents via margin-left
+  //  margin: 0 0 0 $prism-linenums-width;
+  //  padding-left: 0;
+  // }
+}
+
+// Inline code
+:not(pre) > code[class*="language-"] {
+  padding: .15em .2em .05em;
+  // border-radius: .3em;
+  border: .13em solid $blue;
+  // box-shadow: 1px 1px .3em -.1em rgba($not-black, 0.2) inset;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token {
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata {
+    color: $prism-color-comment;
+  }
+
+  &.null,
+  &.operator,
+  &.boolean,
+  &.number {
+    color: $prism-color-number;
+  }
+
+  &.attr-name,
+  &.string {
+    color: $prism-color-string;
+  }
+
+  &.entity,
+  &.url,
+  .language-css &.string,
+  .style &.string {
+    color: $prism-color-string;
+  }
+
+  &.selector {
+    color: $prism-color-selector;
+  }
+
+  &.atrule,
+  &.attr-value,
+  &.keyword,
+  &.control,
+  &.directive,
+  &.important,
+  &.unit {
+    color: $prism-color-keyword;
+  }
+
+  &.regex,
+  &.statement {
+    color: $prism-color-value;
+  }
+
+  &.placeholder,
+  &.variable {
+    color: $prism-color-variable;
+  }
+
+  &.property,
+  &.tag {
+    font-style: italic;
+  }
+
+  &.important,
+  &.statement {
+    font-weight: bold;
+  }
+
+  // todo ?
+  // &.mixin
+  // &.gradient
+  // &.abslength
+  // &.easing
+  // &.time
+  // &.angle
+  // &.fontfamily
+
+  // ruby/vim https://github.com/LeaVerou/prism/pull/18
+  // &.inst-var
+  // &.builtin
+  // &.const
+  // &.symbol
+  //
+  // php https://github.com/LeaVerou/prism/pull/20
+  // &.deliminator
+  // &.function
+
+  &.punctuation {
+    color: $prism-color-punctuation;
+  }
+
+  &.entity {
+    cursor: help;
+  }
+
+  // for dev :)
+  &.debug { color: red }
+}

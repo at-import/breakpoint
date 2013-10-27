@@ -1,0 +1,109 @@
+small {
+  @include adjust-font-size-to(ms(-1));
+}
+
+s {
+  // add your own styles, if you like
+}
+
+cite {
+  @extend %italic;
+}
+
+q {
+  @extend %italic;
+  quotes: "“" "”";
+  &:before {
+    content: open-quote;
+  }
+  &:after {
+    content: close-quote;
+  }
+}
+
+dfn {
+  @extend %bold;
+  @extend %italic;
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+time {
+  // add your own styles, if you like
+}
+
+code {
+  @extend %mono;
+}
+
+var {
+  // add your own styles, if you like
+}
+
+samp {
+  // add your own styles, if you like
+}
+
+kbd {
+  @extend %mono;
+}
+
+tt {
+  @extend %mono;
+}
+
+sup, sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+i {
+  @extend %italic;
+}
+
+b {
+  @extend %bold;
+}
+
+u {
+  // add your own styles, if you like
+}
+
+mark {
+  background: $red;
+  background-color: rgba($yellow, 0.5);
+  text-shadow: none;
+}
+
+ruby {
+  // add your own styles, if you like
+}
+
+rt {
+  // add your own styles, if you like
+}
+
+rp {
+  // add your own styles, if you like
+}
+
+bdi {
+  // add your own styles, if you like
+}
+
+bdo {
+  // add your own styles, if you like
+}

@@ -1,0 +1,107 @@
+// see: elements-ui-patterns-drupal.html for markup
+
+// SITE NAME
+#site-name {
+  a {
+    // add your own styles, if you like
+  }
+}
+
+// MENUS
+#main-menu {
+  @include horizontal-list(0.5em);
+}
+
+// SEARCH FIELD
+
+// MESSAGES
+.messages {
+  border: 1px solid $border-color;
+  padding: $kit-baseline-half 0.5em;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.status, .warning, .error {
+  @extend .messages;
+}
+
+.status {
+  border-color: $green;
+  color: $green;
+}
+
+.warning {
+  border-color: $orange;
+  color: $orange;
+}
+
+.error {
+  border-color: $red;
+  color: $red;
+}
+
+// BLOCK
+
+// TABS
+ul.tabs {
+  // @include tabs;
+}
+
+// NEW USER FORM
+.form-required {
+  color: $red;
+}
+
+// LOG IN FORM
+
+// NEW PASSWORD FORM
+
+// PAGERS
+ul.pager {
+  @include horizontal-list(0.5em);
+}
+
+// RSS LINK
+a.feed-icon {
+  @if $border-links == true {
+    @include undo-border-links;
+  }
+}
+
+// INLINE LINKS
+ul.inline {
+  @include inline-list;
+}
+
+// TAXONOMY LIST
+.field-type-taxonomy-term-reference {
+  .field-item {
+    display: inline;
+  }
+}
+
+// FIELDS
+.field-label-above {
+  .field-label {
+    display: block;
+  }
+}
+
+// NODE PAGE
+
+// COMMENTS
+#comments {
+  .comment {
+    @include vertical-separation;
+    &:last-child {
+      @include un-vertical-separation;
+    }
+  }
+  .indented {
+    padding-left: 1em;
+  }
+}
+
+// COMMENT FORM

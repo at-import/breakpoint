@@ -1,0 +1,3224 @@
+#aggregator {
+  .feed-source {
+    .feed-title {
+      margin-top: 0;
+    }
+    .feed-image img {
+      margin-bottom: 0.75em;
+    }
+    .feed-icon {
+      float: right;
+      /* LTR */
+      display: block;
+    }
+  }
+  .feed-item {
+    margin-bottom: 1.5em;
+  }
+  .feed-item-title {
+    margin-bottom: 0;
+    font-size: 1.3em;
+  }
+  .feed-item-meta, .feed-item-body {
+    margin-bottom: 0.5em;
+  }
+  .feed-item-categories {
+    font-size: 0.9em;
+  }
+  td {
+    vertical-align: bottom;
+    &.categorize-item {
+      white-space: nowrap;
+    }
+  }
+  .categorize-item {
+    .news-item .body {
+      margin-top: 0;
+    }
+    h3 {
+      margin-bottom: 1em;
+      margin-top: 0;
+    }
+  }
+}
+
+#blocks tr {
+  &.region-title td {
+    font-weight: bold;
+  }
+  &.region-message {
+    font-weight: normal;
+    color: #999999;
+  }
+  &.region-populated {
+    display: none;
+  }
+}
+
+.block-region {
+  background-color: #ffff66;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 3px;
+}
+
+a.block-demo-backlink {
+  background-color: #b4d7f0;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+  color: black;
+  font-family: "Lucida Grande", Verdana, sans-serif;
+  font-size: small;
+  line-height: 20px;
+  left: 20px;
+  /*LTR */
+  padding: 5px 10px;
+  position: fixed;
+  z-index: 499;
+  &:link, &:visited {
+    background-color: #b4d7f0;
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    color: black;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+    font-size: small;
+    line-height: 20px;
+    left: 20px;
+    /*LTR */
+    padding: 5px 10px;
+    position: fixed;
+    z-index: 499;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.book-navigation {
+  .menu {
+    border-top: 1px solid #888888;
+    padding: 1em 0 0 3em;
+    /* LTR */
+  }
+  .page-links {
+    border-top: 1px solid #888888;
+    border-bottom: 1px solid #888888;
+    text-align: center;
+    padding: 0.5em;
+  }
+  .page-previous {
+    text-align: left;
+    width: 42%;
+    display: block;
+    float: left;
+    /* LTR */
+  }
+  .page-up {
+    margin: 0 5%;
+    width: 4%;
+    display: block;
+    float: left;
+    /* LTR */
+  }
+  .page-next {
+    text-align: right;
+    width: 42%;
+    display: block;
+    float: right;
+  }
+}
+
+#book-outline {
+  min-width: 56em;
+}
+
+.book-outline-form .form-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+html.js #edit-book-pick-book {
+  display: none;
+}
+
+.form-item-book-bid .description {
+  clear: both;
+}
+
+#book-admin-edit {
+  select {
+    margin-right: 24px;
+    &.progress-disabled {
+      margin-right: 0;
+    }
+  }
+  tr.ajax-new-content {
+    background-color: #ffffdd;
+  }
+  .form-item {
+    float: left;
+  }
+}
+
+/* Farbtastic placement */
+
+.color-form {
+  max-width: 50em;
+  position: relative;
+}
+
+#placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* LTR */
+}
+
+/* Palette */
+
+.color-form {
+  .form-item {
+    height: 2em;
+    line-height: 2em;
+    padding-left: 1em;
+    /* LTR */
+    margin: 0.5em 0;
+  }
+  label {
+    float: left;
+    /* LTR */
+    clear: left;
+    /* LTR */
+    width: 10em;
+  }
+  .form-text, .form-select {
+    float: left;
+    /* LTR */
+  }
+  .form-text {
+    text-align: center;
+    margin-right: 5px;
+    /* LTR */
+    cursor: pointer;
+  }
+}
+
+#palette {
+  .hook {
+    float: left;
+    /* LTR */
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+  }
+  .down, .up, .both {
+    background: image_url("drupal/hook.png") no-repeat 100% 0;
+    /* LTR */
+  }
+  .up {
+    background-position: 100% -27px;
+    /* LTR */
+  }
+  .both {
+    background-position: 100% -54px;
+    /* LTR */
+  }
+  .lock {
+    float: left;
+    /* LTR */
+    position: relative;
+    top: -1.4em;
+    left: -10px;
+    /* LTR */
+    width: 20px;
+    height: 25px;
+    background: image_url("drupal/lock.png") no-repeat 50% 2px;
+    cursor: pointer;
+  }
+  .unlocked {
+    background-position: 50% -22px;
+  }
+  .form-item {
+    width: 20em;
+  }
+  .item-selected {
+    background: #eeeeee;
+  }
+}
+
+/* Preview */
+
+#preview {
+  display: none;
+}
+
+html.js #preview {
+  display: block;
+  position: relative;
+  float: left;
+  /* LTR */
+}
+
+#comments {
+  margin-top: 15px;
+}
+
+.indented {
+  margin-left: 25px;
+  /* LTR */
+}
+
+.comment-unpublished {
+  background-color: #fff4f4;
+}
+
+.comment-preview {
+  background-color: #ffffea;
+}
+
+/*
+ * Contextual links regions. */
+
+.contextual-links-region {
+  outline: none;
+  position: relative;
+}
+
+.contextual-links-region-active {
+  outline: #999999 dashed 1px;
+}
+
+/*
+ * Contextual links. */
+
+div.contextual-links-wrapper {
+  display: none;
+  font-size: 90%;
+  position: absolute;
+  right: 5px;
+  /* LTR */
+  top: 2px;
+  z-index: 999;
+}
+
+html.js div.contextual-links-wrapper {
+  display: block;
+}
+
+a.contextual-links-trigger {
+  background: transparent image_url("drupal/gear-select.png") no-repeat 2px 0;
+  border: 1px solid transparent;
+  display: none;
+  height: 18px;
+  margin: 0;
+  padding: 0 2px;
+  outline: none;
+  text-indent: 34px;
+  /* LTR */
+  width: 28px;
+  overflow: hidden;
+  -khtml-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  &:hover {
+    background-position: 2px -18px;
+  }
+}
+
+div {
+  &.contextual-links-active a.contextual-links-trigger {
+    background-position: 2px -18px;
+    background-position: 2px -18px;
+    background-color: white;
+    border-color: #cccccc;
+    border-bottom: none;
+    position: relative;
+    z-index: 1;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-radius: 4px 4px 0 0;
+  }
+  &.contextual-links-wrapper ul.contextual-links {
+    background-color: white;
+    border: 1px solid #cccccc;
+    display: none;
+    margin: 0;
+    padding: 0.25em 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 18px;
+    white-space: nowrap;
+    -moz-border-radius: 4px 0 4px 4px;
+    /* LTR */
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 0;
+    /* LTR */
+    -webkit-border-top-left-radius: 4px;
+    /* LTR */
+    border-radius: 4px 0 4px 4px;
+    /* LTR */
+  }
+}
+
+.contextual-links-region:hover a.contextual-links-trigger {
+  display: block;
+}
+
+div.contextual-links-active {
+  a.contextual-links-trigger, ul.contextual-links {
+    display: block;
+  }
+}
+
+ul.contextual-links li {
+  line-height: 100%;
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.contextual-links-wrapper a {
+  text-decoration: none;
+}
+
+ul.contextual-links li a {
+  color: #333333 !important;
+  display: block;
+  margin: 0.25em 0;
+  padding: 0.25em 1em 0.25em 0.5em;
+  &:hover {
+    background-color: #bfdcee;
+  }
+}
+
+#dashboard {
+  div {
+    &.dashboard-region {
+      float: left;
+      min-height: 1px;
+    }
+    &#dashboard_main {
+      width: 65%;
+      margin-right: 1%;
+      /* LTR */
+    }
+    &#dashboard_sidebar {
+      width: 33%;
+    }
+    &.block {
+      margin-bottom: 20px;
+    }
+  }
+  .dashboard-region .block {
+    clear: both;
+  }
+  div.block h2 {
+    float: none;
+  }
+  #disabled-blocks .block, .block-placeholder {
+    background: #e2e1dc;
+    padding: 6px 4px 6px 8px;
+    /* LTR */
+    margin: 3px 3px 3px 0;
+    /* LTR */
+    float: left;
+    /* LTR */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .dashboard-add-other-blocks {
+    margin: 10px 0 0 0;
+  }
+  .ui-sortable {
+    border: 2px dashed #cccccc;
+    padding: 10px;
+  }
+  .canvas-content {
+    padding: 10px;
+  }
+  #disabled-blocks .ui-sortable {
+    padding: 0;
+    background-color: #777777;
+    border: 0;
+  }
+  .canvas-content a.button {
+    margin: 0 0 0 10px;
+    /* LTR */
+    color: #5a5a5a;
+    text-decoration: none;
+  }
+  .region {
+    margin: 5px;
+  }
+  #disabled-blocks {
+    .region {
+      background-color: #e0e0d8;
+      border: #cccccc 1px solid;
+      padding: 10px;
+    }
+    padding: 5px 0;
+    h2 {
+      display: inline;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+    .block {
+      background: #444444;
+      color: white;
+    }
+  }
+  &.customize-inactive #disabled-blocks .block:hover {
+    background: #0074bd;
+  }
+  #disabled-blocks .block .content, .ui-sortable-helper .content {
+    display: none;
+  }
+  .ui-sortable .block {
+    cursor: move;
+    min-height: 1px;
+    h2 {
+      background: transparent image_url("drupal/draggable.png") no-repeat 0px -39px;
+      padding: 0 17px;
+    }
+  }
+  &.customize-inactive {
+    #disabled-blocks .block:hover h2 {
+      background: #0074bd image_url("drupal/draggable.png") no-repeat 0px -39px;
+      color: white;
+    }
+    .dashboard-region .ui-sortable .block:hover h2 {
+      background: #0074bd image_url("drupal/draggable.png") no-repeat;
+      background-position: 3px -36px;
+      color: white;
+    }
+  }
+  .dashboard-region .block-placeholder {
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: block;
+    height: 1.6em;
+    width: 100%;
+  }
+  #disabled-blocks .block-placeholder {
+    width: 30px;
+    height: 1.6em;
+  }
+}
+
+.form-item-type, .form-item-severity {
+  float: left;
+  /* LTR */
+  padding-right: 0.8em;
+  /* LTR */
+  margin: 0.1em;
+  /*
+   * In Opera 9, DOM elements with the property of "overflow: auto"
+   * will partially hide its contents with unnecessary scrollbars when
+   * its immediate child is floated without an explicit width set. */
+  width: 15em;
+}
+
+#dblog-filter-form {
+  .form-type-select select {
+    width: 100%;
+  }
+  .form-actions {
+    float: left;
+    padding: 3ex 0 0 1em;
+  }
+}
+
+tr {
+  &.dblog-user {
+    background: #ffffdd;
+    .active {
+      background: #eeeedd;
+    }
+  }
+  &.dblog-content {
+    background: #ddddff;
+    .active {
+      background: #ccccee;
+    }
+  }
+  &.dblog-page-not-found, &.dblog-access-denied {
+    background: #ddffdd;
+  }
+  &.dblog-page-not-found .active, &.dblog-access-denied .active {
+    background: #cceecc;
+  }
+  &.dblog-error {
+    background: #ffc9c9;
+    .active {
+      background: #eeb9b9;
+    }
+  }
+}
+
+table#admin-dblog {
+  td.icon {
+    background: no-repeat center;
+    width: 16px;
+  }
+  tr {
+    &.dblog-warning td.icon {
+      background-image: image_url("drupal/message-16-warning.png");
+    }
+    &.dblog-error td.icon {
+      background-image: image_url("drupal/message-16-error.png");
+    }
+  }
+}
+
+/* Field display */
+
+.field .field-label {
+  font-weight: bold;
+}
+
+.field-label-inline {
+  .field-label, .field-items {
+    float: left;
+    /*LTR */
+  }
+}
+
+/* Form display */
+
+form {
+  .field-multiple-table {
+    margin: 0;
+    th.field-label {
+      padding-left: 0;
+      /*LTR */
+    }
+    td.field-multiple-drag {
+      width: 30px;
+      padding-right: 0;
+      /*LTR */
+      a.tabledrag-handle {
+        padding-right: 0.5em;
+        /*LTR */
+      }
+    }
+  }
+  .field-add-more-submit {
+    margin: 0.5em 0 0;
+  }
+}
+
+/* 'Manage fields' and 'Manage display' overviews */
+
+table.field-ui-overview tr {
+  &.add-new {
+    .label-input {
+      float: left;
+      /* LTR */
+    }
+    .tabledrag-changed {
+      display: none;
+    }
+    .description {
+      margin-bottom: 0;
+    }
+    .add-new-placeholder {
+      font-weight: bold;
+      padding-bottom: 0.5em;
+    }
+  }
+  &.region-title td {
+    font-weight: bold;
+  }
+  &.region-message td {
+    font-style: italic;
+  }
+  &.region-populated, &.region-add-new-title {
+    display: none;
+  }
+}
+
+/* 'Manage display' overview */
+
+#field-display-overview {
+  .field-formatter-summary-cell {
+    line-height: 1em;
+  }
+  .field-formatter-summary {
+    float: left;
+    font-size: 0.9em;
+  }
+  td.field-formatter-summary-cell span.warning {
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+  }
+  .field-formatter-settings-edit-wrapper, .field-formatter-settings-edit {
+    float: right;
+  }
+  tr.field-formatter-settings-editing {
+    td {
+      vertical-align: top;
+    }
+    .field-formatter-type {
+      display: none;
+    }
+  }
+  .field-formatter-settings-edit-form .formatter-name {
+    font-weight: bold;
+  }
+}
+
+#field-ui-display-overview-form #edit-refresh {
+  display: none;
+}
+
+/*
+ * Managed file element styles. */
+
+.form-managed-file {
+  .form-file, .form-submit {
+    margin: 0;
+  }
+  input.progress-disabled {
+    float: none;
+    display: inline;
+  }
+  div {
+    &.ajax-progress, &.throbber {
+      display: inline;
+      float: none;
+      padding: 1px 5px 2px 5px;
+    }
+    &.ajax-progress div {
+      display: inline;
+    }
+    &.ajax-progress-bar {
+      display: none;
+      margin-top: 4px;
+      width: 28em;
+      padding: 0;
+      div.bar {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.text-format-wrapper .form-item {
+  margin-bottom: 0;
+}
+
+.filter-wrapper {
+  border-top: 0;
+  margin: 0;
+  padding: 1.5em 0 1.5em;
+  .form-item {
+    float: left;
+    padding: 0 0 0.5em 1.5em;
+    label {
+      display: inline;
+    }
+  }
+}
+
+.filter-help {
+  float: right;
+  padding: 0 1.5em 0.5em;
+  p {
+    margin: 0;
+  }
+  a {
+    background: transparent image_url("drupal/help.png") right center no-repeat;
+    padding: 0 20px;
+  }
+}
+
+.filter-guidelines {
+  clear: left;
+  padding: 0 1.5em;
+}
+
+.text-format-wrapper .description {
+  margin-top: 0.5em;
+}
+
+#filter-order tr {
+  .form-item {
+    padding: 0.5em 0 0 3em;
+    white-space: normal;
+  }
+  .form-type-checkbox .description {
+    padding: 0 0 0 2.5em;
+  }
+}
+
+input#edit-filters-filter-html-settings-allowed-html {
+  width: 100%;
+}
+
+.tips {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 0.9em;
+}
+
+#forum {
+  .description {
+    font-size: 0.9em;
+    margin: 0.5em;
+  }
+  td {
+    &.created, &.posts, &.topics, &.last-reply, &.replies, &.pager {
+      white-space: nowrap;
+    }
+    &.forum {
+      .icon {
+        background-image: image_url("drupal/forum-icons.png");
+        background-repeat: no-repeat;
+        float: left;
+        /* LTR */
+        height: 24px;
+        margin: 0 9px 0 0;
+        /* LTR */
+        width: 24px;
+      }
+      .forum-status-new {
+        background-position: -24px 0;
+      }
+    }
+  }
+  div.indent {
+    margin-left: 20px;
+  }
+  .icon {
+    div {
+      background-image: image_url("drupal/forum-icons.png");
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 24px;
+    }
+    .topic-status-new {
+      background-position: -24px 0;
+    }
+    .topic-status-hot {
+      background-position: -48px 0;
+    }
+    .topic-status-hot-new {
+      background-position: -72px 0;
+    }
+    .topic-status-sticky {
+      background-position: -96px 0;
+    }
+    .topic-status-closed {
+      background-position: -120px 0;
+    }
+  }
+}
+
+.help-items {
+  float: left;
+  /* LTR */
+  width: 22%;
+  padding-right: 3%;
+  /* LTR */
+}
+
+.help-items-last {
+  padding-right: 0;
+  /* LTR */
+}
+
+/*
+ * Image style configuration pages. */
+
+div {
+  &.image-style-new {
+    display: inline;
+    div {
+      display: inline;
+    }
+  }
+  &.image-style-preview div {
+    &.preview-image-wrapper {
+      float: left;
+      padding-bottom: 2em;
+      text-align: center;
+      top: 50%;
+      width: 48%;
+    }
+    &.preview-image {
+      margin: auto;
+      position: relative;
+      div {
+        &.width {
+          border: 1px solid #666666;
+          border-top: none;
+          height: 2px;
+          left: -1px;
+          bottom: -6px;
+          position: absolute;
+          span {
+            position: relative;
+            top: 4px;
+          }
+        }
+        &.height {
+          border: 1px solid #666666;
+          border-left: none;
+          position: absolute;
+          right: -6px;
+          top: -1px;
+          width: 2px;
+          span {
+            height: 2em;
+            left: 10px;
+            margin-top: -1em;
+            position: absolute;
+            top: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Image anchor element. */
+
+table.image-anchor {
+  width: auto;
+  tr {
+    &.even, &.odd {
+      background: none;
+    }
+  }
+  td {
+    border: 1px solid #cccccc;
+  }
+}
+
+/*
+ * Image upload widget. */
+
+div {
+  &.image-preview {
+    float: left;
+    /* LTR */
+    padding: 0 10px 10px 0;
+    /* LTR */
+  }
+  &.image-widget-data {
+    float: left;
+    /* LTR */
+    input.text-field {
+      width: auto;
+    }
+  }
+}
+
+.locale-untranslated {
+  font-style: normal;
+  text-decoration: line-through;
+}
+
+#locale-translation-filter-form {
+  .form-item-language, .form-item-translation, .form-item-group {
+    float: left;
+    /* LTR */
+    padding-right: 0.8em;
+    /* LTR */
+    margin: 0.1em;
+    /*
+     * In Opera 9, DOM elements with the property of "overflow: auto"
+     * will partially hide its contents with unnecessary scrollbars when
+     * its immediate child is floated without an explicit width set. */
+    width: 15em;
+  }
+  .form-type-select select {
+    width: 100%;
+  }
+  .form-actions {
+    float: left;
+    /* LTR */
+    padding: 3ex 0 0 1em;
+    /* LTR */
+  }
+}
+
+.language-switcher-locale-session a {
+  &.active {
+    color: #0062a0;
+  }
+  &.session-active {
+    color: black;
+  }
+}
+
+.menu-operations {
+  width: 100px;
+}
+
+.menu-enabled {
+  width: 70px;
+  input {
+    margin-left: 25px;
+  }
+}
+
+.node-unpublished {
+  background-color: #fff4f4;
+}
+
+.preview .node {
+  background-color: #ffffea;
+}
+
+td.revision-current {
+  background: #ffffcc;
+}
+
+#edit-openid-identifier {
+  background-image: url("login-bg.png");
+  background-position: left 50%;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  /* LTR */
+}
+
+div.form-item-openid-identifier {
+  display: block;
+}
+
+html.js {
+  #user-login-form div.form-item-openid-identifier, #user-login div.form-item-openid-identifier {
+    display: none;
+  }
+}
+
+#user-login-form ul {
+  margin-top: 0;
+}
+
+#user-login ul {
+  margin: 0 0 5px;
+  li {
+    margin: 0;
+  }
+}
+
+#user-login-form .openid-links {
+  padding-bottom: 0;
+}
+
+#user-login .openid-links {
+  padding-left: 0;
+  /* LTR */
+}
+
+#user-login-form .openid-links li, #user-login .openid-links li {
+  display: none;
+  list-style: none;
+}
+
+html.js {
+  #user-login-form li.openid-link, #user-login li.openid-link {
+    display: block;
+    margin-left: 0;
+    /* LTR */
+  }
+}
+
+#user-login-form li.openid-link a, #user-login li.openid-link a {
+  background-image: url("login-bg.png");
+  background-position: left top;
+  /* LTR */
+  background-repeat: no-repeat;
+  padding: 0 0 0 1.5em;
+  /* LTR */
+}
+
+html.js {
+  background: transparent !important;
+  overflow-y: scroll;
+  body {
+    background: transparent !important;
+    margin-left: 0;
+    margin-right: 0;
+    // padding: 20px 0
+ 
+  }
+}
+
+#overlay {
+  display: table;
+  margin: 0 auto;
+  min-height: 100px;
+  min-width: 700px;
+  position: relative;
+  padding: 0.2em;
+  padding-right: 26px;
+  /* LTR */
+  width: 88%;
+}
+
+#overlay-titlebar {
+  padding: 0 20px;
+  position: relative;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+#overlay-content {
+  background: white;
+  clear: both;
+  color: black;
+  padding: 0.5em 1em;
+  position: relative;
+}
+
+#overlay-title-wrapper {
+  overflow: hidden;
+}
+
+#overlay-title {
+  color: white;
+  float: left;
+  /* LTR */
+  font-size: 20px;
+  margin: 0;
+  padding: 0.3em 0;
+  &:active, &:focus {
+    outline: 0;
+  }
+}
+
+.overlay #skip-link {
+  margin-top: -20px;
+  a {
+    color: white;
+    /* This is white to contrast with the dark background behind it. */
+  }
+}
+
+#overlay-close-wrapper {
+  position: absolute;
+  right: 0;
+  /* LTR */
+}
+
+#overlay-close {
+  background: transparent image_url("drupal/close.png") no-repeat;
+  /* LTR */
+  -moz-border-radius-topleft: 0;
+  /* LTR */
+  -webkit-border-top-left-radius: 0;
+  /* LTR */
+  border-top-left-radius: 0;
+  /* LTR */
+  display: block;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  /* Replace with position:fixed to get a scrolling close button. */
+  position: absolute;
+  width: 26px;
+  &:hover {
+    background: transparent image_url("drupal/close.png") no-repeat;
+    /* LTR */
+    -moz-border-radius-topleft: 0;
+    /* LTR */
+    -webkit-border-top-left-radius: 0;
+    /* LTR */
+    border-top-left-radius: 0;
+    /* LTR */
+    display: block;
+    height: 26px;
+    margin: 0;
+    padding: 0;
+    /* Replace with position:fixed to get a scrolling close button. */
+    position: absolute;
+    width: 26px;
+  }
+}
+
+/*
+ * Tabs on the overlay. */
+
+#overlay-tabs {
+  line-height: 27px;
+  margin: -28px 0 0 0;
+  position: absolute;
+  right: 20px;
+  /* LTR */
+  text-transform: uppercase;
+  li {
+    display: inline;
+    list-style: none;
+    margin: 0 0 0 -3px;
+    /* LTR */
+    padding: 0;
+    a {
+      background-color: #a6a7a2;
+      -moz-border-radius: 8px 8px 0 0;
+      -webkit-border-top-left-radius: 8px;
+      -webkit-border-top-right-radius: 8px;
+      border-radius: 8px 8px 0 0;
+      color: black;
+      display: inline-block;
+      font-size: 11px;
+      font-weight: bold;
+      margin: 0 0 2px 0;
+      outline: 0;
+      padding: 0 14px;
+      text-decoration: none;
+      &:active, &:visited, &:hover {
+        background-color: #a6a7a2;
+        -moz-border-radius: 8px 8px 0 0;
+        -webkit-border-top-left-radius: 8px;
+        -webkit-border-top-right-radius: 8px;
+        border-radius: 8px 8px 0 0;
+        color: black;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        margin: 0 0 2px 0;
+        outline: 0;
+        padding: 0 14px;
+        text-decoration: none;
+      }
+    }
+    &.active a {
+      background-color: white;
+      margin: 0;
+      padding-bottom: 2px;
+      &.active, &:active, &:visited {
+        background-color: white;
+        margin: 0;
+        padding-bottom: 2px;
+      }
+    }
+    a {
+      &:focus, &:hover {
+        color: white;
+      }
+    }
+    &.active a {
+      &:focus, &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+/*
+ * Add to shortcuts link */
+
+#overlay-titlebar .add-or-remove-shortcuts {
+  padding-top: 0.9em;
+}
+
+/*
+ * IE6 shows elements with position:fixed as position:static so replace
+ * it with position:absolute; */
+
+* html #overlay-close {
+  position: absolute;
+  &:hover {
+    position: absolute;
+  }
+}
+
+/*
+ * Disable message. */
+
+#overlay-disable-message {
+  background-color: white;
+  margin: -20px auto 20px;
+  width: 80%;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+.overlay-disable-message-focused {
+  padding: 0.5em;
+  a {
+    display: block;
+    float: left;
+  }
+  #overlay-dismiss-message {
+    float: right;
+  }
+}
+
+html.overlay-open {
+  height: 100%;
+  overflow: hidden;
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+#overlay-container, .overlay-modal-background, .overlay-element {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+}
+
+.overlay-modal-background {
+  /* Using a transparent png renders faster than using opacity */
+  background: transparent image_url("drupal/background.png") repeat;
+}
+
+.overlay-element {
+  background: transparent;
+  left: -200%;
+  z-index: 501;
+  &.overlay-active {
+    left: 0;
+  }
+}
+
+html.overlay-open {
+  .displace-top, .displace-bottom {
+    z-index: 600;
+  }
+}
+
+/*
+ * Within the overlay parent, the message about disabling the overlay is for
+ * screen-reader users only. It is always kept invisible with the
+ * element-invisible class, and removed from the tab order. Overlay-child.css
+ * contains styling for the same message appearing within the overlay, and
+ * intended for sighted users. */
+
+#overlay-disable-message {
+  display: none;
+}
+
+html.overlay-open #overlay-disable-message {
+  display: block;
+}
+
+.poll {
+  overflow: hidden;
+  .bar {
+    height: 1em;
+    margin: 1px 0;
+    background-color: #dddddd;
+    .foreground {
+      background-color: black;
+      height: 1em;
+      float: left;
+      /* LTR */
+    }
+  }
+  .links {
+    text-align: center;
+  }
+  .percent {
+    text-align: right;
+    /* LTR */
+  }
+  .total {
+    text-align: center;
+  }
+  .vote-form {
+    text-align: center;
+    .choices {
+      text-align: left;
+      /* LTR */
+      margin: 0 auto;
+      display: table;
+      .title {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.node-form {
+  #edit-poll-more {
+    margin: 0;
+  }
+  #poll-choice-table {
+    .form-text {
+      display: inline;
+      width: auto;
+    }
+    td.choice-flag {
+      white-space: nowrap;
+      width: 4em;
+    }
+  }
+}
+
+td {
+  &.poll-chtext {
+    width: 80%;
+  }
+  &.poll-chvotes .form-text {
+    width: 85%;
+  }
+}
+
+#profile-fields {
+  td.category {
+    font-weight: bold;
+  }
+  tr {
+    &.category-message {
+      color: #999999;
+    }
+    &.category-populated {
+      display: none;
+    }
+  }
+}
+
+.search-form {
+  margin-bottom: 1em;
+  input {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.search-results {
+  list-style: none;
+  p {
+    margin-top: 0;
+  }
+  .title {
+    font-size: 1.2em;
+  }
+  li {
+    margin-bottom: 1em;
+  }
+  .search-snippet-info {
+    padding-left: 1em;
+    /* LTR */
+  }
+  .search-info {
+    font-size: 0.85em;
+  }
+}
+
+.search-advanced {
+  .criterion {
+    float: left;
+    /* LTR */
+    margin-right: 2em;
+    /* LTR */
+  }
+  .action {
+    float: left;
+    /* LTR */
+    clear: left;
+    /* LTR */
+  }
+}
+
+.shortcut-slot-hidden {
+  display: none;
+}
+
+div {
+  &.form-item-set div.form-item-new {
+    display: inline;
+  }
+  &#toolbar {
+    a#edit-shortcuts {
+      float: right;
+      padding: 5px 10px 5px 5px;
+      line-height: 24px;
+      color: #fefefe;
+      &:focus, &:hover, &.active {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+    div.toolbar-shortcuts {
+      ul {
+        padding: 5px 0 2px 0;
+        height: 28px;
+        line-height: 24px;
+        float: left;
+        /* LTR */
+        margin-left: 5px;
+        /* LTR */
+        li a {
+          padding: 0 5px 0 5px;
+          margin-right: 5px;
+          /* LTR */
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          &:focus, &:hover {
+            background: #555555;
+          }
+          &.active {
+            &:focus {
+              background: #555555;
+            }
+            &:hover {
+              background: black;
+            }
+            background: black;
+          }
+        }
+      }
+      span.icon {
+        float: left;
+        /* LTR */
+        background: #444444;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        /* LTR */
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+  &.add-or-remove-shortcuts {
+    padding-top: 5px;
+    a span.icon {
+      display: block;
+      width: 12px;
+      background: transparent url(shortcut.png) no-repeat scroll 0 0;
+      height: 12px;
+      float: left;
+      margin-left: 8px;
+    }
+  }
+  &.add-shortcut a {
+    &:focus span.icon, &:hover span.icon {
+      background-position: 0 -12px;
+    }
+  }
+  &.remove-shortcut a {
+    span.icon {
+      background-position: -12px 0;
+    }
+    &:focus span.icon, &:hover span.icon {
+      background-position: -12px -12px;
+    }
+  }
+  &.add-or-remove-shortcuts a {
+    span.text {
+      float: left;
+      padding-left: 10px;
+      display: none;
+    }
+    &:focus span.text, &:hover span.text {
+      font-size: 10px;
+      line-height: 12px;
+      color: white;
+      background-color: #5f605b;
+      display: block;
+      padding-right: 6px;
+      /* LTR */
+      cursor: pointer;
+      -moz-border-radius: 0 5px 5px 0;
+      /* LTR */
+      -webkit-border-top-right-radius: 5px;
+      /* LTR */
+      -webkit-border-bottom-right-radius: 5px;
+      /* LTR */
+      border-radius: 0 5px 5px 0;
+      /* LTR */
+    }
+  }
+}
+
+#shortcut-set-switch {
+  .form-type-radios {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .form-item-new {
+    padding-top: 0;
+    padding-left: 17px;
+    /* LTR */
+  }
+}
+
+/*
+ * @file
+ * Styles for administration pages. */
+
+/*
+ * Administration blocks. */
+
+div {
+  &.admin-panel {
+    margin: 0;
+    padding: 5px 5px 15px 5px;
+    .description {
+      margin: 0 0 3px;
+      padding: 2px 0 3px 0;
+    }
+    .body {
+      padding: 0 4px 2px 8px;
+      /* LTR */
+    }
+  }
+  &.admin {
+    padding-top: 15px;
+    .left {
+      float: left;
+      /* LTR */
+      width: 47%;
+      margin-left: 1em;
+      /* LTR */
+    }
+    .right {
+      float: right;
+      /* LTR */
+      width: 47%;
+      margin-right: 1em;
+      /* LTR */
+    }
+    .expert-link {
+      text-align: right;
+      /* LTR */
+      margin-right: 1em;
+      /* LTR */
+      padding-right: 4px;
+      /* LTR */
+    }
+  }
+}
+
+/*
+ * Markup generated by theme_system_compact_link(). */
+
+.compact-link {
+  margin: 0 0 0.5em 0;
+}
+
+/*
+ * Quick inline admin links. */
+
+small .admin-link {
+  &:before {
+    content: "[";
+  }
+  &:after {
+    content: "]";
+  }
+}
+
+/*
+ * Modules page. */
+
+#system-modules div.incompatible {
+  font-weight: bold;
+}
+
+div {
+  &.admin-requirements, &.admin-required {
+    font-size: 0.9em;
+    color: #444444;
+  }
+}
+
+span {
+  &.admin-disabled {
+    color: #880000;
+  }
+  &.admin-enabled {
+    color: #008800;
+  }
+  &.admin-missing {
+    color: red;
+  }
+}
+
+a {
+  &.module-link {
+    display: block;
+    padding: 1px 0 1px 20px;
+    /* LTR */
+    white-space: nowrap;
+  }
+  &.module-link-help {
+    background: image_url("drupal/help.png") 0 50% no-repeat;
+    /* LTR */
+  }
+  &.module-link-permissions {
+    background: image_url("drupal/permissions.png") 0 50% no-repeat;
+    /* LTR */
+  }
+  &.module-link-configure {
+    background: image_url("drupal/configure.png") 0 50% no-repeat;
+    /* LTR */
+  }
+}
+
+.module-help {
+  margin-left: 1em;
+  /* LTR */
+  float: right;
+  /* LTR */
+}
+
+/*
+ * Status report. */
+
+table.system-status-report {
+  td {
+    padding: 6px;
+    vertical-align: middle;
+  }
+  tr.merge-up td {
+    padding: 0 6px 8px 28px;
+    /* LTR */
+  }
+  td.status-icon {
+    width: 16px;
+    padding-right: 0;
+    /* LTR */
+    div {
+      background-repeat: no-repeat;
+      height: 16px;
+      width: 16px;
+    }
+  }
+  tr {
+    &.error td.status-icon div {
+      background-image: image_url("drupal/message-16-error.png");
+    }
+    &.warning td.status-icon div {
+      background-image: image_url("drupal/message-16-warning.png");
+    }
+  }
+}
+
+tr {
+  &.merge-down {
+    border-bottom-width: 0 !important;
+    td {
+      border-bottom-width: 0 !important;
+    }
+  }
+  &.merge-up {
+    border-top-width: 0 !important;
+    td {
+      border-top-width: 0 !important;
+    }
+  }
+}
+
+/*
+ * Theme settings. */
+
+.theme-settings-left {
+  float: left;
+  width: 49%;
+}
+
+.theme-settings-right {
+  float: right;
+  width: 49%;
+}
+
+.theme-settings-bottom {
+  clear: both;
+}
+
+/*
+ * Appearance page. */
+
+table.screenshot {
+  margin-right: 1em;
+  /* LTR */
+}
+
+.theme-info {
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+  }
+}
+
+.system-themes-list {
+  margin-bottom: 20px;
+}
+
+.system-themes-list-disabled {
+  border-top: 1px solid #cdcdcd;
+  padding-top: 20px;
+}
+
+.system-themes-list h2 {
+  margin: 0;
+}
+
+.theme-selector {
+  padding-top: 20px;
+  .screenshot, .no-screenshot {
+    border: 1px solid #e0e0d8;
+    padding: 2px;
+    vertical-align: bottom;
+    width: 294px;
+    height: 219px;
+    line-height: 219px;
+    text-align: center;
+  }
+}
+
+.theme-default .screenshot {
+  border: 1px solid #aaaaaa;
+}
+
+.system-themes-list-enabled .theme-selector {
+  .screenshot, .no-screenshot {
+    float: left;
+    /* LTR */
+    margin: 0 20px 0 0;
+    /* LTR */
+  }
+}
+
+.system-themes-list-disabled .theme-selector {
+  .screenshot, .no-screenshot {
+    width: 194px;
+    height: 144px;
+    line-height: 144px;
+  }
+}
+
+.theme-selector h3 {
+  font-weight: normal;
+}
+
+.theme-default h3 {
+  font-weight: bold;
+}
+
+.system-themes-list-enabled .theme-selector h3 {
+  margin-top: 0;
+}
+
+.system-themes-list-disabled .theme-selector {
+  width: 300px;
+  float: left;
+  /* LTR */
+  padding: 20px 20px 20px 0;
+  /* LTR */
+}
+
+.system-themes-list-enabled .theme-info {
+  max-width: 940px;
+}
+
+.system-themes-list-disabled .theme-info {
+  min-height: 170px;
+}
+
+.theme-selector {
+  .incompatible {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .operations {
+    margin: 10px 0 0 0;
+    padding: 0;
+    li {
+      float: left;
+      /* LTR */
+      margin: 0;
+      padding: 0 0.7em;
+      list-style-type: none;
+      border-right: 1px solid #cdcdcd;
+      /* LTR */
+      &.last {
+        padding: 0 0 0 0.7em;
+        /* LTR */
+        border-right: none;
+        /* LTR */
+      }
+      &.first {
+        padding: 0 0.7em 0 0;
+        /* LTR */
+      }
+    }
+  }
+}
+
+#system-themes-admin-form {
+  clear: left;
+}
+
+/*
+ * Exposed filters. */
+
+.exposed-filters {
+  .filters {
+    float: left;
+    /* LTR */
+    margin-right: 1em;
+    /* LTR */
+    width: 25em;
+    /* IE6 */
+  }
+  .form-item {
+    margin: 0 0 0.1em 0;
+    padding: 0;
+    label {
+      float: left;
+      /* LTR */
+      font-weight: normal;
+      width: 10em;
+    }
+  }
+  .form-select {
+    width: 14em;
+  }
+  .current-filters {
+    margin-bottom: 1em;
+    .placeholder {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+  .additional-filters {
+    float: left;
+    /* LTR */
+    margin-right: 1em;
+    /* LTR */
+  }
+}
+
+/* Current filters */
+
+/*
+ * @file
+ * Generic theme-independent base styles. */
+
+/*
+ * Autocomplete.
+ *
+ * @see autocomplete.js */
+/* Suggestion list */
+
+#autocomplete {
+  border: 1px solid;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+  ul {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    background: white;
+    color: black;
+    cursor: default;
+    white-space: pre;
+  }
+}
+
+/* Animated throbber */
+
+html.js {
+  input {
+    &.form-autocomplete {
+      background-image: image_url("drupal/throbber.gif");
+      background-position: 100% 2px;
+      /* LTR */
+      background-repeat: no-repeat;
+    }
+    &.throbbing {
+      background-position: 100% -18px;
+      /* LTR */
+    }
+  }
+  fieldset.collapsed {
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    height: 1em;
+    .fieldset-wrapper {
+      display: none;
+    }
+  }
+}
+
+/*
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js */
+
+fieldset.collapsible {
+  position: relative;
+  .fieldset-legend {
+    display: block;
+  }
+}
+
+/*
+ * Resizable textareas.
+ *
+ * @see textarea.js */
+
+.form-textarea-wrapper textarea {
+  display: block;
+  margin: 0;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.resizable-textarea .grippie {
+  background: #eeeeee image_url("drupal/grippie.png") no-repeat center 2px;
+  border: 1px solid #dddddd;
+  border-top-width: 0;
+  cursor: s-resize;
+  height: 9px;
+  overflow: hidden;
+}
+
+/*
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js */
+
+body.drag {
+  cursor: move;
+}
+
+.draggable a.tabledrag-handle {
+  cursor: move;
+  float: left;
+  /* LTR */
+  height: 1.7em;
+  margin: -0.4em 0 -0.4em -0.5em;
+  /* LTR */
+  padding: 0.42em 1.5em 0.42em 0.5em;
+  /* LTR */
+  text-decoration: none;
+}
+
+a {
+  &.tabledrag-handle {
+    &:hover {
+      text-decoration: none;
+    }
+    .handle {
+      background: image_url("drupal/draggable.png") no-repeat 0 0;
+      height: 13px;
+      margin-top: 4px;
+      width: 13px;
+    }
+  }
+  &.tabledrag-handle-hover .handle {
+    background-position: 0 -20px;
+  }
+}
+
+div {
+  &.indentation {
+    float: left;
+    /* LTR */
+    height: 1.7em;
+    margin: -0.4em 0.2em -0.4em -0.4em;
+    /* LTR */
+    padding: 0.42em 0 0.42em 0.6em;
+    /* LTR */
+    width: 20px;
+  }
+  &.tree-child {
+    background: image_url("drupal/tree.png") no-repeat 11px center;
+    /* LTR */
+  }
+  &.tree-child-last {
+    background: image_url("drupal/tree-bottom.png") no-repeat 11px center;
+    /* LTR */
+  }
+  &.tree-child-horizontal {
+    background: image_url("drupal/tree.png") no-repeat -11px center;
+  }
+}
+
+.tabledrag-toggle-weight-wrapper {
+  text-align: right;
+  /* LTR */
+}
+
+/*
+ * TableHeader behavior.
+ *
+ * @see tableheader.js */
+
+table.sticky-header {
+  background-color: white;
+  margin-top: 0;
+}
+
+/*
+ * Progress behavior.
+ *
+ * @see progress.js */
+/* Bar */
+
+.progress {
+  .bar {
+    background-color: white;
+    border: 1px solid;
+  }
+  .filled {
+    background-color: black;
+    height: 1.5em;
+    width: 5px;
+  }
+  .percentage {
+    float: right;
+    /* LTR */
+  }
+}
+
+.progress-disabled {
+  float: left;
+  /* LTR */
+}
+
+/* Throbber */
+
+.ajax-progress {
+  float: left;
+  /* LTR */
+  .throbber {
+    background: transparent image_url("drupal/throbber.gif") no-repeat 0px -18px;
+    float: left;
+    /* LTR */
+    height: 15px;
+    margin: 2px;
+    width: 15px;
+  }
+}
+
+tr .ajax-progress .throbber {
+  margin: 0 2px;
+}
+
+.ajax-progress-bar {
+  width: 16em;
+}
+
+/*
+ * Inline items. */
+
+.container-inline {
+  div, label {
+    display: inline;
+  }
+  .fieldset-wrapper {
+    display: block;
+  }
+}
+
+/* Fieldset contents always need to be rendered as block. */
+
+/*
+ * Prevent text wrapping. */
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/*
+ * For anything you want to hide on page load when JS is enabled, so
+ * that you can use the JS to control visibility and avoid flicker. */
+
+html.js .js-hide, .element-hidden {
+  display: none;
+}
+
+/*
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be a collapsible fieldset that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions. */
+
+/*
+ * Hide elements visually, but keep them available for screen-readers.
+ *
+ * Used for information required for screen-reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides. */
+
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  &.element-focusable {
+    &:active, &:focus {
+      position: static !important;
+      clip: auto;
+    }
+  }
+}
+
+/*
+ * The .element-focusable class extends the .element-invisible class to allow
+ * the element to be focusable when navigated to via the keyboard. */
+
+/*
+ * Markup free clearing.
+ *
+ * @see http://perishablepress.com/press/2009/12/06/new-clearfix-hack */
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* IE6 */
+
+* {
+  html .clearfix {
+    height: 1%;
+  }
+  &:first-child + html .clearfix {
+    min-height: 1%;
+  }
+}
+
+/* IE7 */
+
+/*
+ * Update styles */
+
+#update-results {
+  margin-top: 3em;
+  padding: 0.25em;
+  border: 1px solid #cccccc;
+  background: #eeeeee;
+  font-size: smaller;
+  h2 {
+    margin-top: 0.25em;
+  }
+  h4 {
+    margin-bottom: 0.25em;
+  }
+  li {
+    &.none {
+      color: #888888;
+      font-style: italic;
+    }
+    &.failure strong {
+      color: #b63300;
+    }
+  }
+}
+
+/*
+ * Authorize.php styles */
+
+.connection-settings-update-filetransfer-default-wrapper {
+  float: left;
+}
+
+#edit-submit-connection {
+  clear: both;
+}
+
+.filetransfer {
+  display: none;
+  clear: both;
+}
+
+#edit-connection-settings-change-connection-type {
+  margin: 2.6em 0.5em 0em 1em;
+}
+
+/*
+ * Installation task list */
+
+ol.task-list li.active {
+  font-weight: bold;
+}
+
+/*
+ * Installation clean URLs */
+
+#clean-url.install {
+  display: none;
+}
+
+/*
+ * @file
+ * Styles for menus and navigation markup. */
+
+/*
+ * Markup generated by theme_menu_tree(). */
+
+ul {
+  &.menu {
+    border: none;
+    list-style: none;
+    text-align: left;
+    /* LTR */
+    li {
+      margin: 0 0 0 0.5em;
+      /* LTR */
+    }
+  }
+  li {
+    &.expanded {
+      list-style-image: image_url("drupal/menu-expanded.png");
+      list-style-type: circle;
+    }
+    &.collapsed {
+      list-style-image: image_url("drupal/menu-collapsed.png");
+      /* LTR */
+      list-style-type: disc;
+    }
+    &.leaf {
+      list-style-image: image_url("drupal/menu-leaf.png");
+      list-style-type: square;
+    }
+  }
+}
+
+li {
+  &.expanded, &.collapsed, &.leaf {
+    padding: 0.2em 0.5em 0 0;
+    /* LTR */
+    margin: 0;
+  }
+  a.active {
+    color: black;
+  }
+}
+
+td.menu-disabled {
+  background: #cccccc;
+}
+
+/*
+ * Markup generated by theme_links(). */
+
+ul {
+  &.inline, &.links.inline {
+    display: inline;
+    padding-left: 0;
+  }
+  &.inline li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 0.5em;
+  }
+}
+
+/*
+ * Markup generated by theme_breadcrumb(). */
+
+.breadcrumb {
+  padding-bottom: 0.5em;
+}
+
+/*
+ * Markup generated by theme_menu_local_tasks(). */
+
+ul {
+  &.primary {
+    border-bottom: 1px solid #bbbbbb;
+    border-collapse: collapse;
+    height: auto;
+    line-height: normal;
+    list-style: none;
+    margin: 5px;
+    padding: 0 0 0 1em;
+    /* LTR */
+    white-space: nowrap;
+    li {
+      display: inline;
+      a {
+        background-color: #dddddd;
+        border-color: #bbbbbb;
+        border-style: solid solid none solid;
+        border-width: 1px;
+        height: auto;
+        margin-right: 0.5em;
+        /* LTR */
+        padding: 0 1em;
+        text-decoration: none;
+      }
+      &.active a {
+        background-color: white;
+        border: 1px solid #bbbbbb;
+        border-bottom: 1px solid white;
+      }
+      a:hover {
+        background-color: #eeeeee;
+        border-color: #cccccc;
+        border-bottom-color: #eeeeee;
+      }
+    }
+  }
+  &.secondary {
+    border-bottom: 1px solid #bbbbbb;
+    padding: 0.5em 1em;
+    margin: 5px;
+    li {
+      border-right: 1px solid #cccccc;
+      /* LTR */
+      display: inline;
+      padding: 0 1em;
+    }
+    a {
+      padding: 0;
+      text-decoration: none;
+      &.active {
+        border-bottom: 4px solid #999999;
+      }
+    }
+  }
+}
+
+/*
+ * @file
+ * Styles for system messages. */
+
+div {
+  &.messages {
+    background-position: 8px 8px;
+    /* LTR */
+    background-repeat: no-repeat;
+    border: 1px solid;
+    margin: 6px 0;
+    padding: 10px 10px 10px 50px;
+    /* LTR */
+  }
+  &.status {
+    background-image: image_url("drupal/message-24-ok.png");
+    border-color: #bbee77;
+    color: #234600;
+  }
+}
+
+.ok {
+  color: #234600;
+}
+
+div.status, table tr.ok {
+  background-color: #f8fff0;
+}
+
+div.warning {
+  background-image: image_url("drupal/message-24-warning.png");
+  border-color: #eedd55;
+  color: #884400;
+}
+
+.warning {
+  color: #884400;
+}
+
+div.warning, table tr.warning {
+  background-color: #fffce5;
+}
+
+div.error {
+  background-image: image_url("drupal/message-24-error.png");
+  border-color: #ed541d;
+  color: #8c2e0b;
+}
+
+.error {
+  color: #8c2e0b;
+}
+
+div.error, table tr.error {
+  background-color: #fef5f1;
+}
+
+div {
+  &.error p.error {
+    color: #333333;
+  }
+  &.messages ul {
+    margin: 0 0 0 1em;
+    /* LTR */
+    padding: 0;
+    li {
+      list-style-image: none;
+    }
+  }
+}
+
+/*
+ * @file
+ * Basic styling for common markup. */
+
+/*
+ * HTML elements. */
+
+fieldset {
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: 1px solid gray;
+  height: 1px;
+}
+
+img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 3px solid #cccccc;
+  padding-right: 1em;
+  /* LTR */
+  text-align: left;
+  /* LTR */
+}
+
+tbody {
+  border-top: 1px solid #cccccc;
+}
+
+tr {
+  &.even, &.odd {
+    background-color: #eeeeee;
+    border-bottom: 1px solid #cccccc;
+    padding: 0.1em 0.6em;
+  }
+}
+
+/*
+ * Markup generated by theme_tablesort_indicator(). */
+
+th.active img {
+  display: inline;
+}
+
+td.active {
+  background-color: #dddddd;
+}
+
+/*
+ * Markup generated by theme_item_list(). */
+
+.item-list {
+  .title {
+    font-weight: bold;
+  }
+  ul {
+    margin: 0 0 0.75em 0;
+    padding: 0;
+    li {
+      margin: 0 0 0.25em 1.5em;
+      /* LTR */
+      padding: 0;
+    }
+  }
+}
+
+/*
+ * Markup generated by Form API. */
+
+.form-item, .form-actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+tr {
+  &.odd .form-item, &.even .form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
+.form-item .description {
+  font-size: 0.85em;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  &.option {
+    display: inline;
+    font-weight: normal;
+  }
+}
+
+.form-checkboxes .form-item, .form-radios .form-item {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.form-type-radio .description, .form-type-checkbox .description {
+  margin-left: 2.4em;
+}
+
+input {
+  &.form-checkbox, &.form-radio {
+    vertical-align: middle;
+  }
+}
+
+.marker, .form-required {
+  color: red;
+}
+
+.form-item {
+  input.error, textarea.error, select.error {
+    border: 2px solid red;
+  }
+}
+
+/*
+ * Inline items. */
+
+.container-inline {
+  .form-actions, &.form-actions {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/*
+ * Markup generated by theme_more_link(). */
+
+.more-link {
+  text-align: right;
+  /* LTR */
+}
+
+/*
+ * Markup generated by theme_more_help_link(). */
+
+.more-help-link {
+  text-align: right;
+  /* LTR */
+  a {
+    background: image_url("drupal/help.png") 0 50% no-repeat;
+    /* LTR */
+    padding: 1px 0 1px 20px;
+    /* LTR */
+  }
+}
+
+/*
+ * Markup generated by theme_pager(). */
+
+.item-list .pager {
+  clear: both;
+  text-align: center;
+  li {
+    background-image: none;
+    display: inline;
+    list-style-type: none;
+    padding: 0.5em;
+  }
+}
+
+.pager-current {
+  font-weight: bold;
+}
+
+/*
+ * Autocomplete.
+ *
+ * @see autocomplete.js */
+/* Suggestion list */
+
+#autocomplete li.selected {
+  background: #0072b9;
+  color: white;
+}
+
+/*
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js */
+
+html.js fieldset {
+  &.collapsible .fieldset-legend {
+    background: image_url("drupal/menu-expanded.png") 5px 65% no-repeat;
+    /* LTR */
+    padding-left: 15px;
+    /* LTR */
+  }
+  &.collapsed .fieldset-legend {
+    background-image: image_url("drupal/menu-collapsed.png");
+    /* LTR */
+    background-position: 5px 50%;
+    /* LTR */
+  }
+}
+
+.fieldset-legend span.summary {
+  color: #999999;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+/*
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js */
+
+tr {
+  &.drag {
+    background-color: ivory;
+  }
+  &.drag-previous {
+    background-color: #ffffdd;
+  }
+}
+
+.tabledrag-toggle-weight {
+  font-size: 0.9em;
+}
+
+body div.tabledrag-changed-warning {
+  margin-bottom: 0.5em;
+}
+
+/*
+ * TableSelect behavior.
+ *
+ * @see tableselect.js */
+
+tr.selected td {
+  background: #ffffcc;
+}
+
+td.checkbox, th.checkbox {
+  text-align: center;
+}
+
+/*
+ * Progress bar.
+ *
+ * @see progress.js */
+
+.progress {
+  font-weight: bold;
+  .bar {
+    background: #cccccc;
+    border-color: #666666;
+    margin: 0 0.2em;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+  }
+  .filled {
+    background: #0072b9 image_url("drupal/progress.gif");
+  }
+}
+
+tr {
+  &.taxonomy-term-preview {
+    background-color: #eeeeee;
+  }
+  &.taxonomy-term-divider-top {
+    border-bottom: none;
+  }
+  &.taxonomy-term-divider-bottom {
+    border-top: 1px dotted #cccccc;
+  }
+}
+
+.taxonomy-term-description {
+  margin: 5px 0 20px;
+}
+
+body {
+  &.toolbar {
+    padding-top: 2.2em;
+  }
+  &.toolbar-drawer {
+    padding-top: 5.3em;
+  }
+}
+
+/*
+ * Aggressive resets so we can achieve a consistent look in hostile CSS
+ * environments. */
+
+#toolbar {
+  border: 0;
+  font-size: 100%;
+  line-height: inherit;
+  list-style: none;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  /* LTR */
+  vertical-align: baseline;
+  * {
+    border: 0;
+    font-size: 100%;
+    line-height: inherit;
+    list-style: none;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    /* LTR */
+    vertical-align: baseline;
+  }
+  background: #666666;
+  color: #cccccc;
+  font: normal small "Lucida Grande", Verdana, sans-serif;
+  left: 0;
+  margin: 0 -20px;
+  padding: 0 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  -moz-box-shadow: 0 3px 20px black;
+  -webkit-box-shadow: 0 3px 20px black;
+  box-shadow: 0 3px 20px black;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10');
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(color=#000000, direction='180', strength='10')";
+  z-index: 600;
+  div.collapsed {
+    display: none;
+    visibility: hidden;
+  }
+  a {
+    color: white;
+    font-size: 0.846em;
+    text-decoration: none;
+  }
+  ul li {
+    float: left;
+    /* LTR */
+    a {
+      float: left;
+      /* LTR */
+    }
+  }
+  div.toolbar-menu {
+    background: black;
+    line-height: 20px;
+    padding: 5px 50px 5px 10px;
+    /* LTR */
+    position: relative;
+  }
+}
+
+/*
+ * Base styles.
+ *
+ * We use a keyword for the toolbar font size to make it display consistently
+ * across different themes, while still allowing browsers to resize the text. */
+
+/*
+ * Administration menu. */
+
+#toolbar-home a span {
+  background: url(toolbar.png) no-repeat 0 -45px;
+  display: block;
+  height: 14px;
+  margin: 3px 0px;
+  text-indent: -9999px;
+  vertical-align: text-bottom;
+  width: 11px;
+}
+
+#toolbar-user {
+  float: right;
+  /* LTR */
+}
+
+#toolbar-menu {
+  float: left;
+  /* LTR */
+}
+
+#toolbar div {
+  &.toolbar-menu {
+    a {
+      &.toggle {
+        background: url(toolbar.png) 0 -20px no-repeat;
+        bottom: 0;
+        cursor: pointer;
+        height: 25px;
+        overflow: hidden;
+        position: absolute;
+        right: 10px;
+        /* LTR */
+        text-indent: -9999px;
+        width: 25px;
+        &:focus, &:hover {
+          background-position: -50px -20px;
+        }
+      }
+      &.toggle-active {
+        background-position: -25px -20px;
+        &.toggle {
+          &:focus, &:hover {
+            background-position: -75px -20px;
+          }
+        }
+      }
+    }
+    ul li {
+      a {
+        padding: 0 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        &:focus, &:hover, &:active {
+          background: #444444;
+        }
+        &.active {
+          &:focus {
+            background: #444444;
+          }
+          &:hover, &:active {
+            background: url(toolbar.png) 0 0 repeat-x;
+            text-shadow: #333333 0 1px 0;
+          }
+          background: url(toolbar.png) 0 0 repeat-x;
+          text-shadow: #333333 0 1px 0;
+        }
+      }
+      &.active-trail a {
+        background: url(toolbar.png) 0 0 repeat-x;
+        text-shadow: #333333 0 1px 0;
+      }
+    }
+  }
+  &.toolbar-drawer {
+    position: relative;
+    padding: 0 10px;
+  }
+}
+
+/*
+ * Collapsed drawer of additional toolbar content. */
+
+/*
+ * IE 6 Fix.
+ *
+ * IE 6 shows elements with position:fixed as position:static so we replace
+ * it with position:absolute; toolbar needs its z-index to stay above overlay. */
+
+* html #toolbar {
+  left: -20px;
+  margin: 0;
+  padding-right: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.page-tracker {
+  td.replies {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+  }
+}
+
+.update {
+  .project {
+    font-weight: bold;
+    font-size: 110%;
+    padding-left: 0.25em;
+    /* LTR */
+    height: 22px;
+  }
+  .version-status {
+    float: right;
+    /* LTR */
+    padding-right: 10px;
+    /* LTR */
+    font-size: 110%;
+    height: 20px;
+    .icon {
+      padding-left: 0.5em;
+      /* LTR */
+    }
+  }
+  .version-date {
+    white-space: nowrap;
+  }
+  .info {
+    margin: 0;
+    padding: 1em 1em 0.25em 1em;
+  }
+  tr {
+    &.even, &.odd {
+      border: none;
+    }
+    td {
+      border-top: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc;
+    }
+    &.error {
+      background: #ffcccc;
+      .version-recommended {
+        background: #ffdddd;
+      }
+    }
+    &.ok {
+      background: #ddffdd;
+    }
+    &.warning {
+      background: #ffffdd;
+      .version-recommended {
+        background: #ffffee;
+      }
+    }
+  }
+}
+
+.current-version, .new-version {
+  direction: ltr;
+  /* Note: version numbers should always be LTR. */
+}
+
+.update tr.unknown {
+  background: #dddddd;
+}
+
+table.update {
+  width: 100%;
+  margin-top: 0.5em;
+  border: none;
+}
+
+.update {
+  table {
+    &.version {
+      width: 100%;
+      margin-top: 0.5em;
+      border: none;
+      tbody {
+        border: none;
+      }
+      tr, td {
+        line-height: 0.9em;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+      }
+      .version-title {
+        padding-left: 1em;
+        /* LTR */
+        width: 14em;
+      }
+      .version-details {
+        padding-right: 0.5em;
+        /* LTR */
+      }
+      .version-links {
+        text-align: right;
+        /* LTR */
+        padding-right: 1em;
+        /* LTR */
+      }
+    }
+    &.version-security .version-title {
+      color: #970f00;
+    }
+    &.version-recommended-strong .version-title {
+      font-weight: bold;
+    }
+  }
+  .security-error {
+    font-weight: bold;
+    color: #970f00;
+  }
+  .check-manually {
+    padding-left: 1em;
+    /* LTR */
+  }
+}
+
+.update-major-version-warning {
+  color: red;
+}
+
+table tbody tr {
+  &.update-security, &.update-unsupported {
+    background: #ffcccc;
+  }
+}
+
+th.update-project-name {
+  width: 50%;
+}
+
+#permissions {
+  td {
+    &.module {
+      font-weight: bold;
+    }
+    &.permission {
+      padding-left: 1.5em;
+      /* LTR */
+    }
+  }
+  tr {
+    &.odd .form-item, &.even .form-item {
+      white-space: normal;
+    }
+  }
+}
+
+#user-admin-settings fieldset .fieldset-description {
+  font-size: 0.85em;
+  padding-bottom: 0.5em;
+}
+
+/*
+ * Override default textfield float to put the "Add role" button next to
+ * the input textfield. */
+
+#user-admin-roles {
+  td.edit-name {
+    clear: both;
+  }
+  .form-item-name {
+    float: left;
+    /* LTR */
+    margin-right: 1em;
+    /* LTR */
+  }
+}
+
+/*
+ * Password strength indicator. */
+
+.password-strength {
+  width: 17em;
+  float: right;
+  /* LTR */
+  margin-top: 1.4em;
+}
+
+.password-strength-title {
+  display: inline;
+}
+
+.password-strength-text {
+  float: right;
+  /* LTR */
+  font-weight: bold;
+}
+
+.password-indicator {
+  background-color: #c4c4c4;
+  height: 0.3em;
+  width: 100%;
+  div {
+    height: 100%;
+    width: 0%;
+    background-color: #47c965;
+  }
+}
+
+input {
+  &.password-confirm, &.password-field {
+    width: 16em;
+    margin-bottom: 0.4em;
+  }
+}
+
+div {
+  &.password-confirm {
+    float: right;
+    /* LTR */
+    margin-top: 1.5em;
+    visibility: hidden;
+    width: 17em;
+  }
+  &.form-item div.password-suggestions {
+    padding: 0.2em 0.5em;
+    margin: 0.7em 0;
+    width: 38.5em;
+    border: 1px solid #b4b4b4;
+  }
+  &.password-suggestions ul {
+    margin-bottom: 0;
+  }
+}
+
+.confirm-parent, .password-parent {
+  clear: left;
+  /* LTR */
+  margin: 0;
+  width: 36.3em;
+}
+
+/* Generated by user.module but used by profile.module: */
+
+.profile {
+  clear: both;
+  margin: 1em 0;
+  .user-picture {
+    float: right;
+    /* LTR */
+    margin: 0 1em 1em 0;
+    /* LTR */
+  }
+  h3 {
+    border-bottom: 1px solid #cccccc;
+  }
+  dl {
+    margin: 0 0 1.5em 0;
+  }
+  dt {
+    margin: 0 0 0.2em 0;
+    font-weight: bold;
+  }
+  dd {
+    margin: 0 0 1em 0;
+  }
+}

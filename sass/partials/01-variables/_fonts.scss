@@ -1,0 +1,38 @@
+// This file establishes simple clean default font stacks
+
+// @font-face {font-family: 'IndustrialGothicBannerStd';src: url('webfonts/252467_0_0.eot');src: url('webfonts/252467_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/252467_0_0.woff') format('woff'),url('webfonts/252467_0_0.ttf') format('truetype');}
+@include font-face("IndustrialGothicBannerStd",
+  font-files("252467_0_0.woff", "252467_0_0.ttf"),
+  "252467_0_0.eot");
+
+
+// Default font stacks
+$font-sans: sans-serif;
+$font-serifs: Georgia, serif;
+$font-mono: Consolas, Menlo, "Courier New", monospace, monospace;
+
+// General font variables
+$font-body: chaparral-pro, $font-serifs;
+$font-nav: futura-pt-condensed, $font-sans;
+$font-nav-fallback: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+$font-headline: futura-pt, $font-sans;
+$font-logo: IndustrialGothicBannerStd, futura-pt, $font-sans;
+
+// Special use font variables
+// ampersands
+$font-amp: $font-serifs;
+// caps
+$font-cap: $font-sans;
+
+
+
+
+
+////////////////////////////
+// FONT-AWESOME
+// uncomment to include
+//
+// http://fortawesome.github.com/Font-Awesome/
+////////////////////////////
+// $fontAwesomePath: "../fonts/fontawesome-webfont";
+// @import 'survivalkit/fonts/font-awesome';

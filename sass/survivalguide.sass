@@ -1,0 +1,187 @@
+@import "compass"
+@import "susy"
+@import "breakpoint"
+@import "modular-scale"
+// @import "toolkit"
+// add any others here
+
+@import "survivalkit/functions/all"
+@import "survivalkit/variables/all"
+@import "partials/01-variables/all"
+@import "survivalkit/mixins/all"
+// @import "survivalkit/reset/pixel-normalize"
+@import "partials/02-mixins/custom"
+@import "survivalkit/extend/helpers"
+// @import "survivalkit/extend/sticky-footer"
+// @import "survivalkit/reset/reset"
+@import "partials/03-extend/all"
+// @import "partials/04-base/all"
+// @import "partials/05-layout/grids-susy"
+// @import "partials/06-ui-patterns/common"
+// @import "partials/06-ui-patterns/drupal-patterns"
+// @import "your-design-here/design"
+// @import "partials/08-media/print"
+
+// styles for survivalkit ui
+
+$fontAwesomePath: "fontawesome-webfont"
+@import "survivalkit/fonts/font-awesome"
+
+// $kit-font-family: $font-serifs
+$kit-font-family: serif
+
+$sk-lightgray: #ccc
+$sk-gray: #666
+$sk-midgray: #444
+$sk-darkgray: #333
+
+header.kit-ui
+  padding: 0.5em 0.5em 0
+  @extend .clearfix
+  background: $sk-darkgray
+  border-bottom: 1px solid $black
+
+.kit-ui
+  background: $sk-gray
+  font-family: $kit-font-family
+  color: $sk-lightgray
+  margin-bottom: 0
+  +clearfix
+  a
+    +link-colors($white, $sk-lightgray, $sk-lightgray, $white)
+    +border-links($white, $sk-lightgray, $sk-lightgray, $white)
+  h1, h2, div
+    display: inline
+  h1
+    +adjust-font-size-to(16px)
+    float: left
+    padding-right: 0.5em
+    margin-right: 0.5em
+    font-family: futura, $kit-font-family
+    a
+      +undo-border-links
+      display: block
+  .page-info
+    border-left: 1px solid white
+    float: left
+    padding-left: 0.5em
+    a
+      +undo-border-links
+  h2
+    +adjust-font-size-to(16px)
+    margin-top: 0
+    font-family: $kit-font-family
+    margin-right: 1em
+  .intro
+    +adjust-font-size-to(14px)
+
+
+////////////////////////////
+// NAVIGATION
+////////////////////////////
+.menu-trigger
+  float: left
+  min-width: calc-em(44px, 16px)
+  min-height: calc-em(44px, 16px)
+  margin-top: -0.5em
+  border-bottom-width: 0 !important
+  border-bottom-color: transparent !important
+  @extend %font-awesome
+  @extend .icon-th-list
+  &:before
+    font-size: 24px
+    line-height: calc-em(44px, 24px)
+.jPanelMenu #menu
+  display: none
+#jPanelMenu-menu
+  background: $sk-midgray
+  font-family: $kit-font-family
+  color: $sk-lightgray
+  // padding-top: calc-em(44px, 16px)
+.kit-nav, .section-nav
+  margin-bottom: 16px
+  padding: 0 0.5em
+  #{headings()}
+    font-size: $base-font-size
+  a
+    +link-colors($white, $black, $black, $white)
+    +undo-border-links
+  ul
+    +no-bullets
+    padding-left: 0
+    li
+      display: block
+      float: none
+      padding: 0
+      margin: 0
+.no-js body,
+body.documentation
+  +display-box
+  +box-orient(horizontal)
+  +box-align(stretch)
+  padding-top: 44px
+  header.kit-ui
+    position: fixed
+    width: 100%
+    height: 44px
+    margin-top: -44px
+  #menu
+    width: auto
+    max-width: 250px
+    margin-right: 1em
+
+h1.section-title
+  +adjust-font-size-to(ms(0))
+  text-transform: uppercase
+  padding-left: 0.5em
+  margin-top: 0
+  border-bottom: 1px solid $sk-gray
+
+.fold-section,
+.fold-article
+  +undo-border-links
+  +link-colors($sk-gray, $sk-lightgray, $sk-lightgray, $sk-gray, false)
+  border-bottom-width: 0 !important
+  border-bottom-color: transparent !important
+  @extend %font-awesome
+
+.fold-section,
+.fold-article
+  margin-left: 1em
+.fold-article
+  +link-colors($sk-lightgray, $sk-gray, $sk-gray, $sk-lightgray, false)
+.fold-section-close,
+.fold-article-close
+  @extend .icon-remove-sign
+.fold-section-open,
+.fold-article-open
+  @extend .icon-plus-sign
+
+div.element
+  padding-bottom: 44px
+  border-bottom: 1px solid transparentize($border-color, 0.9)
+  &.closed
+    padding-bottom: 0
+  h2.element-title
+    +adjust-font-size-to(ms(0))
+    border-bottom: 1px solid $sk-lightgray
+    text-transform: uppercase
+    padding-left: 0.5em
+  .example
+    +vertical-separation($kit-baseline, 1px, transparentize($border-color, 0.9), dashed)
+    +pie-clearfix
+    .markup
+      display: inline
+      float: left
+      width: 64.228%
+      margin-right: 2.439%
+      & + .show-source
+        display: inline
+        float: right
+        width: 30.894%
+        margin-right: 0
+        @extend %mono
+        .show-hide
+          text-align: right
+        & + p
+          clear: both

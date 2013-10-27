@@ -1,0 +1,74 @@
+$not-black: #1e1d23;
+$gray: tint($not-black, 40%);
+$cream: #f4eaba;
+$light-cream: #f9f7e0;
+$blue: rgb(239, 250, 250);
+$light-blue: #E2ECF3;
+$dark-blue: shade($blue, 20%);
+$orange: rgb(255, 108, 10);
+$orange-dark: shade($orange, 50%);
+$white-trans-1: rgba($white, 0.1);
+$white-trans-3: rgba($white, 0.3);
+
+// DEFAULT COLORS
+// $c-primary: change-color(shade($orange, 30%), $saturation: 80%);
+$c-primary: adjust-color($orange, $saturation: -50%);
+// $c-secondary: $black;
+// $c-tertiary: $black;
+// $c-quadrary: $black;
+
+// COLOR SCHEMES
+// color-schemer arguments
+// $color-location,
+// $base-color,
+// $color-scheme,
+// $hue-offset
+// Color schemes to choose from
+// mono, complement, triad, tetrad, analogic, accented-analogic
+// Pick the base color for your scheme:
+$base-color: $c-primary;
+// Select your scheme from the list and place it here:
+$color-scheme: tetrad;
+// How distant do you want the hue offset to be:
+$hue-offset: 30;
+// How distant do you want tints and shades to be from their base:
+$brightness-offset: 10%;
+// Use Claude Boutet complements instead of RGB complements.
+$color-theory: ryb;
+// Set saturation to 100% and lightness to 50% on all colors
+// $equalize: true;
+$c-primary: color-schemer(primary);
+$c-secondary: color-schemer(secondary);
+$c-tertiary: color-schemer(tertiary);
+$c-quadrary: color-schemer(quadrary);
+
+
+
+// Color variables expected 04-base
+// $base-color: $red;
+$text-color: $not-black;
+$alt-color: $orange;
+$background-color: $light-blue;
+$border-color: $dark-blue;
+
+
+// link colors
+$link-normal: $orange;
+$link-hover: complement($orange);
+$link-active: complement($orange);
+$link-visited: $orange;
+$link-focus: $orange;
+$link-border-normal: $orange;
+$link-border-hover: complement($orange);
+$link-border-active: complement($orange);
+$link-border-visited: $orange;
+
+
+// COLOR VARIABLES FOR STYLE TILES
+// enable and customize as needed
+$color-tile1-1: $gray;
+$color-tile1-2: $gray;
+$color-tile1-3: $gray;
+$color-tile1-4: $gray;
+$color-tile1-5: $gray;
+$color-tile1-6: $gray;

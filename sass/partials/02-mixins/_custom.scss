@@ -1,0 +1,61 @@
+////////////////////////////
+// Custom Mixins
+// nothing here yet.
+// add your own.
+////////////////////////////
+
+
+// IMAGE AS SECTION HEADER
+// WITH OPTIONAL SIDE WINGS
+// $image - path to image
+// $padding-top - padding at top of header
+// $background-position - position of background image
+// $side-wings (options: false, color variable) the color of the wings, if desired
+@mixin section-header(
+    $image,
+    $padding-top: 4em,
+    $background-position: 50% 50%,
+    $side-wings: false
+    ){
+  padding-top: $padding-top;
+  margin-left: -#{8px / ms(4)}em;
+  margin-right: -#{8px / ms(4)}em;
+  font-family: $font-body;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: $black;
+  color: $light-cream;
+  background: {
+    image: image-url($image);
+    repeat: no-repeat;
+    position: $background-position;
+  };
+  @include background-size(cover);
+  @if ($side-wings != false) {
+    position: relative;
+    &:before, &:after {
+      position: absolute;
+      content: $space;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: $side-wings;
+    }
+    &:before {
+      left: -100%;
+    }
+    &:after {
+      right: -100%;
+    }
+  }
+}
+
+
+
+@mixin debug-borders($color: red, $background-color: false) {
+  outline: 1px solid $color;
+  @if $background-color != false {
+    background-color: $background-color;
+  }
+}

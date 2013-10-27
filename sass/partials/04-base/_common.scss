@@ -1,0 +1,146 @@
+@if $animate-all-the-things == true {
+  @include transition-all;
+}
+
+////////////////////////////
+// DEFAULT BOX SIZING TO BORDER BOX
+// see: http://paulirish.com/2012/box-sizing-border-box-ftw/
+////////////////////////////
+* {
+  @include box-sizing("border-box");
+}
+
+@if $init-type != normalize {
+  html {
+    @if $establish-baseline != true {
+      font-size: 100%;
+    }
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+// Body -------------------------------------------------------------- */
+
+// Establish baseline rhythm
+// from compass/typography/_vertical_rhythm
+@if $establish-baseline {
+  @include establish-baseline;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+body {
+  font-family: $font-body;
+  color: $text-color;
+  background: $background-color;
+  margin: 0;
+}
+
+@if $pixel-normalize {
+  @include pixel-normalize;
+}
+
+// Selected Text -------------------------------------------------------------- */
+// -moz- must be declared separately
+
+::-moz-selection {
+  @include accessible-color($alt-color);
+  background: $alt-color;
+  text-shadow: none;
+  @include text-shadow(rgba(black, 0.3) 1px 1px);
+}
+
+::selection {
+  @include accessible-color($alt-color);
+  background: $alt-color;
+  text-shadow: none;
+  @include text-shadow(rgba(black, 0.3) 1px 1px);
+}
+
+// Links -------------------------------------------------------------- */
+a {
+  @include link-colors($link-normal, $link-hover, $link-active, $link-visited, $link-focus);
+  @if $border-links == true {
+    @include border-links($link-border-normal, $link-border-hover, $link-border-active, $link-border-visited);
+  }
+  @if $link-transitions != false {
+    @include link-transitions($link-transitions);
+  }
+}
+
+em {
+  @extend %italic;
+}
+
+strong {
+  @extend %bold;
+}
+
+p {
+  @include trailer;
+}
+
+hr {
+  // add your own styles, if you like
+}
+
+pre {
+  @extend %mono;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1;
+}
+
+blockquote {
+  // add your own styles, if you like
+}
+
+// Lists -------------------------------------------------------------- */
+
+ol, ul {
+  // @include trailer;
+  padding-left: 1.5em;
+  @include breakpoint($susy-two-cols-min) {
+    padding-left: 0;
+  }
+}
+
+dl {
+  margin-left: 0;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: disc;
+  li & {
+    list-style-type: circle;
+  }
+}
+
+dt {
+  // add your own styles, if you like
+}
+
+dd {
+  // add your own styles, if you like
+}
+
+//
+figure {
+  // add your own styles, if you like
+}
+
+figcaption {
+  // add your own styles, if you like
+}
+
+address {
+  @extend %italic;
+}

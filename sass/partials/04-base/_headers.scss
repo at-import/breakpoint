@@ -1,0 +1,89 @@
+// Headings -------------------------------------------------------------- */
+
+%h1, %h2, %h3, %h4, %h5, %h6 {
+  @extend %headers;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+%h1 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 1));
+  }
+  @else {
+    font-size: nth($header-sizes, 1);
+  }
+}
+
+%h2 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 2));
+  }
+  @else {
+    font-size: nth($header-sizes, 2);
+  }
+}
+
+%h3 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 3));
+  }
+  @else {
+    font-size: nth($header-sizes, 3);
+  }
+}
+
+%h4 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 4));
+  }
+  @else {
+    font-size: nth($header-sizes, 4);
+  }
+}
+
+%h5 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 5));
+  }
+  @else {
+    font-size: nth($header-sizes, 5);
+  }
+}
+
+%h6 {
+  @if $adjust-font-size-to == true {
+    @include adjust-font-size-to(nth($header-sizes, 6));
+  }
+  @else {
+    font-size: nth($header-sizes, 6);
+  }
+}
+
+h1 {
+  @extend %h1;
+}
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+h4 {
+  @extend %h4;
+}
+
+h5 {
+  @extend %h5;
+}
+
+h6 {
+  @extend %h6;
+}
+
+@if $header-ampersands == true {
+  @include header-ampersands;
+}

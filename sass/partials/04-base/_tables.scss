@@ -1,0 +1,60 @@
+// Tables -------------------------------------------------------------- */
+// tables still need 'cellspacing="0"' in the markup */
+
+table {
+  @extend %constrain-to-parent;
+}
+
+// stripes?
+tr {
+  &:nth-of-type(odd) {
+    td {
+      // add your own styles, if you like
+    }
+  }
+  &:nth-of-type(even) {
+    td {
+      // add your own styles, if you like
+    }
+  }
+}
+
+tfoot {
+  // add your own styles, if you like
+}
+
+caption {
+  // add your own styles, if you like
+}
+
+colgroup {
+  // add your own styles, if you like
+}
+
+col {
+  // add your own styles, if you like
+}
+
+tbody {
+  // add your own styles, if you like
+}
+
+thead {
+  // add your own styles, if you like
+}
+
+tfoot {
+  // add your own styles, if you like
+}
+
+tr {
+  // add your own styles, if you like
+}
+
+td {
+  // add your own styles, if you like
+}
+
+th {
+  // add your own styles, if you like
+}
