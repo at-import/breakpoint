@@ -67,9 +67,16 @@
         $query-holder: append($query-holder, $feature-holder, comma);
         @return $query-holder;
       }
+      // let's check to see if the first item is a media type
+      @else if breakpoint-is-media(nth($query, 1)) {
+        $query-holder: append($query-holder, nth($query, 1));
+        $feature-holder: append(nth($query, 2), nth($query, 3), space);
+        $query-holder: append($query-holder, $feature-holder);
+        @return $query-holder;
+      }
     }
   }
 
-  // If it's a single item, or if it's not a special case double or tripple, we can simply return the query.
+  // If it's a single item, or if it's not a special case double or triple, we can simply return the query.
   @return $query;
 }

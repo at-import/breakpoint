@@ -1,0 +1,22 @@
+@import 'variables';
+/*
+ * Media features (ie. tv)
+ * $simple-media : #{$simple-media};
+ * $media-plus-default : #{$media-plus-default};
+ * $media-plus-fence : #{$media-plus-fence};
+ */
+
+.media {
+  @include breakpoint($simple-media) {
+    content: '$simple-media';
+    content: '@media tv';
+  }
+  @include breakpoint($media-plus-default) {
+    content: '$media-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+  @include breakpoint($media-plus-fence) {
+    content: '$media-plus-fence';
+    content: '@media tv and (min-width: 500px) and (max-width: 700px)';
+  }
+}
