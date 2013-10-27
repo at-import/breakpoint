@@ -44,3 +44,6 @@ $dynamic-context: 400px ('min-height' 200px), (300px 325px) (orientation portria
 $simple-media: tv;
 $media-plus-default: tv 500px;
 $media-plus-fence: tv 500px 700px;
+$media-only: 'only print';
+$media-not: 'not print';
+$media-not-plus-fenced: 'not print' 500px 700px;
