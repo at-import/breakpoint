@@ -1,6 +1,6 @@
 # Breakpoint #
 
-[![Build Status](https://travis-ci.org/Team-Sass/breakpoint.png)](https://travis-ci.org/Team-Sass/   breakpoint)
+[![Build Status](https://travis-ci.org/Team-Sass/breakpoint.png)](https://travis-ci.org/Team-Sass/breakpoint)
 
 **Really Simple Media Queries with Sass**
 
