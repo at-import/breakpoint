@@ -13,62 +13,62 @@
 @media (min-width: 500px) {
   .context {
     content: '@media (min-width: 500px)';
-    -foo: 500px;
+    -min-width: 500px;
   }
 }
 @media (monochrome) {
   .context {
     content: '@media (monochrome)';
-    -foo: monochrome;
+    -monochrome: monochrome;
   }
 }
 @media (min-width: 500px) and (max-width: 700px) {
   .context {
     content: '@media (min-width: 500px) and (max-width: 700px)';
-    -foo: 500px;
-    -foo: 700px;
+    -min-width: 500px;
+    -max-width: 700px;
   }
 }
 @media (max-width: 700px) {
   .context {
     content: '@media (max-width: 700px)';
-    -foo: 700px;
+    -max-width: 700px;
   }
 }
 @media (orientation: portrait) {
   .context {
     content: '@media (orientation: portrait)';
-    -foo: portrait;
+    -orientation: portrait;
   }
 }
 @media (min-height: 800px) and (max-height: 1000px) {
   .context {
     content: '@media (min-height: 800px) and (max-height: 1000px)';
-    -foo: 800px;
-    -foo: 1000px;
+    -min-height: 800px;
+    -max-height: 1000px;
   }
 }
 @media print {
   .context {
     content: '@media print';
-    -foo: print;
+    -media: print;
   }
 }
 @media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px) {
   .context {
     content: '@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)';
-    -foo: 500px, 600px;
-    -foo: false, 700px;
-    -foo: 1200px, false;
-    -foo: false;
+    -min-width: 500px 600px;
+    -max-width: false 700px;
+    -max-height: 1200px false;
+    -orientation: false;
   }
 }
 @media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px) {
   .context {
     content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
-    -foo: 500px, 500px, 300px;
-    -foo: false, 700px, false;
-    -foo: all, screen, all;
-    -foo: false, false, monochrome;
+    -min-width: 500px 500px 300px;
+    -max-width: false 700px false;
+    -media: all screen all;
+    -monochrome: false false monochrome;
   }
 }
