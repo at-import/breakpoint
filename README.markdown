@@ -1,6 +1,4 @@
-# Breakpoint [![Gem Version](https://badge.fury.io/rb/breakpoint.png)](http://badge.fury.io/rb/breakpoint)#
-
-[![Build Status](https://travis-ci.org/Team-Sass/breakpoint.png)](https://travis-ci.org/Team-Sass/breakpoint)
+# Breakpoint [![Gem Version](https://badge.fury.io/rb/breakpoint.png)](http://badge.fury.io/rb/breakpoint) [![Build Status](https://travis-ci.org/Team-Sass/breakpoint.png)](https://travis-ci.org/Team-Sass/breakpoint)
 
 **Really Simple Media Queries with Sass**
 
