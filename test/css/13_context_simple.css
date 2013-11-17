@@ -22,30 +22,30 @@
     -foo: monochrome;
   }
 }
-@media (min-width: 500px), (min-width: 700px) {
+@media (min-width: 500px) and (max-width: 700px) {
   .context {
     content: '@media (min-width: 500px) and (max-width: 700px)';
-    -foo: 500px, 700px;
-    -foo: false;
+    -foo: 500px;
+    -foo: 700px;
   }
 }
-@media (min-width: max-width), (min-width: 700px) {
+@media (max-width: 700px) {
   .context {
     content: '@media (max-width: 700px)';
-    -foo: false;
+    -foo: 700px;
   }
 }
-@media (min-width: orientation), (min-width: portrait) {
+@media (orientation: portrait) {
   .context {
     content: '@media (orientation: portrait)';
-    -foo: false;
+    -foo: portrait;
   }
 }
-@media (min-width: height), (min-width: 800px), (min-width: 1000px) {
+@media (min-height: 800px) and (max-height: 1000px) {
   .context {
     content: '@media (min-height: 800px) and (max-height: 1000px)';
-    -foo: false;
-    -foo: false;
+    -foo: 800px;
+    -foo: 1000px;
   }
 }
 @media print {

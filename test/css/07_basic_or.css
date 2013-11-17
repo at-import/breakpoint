@@ -6,13 +6,13 @@
 @media (min-width: 500px), tv and (min-width: 700px) and (color) {
   .basic-or {
     content: '$basic-or';
-    content: '@media (max-width: 700px) and (orientation: portrait)';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }
 }
 @media (min-width: 500px), tv and (min-width: 700px) and (color) {
   .basic-or {
     content: '$basic-or';
-    content: '@media (max-width: 700px) and (orientation: portrait)';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }
 }
 
@@ -20,6 +20,6 @@
 @media (min-width: 31.25em), tv and (min-width: 43.75em) and (color) {
   .basic-or-to-ems {
     content: '$basic-or';
-    content: '@media (max-width: 43.75em) and (orientation: portrait)';
+    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
   }
 }
