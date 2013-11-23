@@ -24,4 +24,13 @@
     content: '$single-em-value';
     content: '@media (min-width: 30em)';
   }
+
+  @include mq($single-pixel-value) {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+  @include mq($single-em-value) {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
 }

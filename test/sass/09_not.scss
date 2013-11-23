@@ -12,4 +12,13 @@
     content: '$not-plus-default';
     content: '@media not tv and (min-width: 500px)';
   }
+
+  @include mq($not) {
+    content: '$not';
+    content: '@media not screen';
+  }
+  @include mq($not-plus-default) {
+    content: '$not-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
 }

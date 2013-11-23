@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0 - Nov 23, 2013
+* fix simple or queries
+* convert respond-to to use sass maps
+* convert context to use sass maps
+
 ## 2.0.7 - Sept 17th, 2013
 * fix fallback support for 1.x
 

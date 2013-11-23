@@ -16,6 +16,15 @@ $breakpoint-resolutions: true;
     content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
   }
 
+  @include mq($device-pixel-ratio) {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+  @include mq($resolution) {
+    content: $resolution;
+    content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
+  }
+
   @include respond-to('device pixel ratio') {
     content: $device-pixel-ratio;
     content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
