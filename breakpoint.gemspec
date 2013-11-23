@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = %q{Really simple media queries in Sass}
   s.summary = %q{An easy to use system for writing and managing media queries.}
   s.authors = ["Mason Wendell", "Sam Richard"]
-  s.email = ["mason@zivtech.com", "sam@snug.ug"]
+  s.email = ["mason@thecodingdesigner.com", "sam@snug.ug"]
   s.homepage = "https://github.com/Team-Sass/breakpoint"
 
   # Gem Files
