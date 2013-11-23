@@ -3,6 +3,6 @@
  */
 @media (min-width: 300px), print, (min-width: 200px) {
   #multi-media {
-    -foo: all, print, all;
+    -media: all print all;
   }
 }

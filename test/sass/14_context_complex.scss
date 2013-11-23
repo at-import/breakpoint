@@ -17,6 +17,6 @@ $multi-media: 300px, print, 200px;
 
 #multi-media {
   @include breakpoint($multi-media) {
-    -foo:  breakpoint-get-context('media');
+    -media:  breakpoint-get-context('media');
   }
 }
