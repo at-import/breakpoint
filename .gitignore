@@ -12,3 +12,5 @@ test/test
 # Sass Files
 .sass-cache
 
+
+/test/.vendor/

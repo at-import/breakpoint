@@ -3,9 +3,20 @@
  * 'OR' mediaqueries.
  * tests separated by commas
  * $basic-or : #{$basic-or};
+ * $basic-or-media : #{$basic-or-media};
  */
 .basic-or {
   @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+  }
+  @include respond-to('basic or') {
+    content: '$basic-or';
+    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+  }
+}
+.basic-or-media {
+  @include breakpoint($basic-or-media) {
     content: '$basic-or';
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }

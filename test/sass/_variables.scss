@@ -20,7 +20,8 @@ $arbitrary-feature-min-max: lion 300px 700px;
 
 $multidimensional: ($feature-first) ($feature-value-both-strings);
 
-$basic-or: 500px, tv 700px color;
+$basic-or: max-width 350px, 500px 600px;
+$basic-or-media: 500px, tv 700px color;
 $breakpoints: add-breakpoint('basic or', $basic-or);
 
 $monochrome: monochrome;
