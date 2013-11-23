@@ -24,6 +24,23 @@
     content: '$feature-value-both-strings';
     content: '@media (orientation: portrait)';
   }
+
+  @include mq($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+  @include mq($value-first) {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+  @include mq($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+  @include mq($feature-value-both-strings) {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
 }
 
 $breakpoint-to-ems: true;
@@ -37,6 +54,19 @@ $breakpoint-to-ems: true;
     content: '@media (height: 31.25em)';
   }
   @include breakpoint($arbitrary-feature) {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
+  }
+
+  @include mq($feature-first) {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include mq($value-first) {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+  @include mq($arbitrary-feature) {
     content: '$arbitrary-feature';
     content: '@media (lion: 31.25em)';
   }

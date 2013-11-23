@@ -9,6 +9,10 @@
     content: '$basic-or';
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }
+  @include mq($basic-or) {
+    content: '$basic-or';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+  }
   @include respond-to('basic or') {
     content: '$basic-or';
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
@@ -18,6 +22,10 @@
 $breakpoint-to-ems: true;
 .basic-or-to-ems {
   @include breakpoint($basic-or) {
+    content: '$basic-or';
+    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
+  }
+  @include mq($basic-or) {
     content: '$basic-or';
     content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
   }

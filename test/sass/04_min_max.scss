@@ -9,11 +9,21 @@
     content: '$min-max-default-feature';
     content: '@media (min-width: 500px) and (max-width: 700px)';
   }
+
+  @include mq($min-max-default-feature) {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
 }
 
 $breakpoint-to-ems: true;
 .bar {
   @include breakpoint($min-max-default-feature) {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
+  }
+
+  @include mq($min-max-default-feature) {
     content: '$min-max-default-feature';
     content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
   }

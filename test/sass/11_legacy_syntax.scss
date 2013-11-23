@@ -9,4 +9,9 @@ $breakpoint-legacy-syntax: true;
     content: '$legacy';
     content: '@media not screen and (min-width: 500px)';
   }
+
+  @include mq($legacy) {
+    content: '$legacy';
+    content: '@media not screen and (min-width: 500px)';
+  }
 }

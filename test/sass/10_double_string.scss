@@ -13,4 +13,13 @@
     content: '$device-aspect-ratio';
     content: '@media (max-device-pixel-ratio: 320/480)';
   }
+
+  @include mq($aspect-ratio) {
+    content: '$aspect-ratio';
+    content: '@media (min-aspect-ratio: 300/250)';
+  }
+  @include mq($device-aspect-ratio) {
+    content: '$device-aspect-ratio';
+    content: '@media (max-device-pixel-ratio: 320/480)';
+  }
 }

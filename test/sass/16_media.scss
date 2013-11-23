@@ -34,4 +34,29 @@
     content: '$media-not-plus-fenced';
     content: '@media not print and (min-width: 500px) and (max-width: 700px)';
   }
+
+  @include mq($simple-media) {
+    content: '$simple-media';
+    content: '@media tv';
+  }
+  @include mq($media-plus-default) {
+    content: '$media-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+  @include mq($media-plus-fence) {
+    content: '$media-plus-fence';
+    content: '@media tv and (min-width: 500px) and (max-width: 700px)';
+  }
+  @include mq($media-only) {
+    content: '$media-only';
+    content: '@media only print';
+  }
+  @include mq($media-not) {
+    content: '$media-not)';
+    content: '@media not print';
+  }
+  @include mq($media-not-plus-fenced) {
+    content: '$media-not-plus-fenced';
+    content: '@media not print and (min-width: 500px) and (max-width: 700px)';
+  }
 }

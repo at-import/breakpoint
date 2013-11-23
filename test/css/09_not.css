@@ -14,3 +14,15 @@
     content: '@media not tv and (min-width: 500px)';
   }
 }
+@media not screen {
+  .not {
+    content: '$not';
+    content: '@media not screen';
+  }
+}
+@media not tv and (min-width: 500px) {
+  .not {
+    content: '$not-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+}

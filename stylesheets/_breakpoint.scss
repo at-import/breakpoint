@@ -127,3 +127,10 @@ $breakpoint-legacy-syntax:      false !default;
 
   @include private-breakpoint-reset-contexts();
 }
+
+
+@mixin mq($query, $no-query: false) {
+  @include breakpoint($query, $no-query) {
+    @content;
+  }
+}

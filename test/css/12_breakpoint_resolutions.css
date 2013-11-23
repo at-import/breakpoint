@@ -21,3 +21,15 @@
     content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
   }
 }
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: '@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)';
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: '@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)';
+  }
+}
