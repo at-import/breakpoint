@@ -1,14 +1,12 @@
 # Pull gems from RubyGems
 source 'https://rubygems.org'
 
-gem 'sass', '3.3.0.rc.1'
-gem 'compass', '0.13.alpha.10'
+gem 'sass', '3.3.0.rc.2'
+gem 'compass', '1.0.0.alpha.13'
 gem 'singularitygs', '~>1.0.7'
 
 group :test do
   gem 'rake'
-end
-
-group :development do
-  gem 'ruby-debug'
+  gem "diffy", "~> 3.0.1"
+  gem "colorize", "~> 0.6.0"
 end

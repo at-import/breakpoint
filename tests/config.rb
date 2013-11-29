@@ -1,6 +1,8 @@
+# Require any additional compass plugins here.]
+
 # File system locations
-sass_dir              = 'sass'
-css_dir               = 'test'
+sass_dir              = 'tests'
+css_dir               = 'output'
 # Import latest breakpoint library
 add_import_path       '../stylesheets'
 
