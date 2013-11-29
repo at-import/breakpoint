@@ -13,4 +13,4 @@ test/test
 .sass-cache
 
 
-/test/.vendor/
+/tests/output/
