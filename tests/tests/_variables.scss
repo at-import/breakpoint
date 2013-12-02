@@ -34,6 +34,7 @@ $not-plus-default: 'not tv' 500px;
 $aspect-ratio: 'min-aspect-ratio' '300/250';
 $device-aspect-ratio: 'max-device-aspect-ratio' '320/480';
 
+$no-query: 700px, 'no-query' '.no-mq';
 $legacy: 'not screen', 500px, 'no-query' '.no-mq';
 
 $device-pixel-ratio: 'resolution' 2dppx;

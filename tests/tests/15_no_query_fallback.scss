@@ -6,3 +6,17 @@ $breakpoint-no-queries: true;
 $breakpoint-no-query-fallbacks: '.no-mq';
 
 @import '11_legacy_syntax';
+
+/*
+ * No Query
+ */
+.no-query {
+  @include breakpoint($no-query) {
+    _query: "#{$no-query}";
+    _expected: "@media (min-width: 700px)";
+  }
+  @include mq($no-query) {
+    _query: "#{$no-query}";
+    _expected: "@media (min-width: 700px)";
+  }
+}
