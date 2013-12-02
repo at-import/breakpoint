@@ -1,0 +1,71 @@
+@import "variables";
+
+@mixin breakpoint-test-query($mq) {
+  $bkpt: breakpoint($mq);
+  _query: inspect(map-get($bkpt, 'query'));
+  _fallback: inspect(map-get($bkpt, 'fallback'));
+  _context-holder: inspect(map-get($bkpt, 'context holder'));
+  _query-count: inspect(map-get($bkpt, 'query count'));
+}
+
+@mixin breakpoint-test-context($mq, $contexts) {
+  $bkpt: breakpoint($mq, $contexts);
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+}
+
+/**
+  * Breakpoint Function
+  * - Returns either a map of the query, fallback, context, and query count or a map of context values
+**/
+.query {
+  /* Single Pixel Value */
+  _test: "breakpoint(#{$single-pixel-value})";
+  @include breakpoint-test-query($single-pixel-value);
+  /* Fenced with Media */
+  _test: "breakpoint(#{$media-not-plus-fenced})";
+  @include breakpoint-test-query($media-not-plus-fenced);
+  /* Or Query */
+  _test: "breakpoint(#{$dynamic-context})";
+  @include breakpoint-test-query($dynamic-context);
+  /* No Query */
+  _test: "breakpoint(#{$no-query})";
+  @include breakpoint-test-query($no-query);
+  /* No Query, Or */
+  _test: "breakpoint(#{$legacy})";
+  @include breakpoint-test-query($legacy);
+}
+
+.context {
+  /* Single Pixel Value */
+  _test: "breakpoint(#{$single-pixel-value}, 'min-width')";
+  $bkpt: breakpoint($single-pixel-value, 'min-width', 'height', 'no-query');
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+  /* Fenced with Media */
+  _test: "breakpoint(#{$media-not-plus-fenced}, 'min-width', 'max-width', 'media')";
+  $bkpt: breakpoint($media-not-plus-fenced, 'min-width', 'max-width', 'media');
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+  /* Or Query */
+  _test: "breakpoint(#{$dynamic-context})";
+  $bkpt: breakpoint($dynamic-context, 'min-width', 'min-height', 'orientation', 'no-query');
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+  /* No Query */
+  _test: "breakpoint(#{$no-query})";
+  $bkpt: breakpoint($no-query, 'min-width', 'media', 'no-query');
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+  /* No Query, Or */
+  _test: "breakpoint(#{$legacy})";
+  $bkpt: breakpoint($legacy, 'min-width', 'media', 'no-query');
+  @each $k, $v in $bkpt {
+    _#{$k}: inspect($v);
+  }
+}
