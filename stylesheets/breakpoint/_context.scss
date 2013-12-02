@@ -23,7 +23,14 @@ $private-breakpoint-query-count: 0 !default;
 //////////////////////////////
 @function breakpoint-get-context($feature) {
   @if map-has-key($private-breakpoint-context-holder, $feature) {
-    @return map-get($private-breakpoint-context-holder, $feature);
+    $get: map-get($private-breakpoint-context-holder, $feature);
+    // Special handling of no-query from get side so /false/ prepends aren't returned
+    @if $feature == 'no-query' {
+      @if type-of($get) == 'list' and length($get) > 1 and nth($get, 1) == false {
+        $get: nth($get, length($get));
+      }
+    }
+    @return $get;
   }
   @else {
     @if breakpoint-has-context() and $feature == 'media' {

@@ -8,6 +8,81 @@
 @import "parsers/resolution";
 
 //////////////////////////////
+// Breakpoint Function
+//////////////////////////////
+@function breakpoint($query, $contexts...) {
+  // Internal Variables
+  $query-string: '';
+  $query-fallback: false;
+  $return: ();
+
+  // Reserve Global Private Breakpoint Context
+  $holder-context: $private-breakpoint-context-holder;
+  $holder-query-count: $private-breakpoint-query-count;
+
+  // Reset Global Private Breakpoint Context
+  $private-breakpoint-context-holder: () !global;
+  $private-breakpoint-query-count: 0 !global;
+
+
+  // Test to see if it's a comma-separated list
+  $or-list: if(list-separator($query) == 'comma', true, false);
+
+
+  @if ($or-list == false and $breakpoint-legacy-syntax == false) {
+    $query-string: breakpoint-parse($query);
+  }
+  @else {
+    $length: length($query);
+
+    $last: nth($query, $length);
+    $query-fallback: breakpoint-no-query($last);
+
+    @if ($query-fallback != false) {
+      $length: $length - 1;
+    }
+
+    @if ($breakpoint-legacy-syntax == true) {
+      $mq: ();
+
+      @for $i from 1 through $length {
+        $mq: append($mq, nth($query, $i), comma);
+      }
+
+      $query-string: breakpoint-parse($mq);
+    }
+    @else {
+      $query-string: '';
+      @for $i from 1 through $length {
+        $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+      }
+    }
+  }
+
+  @if length($contexts) == 0 or nth($contexts, 1) == false {
+    $return: ('query': $query-string,
+              'fallback': $query-fallback,
+              'context holder': $private-breakpoint-context-holder,
+              'query count': $private-breakpoint-query-count
+    );
+  }
+  @else {
+    @if $query-fallback != false {
+      $context-setter: private-breakpoint-set-context('no-query', $query-fallback);
+    }
+
+    @each $context in $contexts {
+      $return: map-merge($return, ($context: breakpoint-get-context($context)));
+    }
+  }
+
+  // Reset Global Private Breakpoint Context
+  $private-breakpoint-context-holder: () !global;
+  $private-breakpoint-query-count: 0 !global;
+  @return $return;
+}
+
+//////////////////////////////
 // General Breakpoint Parser
 //////////////////////////////
 @function breakpoint-parse($query) {
@@ -40,7 +115,7 @@
 
     // Parse a single feature
     @if ($length == 1) {
-      // Feature is currenty a list, grab the actual value
+      // Feature is currently a list, grab the actual value
       $feature: nth($feature, 1);
 
       // Media Type must by convention be the first item, so it's safe to flat override $query-print, which right now should only be the default media type

@@ -36,50 +36,24 @@ $breakpoint-legacy-syntax:      false !default;
 //////////////////////////////
 
 @mixin breakpoint($query, $no-query: false) {
-  // Internal Variables
-  $query-string: '';
-
   // Reset contexts
   @include private-breakpoint-reset-contexts();
 
-  // Test to see if it's a comma-separated list
-  $or-list: if(list-separator($query) == 'comma', true, false);
-  $query-fallback: false;
+  $breakpoint: breakpoint($query, false);
 
+  $query-string: map-get($breakpoint, 'query');
+  $query-fallback: map-get($breakpoint, 'fallback');
 
-  @if ($or-list == false and $breakpoint-legacy-syntax == false) {
-    $query-string: breakpoint-parse($query);
-  }
-  @else {
-    $length: length($query);
-
-    $last: nth($query, $length);
-    $query-fallback: breakpoint-no-query($last);
-
-    @if ($query-fallback != false) {
-      $length: $length - 1;
-    }
-
-    @if ($breakpoint-legacy-syntax == true) {
-      $mq: ();
-
-      @for $i from 1 through $length {
-        $mq: append($mq, nth($query, $i), comma);
-      }
-
-      $query-string: breakpoint-parse($mq);
-    }
-    @else {
-      $query-string: '';
-      @for $i from 1 through $length {
-        $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
-      }
-    }
-  }
+  $private-breakpoint-context-holder: map-get($breakpoint, 'context holder') !global;
+  $private-breakpoint-query-count: map-get($breakpoint, 'query count') !global;
 
   // Allow for an as-needed override or usage of no query fallback.
   @if $no-query != false {
     $query-fallback: $no-query;
+  }
+
+  @if $query-fallback != false {
+    $context-setter: private-breakpoint-set-context('no-query', $query-fallback);
   }
 
   // Print Out Query String

@@ -1,0 +1,65 @@
+/**
+  * Breakpoint Function
+  * - Returns either a map of the query, fallback, context, and query count or a map of context values
+**/
+.query {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px)";
+  _query: " (min-width: 500px)";
+  _fallback: false;
+  _context-holder: (min-width: 500px);
+  _query-count: 1;
+  /* Fenced with Media */
+  _test: 'breakpoint("not print" 500px 700px)';
+  _query: "not print and (min-width: 500px) and (max-width: 700px)";
+  _fallback: false;
+  _context-holder: (media: "not print", min-width: 500px, max-width: 700px);
+  _query-count: 1;
+  /* Or Query */
+  _test: 'breakpoint(400px "min-height" 200px, 300px 325px orientation portriat monochrome)';
+  _query: " (min-width: 400px) and (min-height: 200px),  (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome)";
+  _fallback: false;
+  _context-holder: (min-width: 400px 300px, "min-height": 200px false, max-width: false 325px, orientation: false portriat, "monochrome": false monochrome);
+  _query-count: 2;
+  /* No Query */
+  _test: 'breakpoint(700px, "no-query" ".no-mq")';
+  _query: " (min-width: 700px)";
+  _fallback: ".no-mq";
+  _context-holder: (min-width: 700px);
+  _query-count: 1;
+  /* No Query, Or */
+  _test: 'breakpoint("not screen", 500px, "no-query" ".no-mq")';
+  _query: "not screen,  (min-width: 500px)";
+  _fallback: ".no-mq";
+  _context-holder: (media: "not screen" all, min-width: false 500px);
+  _query-count: 2;
+}
+
+.context {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px, 'min-width')";
+  _min-width: 500px;
+  _height: false;
+  _no-query: false;
+  /* Fenced with Media */
+  _test: "breakpoint(\"not print\" 500px 700px, 'min-width', 'max-width', 'media')";
+  _min-width: 500px;
+  _max-width: 700px;
+  _media: "not print";
+  /* Or Query */
+  _test: 'breakpoint(400px "min-height" 200px, 300px 325px orientation portriat monochrome)';
+  _min-width: 400px 300px;
+  _min-height: 200px false;
+  _orientation: false portriat;
+  _no-query: false;
+  /* No Query */
+  _test: 'breakpoint(700px, "no-query" ".no-mq")';
+  _min-width: 700px;
+  _media: all;
+  _no-query: ".no-mq";
+  /* No Query, Or */
+  _test: 'breakpoint("not screen", 500px, "no-query" ".no-mq")';
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+}
