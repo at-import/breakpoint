@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.authors = ["Mason Wendell", "Sam Richard"]
   s.email = ["mason@thecodingdesigner.com", "sam@snug.ug"]
   s.homepage = "https://github.com/Team-Sass/breakpoint"
+  s.licenses = ["MIT", "GPL-2.0"]
 
   # Gem Files
   s.files = ["README.markdown"]
