@@ -59,21 +59,20 @@
     }
   }
 
-  @if length($contexts) == 0 or nth($contexts, 1) == false {
-    $return: ('query': $query-string,
-              'fallback': $query-fallback,
-              'context holder': $private-breakpoint-context-holder,
-              'query count': $private-breakpoint-query-count
-    );
-  }
-  @else {
+  $return: ('query': $query-string,
+	    'fallback': $query-fallback,
+	    'context holder': $private-breakpoint-context-holder,
+	    'query count': $private-breakpoint-query-count
+  );
+  @if length($contexts) > 0 and nth($contexts, 1) != false {
     @if $query-fallback != false {
       $context-setter: private-breakpoint-set-context('no-query', $query-fallback);
     }
-
+    $context-map: ();
     @each $context in $contexts {
-      $return: map-merge($return, ($context: breakpoint-get-context($context)));
+      $context-map: map-merge($context-map, ($context: breakpoint-get-context($context)));
     }
+    $return: map-merge($return, (context: $context-map));
   }
 
   // Reset Global Private Breakpoint Context
