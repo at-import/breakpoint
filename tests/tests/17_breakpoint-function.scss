@@ -41,31 +41,36 @@
   /* Single Pixel Value */
   _test: "breakpoint(#{$single-pixel-value}, 'min-width')";
   $bkpt: breakpoint($single-pixel-value, 'min-width', 'height', 'no-query');
-  @each $k, $v in $bkpt {
+  $contexts: map-get($bkpt, 'context');
+  @each $k, $v in $contexts {
     _#{$k}: inspect($v);
   }
   /* Fenced with Media */
   _test: "breakpoint(#{$media-not-plus-fenced}, 'min-width', 'max-width', 'media')";
   $bkpt: breakpoint($media-not-plus-fenced, 'min-width', 'max-width', 'media');
-  @each $k, $v in $bkpt {
+  $contexts: map-get($bkpt, 'context');
+  @each $k, $v in $contexts {
     _#{$k}: inspect($v);
   }
   /* Or Query */
   _test: "breakpoint(#{$dynamic-context})";
   $bkpt: breakpoint($dynamic-context, 'min-width', 'min-height', 'orientation', 'no-query');
-  @each $k, $v in $bkpt {
+  $contexts: map-get($bkpt, 'context');
+  @each $k, $v in $contexts {
     _#{$k}: inspect($v);
   }
   /* No Query */
   _test: "breakpoint(#{$no-query})";
   $bkpt: breakpoint($no-query, 'min-width', 'media', 'no-query');
-  @each $k, $v in $bkpt {
+  $contexts: map-get($bkpt, 'context');
+  @each $k, $v in $contexts {
     _#{$k}: inspect($v);
   }
   /* No Query, Or */
   _test: "breakpoint(#{$legacy})";
   $bkpt: breakpoint($legacy, 'min-width', 'media', 'no-query');
-  @each $k, $v in $bkpt {
+  $contexts: map-get($bkpt, 'context');
+  @each $k, $v in $contexts {
     _#{$k}: inspect($v);
   }
 }
