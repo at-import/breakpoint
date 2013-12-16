@@ -1,0 +1,29 @@
+/*
+ * Double string feature (i.e. string: string)
+ * $aspect-ratio : "min-aspect-ratio" "300/250";
+ * $device-aspect-ratio : "max-device-aspect-ratio" "320/480";
+ */
+@media (min-aspect-ratio: 300 / 250) {
+  .aspect-ratio {
+    content: '$aspect-ratio';
+    content: '@media (min-aspect-ratio: 300/250)';
+  }
+}
+@media (max-device-aspect-ratio: 320 / 480) {
+  .aspect-ratio {
+    content: '$device-aspect-ratio';
+    content: '@media (max-device-pixel-ratio: 320/480)';
+  }
+}
+@media (min-aspect-ratio: 300 / 250) {
+  .aspect-ratio {
+    content: '$aspect-ratio';
+    content: '@media (min-aspect-ratio: 300/250)';
+  }
+}
+@media (max-device-aspect-ratio: 320 / 480) {
+  .aspect-ratio {
+    content: '$device-aspect-ratio';
+    content: '@media (max-device-pixel-ratio: 320/480)';
+  }
+}

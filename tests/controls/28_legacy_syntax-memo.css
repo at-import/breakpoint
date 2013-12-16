@@ -1,0 +1,15 @@
+/*
+ * Legacy syntax
+ */
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: '$legacy';
+    content: '@media not screen and (min-width: 500px)';
+  }
+}
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: '$legacy';
+    content: '@media not screen and (min-width: 500px)';
+  }
+}

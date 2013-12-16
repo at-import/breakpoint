@@ -1,0 +1,56 @@
+$Memoization-Table: ();
+@import "memo";
+@import "variables";
+
+
+$loops: 100;
+
+$breakpoint-no-queryies: true;
+$breakpoint-no-query-fallbacks: true;
+
+@mixin memoize-loop($var) {
+  _memoization: "#{inspect($Memoization-Table)}";
+  @for $i from 1 through $loops {
+    @include breakpoint($var) {
+      _test: "breakpoint(#{$var})";
+      // _memoization: "#{inspect($Memoization-Table)}"
+    }
+  }
+}
+
+/**
+  * Memoized Output
+  * - Compile time should be reduced for like calls
+**/
+.memoize--simple-feature {
+  @include memoize-loop($single-pixel-value);
+}
+
+.memoize--complex-feature {
+  @include memoize-loop($multidimensional-plus-one-sided);
+}
+
+.memoize--shared-feature {
+  @include memoize-loop($feature-first);
+}
+
+.memoize--or-query {
+  @include memoize-loop($dynamic-context);
+}
+
+.memoize--with-fallback {
+  @include memoize-loop($no-query);
+}
+
+.memoize--breakpoint-function-context {
+  _memoization: "#{inspect($Memoization-Table)}";
+  @for $i from 1 through $loops {
+    _test: "breakpoint(#{$legacy})";
+    // _memoization: "#{inspect($Memoization-Table)}"
+    $bkpt: breakpoint($legacy, 'min-width', 'media', 'no-query');
+    $contexts: map-get($bkpt, 'context');
+    @each $k, $v in $contexts {
+      _#{$k}: inspect($v);
+    }
+  }
+}

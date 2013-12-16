@@ -1,0 +1,51 @@
+/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : max-width 350px, 500px 600px;
+ * $basic-or-media : 500px, tv 700px color;
+ */
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: '$basic-or';
+    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: '$basic-or';
+    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+  }
+}
+
+@media (min-width: 500px), tv and (min-width: 700px) and (color) {
+  .basic-or-media {
+    content: '$basic-or';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: '$basic-or';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: '$basic-or';
+    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+  }
+}
+
+/* $breakpoint-to-ems: true; */
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-to-ems {
+    content: '$basic-or';
+    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-to-ems {
+    content: '$basic-or';
+    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
+  }
+}

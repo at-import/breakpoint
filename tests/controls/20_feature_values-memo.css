@@ -1,0 +1,92 @@
+/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+@media (height: 500px) {
+  .foo {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: '$feature-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: '$value-first';
+    content: '@media (height: 500px)';
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 500px)';
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: '$feature-value-both-strings';
+    content: '@media (orientation: portrait)';
+  }
+}
+
+@media (height: 500px) {
+  .bar {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (lion: 500px) {
+  .bar {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: '$feature-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: '$value-first';
+    content: '@media (height: 31.25em)';
+  }
+}
+@media (lion: 500px) {
+  .bar {
+    content: '$arbitrary-feature';
+    content: '@media (lion: 31.25em)';
+  }
+}

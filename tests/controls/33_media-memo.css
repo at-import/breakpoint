@@ -1,0 +1,81 @@
+/*
+ * Media features (ie. tv)
+ * $simple-media : tv;
+ * $media-plus-default : tv 500px;
+ * $media-plus-fence : tv 500px 700px;
+ * $media-only : only print;
+ * $media-not : not print;
+ * $media-not-plus-fenced : "not print" 500px 700px;
+ */
+@media tv {
+  .media {
+    content: '$simple-media';
+    content: '@media tv';
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: '$media-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: '$media-plus-fence';
+    content: '@media tv and (min-width: 500px) and (max-width: 700px)';
+  }
+}
+@media only print {
+  .media {
+    content: '$media-only';
+    content: '@media only print';
+  }
+}
+@media not print {
+  .media {
+    content: '$media-not)';
+    content: '@media not print';
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: '$media-not-plus-fenced';
+    content: '@media not print and (min-width: 500px) and (max-width: 700px)';
+  }
+}
+@media tv {
+  .media {
+    content: '$simple-media';
+    content: '@media tv';
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: '$media-plus-default';
+    content: '@media not tv and (min-width: 500px)';
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: '$media-plus-fence';
+    content: '@media tv and (min-width: 500px) and (max-width: 700px)';
+  }
+}
+@media only print {
+  .media {
+    content: '$media-only';
+    content: '@media only print';
+  }
+}
+@media not print {
+  .media {
+    content: '$media-not)';
+    content: '@media not print';
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: '$media-not-plus-fenced';
+    content: '@media not print and (min-width: 500px) and (max-width: 700px)';
+  }
+}
