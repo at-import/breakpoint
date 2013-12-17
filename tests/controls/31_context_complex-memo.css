@@ -1,0 +1,8 @@
+/**
+ * Dynamic contexts.
+ */
+@media (min-width: 300px), print, (min-width: 200px) {
+  #multi-media {
+    -media: all print all;
+  }
+}

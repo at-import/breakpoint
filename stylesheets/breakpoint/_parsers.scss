@@ -7,77 +7,98 @@
 @import "parsers/triple";
 @import "parsers/resolution";
 
+$Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
+
 //////////////////////////////
 // Breakpoint Function
 //////////////////////////////
 @function breakpoint($query, $contexts...) {
-  // Internal Variables
-  $query-string: '';
-  $query-fallback: false;
+  $run: true;
   $return: ();
 
-  // Reserve Global Private Breakpoint Context
-  $holder-context: $private-breakpoint-context-holder;
-  $holder-query-count: $private-breakpoint-query-count;
+  // Grab the Memo Output if Memoization can be a thing
+  @if $Memo-Exists {
+    $return: memo-get(breakpoint, breakpoint $query $contexts);
 
-  // Reset Global Private Breakpoint Context
-  $private-breakpoint-context-holder: () !global;
-  $private-breakpoint-query-count: 0 !global;
-
-
-  // Test to see if it's a comma-separated list
-  $or-list: if(list-separator($query) == 'comma', true, false);
-
-
-  @if ($or-list == false and $breakpoint-legacy-syntax == false) {
-    $query-string: breakpoint-parse($query);
-  }
-  @else {
-    $length: length($query);
-
-    $last: nth($query, $length);
-    $query-fallback: breakpoint-no-query($last);
-
-    @if ($query-fallback != false) {
-      $length: $length - 1;
+    @if $return != null {
+      $run: false;
     }
+  }
 
-    @if ($breakpoint-legacy-syntax == true) {
-      $mq: ();
+  @if not $Memo-Exists or $run {
+    // Internal Variables
+    $query-string: '';
+    $query-fallback: false;
+    $return: ();
 
-      @for $i from 1 through $length {
-        $mq: append($mq, nth($query, $i), comma);
-      }
+    // Reserve Global Private Breakpoint Context
+    $holder-context: $private-breakpoint-context-holder;
+    $holder-query-count: $private-breakpoint-query-count;
 
-      $query-string: breakpoint-parse($mq);
+    // Reset Global Private Breakpoint Context
+    $private-breakpoint-context-holder: () !global;
+    $private-breakpoint-query-count: 0 !global;
+
+
+    // Test to see if it's a comma-separated list
+    $or-list: if(list-separator($query) == 'comma', true, false);
+
+
+    @if ($or-list == false and $breakpoint-legacy-syntax == false) {
+      $query-string: breakpoint-parse($query);
     }
     @else {
-      $query-string: '';
-      @for $i from 1 through $length {
-        $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+      $length: length($query);
+
+      $last: nth($query, $length);
+      $query-fallback: breakpoint-no-query($last);
+
+      @if ($query-fallback != false) {
+        $length: $length - 1;
+      }
+
+      @if ($breakpoint-legacy-syntax == true) {
+        $mq: ();
+
+        @for $i from 1 through $length {
+          $mq: append($mq, nth($query, $i), comma);
+        }
+
+        $query-string: breakpoint-parse($mq);
+      }
+      @else {
+        $query-string: '';
+        @for $i from 1 through $length {
+          $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+        }
       }
     }
+
+    $return: ('query': $query-string,
+        'fallback': $query-fallback,
+        'context holder': $private-breakpoint-context-holder,
+        'query count': $private-breakpoint-query-count
+    );
+    @if length($contexts) > 0 and nth($contexts, 1) != false {
+      @if $query-fallback != false {
+        $context-setter: private-breakpoint-set-context('no-query', $query-fallback);
+      }
+      $context-map: ();
+      @each $context in $contexts {
+        $context-map: map-merge($context-map, ($context: breakpoint-get-context($context)));
+      }
+      $return: map-merge($return, (context: $context-map));
+    }
+
+    // Reset Global Private Breakpoint Context
+    $private-breakpoint-context-holder: () !global;
+    $private-breakpoint-query-count: 0 !global;
+
+    @if $Memo-Exists {
+      $holder: memo-set(breakpoint, breakpoint $query $contexts, $return);
+    }
   }
 
-  $return: ('query': $query-string,
-	    'fallback': $query-fallback,
-	    'context holder': $private-breakpoint-context-holder,
-	    'query count': $private-breakpoint-query-count
-  );
-  @if length($contexts) > 0 and nth($contexts, 1) != false {
-    @if $query-fallback != false {
-      $context-setter: private-breakpoint-set-context('no-query', $query-fallback);
-    }
-    $context-map: ();
-    @each $context in $contexts {
-      $context-map: map-merge($context-map, ($context: breakpoint-get-context($context)));
-    }
-    $return: map-merge($return, (context: $context-map));
-  }
-
-  // Reset Global Private Breakpoint Context
-  $private-breakpoint-context-holder: () !global;
-  $private-breakpoint-query-count: 0 !global;
   @return $return;
 }
 

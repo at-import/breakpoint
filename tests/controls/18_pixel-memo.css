@@ -1,0 +1,42 @@
+/*
+ * Assume $breakpoint-default-feature
+ * if only a number
+ * $single-pixel-value: 500px;
+ * $single-em-value: 30em;
+ */
+@media (min-width: 500px) {
+  .foo {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: '$single-pixel-value';
+    content: '@media (min-width: 500px)';
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: '$single-em-value';
+    content: '@media (min-width: 30em)';
+  }
+}

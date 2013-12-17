@@ -1,0 +1,26 @@
+/**
+ * IE no-query fallbacks.
+ */
+/*
+ * Legacy syntax
+ */
+.no-mq .legacy {
+  content: '$legacy';
+  content: '@media not screen and (min-width: 500px)';
+}
+.no-mq .legacy {
+  content: '$legacy';
+  content: '@media not screen and (min-width: 500px)';
+}
+
+/*
+ * No Query
+ */
+.no-mq .no-query {
+  _query: '700px, "no-query" ".no-mq"';
+  _expected: "@media (min-width: 700px)";
+}
+.no-mq .no-query {
+  _query: '700px, "no-query" ".no-mq"';
+  _expected: "@media (min-width: 700px)";
+}

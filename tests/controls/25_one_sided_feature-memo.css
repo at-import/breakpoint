@@ -1,0 +1,68 @@
+/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $monochrome-double : 300px monochrome;
+ * $multidimensional-plus-one-sided : height 500px portrait orientation monochrome;
+ */
+@media (monochrome) {
+  .one-sided {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (height: 500px) and (orientation: portrait) and (monochrome)';
+  }
+}
+@media (monochrome) {
+  .one-sided {
+    content: '$monochrome';
+    content: '@media (monochrome)';
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 300px)';
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (height: 500px) and (orientation: portrait) and (monochrome)';
+  }
+}
+
+/* $breakpoint-to-ems: true; */
+@media (monochrome) and (min-width: 300px) {
+  .one-sided-to-ems {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (height: 31.25em) and (orientation: portrait) and (monochrome)';
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided-to-ems {
+    content: '$monochrome-double';
+    content: '@media (monochrome) and (min-width: 18.75em)';
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: '$multidimensional-plus-one-sided';
+    content: '@media (height: 31.25em) and (orientation: portrait) and (monochrome)';
+  }
+}

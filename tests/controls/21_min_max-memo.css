@@ -1,0 +1,30 @@
+/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 500px) and (max-width: 700px)';
+  }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .bar {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .bar {
+    content: '$min-max-default-feature';
+    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
+  }
+}

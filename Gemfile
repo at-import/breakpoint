@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'sass', '3.3.0.rc.2'
 gem 'compass', '1.0.0.alpha.13'
-gem 'singularitygs', '~>1.0.7'
+gem 'sassy-maps', '<1.0.0'
 
 group :test do
   gem 'rake'
