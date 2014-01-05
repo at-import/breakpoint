@@ -6,7 +6,12 @@
     "**/.*",
     "node_modules",
     "components",
-    "test"
+    "test",
+    "tests",
+    "Rakefile",
+    "*.gemspec",
+    "lib",
+    "Gemfile"
   ],
   "dependencies": {
     "sassy-maps": "<1.0.0"
