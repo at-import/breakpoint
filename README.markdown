@@ -1,5 +1,7 @@
 # Breakpoint #
 
+## The current active branch of Breakpoint is [2.x.x](https://github.com/Team-Sass/breakpoint/tree/2.x.x). This is the 1.x.x branch
+
 **Really Simple Media Queries with Sass**
 
 Breakpoint makes writing media queries in Sass super simple. Create a variable using a simplified syntax based on most commonly used media queries, then call it using the `breakpoint` mixin.  Breakpoint handles all of the heavy lifting, from writing the media query itself, to handling cross-browser compatibility issues, so you can focus on what's important: making sure your website looks its best.
