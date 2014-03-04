@@ -4,6 +4,7 @@
 # Bundler Files
 .bundle
 /vendor
+Gemfile.lock
 
 # Testing Files
 test/test
