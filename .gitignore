@@ -3,8 +3,7 @@
 
 # Bundler Files
 .bundle
-vendor/bundle
-Gemfile.lock
+/vendor
 
 # Testing Files
 test/test
