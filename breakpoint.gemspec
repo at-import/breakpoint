@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubygems_version = %q{1.3.6}
 
-  s.add_dependency("sass",      ["~>3.3.0.rc.2"])
-  s.add_dependency("compass",   ["~>1.0.0.alpha.13"])
+  s.add_dependency("sass",      ["~>3.3.0"])
   s.add_dependency("sassy-maps",   ["<1.0.0"])
 end
