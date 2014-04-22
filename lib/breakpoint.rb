@@ -4,6 +4,13 @@ if (defined? Compass)
     "breakpoint",
     :path => "#{File.dirname(__FILE__)}/.."
   )
+else
+  # Compass not defined, register on the Sass path via the environment.
+  if ENV.has_key?("SASS_PATH")
+    ENV["SASS_PATH"] = ENV["SASS_PATH"] + File::PATH_SEPARATOR + "#{File.dirname(__FILE__)}/../stylesheets"
+  else
+    ENV["SASS_PATH"] = "#{File.dirname(__FILE__)}/../stylesheets"
+  end
 end
 
 module Breakpoint
