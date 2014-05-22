@@ -1,9 +1,13 @@
 if (defined? Compass)
   require 'sassy-maps'
+  breakpoint_path = File.expand_path("../..", __FILE__)
   Compass::Frameworks.register(
     "breakpoint",
-    :path => "#{File.dirname(__FILE__)}/.."
+    :path => breakpoint_path
   )
+else
+  breakpoint_path = File.expand_path("../../stylesheets", __FILE__)
+  ENV["SASS_PATH"] = [ENV["SASS_PATH"], breakpoint_path].compact.join(File::PATH_SEPARATOR)
 end
 
 module Breakpoint
