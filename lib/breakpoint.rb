@@ -6,7 +6,7 @@ if (defined? Compass)
     :path => breakpoint_path
   )
 else
-  bourbon_path = File.expand_path("../../stylesheets", __FILE__)
+  breakpoint_path = File.expand_path("../../stylesheets", __FILE__)
   ENV["SASS_PATH"] = [ENV["SASS_PATH"], breakpoint_path].compact.join(File::PATH_SEPARATOR)
 end
 
