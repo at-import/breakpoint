@@ -5,7 +5,7 @@ if (defined? Compass)
   require 'sassy-maps'
   Compass::Frameworks.register(
     "breakpoint",
-    :path => breakpoint_path
+    :path => base_directory
   )
 else
   ENV["SASS_PATH"] = [ENV["SASS_PATH"], breakpoint_stylesheets_path].compact.join(File::PATH_SEPARATOR)
