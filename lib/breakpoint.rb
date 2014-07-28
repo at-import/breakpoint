@@ -1,4 +1,4 @@
-breakpoint_sass_path = File.expand_path('../stylesheets', __FILE__)
+breakpoint_sass_path = File.expand_path('../../stylesheets', __FILE__)
 breakpoint_path = "#{File.dirname(__FILE__)}/.."
 
 if (defined? Compass)
