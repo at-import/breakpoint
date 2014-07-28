@@ -8,7 +8,7 @@ if (defined? Compass)
     :path => breakpoint_path
   )
 else
-  ENV["SASS_PATH"] = [ENV["SASS_PATH"], breakpoint_path].compact.join(File::PATH_SEPARATOR)
+  ENV["SASS_PATH"] = [ENV["SASS_PATH"], breakpoint_sass_path].compact.join(File::PATH_SEPARATOR)
 end
 
 module Breakpoint
