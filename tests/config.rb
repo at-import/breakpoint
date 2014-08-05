@@ -20,3 +20,4 @@ relative_assets       = true
 
 # Learn more:
 #   http://compass-style.org/docs/tutorials/configuration-reference/
+sass_options = {:sourcemap => false}
