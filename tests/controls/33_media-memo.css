@@ -5,7 +5,7 @@
  * $media-plus-fence : tv 500px 700px;
  * $media-only : only print;
  * $media-not : not print;
- * $media-not-plus-fenced : "not print" 500px 700px;
+ * $media-not-plus-fenced : not print 500px 700px;
  */
 @media tv {
   .media {

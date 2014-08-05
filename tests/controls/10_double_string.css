@@ -1,7 +1,7 @@
 /*
  * Double string feature (i.e. string: string)
- * $aspect-ratio : "min-aspect-ratio" "300/250";
- * $device-aspect-ratio : "max-device-aspect-ratio" "320/480";
+ * $aspect-ratio : min-aspect-ratio 300/250;
+ * $device-aspect-ratio : max-device-aspect-ratio 320/480;
  */
 @media (min-aspect-ratio: 300 / 250) {
   .aspect-ratio {
