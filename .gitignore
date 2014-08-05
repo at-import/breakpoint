@@ -1,5 +1,6 @@
 # Gem Files
 *.gem
+tests/**/*.map
 
 # Bundler Files
 .bundle
