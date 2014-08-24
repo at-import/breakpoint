@@ -42,7 +42,7 @@
   }
 }
 
-/* $breakpoint-to-ems: true; */
+/* @include breakpoint-set('to ems', true); */
 @media (min-height: 300px) and (max-height: 700px) {
   .min-max-feature-to-ems {
     content: '$feature-min-max';

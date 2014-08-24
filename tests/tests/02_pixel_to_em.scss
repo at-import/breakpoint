@@ -1,7 +1,7 @@
 @import 'variables';
 
-/* $breakpoint-to-ems: true; */
-$breakpoint-to-ems: true;
+/* @include breakpoint-set('to ems', true); */
+@include breakpoint-set('to ems', true);
 .breakpoint-default-feature-to-ems {
   @include breakpoint($single-pixel-value) {
     content: '$single-pixel-value';

@@ -29,8 +29,8 @@
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }
 }
-/* $breakpoint-to-ems: true; */
-$breakpoint-to-ems: true;
+/* @include breakpoint-set('to ems', true); */
+@include breakpoint-set('to ems', true);
 .basic-or-to-ems {
   @include breakpoint($basic-or) {
     content: '$basic-or';

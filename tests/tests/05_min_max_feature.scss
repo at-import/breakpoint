@@ -33,8 +33,8 @@
     content: '@media (min-lion: 300px) and (max-lion: 700px)';
   }
 }
-/* $breakpoint-to-ems: true; */
-$breakpoint-to-ems: true;
+/* @include breakpoint-set('to ems', true); */
+@include breakpoint-set('to ems', true);
 .min-max-feature-to-ems {
   @include breakpoint($feature-min-max) {
     content: '$feature-min-max';

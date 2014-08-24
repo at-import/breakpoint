@@ -32,8 +32,8 @@
     content: '@media (height: 500px) and (orientation: portrait) and (monochrome)';
   }
 }
-/* $breakpoint-to-ems: true; */
-$breakpoint-to-ems: true;
+/* @include breakpoint-set('to ems', true); */
+@include breakpoint-set('to ems', true);
 .one-sided-to-ems {
   @include breakpoint($monochrome-double) {
     content: '$monochrome-double';

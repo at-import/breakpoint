@@ -9,7 +9,7 @@
   $context-setter: private-breakpoint-set-context(max-#{$feature}, $max);
 
   // Make them EMs if need be
-  @if ($breakpoint-to-ems == true) {
+  @if (breakpoint-get('to ems') == true) {
     $min: breakpoint-to-base-em($min);
     $max: breakpoint-to-base-em($max);
   }

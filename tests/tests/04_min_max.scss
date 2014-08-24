@@ -16,7 +16,7 @@
   }
 }
 
-$breakpoint-to-ems: true;
+@include breakpoint-set('to ems', true);
 .bar {
   @include breakpoint($min-max-default-feature) {
     content: '$min-max-default-feature';

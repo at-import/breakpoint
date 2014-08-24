@@ -14,7 +14,7 @@
   // Set Context
   $context-setter: private-breakpoint-set-context($feature, $value);
 
-  @if ($breakpoint-to-ems == true) {
+  @if (breakpoint-get('to ems') == true) {
     $value: breakpoint-to-base-em($value);
   }
 

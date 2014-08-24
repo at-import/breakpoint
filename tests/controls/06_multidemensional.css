@@ -16,7 +16,7 @@
   }
 }
 
-/* $breakpoint-to-ems: true; */
+/* @include breakpoint-set('to ems', true); */
 @media (height: 31.25em) and (orientation: portrait) {
   .multidimensional-to-ems {
     content: '$multidimensional';

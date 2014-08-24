@@ -41,7 +41,7 @@
   }
 }
 
-/* $breakpoint-to-ems: true; */
+/* @include breakpoint-set('to ems', true); */
 @media (monochrome) and (min-width: 18.75em) {
   .one-sided-to-ems {
     content: '$monochrome-double';

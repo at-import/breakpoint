@@ -2,7 +2,7 @@
 
 $single-pixel-value: 500px;
 $single-em-value: 30em;
-$breakpoint-to-ems: false;
+@include breakpoint-set('to ems', false);
 
 @include add-breakpoint('single pixel value', $single-pixel-value);
 @include add-breakpoint('single pixel value, em', $single-em-value);

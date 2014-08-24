@@ -1,4 +1,4 @@
-/* $breakpoint-to-ems: true; */
+/* @include breakpoint-set('to ems', true); */
 @media (min-width: 31.25em) {
   .breakpoint-default-feature-to-ems {
     content: '$single-pixel-value';

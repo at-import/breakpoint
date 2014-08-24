@@ -43,7 +43,7 @@
   }
 }
 
-$breakpoint-to-ems: true;
+@include breakpoint-set('to ems', true);
 .bar {
   @include breakpoint($feature-first) {
     content: '$feature-first';

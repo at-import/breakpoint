@@ -36,7 +36,7 @@
   }
 }
 
-/* $breakpoint-to-ems: true; */
+/* @include breakpoint-set('to ems', true); */
 @media (max-width: 21.875em), (min-width: 31.25em) and (max-width: 37.5em) {
   .basic-or-to-ems {
     content: '$basic-or';
