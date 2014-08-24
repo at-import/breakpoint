@@ -4,7 +4,7 @@
  * $device-pixel-ratio: #{$device-pixel-ratio}
  * $resolution: #{$resolution}
  */
-$breakpoint-resolutions: true;
+@include breakpoint-set('transform resolutions', true);
 
 .resolution {
   @include breakpoint($device-pixel-ratio) {

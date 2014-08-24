@@ -137,7 +137,7 @@ $breakpoint-single-string-features: 'color',
 @function breakpoint-is-resolution($feature) {
   $resolutions: 'device-pixel-ratio', 'dpr';
 
-  @if $breakpoint-resolutions {
+  @if breakpoint-get('transform resolutions') {
     $resolutions: append($resolutions, 'resolution');
   }
 

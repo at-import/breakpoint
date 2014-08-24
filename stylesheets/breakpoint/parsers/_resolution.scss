@@ -7,7 +7,7 @@
     $leader: 'and ';
   }
 
-  @if $breakpoint-resolutions and $query-resolution {
+  @if breakpoint-get('transform resolutions') and $query-resolution {
     $resolutions: breakpoint-make-resolutions($query-resolution);
     $length: length($resolutions);
     $query-holder: '';
