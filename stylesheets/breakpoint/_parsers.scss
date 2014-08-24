@@ -44,7 +44,7 @@ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
     $or-list: if(list-separator($query) == 'comma', true, false);
 
 
-    @if ($or-list == false and $breakpoint-legacy-syntax == false) {
+    @if ($or-list == false and breakpoint-get('legacy syntax') == false) {
       $query-string: breakpoint-parse($query);
     }
     @else {
@@ -57,7 +57,7 @@ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
         $length: $length - 1;
       }
 
-      @if ($breakpoint-legacy-syntax == true) {
+      @if (breakpoint-get('legacy syntax') == true) {
         $mq: ();
 
         @for $i from 1 through $length {

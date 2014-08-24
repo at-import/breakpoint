@@ -2,7 +2,7 @@
 /*
  * Legacy syntax
  */
-$breakpoint-legacy-syntax: true;
+@include breakpoint-set('legacy syntax', true);
 
 .legacy {
   @include breakpoint($legacy) {
