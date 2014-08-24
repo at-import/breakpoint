@@ -1,0 +1,19 @@
+@mixin legacy-settings-warning {
+  $legacyVars: (
+    'default-media': 'default media',
+    'default-feature': 'default feature',
+    'force-media-all': 'force all media type',
+    'to-ems': 'to ems',
+    'resolutions': 'transform resolutions',
+    'no-queries': 'no queries',
+    'no-query-fallbacks': 'no query fallbacks',
+    'base-font-size': 'base font size',
+    'legacy-syntax': 'legacy syntax'
+  );
+
+  @each $legacy, $new in $legacyVars {
+    @if global-variable-exists('breakpoint-' + $legacy) {
+      @warn "In order to avoid variable namspace collisions, we have updated the way to change settings for Breakpoint. Please change all instances of `$breakpoint-#{$legacy}: {{setting}}` to `@include breakpoint-set('#{$new}', {{setting}})`. This warning will be deprecated in a future release."
+    }
+  }
+}
