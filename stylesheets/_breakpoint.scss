@@ -46,6 +46,7 @@ $breakpoint: () !default;
 //////////////////////////////
 // Imports
 //////////////////////////////
+@import "breakpoint/settings";
 @import 'breakpoint/context';
 @import 'breakpoint/helpers';
 @import 'breakpoint/parsers';
