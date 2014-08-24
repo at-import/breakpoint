@@ -1,5 +1,5 @@
 @function breakpoint-parse-default($feature) {
-  $default: $breakpoint-default-feature;
+  $default: breakpoint-get('default feature');
 
   // Set Context
   $context-setter: private-breakpoint-set-context($default, $feature);
