@@ -5,8 +5,8 @@ $Memoization-Table: ();
 
 $loops: 100;
 
-$breakpoint-no-queryies: true;
-$breakpoint-no-query-fallbacks: true;
+@include breakpoint-set('no queries', true);
+@include breakpoint-set('no query fallbacks', true);
 
 @mixin memoize-loop($var) {
   _memoization: "#{inspect($Memoization-Table)}";

@@ -3,7 +3,7 @@
  */
 @import "breakpoint";
 @include breakpoint-set('no queries', true);
-$breakpoint-no-query-fallbacks: '.no-mq';
+@include breakpoint-set('no query fallbacks', '.no-mq');
 
 @import '11_legacy_syntax';
 

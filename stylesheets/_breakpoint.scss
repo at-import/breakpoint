@@ -86,21 +86,21 @@ $breakpoint: () !default;
     }
   }
 
-  @if $breakpoint-no-query-fallbacks != false or breakpoint-get('no queries') == true {
+  @if breakpoint-get('no query fallbacks') != false or breakpoint-get('no queries') == true {
 
-    $type: type-of($breakpoint-no-query-fallbacks);
+    $type: type-of(breakpoint-get('no query fallbacks'));
     $print: false;
 
     @if ($type == 'bool') {
       $print: true;
     }
     @else if ($type == 'string') {
-      @if $query-fallback == $breakpoint-no-query-fallbacks {
+      @if $query-fallback == breakpoint-get('no query fallbacks') {
         $print: true;
       }
     }
     @else if ($type == 'list') {
-      @each $wrapper in $breakpoint-no-query-fallbacks {
+      @each $wrapper in breakpoint-get('no query fallbacks') {
         @if $query-fallback == $wrapper {
           $print: true;
         }
