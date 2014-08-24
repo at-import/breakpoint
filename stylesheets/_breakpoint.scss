@@ -22,6 +22,28 @@ $breakpoint-base-font-size:     16px !default;
 $breakpoint-legacy-syntax:      false !default;
 
 //////////////////////////////
+// Map Settings
+//////////////////////////////
+$Breakpoint-Settings: (
+  'default media': all,
+  'default feature': min-width,
+  'default pair': width,
+
+  'force all media type': false,
+  'transform to ems': false,
+  'transform resolutions': true,
+
+  'no queries': false,
+  'no query fallbacks': false,
+
+  'base font size': 16px,
+
+  'legacy syntax': false
+);
+
+$breakpoint: () !default;
+
+//////////////////////////////
 // Imports
 //////////////////////////////
 @import 'breakpoint/context';
