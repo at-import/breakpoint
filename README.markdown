@@ -17,6 +17,8 @@ If you'd prefer the semantic awesomeness of string names to identify your querie
 
 * For help with Breakpoint, please ask a question on [Stack Overflow](http://stackoverflow.com/questions/ask) tagged with "breakpoint-sass".
 * To file an issue with Breakpoint, be it a feature request or a bug report, please use our [Issue Queue](https://github.com/Team-Sass/breakpoint/issues).
+* **Each Separate Bug Report or Feature Request Must Have Its Own Issue**
+* Search in both active issues and closed issues before filing your own. If one already exists, please respond there.
 * If you are in IRC, the maintainers and many fellow users tend to hang out in the #sass and #compass rooms on irc.freenode.net. Asking in there may get you a quick answer to your question, but we still encourage you to file your inquiry in the appropriate place above to 
 
 ## Contributing to Breakpoint
