@@ -1,7 +1,8 @@
 # Changelog
 
 ## 2.6.0
-* **Change** Adding breakpoints for `respond-to` should now be done through the mixin `@include add-breakpoint()` instead of the function call `$breakpoints: add-breakpoint()`. Does not break backwards compatibility. Future versions will deprecate function. Done to ensure long-term stability and remove issues with global namespacing, similar to Singularity
+* **Change** Moved variable settings to new Breakpoint settings. Future versions will deprecate variable settings.
+* **Change** Adding breakpoints for `respond-to` should now be done through the mixin `@include add-breakpoint()` instead of the function call `$breakpoints: add-breakpoint()`. Future versions will deprecate function.
 
 ## 2.5.0
 
