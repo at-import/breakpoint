@@ -112,7 +112,7 @@ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
   // Set up Media Type
   $query-print: '';
 
-  $force-all: (($breakpoint-force-media-all == true) and (breakpoint-get('default media') == 'all'));
+  $force-all: ((breakpoint-get('force all media type') == true) and (breakpoint-get('default media') == 'all'));
   $empty-media: true;
   @if ($force-all == true) or (breakpoint-get('default media') != 'all') {
     // Force the print of the default media type if (force all is true and default media type is all) or (default media type is not all)
