@@ -4,8 +4,8 @@ $single-pixel-value: 500px;
 $single-em-value: 30em;
 $breakpoint-to-ems: false;
 
-$breakpoints: add-breakpoint('single pixel value', $single-pixel-value);
-$breakpoints: add-breakpoint('single pixel value, em', $single-em-value);
+@include add-breakpoint('single pixel value', $single-pixel-value);
+@include add-breakpoint('single pixel value, em', $single-em-value);
 
 $feature-first: height 500px;
 $value-first: 500px height;
@@ -22,7 +22,7 @@ $multidimensional: ($feature-first) ($feature-value-both-strings);
 
 $basic-or: max-width 350px, 500px 600px;
 $basic-or-media: 500px, tv 700px color;
-$breakpoints: add-breakpoint('basic or', $basic-or);
+@include add-breakpoint('basic or', $basic-or);
 
 $monochrome: monochrome;
 $monochrome-double: 300px monochrome;
@@ -39,7 +39,7 @@ $legacy: 'not screen', 500px, 'no-query' '.no-mq';
 
 $device-pixel-ratio: 'resolution' 2dppx;
 $resolution: 'min-resolution' 192dpi;
-$breakpoints: add-breakpoint('device pixel ratio', $device-pixel-ratio);
+@include add-breakpoint('device pixel ratio', $device-pixel-ratio);
 
 $dynamic-context: 400px ('min-height' 200px), (300px 325px) (orientation portriat) monochrome;
 
