@@ -80,13 +80,13 @@ $breakpoint: () !default;
   }
 
   // Print Out Query String
-  @if not $breakpoint-no-queries {
+  @if not breakpoint-get('no queries') {
     @media #{$query-string} {
       @content;
     }
   }
 
-  @if $breakpoint-no-query-fallbacks != false or $breakpoint-no-queries == true {
+  @if $breakpoint-no-query-fallbacks != false or breakpoint-get('no queries') == true {
 
     $type: type-of($breakpoint-no-query-fallbacks);
     $print: false;
