@@ -1,5 +1,5 @@
 @function breakpoint-parse-default-pair($first, $second) {
-  $default: $breakpoint-default-pair;
+  $default: breakpoint-get('default pair');
   $min: '';
   $max: '';
 
