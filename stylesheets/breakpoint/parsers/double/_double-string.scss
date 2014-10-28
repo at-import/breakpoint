@@ -7,9 +7,12 @@
     $feature: $first;
     $value: $second;
   }
-  @else {
+  @else if (breakpoint-string-value($second) == true) {
     $feature: $second;
     $value: $first;
+  }
+  @else {
+    @warn "Neither #{$first} nor #{$second} is a valid media query name.";
   }
 
   // Set Context
