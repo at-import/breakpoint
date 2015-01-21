@@ -5,6 +5,7 @@ tests/**/*.map
 # Bundler Files
 .bundle
 /vendor
+/node_modules
 Gemfile.lock
 
 # Testing Files
