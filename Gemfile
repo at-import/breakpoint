@@ -1,8 +1,8 @@
 # Pull gems from RubyGems
 source 'https://rubygems.org'
 
-gem 'sass', '~>3.4.0.rc.1'
-gem 'compass', '~>1.0.0.rc.1'
+gem 'sass', '~>3.4'
+gem 'compass', '~>1.0'
 gem 'sassy-maps', '<1.0.0'
 
 group :test do
