@@ -12,7 +12,7 @@
       @return base-conversion($value) / base-conversion(breakpoint-get('base font size')) * 1em;
     }
     @else {
-      @warn '#{breakpoint-get('base font size')} is not set in valid units for font size!';
+      @warn '#{breakpoint-get(\'base font size\')} is not set in valid units for font size!';
       @return false;
     }
   }

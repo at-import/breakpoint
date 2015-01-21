@@ -1,8 +1,19 @@
 # Changelog
 
 ## 2.6.0
-* **Change** Moved variable settings to new Breakpoint settings. Future versions will deprecate variable settings.
+* **Change** Moved variable settings to new Breakpoint settings. Future versions will deprecate variable settings. Use `@include breakpoint-set()` or `@include bkpt-set()` to change settings, `@include breakpoint-reset()` or `@include bkpt-reset()` to reset settings to their default state. Please update your settings as followins:
+  * `$breakpoint-default-media: value;` should become `@include bkpt-set('default media', value);`
+  * `$breakpoint-default-feature: value;` should become `@include bkpt-set('default feature', value);`
+  * `$breakpoint-default-pair: value;` should become `@include bkpt-set('default pair', value);`
+  * `$breakpoint-force-media-all: value;` should become `@include bkpt-set('force all media type', value);`
+  * `$breakpoint-to-ems: value;` should become `@include bkpt-set('to ems', value);`
+  * `$breakpoint-resolutions: value;` should become `@include bkpt-set('transform resolutions', value);`
+  * `$breakpoint-no-queries: value;` should become `@include bkpt-set('no queries', value);`
+  * `$breakpoint-no query fallbacks: value;` should become `@include bkpt-set('no query fallbacks', value);`
+  * `$breakpoint-base-font-size: value;` should become `@include bkpt-set('base font size', value);`
+  * `$breakpoint-legacy-syntax: value;` should become `@include bkpt-set('legacy syntax', value);`
 * **Change** Adding breakpoints for `respond-to` should now be done through the mixin `@include add-breakpoint()` instead of the function call `$breakpoints: add-breakpoint()`. Future versions will deprecate function.
+* **New** Initial support for Libsass 3.1
 
 ## 2.5.0
 

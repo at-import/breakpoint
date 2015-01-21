@@ -41,6 +41,13 @@
   @include breakpoint-change($setting, $value);
 }
 
+@mixin bkpt-change($setting, $value) {
+  @include breakpoint-change($setting, $value);
+}
+@mixin bkpt-set($setting, $value) {
+  @include breakpoint-change($setting, $value);
+}
+
 //////////////////////////////
 // Remove Setting
 //////////////////////////////
@@ -56,5 +63,9 @@
 }
 
 @mixin breakpoint-reset($settings...) {
+  $breakpoint-reset: breakpoint-reset($settings);
+}
+
+@mixin bkpt-reset($settings...) {
   $breakpoint-reset: breakpoint-reset($settings);
 }
