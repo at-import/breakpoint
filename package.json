@@ -1,6 +1,6 @@
 {
   "name": "breakpoint-sass",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
   "eyeglass": {

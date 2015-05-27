@@ -1,6 +1,6 @@
 {
   "name": "compass-breakpoint",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "main": "stylesheets/_breakpoint.scss",
   "ignore": [
     "**/.*",
