@@ -1,10 +1,11 @@
 {
   "name": "breakpoint-sass",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
   "eyeglass": {
-    "exports": "eyeglass-exports.js"
+    "exports": "eyeglass-exports.js",
+    "name": "breakpoint"
   },
   "directories": {
     "test": "tests"
