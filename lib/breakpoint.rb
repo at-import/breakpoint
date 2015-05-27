@@ -13,5 +13,5 @@ end
 
 module Breakpoint
   VERSION = "2.5.0"
-  DATE = "2014-08-05"
+  DATE = "2015-05-27"
 end
