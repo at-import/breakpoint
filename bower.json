@@ -1,5 +1,5 @@
 {
-  "name": "compass-breakpoint",
+  "name": "breakpoint-sass",
   "version": "2.6.1",
   "main": "stylesheets/_breakpoint.scss",
   "ignore": [
