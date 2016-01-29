@@ -5,7 +5,8 @@
   "main": "stylesheets/_breakpoint.scss",
   "eyeglass": {
     "exports": "eyeglass-exports.js",
-    "name": "breakpoint"
+    "name": "breakpoint",
+    "needs": "^0.8.2"
   },
   "directories": {
     "test": "tests"
