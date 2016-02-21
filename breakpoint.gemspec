@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT", "GPL-2.0"]
 
   # Gem Files
-  s.files = ["README.markdown"]
-  s.files += ["CHANGELOG.markdown"]
+  s.files = ["README.md"]
+  s.files += ["CHANGELOG.md"]
   s.files += Dir.glob("lib/**/*.*")
   s.files += Dir.glob("stylesheets/**/*.*")
 
