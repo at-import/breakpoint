@@ -1,5 +1,5 @@
 {
-  "name": "compass-breakpoint",
+  "name": "breakpoint-sass",
   "main": "stylesheets/_breakpoint.scss",
   "ignore": [
     "**/.*",
