@@ -71,3 +71,12 @@ $BREAKPOINTS: () !default;
     }
   }
 }
+
+@function get-breakpoint($name: false) {
+  @if $name == false {
+    @return $BREAKPOINTS;
+  }
+  @else {
+    @return map-get($BREAKPOINTS, $name);
+  }
+}
