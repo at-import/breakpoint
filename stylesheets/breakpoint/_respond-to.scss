@@ -16,7 +16,7 @@ $BREAKPOINTS: () !default;
 
   @if type-of($BREAKPOINTS) != 'map' {
     // Just in case someone writes gibberish to the $breakpoints variable.
-    @warn "Your breakpoints aren't a map! See https://github.com/snugug/respond-to#api if you'd like a reminder on how to use Respond-to";
+    @warn "Your breakpoints aren't a map! `respond-to` expects a map. Please check the value of $BREAKPOINTS variable.";
     @content;
   }
   @else if map-has-key($BREAKPOINTS, $context) {
@@ -29,7 +29,7 @@ $BREAKPOINTS: () !default;
     @content;
   }
   @else {
-    @warn "You haven't created any breakpoints yet! Make some already! See https://github.com/snugug/respond-to#api if you'd like a reminder on how to use Respond-to";
+    @warn "You haven't created any breakpoints yet! Make some already! `@include add-breakpoint($name, $bkpt)`";
     @content;
   }
 }
