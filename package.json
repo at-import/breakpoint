@@ -19,7 +19,10 @@
     "breakpoint"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bump:major": "node .bump.js --major",
+    "bump:minor": "node .bump.js --minor",
+    "bump:patch": "node .bump.js --patch"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,9 @@
     "diff": "^1.2.1",
     "fs-extra": "^0.14.0",
     "glob": "^4.3.2",
-    "node-sass": "^3.0.0"
+    "node-sass": "^3.0.0",
+    "nodegit": "^0.11.2",
+    "semver": "^5.1.0",
+    "yargs": "^4.1.0"
   }
 }
