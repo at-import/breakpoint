@@ -13,7 +13,7 @@
 
   @each $legacy, $new in $legacyVars {
     @if global-variable-exists('breakpoint-' + $legacy) {
-      @warn "In order to avoid variable namspace collisions, we have updated the way to change settings for Breakpoint. Please change all instances of `$breakpoint-#{$legacy}: {{setting}}` to `@include breakpoint-set('#{$new}', {{setting}})`. Variable settings, as well as this warning will be deprecated in a future release."
+      @warn "In order to avoid variable namespace collisions, we have updated the way to change settings for Breakpoint. Please change all instances of `$breakpoint-#{$legacy}: {{setting}}` to `@include breakpoint-set('#{$new}', {{setting}})`. Variable settings, as well as this warning will be deprecated in a future release."
     }
   };
 
