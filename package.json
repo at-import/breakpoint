@@ -6,7 +6,8 @@
   "eyeglass": {
     "needs": "^1.0.0",
     "exports": "eyeglass-exports.js",
-    "name": "breakpoint"
+    "name": "breakpoint",
+    "needs": "*"
   },
   "directories": {
     "test": "tests"
