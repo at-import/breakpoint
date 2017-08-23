@@ -3,6 +3,9 @@
   "version": "2.7.1",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
+  "file": [
+    "stylesheets/"
+  ],
   "eyeglass": {
     "needs": "^1.0.0",
     "exports": "eyeglass-exports.js",
