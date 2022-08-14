@@ -8,7 +8,7 @@ Breakpoint also allows you to get the [context of your media queries](https://gi
 
 If you'd prefer the semantic awesomeness of string names to identify your queries as opposed to variables, or want to dynamically generate media queries, the [Respond-To](https://github.com/Team-Sass/breakpoint/wiki/Respond-To) syntax is now included in Breakpoint core!
 
-**It is important to note** that due to limitations within the Sass language itself, which themselves stem from some potentially unexpected cascading from doing so, Breakpoint is unable to concat like media queries into a single media query. This means they will be spread out throughout your CSS. This is unfortunate, yes, but currently unavoidable. That being said, once [Sass Issue #241: Seperate Media/Browser Specific Markup to Separate Style Sheet](https://github.com/nex3/sass/issues/241) hits, be sure we're going to take full advantage of it.
+**It is important to note** that due to limitations within the Sass language itself, which themselves stem from some potentially unexpected cascading from doing so, Breakpoint is unable to concat like media queries into a single media query. This means they will be spread out throughout your CSS. This is unfortunate, yes, but currently unavoidable. That being said, once [Sass Issue #241: Separate Media/Browser Specific Markup to Separate Style Sheet](https://github.com/nex3/sass/issues/241) hits, be sure we're going to take full advantage of it.
 
 
 ## Full documentation is available on the [Breakpoint Wiki](https://github.com/Team-Sass/breakpoint/wiki)
