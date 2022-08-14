@@ -12,51 +12,51 @@
  */
 @media (min-width: 500px) {
   .context {
-    content: '@media (min-width: 500px)';
+    content: "@media (min-width: 500px)";
     -min-width: 500px;
   }
 }
 @media (monochrome) {
   .context {
-    content: '@media (monochrome)';
+    content: "@media (monochrome)";
     -monochrome: monochrome;
   }
 }
 @media (min-width: 500px) and (max-width: 700px) {
   .context {
-    content: '@media (min-width: 500px) and (max-width: 700px)';
+    content: "@media (min-width: 500px) and (max-width: 700px)";
     -min-width: 500px;
     -max-width: 700px;
   }
 }
 @media (max-width: 700px) {
   .context {
-    content: '@media (max-width: 700px)';
+    content: "@media (max-width: 700px)";
     -max-width: 700px;
   }
 }
 @media (orientation: portrait) {
   .context {
-    content: '@media (orientation: portrait)';
+    content: "@media (orientation: portrait)";
     -orientation: portrait;
   }
 }
 @media (min-height: 800px) and (max-height: 1000px) {
   .context {
-    content: '@media (min-height: 800px) and (max-height: 1000px)';
+    content: "@media (min-height: 800px) and (max-height: 1000px)";
     -min-height: 800px;
     -max-height: 1000px;
   }
 }
 @media print {
   .context {
-    content: '@media print';
+    content: "@media print";
     -media: print;
   }
 }
 @media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px) {
   .context {
-    content: '@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)';
+    content: "@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)";
     -min-width: 500px 600px;
     -max-width: false 700px;
     -max-height: 1200px false;
@@ -65,7 +65,7 @@
 }
 @media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px) {
   .context {
-    content: '@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)';
+    content: "@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)";
     -min-width: 500px 500px 300px;
     -max-width: false 700px false;
     -media: all screen all;

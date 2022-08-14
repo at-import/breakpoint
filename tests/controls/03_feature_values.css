@@ -7,86 +7,86 @@
  */
 @media (height: 500px) {
   .foo {
-    content: '$feature-first';
-    content: '@media (height: 500px)';
+    content: "$feature-first";
+    content: "@media (height: 500px)";
   }
 }
 @media (height: 500px) {
   .foo {
-    content: '$value-first';
-    content: '@media (height: 500px)';
+    content: "$value-first";
+    content: "@media (height: 500px)";
   }
 }
 @media (lion: 500px) {
   .foo {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 500px)';
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
   }
 }
 @media (orientation: portrait) {
   .foo {
-    content: '$feature-value-both-strings';
-    content: '@media (orientation: portrait)';
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
   }
 }
 @media (height: 500px) {
   .foo {
-    content: '$feature-first';
-    content: '@media (height: 500px)';
+    content: "$feature-first";
+    content: "@media (height: 500px)";
   }
 }
 @media (height: 500px) {
   .foo {
-    content: '$value-first';
-    content: '@media (height: 500px)';
+    content: "$value-first";
+    content: "@media (height: 500px)";
   }
 }
 @media (lion: 500px) {
   .foo {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 500px)';
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
   }
 }
 @media (orientation: portrait) {
   .foo {
-    content: '$feature-value-both-strings';
-    content: '@media (orientation: portrait)';
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
   }
 }
 
 @media (height: 31.25em) {
   .bar {
-    content: '$feature-first';
-    content: '@media (height: 31.25em)';
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
   }
 }
 @media (height: 31.25em) {
   .bar {
-    content: '$value-first';
-    content: '@media (height: 31.25em)';
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
   }
 }
 @media (lion: 31.25em) {
   .bar {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 31.25em)';
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
   }
 }
 @media (height: 31.25em) {
   .bar {
-    content: '$feature-first';
-    content: '@media (height: 31.25em)';
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
   }
 }
 @media (height: 31.25em) {
   .bar {
-    content: '$value-first';
-    content: '@media (height: 31.25em)';
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
   }
 }
 @media (lion: 31.25em) {
   .bar {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 31.25em)';
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
   }
 }

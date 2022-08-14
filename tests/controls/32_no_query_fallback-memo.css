@@ -5,12 +5,12 @@
  * Legacy syntax
  */
 .no-mq .legacy {
-  content: '$legacy';
-  content: '@media not screen and (min-width: 500px)';
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
 }
 .no-mq .legacy {
-  content: '$legacy';
-  content: '@media not screen and (min-width: 500px)';
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
 }
 
 /*

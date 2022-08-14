@@ -6,46 +6,46 @@
  */
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or {
-    content: '$basic-or';
-    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
   }
 }
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or {
-    content: '$basic-or';
-    content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
   }
 }
 
 @media (min-width: 500px), tv and (min-width: 700px) and (color) {
   .basic-or-media {
-    content: '$basic-or';
-    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
   }
 }
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or-media {
-    content: '$basic-or';
-    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
   }
 }
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or-media {
-    content: '$basic-or';
-    content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
   }
 }
 
 /* @include breakpoint-set('to ems', true); */
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or-to-ems {
-    content: '$basic-or';
-    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
   }
 }
 @media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
   .basic-or-to-ems {
-    content: '$basic-or';
-    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
   }
 }
