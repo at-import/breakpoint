@@ -33,6 +33,6 @@
     "sassy-maps": "github:at-import/Sassy-Maps"
   },
   "peerDependencies": {
-    "sass": "^1.54"
+    "sass": "^1.25"
   }
 }
