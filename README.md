@@ -1,4 +1,4 @@
-# Breakpoint [npm version](https://badge.fury.io/js/breakpoint-sass.svg) ![downloads per week](https://img.shields.io/npm/dw/breakpoint-sass) ![test status](https://github.com/at-import/breakpoint/actions/workflows/test.yml/badge.svg)
+# Breakpoint ![npm version](https://badge.fury.io/js/breakpoint-sass.svg) ![downloads per week](https://img.shields.io/npm/dw/breakpoint-sass) ![test status](https://github.com/at-import/breakpoint/actions/workflows/test.yml/badge.svg)
 
 
 
