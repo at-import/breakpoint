@@ -3,11 +3,6 @@
   "version": "2.7.1",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
-  "eyeglass": {
-    "needs": "^1.0.0",
-    "exports": "eyeglass-exports.js",
-    "name": "breakpoint"
-  },
   "directories": {
     "test": "tests"
   },
@@ -15,15 +10,9 @@
     "sass",
     "responsive",
     "rwd",
-    "eyeglass-module",
     "breakpoint"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bump:major": "node .bump.js --major",
-    "bump:minor": "node .bump.js --minor",
-    "bump:patch": "node .bump.js --patch",
-    "publish": "node .gembuild.js && git push && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -40,8 +29,5 @@
     "fs-extra": "^0.14.0",
     "glob": "^4.3.2",
     "node-sass": "^3.0.0",
-    "nodegit": "^0.11.2",
-    "semver": "^5.1.0",
-    "yargs": "^4.1.0"
   }
 }
