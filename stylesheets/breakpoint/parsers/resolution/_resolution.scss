@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @function breakpoint-make-resolutions($resolution) {
   $length: length($resolution);
 
@@ -34,8 +36,8 @@
       // Write out feature tests
       $webkit: '';
       $moz: '';
-      $webkit: '(-webkit-#{$feature}device-pixel-ratio: #{$value / $base})';
-      $moz: '(#{$feature}-moz-device-pixel-ratio: #{$value / $base})';
+      $webkit: '(-webkit-#{$feature}device-pixel-ratio: #{math.div($value, $base)})';
+      $moz: '(#{$feature}-moz-device-pixel-ratio: #{math.div($value, $base)})';
       // Append to output
       $output: append($output, $standard, space);
       $output: append($output, $webkit, space);
@@ -44,9 +46,9 @@
     @else {
       $webkit: '';
       $moz: '';
-      $webkit: '(-webkit-#{$feature}device-pixel-ratio: #{$value / 1dppx})';
-      $moz: '(#{$feature}-moz-device-pixel-ratio: #{$value / 1dppx})';
-      $fallback: '(#{$feature}resolution: #{$value / 1dppx * 96dpi})';
+      $webkit: '(-webkit-#{$feature}device-pixel-ratio: #{math.div($value, 1dppx)})';
+      $moz: '(#{$feature}-moz-device-pixel-ratio: #{math.div($value, 1dppx)})';
+      $fallback: '(#{$feature}resolution: #{math.div($value, 1dppx) * 96dpi})';
       // Append to output
       $output: append($output, $standard, space);
       $output: append($output, $webkit, space);
