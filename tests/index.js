@@ -1,60 +1,33 @@
-var sass = require('node-sass'),
-    jsdiff = require('diff'),
-    fs = require('fs-extra'),
-    i = 0,
-    glob = require('glob');
+const test = require('ava');
+const sass = require('sass');
+const {readFileSync} = require('fs');
+const path = require('path');
+const glob = require('glob');
+const {pathToFileURL} = require('url');
 
-glob('./tests/**/*.scss', function (err, files) {
-  if (err) throw err;
+const tests = glob.sync(path.join(__dirname, './tests/**.scss')).filter(file => !path.basename(file).startsWith('_'));
 
-  files.forEach(function (file) {
-    if (file.charAt(0) !== '_') {
-      sass.render({
-        file: file,
-        outputStyle: 'expanded',
-        includePaths: [
-          '../stylesheets/',
-          '../vendor/ruby/2.0.0/gems/sassy-maps-0.4.0/sass/',
-          '../vendor/ruby/2.0.0/gems/breakpoint-2.5.0/stylesheets/'
-        ]
-      }, function(err, result) {
-          if (err) throw err;
+async function testMacro(t, file) {
+  const css = sass.compile(file, {
+    importers: [{
+      findFileUrl(url) {
+        if (url.startsWith('breakpoint')) {
+          return new URL(url, pathToFileURL(path.join(process.cwd(), 'stylesheets/')));;
+        } else if (url === 'memo' || url.startsWith('sassy-maps')) {
+          return new URL(url, pathToFileURL(path.join(process.cwd(), 'node_modules/sassy-maps/sass/')));
+        }
 
-          // console.log(result);
-          var file = result.stats.entry.split('/');
-
-          file = file[file.length - 1];
-          file = file.replace('.scss', '.css');
-
-          if (file.charAt(0) !== '_') {
-            fs.readFile('./controls/' + file, function (ctrlErr, ctrlFile) {
-              var diff = jsdiff.diffCss(ctrlFile.toString(), result.css.toString()),
-                  diffCount = 0;
-
-              diff.forEach(function(part){
-                // green for additions, red for deletions
-                // grey for common parts
-                var color = part.added ? 'green' :
-                  part.removed ? 'red' : 'grey';
-
-                if (color !== 'grey') {
-                  diffCount++;
-                }
-              });
-
-              if (diffCount) {
-                console.log(file);
-                diff = jsdiff.createPatch(file, ctrlFile.toString(), result.css.toString());
-
-                fs.outputFile('./diff/' + file + '.diff', diff, function (writeErr, writePatch) {
-                  if (writeErr) throw writeErr;
-
-                  // throw 'Diff in output for ' + file;
-                });
-              }
-            });
-          }
-        });
-    }
+        return null;
+      }
+    }]
   });
-});
+
+  const cssFile = file.replace('.scss', '.css').replace('/tests/tests/', '/tests/controls/');
+  const expected = readFileSync(cssFile, 'utf8');
+  
+  t.is(css.css + '\n', expected);
+}
+
+for (const testFile of tests) {
+  test(path.basename(testFile).replace(/(\n*)_/, ' ').replace('.scss', '').replace(/_/g, ' ').replace('-', ' - '), testMacro, testFile);
+}
