@@ -1,6 +1,6 @@
 {
   "name": "breakpoint-sass",
-  "version": "2.7.1",
+  "version": "3.0.0",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
   "directories": {
