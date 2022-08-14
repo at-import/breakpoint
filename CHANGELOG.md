@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0
+* **Deprecation** - Dropped Ruby, Eyeglass, Bower, and Sache support
+* **Fix** - Fix `math.div` warnings
+* **Change** - Sass 1.25+ is now a peer dependency
+
 ## 2.6.0
 * **Change** Moved variable settings to new Breakpoint settings. Future versions will deprecate variable settings. Use `@include breakpoint-set()` or `@include bkpt-set()` to change settings, `@include breakpoint-reset()` or `@include bkpt-reset()` to reset settings to their default state. Please update your settings as followins:
   * `$breakpoint-default-media: value;` should become `@include bkpt-set('default media', value);`
