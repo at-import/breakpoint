@@ -1,8 +1,8 @@
 # Changelog
 
 ## 3.0.0
-* **Deprecation** - Dropped Ruby, Eyeglass, Bower, and Sache support
-* **Fix** - Fix `math.div` warnings
+* **Deprecation** - Dropped Ruby, Eyeglass, Bower, libsass, and Sache support
+* **Fix** - Fix `math.div` warnings by migrating to `sass:math`
 * **Change** - Sass 1.25+ is now a peer dependency
 
 ## 2.6.0
