@@ -1,3 +1,5 @@
+@use '../../sass/breakpoint';
+
 // @use '../../stylesheets/breakpoint' as breakpoint;
 // @use '../../stylesheets/breakpoint/respond-to' as respond-to;
 
@@ -5,8 +7,8 @@ $single-pixel-value: 500px;
 $single-em-value: 30em;
 // @include breakpoint.set('to ems', false);
 
-// @include respond-to.add-breakpoint('single pixel value', $single-pixel-value);
-// @include respond-to.add-breakpoint('single pixel value, em', $single-em-value);
+@include breakpoint.add('single pixel value', $single-pixel-value);
+@include breakpoint.add('single pixel value, em', $single-em-value);
 
 // $feature-first: height 500px;
 // $value-first: 500px height;

@@ -78,6 +78,7 @@ $internals: (
 );
 
 @forward './breakpoint/breakpoint';
+@forward './breakpoint/respond-to';
 // @forward './breakpoint/respond-to' with (
 //   $settings: $settings,
 //   $internals: $internals

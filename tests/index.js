@@ -13,16 +13,7 @@ for (const t of tests) {
 
   test(name, tx => {
     const {css} = sass.compile(t);
-    console.log(css)
 
-    tx.assert.strictEqual(true, true);
+    tx.assert.strictEqual(css, expected);
   });
 }
-
-// test('Pixel Test', t => {
-//   const output = fs.readFileSync('./controls/01_pixel.css', 'utf-8');
-
-//   const {css} = sass.compile('./tests/01_pixel.scss');
-
-//   t.assert.strictEqual(css, output)
-// })ls

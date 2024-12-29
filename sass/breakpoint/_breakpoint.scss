@@ -9,3 +9,15 @@
     @content;
   }
 }
+
+@mixin mq($query, $no-query: false) {
+  @include breakpoint($query, $no-query) {
+    @content;
+  }
+}
+
+@mixin viewport($query, $no-query: false) {
+  @include breakpoint($query, $no-query) {
+    @content;
+  }
+}
