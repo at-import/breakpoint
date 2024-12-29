@@ -1,0 +1,7 @@
+@use 'map';
+
+$internals: () !default;
+
+@function get($setting) {
+  @return map.get($internals, $setting);
+}

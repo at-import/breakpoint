@@ -10,7 +10,9 @@
 @use "helpers";
 @use "no-query";
 @use "settings";
-@use "../../node_modules/sassy-maps/sass/memo";
+@use "sass:map";
+@use "sass:list";
+@forward "maps";
 
 //$Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
 $Memo-Exists: false;
@@ -47,16 +49,16 @@ $Memo-Exists: false;
 
 
     // Test to see if it's a comma-separated list
-    $or-list: if(list-separator($query) == 'comma', true, false);
+    $or-list: if(list.separator($query) == 'comma', true, false);
 
 
     @if ($or-list == false and settings.breakpoint-get('legacy syntax') == false) {
       $query-string: breakpoint-parse($query);
     }
     @else {
-      $length: length($query);
+      $length: list.length($query);
 
-      $last: nth($query, $length);
+      $last: list.nth($query, $length);
       $query-fallback: no-query.breakpoint-no-query($last);
 
       @if ($query-fallback != false) {
@@ -67,7 +69,7 @@ $Memo-Exists: false;
         $mq: ();
 
         @for $i from 1 through $length {
-          $mq: append($mq, nth($query, $i), comma);
+          $mq: append($mq, list.nth($query, $i), comma);
         }
 
         $query-string: breakpoint-parse($mq);
@@ -75,7 +77,7 @@ $Memo-Exists: false;
       @else {
         $query-string: '';
         @for $i from 1 through $length {
-          $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(nth($query, $i));
+          $query-string: $query-string + if($i == 1, '', ', ') + breakpoint-parse(list.nth($query, $i));
         }
       }
     }
@@ -85,15 +87,15 @@ $Memo-Exists: false;
         'context holder': $private-breakpoint-context-holder,
         'query count': $private-breakpoint-query-count
     );
-    @if length($contexts) > 0 and nth($contexts, 1) != false {
+    @if list.length($contexts) > 0 and list.nth($contexts, 1) != false {
       @if $query-fallback != false {
         $context-setter: context.private-breakpoint-set-context('no-query', $query-fallback);
       }
       $context-map: ();
       @each $context in $contexts {
-        $context-map: map-merge($context-map, ($context: context.breakpoint-get-context($context)));
+        $context-map: map.merge($context-map, ($context: context.breakpoint-get-context($context)));
       }
-      $return: map-merge($return, (context: $context-map));
+      $return: map.merge($return, (context: $context-map));
     }
 
     // Reset Global Private Breakpoint Context
@@ -137,12 +139,12 @@ $Memo-Exists: false;
   $first: true;
 
   @each $feature in $query-holder {
-    $length: length($feature);
+    $length: list.length($feature);
 
     // Parse a single feature
     @if ($length == 1) {
       // Feature is currently a list, grab the actual value
-      $feature: nth($feature, 1);
+      $feature: list.nth($feature, 1);
 
       // Media Type must by convention be the first item, so it's safe to flat override $query-print, which right now should only be the default media type
       @if (helpers.breakpoint-is-media($feature)) {
@@ -171,8 +173,8 @@ $Memo-Exists: false;
         // If it's a string/number pair,
         // we check to see if one is a single-string value,
         // then we parse it as a normal double
-        $alpha: nth($feature, 1);
-        $beta: nth($feature, 2);
+        $alpha: list.nth($feature, 1);
+        $beta: list.nth($feature, 2);
         @if helpers.breakpoint-single-string($alpha) or helpers.breakpoint-single-string($beta) {
           $parsed: single.breakpoint-parse-single($alpha, $empty-media, $first);
           $query-print: '#{$query-print} #{$parsed}';
@@ -203,8 +205,8 @@ $Memo-Exists: false;
   // Loop through each feature that's been detected so far and append 'false' to the the value list to increment their counters
   @each $f, $v in context.$private-breakpoint-context-holder {
     $v-holder: $v;
-    $length: length($v-holder);
-    @if length($v-holder) < $private-breakpoint-query-count {
+    $length: list.length($v-holder);
+    @if list.length($v-holder) < $private-breakpoint-query-count {
       @for $i from $length to $private-breakpoint-query-count {
         @if $f == 'media' {
           $v-holder: append($v-holder, settings.breakpoint-get('default media'));
@@ -214,7 +216,7 @@ $Memo-Exists: false;
         }
       }
     }
-    $private-breakpoint-context-holder: map-merge(context.$private-breakpoint-context-holder, ($f: $v-holder)) !global;
+    $private-breakpoint-context-holder: map.merge(context.$private-breakpoint-context-holder, ($f: $v-holder)) !global;
   }
 
   @return $query-print;

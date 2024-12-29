@@ -1,0 +1,91 @@
+@use 'sass:list';
+@use 'map';
+@use 'memo';
+
+@use './settings';
+@use './parsers/query';
+@use './parsers/feature';
+@use './parsers/single';
+
+@function breakpoint($query) {
+  $run: true;
+  $return: memo.get(breakpoint, breakpoint $query);
+
+  // Exit early if there's a memoized result
+  @if ($return != null) {
+    @return $return;
+  }
+
+  $query-string: '';
+  $query-fallback: false;
+  $return: ();
+
+  $or-list: if(list.separator($query) == 'comma', true, false);
+
+  @if ($or-list == false) {
+    $query-string: parse($query);
+  } @else {
+    $length: list.length($query);
+    $last: list.nth($query, $length);
+
+    $query-string: '';
+    @for $i from 1 through $length {
+      $query-string: $query-string +
+        if($i == 1, '', ', ') +
+        parse(list.nth($query, $i));
+    }
+  }
+
+  $return: (
+    'query': $query-string,
+    'fallback': false,
+  );
+
+  $holder: memo.set(breakpoint, breakpoint $query, $return);
+
+  @return $return;
+}
+
+@function parse($query) {
+  // Set up Media Type
+  $query-print: '';
+  $force-all: (
+    settings.get('force all media type') == true and
+      settings.get('default media') == 'all'
+  );
+  $empty-media: true;
+
+  @if ($force-all == true) or (settings.get('default media') != 'all') {
+    $query-print: settings.get('default media');
+    $empty-media: false;
+  }
+
+  $query-resolution: false;
+  $query-holder: query.parse($query);
+
+  $first: true;
+
+  @each $feature in $query-holder {
+    $length: list.length($feature);
+
+    @if ($length == 1) {
+      $feature: list.nth($feature, 1);
+      @if (feature.is-media($feature)) {
+        @if ($force-all == true) or ($feature != 'all') {
+          $query-print: $feature;
+          $empty-media: false;
+        }
+      } @else {
+        $parsed: single.parse($feature, $empty-media, $first);
+        $query-print: '#{$query-print} #{$parsed}';
+        $first: false;
+      }
+    }
+  }
+
+  @return $query-print;
+
+  // @each $feature in $query-holder {
+
+  // }
+}

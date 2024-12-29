@@ -1,12 +1,11 @@
 $Memoization-Table: ();
-@import "memo";
-@import "variables";
-
+@forward "memo";
+@forward "variables";
 
 $loops: 100;
 
-@include breakpoint-set('no queries', true);
-@include breakpoint-set('no query fallbacks', true);
+@include breakpoint-set("no queries", true);
+@include breakpoint-set("no query fallbacks", true);
 
 @mixin memoize-loop($var) {
   _memoization: "#{inspect($Memoization-Table)}";
@@ -47,8 +46,8 @@ $loops: 100;
   @for $i from 1 through $loops {
     _test: "breakpoint(#{$legacy})";
     // _memoization: "#{inspect($Memoization-Table)}"
-    $bkpt: breakpoint($legacy, 'min-width', 'media', 'no-query');
-    $contexts: map-get($bkpt, 'context');
+    $bkpt: breakpoint($legacy, "min-width", "media", "no-query");
+    $contexts: map-get($bkpt, "context");
     @each $k, $v in $contexts {
       _#{$k}: inspect($v);
     }

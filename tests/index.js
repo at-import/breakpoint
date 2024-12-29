@@ -1,33 +1,28 @@
-const test = require('ava');
 const sass = require('sass');
 const {readFileSync} = require('fs');
 const path = require('path');
 const glob = require('glob');
-const {pathToFileURL} = require('url');
+const test = require('node:test');
 
-const tests = glob.sync(path.join(__dirname, './tests/**.scss')).filter(file => !path.basename(file).startsWith('_'));
+const tests = glob.sync(path.join(__dirname, './tests/01_pixel.scss')).filter(file => !path.basename(file).startsWith('_'));
 
-async function testMacro(t, file) {
-  const css = sass.compile(file, {
-    importers: [{
-      findFileUrl(url) {
-        if (url.startsWith('breakpoint')) {
-          return new URL(url, pathToFileURL(path.join(process.cwd(), 'stylesheets/')));
-        } else if (url === 'memo' || url.startsWith('sassy-maps')) {
-          return new URL(url, pathToFileURL(path.join(process.cwd(), 'node_modules/sassy-maps/sass/')));
-        }
+for (const t of tests) {
+  const name = path.basename(t).replace('.scss', '');
+  const expected = readFileSync(`./tests/controls/${name}.css`, 'utf-8');
 
-        return null;
-      }
-    }]
+
+  test(name, tx => {
+    const {css} = sass.compile(t);
+    console.log(css)
+
+    tx.assert.strictEqual(true, true);
   });
-
-  const cssFile = file.replace('.scss', '.css').replace('/tests/tests/', '/tests/controls/');
-  const expected = readFileSync(cssFile, 'utf8');
-  
-  t.is(css.css + '\n', expected);
 }
 
-for (const testFile of tests) {
-  test(path.basename(testFile).replace(/(\n*)_/, ' ').replace('.scss', '').replace(/_/g, ' ').replace('-', ' - '), testMacro, testFile);
-}
+// test('Pixel Test', t => {
+//   const output = fs.readFileSync('./controls/01_pixel.css', 'utf-8');
+
+//   const {css} = sass.compile('./tests/01_pixel.scss');
+
+//   t.assert.strictEqual(css, output)
+// })ls

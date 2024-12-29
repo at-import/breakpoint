@@ -1,0 +1,20 @@
+@use '../settings';
+@use '../internals';
+
+@use 'sass:list';
+@use 'sass:meta';
+
+@function parse($query) {
+  $feature-holder: ();
+  $query-holder: ();
+  $length: list.length($query);
+
+  @if $length == 2 {
+
+  }
+  @else if $length == 3 {
+
+  }
+
+  @return $query;
+}

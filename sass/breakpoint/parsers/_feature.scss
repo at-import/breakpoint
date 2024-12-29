@@ -1,0 +1,61 @@
+@use '../settings';
+@use '../internals';
+
+@use 'sass:math';
+@use 'sass:meta';
+
+// Returns whether the feature can have a min/max pair
+@function is-min-max($feature) {
+  @each $item in internals.get('min max features') {
+    @if $feature == $item {
+      @return true;
+    }
+  }
+
+  @return false;
+}
+
+// Returns whether the feature can have a string value
+@function is-string($feature) {
+  @each $item in internals.get('string features') {
+   @if min-max(item) {
+    @if $feature == 'min-#{$item}' or $feature == 'max-#{$item}' {
+      @return true;
+    }
+   } @else if $feature == $item {
+    @return true;
+   }
+  }
+
+  @return false;
+}
+
+// Returns whether the feature is a media type
+@function is-media($feature) {
+  @each $media in internals.get('media type') {
+    @if ($feature == $media) or ($feature == 'not #{$media}') or ($feature == 'only #{$media}') {
+      @return true;
+    }
+  }
+  @return false;
+}
+
+// Returns whether the feature can stand alone
+@function is-single-string($feature) {
+  @each $item in internals.get('single string features') {
+    @if $feature == $item {
+      @return true;
+    }
+  }
+  @return false;
+}
+
+// Returns whether the feature is a resolution
+// TODO: Look at resolutions later
+// @function is-resolution($feature) {
+//   $resolutions: internals.get('resolution features');
+
+//   @each $reso in $resolutions {
+//     @if 
+//   }
+// }

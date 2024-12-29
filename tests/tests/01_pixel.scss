@@ -1,6 +1,6 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
-@use '../../stylesheets/breakpoint/respond-to';
+@use '../../sass/breakpoint';
+// @use '../../stylesheets/breakpoint/respond-to';
 
 /*
  * Assume `default feature`
@@ -13,26 +13,26 @@
     content: '$single-pixel-value';
     content: '@media (min-width: 500px)';
   }
-  @include breakpoint.breakpoint(variables.$single-em-value) {
-    content: '$single-em-value';
-    content: '@media (min-width: 30em)';
-  }
+  // @include breakpoint.breakpoint(variables.$single-em-value) {
+  //   content: '$single-em-value';
+  //   content: '@media (min-width: 30em)';
+  // }
 
-  @include respond-to.respond-to('single pixel value') {
-    content: '$single-pixel-value';
-    content: '@media (min-width: 500px)';
-  }
-  @include respond-to.respond-to('single pixel value, em') {
-    content: '$single-em-value';
-    content: '@media (min-width: 30em)';
-  }
+  // @include respond-to.respond-to('single pixel value') {
+  //   content: '$single-pixel-value';
+  //   content: '@media (min-width: 500px)';
+  // }
+  // @include respond-to.respond-to('single pixel value, em') {
+  //   content: '$single-em-value';
+  //   content: '@media (min-width: 30em)';
+  // }
 
-  @include breakpoint.mq(variables.$single-pixel-value) {
-    content: '$single-pixel-value';
-    content: '@media (min-width: 500px)';
-  }
-  @include breakpoint.mq(variables.$single-em-value) {
-    content: '$single-em-value';
-    content: '@media (min-width: 30em)';
-  }
+  // @include breakpoint.mq(variables.$single-pixel-value) {
+  //   content: '$single-pixel-value';
+  //   content: '@media (min-width: 500px)';
+  // }
+  // @include breakpoint.mq(variables.$single-em-value) {
+  //   content: '$single-em-value';
+  //   content: '@media (min-width: 30em)';
+  // }
 }

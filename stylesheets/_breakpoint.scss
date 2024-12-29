@@ -1,33 +1,34 @@
 //////////////////////////////
 // Imports
 //////////////////////////////
-@use "breakpoint/settings";
+@forward "breakpoint/settings";
 @use 'breakpoint/context';
 @use 'breakpoint/helpers';
 @use 'breakpoint/parsers';
 @use 'breakpoint/no-query';
+@use 'sass:map';
 
-//@use 'breakpoint/respond-to';
+// @forward 'breakpoint/respond-to';
 
-@use "breakpoint/legacy-settings";
+// @forward "breakpoint/legacy-settings";
 
 //////////////////////////////
 // Breakpoint Mixin
 //////////////////////////////
 
 @mixin breakpoint($query, $no-query: false) {
-  @include legacy-settings.legacy-settings-warning;
+  // @include legacy-settings-warning;
 
   // Reset contexts
   @include context.private-breakpoint-reset-contexts();
 
   $breakpoint: parsers.breakpoint($query, false);
 
-  $query-string: map-get($breakpoint, 'query');
-  $query-fallback: map-get($breakpoint, 'fallback');
+  $query-string: map.get($breakpoint, 'query');
+  $query-fallback: map.get($breakpoint, 'fallback');
 
-  $private-breakpoint-context-holder: map-get($breakpoint, 'context holder') !global;
-  $private-breakpoint-query-count: map-get($breakpoint, 'query count') !global;
+  $private-breakpoint-context-holder: map.get($breakpoint, 'context holder') !global;
+  $private-breakpoint-query-count: map.get($breakpoint, 'query count') !global;
 
   // Allow for an as-needed override or usage of no query fallback.
   @if $no-query != false {
@@ -39,27 +40,27 @@
   }
 
   // Print Out Query String
-  @if not settings.breakpoint-get('no queries') {
+  @if not breakpoint-get('no queries') {
     @media #{$query-string} {
       @content;
     }
   }
 
-  @if settings.breakpoint-get('no query fallbacks') != false or settings.breakpoint-get('no queries') == true {
+  @if breakpoint-get('no query fallbacks') != false or breakpoint-get('no queries') == true {
 
-    $type: type-of(settings.breakpoint-get('no query fallbacks'));
+    $type: type-of(breakpoint-get('no query fallbacks'));
     $print: false;
 
     @if ($type == 'bool') {
       $print: true;
     }
     @else if ($type == 'string') {
-      @if $query-fallback == settings.breakpoint-get('no query fallbacks') {
+      @if $query-fallback == breakpoint-get('no query fallbacks') {
         $print: true;
       }
     }
     @else if ($type == 'list') {
-      @each $wrapper in settings.breakpoint-get('no query fallbacks') {
+      @each $wrapper in breakpoint-get('no query fallbacks') {
         @if $query-fallback == $wrapper {
           $print: true;
         }

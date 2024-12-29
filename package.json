@@ -13,7 +13,7 @@
     "breakpoint"
   ],
   "scripts": {
-    "test": "ava tests/index.js"
+    "test": "node tests/index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,9 @@
     "sassy-maps": "github:at-import/Sassy-Maps"
   },
   "peerDependencies": {
-    "sass": "^1.25"
+    "sass": "^1.83"
+  },
+  "volta": {
+    "node": "22.12.0"
   }
 }

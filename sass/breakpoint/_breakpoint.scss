@@ -1,0 +1,11 @@
+@use 'map';
+@use 'parse';
+
+@mixin breakpoint($query, $no-query: false) {
+  
+  $result: parse.breakpoint($query);
+
+  @media #{map.get($result, 'query')} {
+    @content;
+  }
+}
