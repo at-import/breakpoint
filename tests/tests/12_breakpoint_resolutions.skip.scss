@@ -1,7 +1,7 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
+@use '../../sass/breakpoint';
 @use '../../stylesheets/breakpoint/respond-to';
-@use '../../stylesheets/breakpoint/settings';
+
 
 /*
  * Resolution queries, device pixel ratio and standard resolution

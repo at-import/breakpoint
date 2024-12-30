@@ -1,6 +1,5 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
-@use '../../stylesheets/breakpoint/settings';
+@use '../../sass/breakpoint';
 
 /*
  * Single value with feature
@@ -46,31 +45,31 @@
   }
 }
 
-@include settings.breakpoint-set('to ems', true);
-.bar {
-  @include breakpoint.breakpoint(variables.$feature-first) {
-    content: '$feature-first';
-    content: '@media (height: 31.25em)';
-  }
-  @include breakpoint.breakpoint(variables.$value-first) {
-    content: '$value-first';
-    content: '@media (height: 31.25em)';
-  }
-  @include breakpoint.breakpoint(variables.$arbitrary-feature) {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 31.25em)';
-  }
+// @include settings.breakpoint-set('to ems', true);
+// .bar {
+//   @include breakpoint.breakpoint(variables.$feature-first) {
+//     content: '$feature-first';
+//     content: '@media (height: 31.25em)';
+//   }
+//   @include breakpoint.breakpoint(variables.$value-first) {
+//     content: '$value-first';
+//     content: '@media (height: 31.25em)';
+//   }
+//   @include breakpoint.breakpoint(variables.$arbitrary-feature) {
+//     content: '$arbitrary-feature';
+//     content: '@media (lion: 31.25em)';
+//   }
 
-  @include breakpoint.mq(variables.$feature-first) {
-    content: '$feature-first';
-    content: '@media (height: 31.25em)';
-  }
-  @include breakpoint.mq(variables.$value-first) {
-    content: '$value-first';
-    content: '@media (height: 31.25em)';
-  }
-  @include breakpoint.mq(variables.$arbitrary-feature) {
-    content: '$arbitrary-feature';
-    content: '@media (lion: 31.25em)';
-  }
-}
+//   @include breakpoint.mq(variables.$feature-first) {
+//     content: '$feature-first';
+//     content: '@media (height: 31.25em)';
+//   }
+//   @include breakpoint.mq(variables.$value-first) {
+//     content: '$value-first';
+//     content: '@media (height: 31.25em)';
+//   }
+//   @include breakpoint.mq(variables.$arbitrary-feature) {
+//     content: '$arbitrary-feature';
+//     content: '@media (lion: 31.25em)';
+//   }
+// }

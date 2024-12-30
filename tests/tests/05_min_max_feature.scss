@@ -1,6 +1,6 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
-@use '../../stylesheets/breakpoint/settings';
+@use '../../sass/breakpoint';
+
 
 /*
  * Set min/max of feature
@@ -34,34 +34,5 @@
   @include breakpoint.mq(variables.$arbitrary-feature-min-max) {
     content: '$arbitrary-feature-min-max';
     content: '@media (min-lion: 300px) and (max-lion: 700px)';
-  }
-}
-/* @include breakpoint-set('to ems', true); */
-@include settings.breakpoint-set('to ems', true);
-.min-max-feature-to-ems {
-  @include breakpoint.breakpoint(variables.$feature-min-max) {
-    content: '$feature-min-max';
-    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
-  }
-  @include breakpoint.breakpoint(variables.$min-max-feature) {
-    content: '$min-max-feature';
-    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
-  }
-  @include breakpoint.breakpoint(variables.$arbitrary-feature-min-max) {
-    content: '$arbitrary-feature-min-max';
-    content: '@media (min-lion: 18.75em) and (max-lion: 43.75em)';
-  }
-
-  @include breakpoint.mq(variables.$feature-min-max) {
-    content: '$feature-min-max';
-    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
-  }
-  @include breakpoint.mq(variables.$min-max-feature) {
-    content: '$min-max-feature';
-    content: '@media (min-height: 18.75em) and (max-height: 43.75em)';
-  }
-  @include breakpoint.mq(variables.$arbitrary-feature-min-max) {
-    content: '$arbitrary-feature-min-max';
-    content: '@media (min-lion: 18.75em) and (max-lion: 43.75em)';
   }
 }

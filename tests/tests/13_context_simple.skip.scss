@@ -1,5 +1,5 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
+@use '../../sass/breakpoint';
 @use '../../stylesheets/breakpoint/context';
 
 $context-simple: 500px;

@@ -10,16 +10,16 @@ $single-em-value: 30em;
 @include breakpoint.add('single pixel value', $single-pixel-value);
 @include breakpoint.add('single pixel value, em', $single-em-value);
 
-// $feature-first: height 500px;
-// $value-first: 500px height;
-// $arbitrary-feature: lion 500px;
-// $feature-value-both-strings: portrait orientation;
+$feature-first: height 500px;
+$value-first: 500px height;
+$arbitrary-feature: lion 500px;
+$feature-value-both-strings: portrait orientation;
 
-// $min-max-default-feature: 500px 700px;
+$min-max-default-feature: 500px 700px;
 
-// $feature-min-max: height 300px 700px;
-// $min-max-feature: 300px 700px height;
-// $arbitrary-feature-min-max: lion 300px 700px;
+$feature-min-max: height 300px 700px;
+$min-max-feature: 300px 700px height;
+$arbitrary-feature-min-max: lion 300px 700px;
 
 // $multidimensional: ($feature-first) ($feature-value-both-strings);
 

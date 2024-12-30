@@ -1,6 +1,5 @@
 @use 'variables';
-@use '../../stylesheets/breakpoint';
-@use '../../stylesheets/breakpoint/settings';
+@use '../../sass/breakpoint';
 
 /*
  * Set min-width/max-width
@@ -16,18 +15,5 @@
   @include breakpoint.mq(variables.$min-max-default-feature) {
     content: '$min-max-default-feature';
     content: '@media (min-width: 500px) and (max-width: 700px)';
-  }
-}
-
-@include settings.breakpoint-set('to ems', true);
-.bar {
-  @include breakpoint.breakpoint(variables.$min-max-default-feature) {
-    content: '$min-max-default-feature';
-    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
-  }
-
-  @include breakpoint.mq(variables.$min-max-default-feature) {
-    content: '$min-max-default-feature';
-    content: '@media (min-width: 31.25em) and (max-width: 43.75em)';
   }
 }
