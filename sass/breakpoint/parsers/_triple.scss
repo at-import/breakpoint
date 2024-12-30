@@ -2,8 +2,10 @@
 // Import Pieces
 //////////////////////////////
 @use "triple/default";
+@use 'sass:meta';
+@use 'sass:list';
 
-@function breakpoint-parse-triple($feature, $empty-media, $first) {
+@function parse($feature, $empty-media, $first) {
   $parsed: '';
   $leader: '';
 
@@ -16,20 +18,20 @@
   $string: null;
   $numbers: null;
   @each $val in $feature {
-    @if type-of($val) == string {
+    @if meta.type-of($val) == string {
       $string: $val;
     }
     @else {
-      @if type-of($numbers) == 'null' {
+      @if meta.type-of($numbers) == 'null' {
         $numbers: $val;
       }
       @else {
-        $numbers: append($numbers, $val);
+        $numbers: list.append($numbers, $val);
       }
     }
   }
 
-  $parsed: default.breakpoint-parse-triple-default($string, nth($numbers, 1), nth($numbers, 2));
+  $parsed: default.parse($string, list.nth($numbers, 1), list.nth($numbers, 2));
 
   @return $leader + $parsed;
 

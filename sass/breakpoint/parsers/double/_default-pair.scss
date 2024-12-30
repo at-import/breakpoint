@@ -1,0 +1,14 @@
+@use "../../settings";
+@use 'sass:math';
+
+@function parse($first, $second) {
+  $default: settings.get('default pair');
+  $min: '';
+  $max: '';
+
+  // Sort into min and max
+  $min: math.min($first, $second);
+  $max: math.max($first, $second);
+
+  @return '(min-#{$default}: #{$min}) and (max-#{$default}: #{$max})';
+}

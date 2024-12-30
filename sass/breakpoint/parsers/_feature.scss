@@ -18,7 +18,7 @@
 // Returns whether the feature can have a string value
 @function is-string($feature) {
   @each $item in internals.get('string features') {
-   @if min-max(item) {
+   @if is-min-max(item) {
     @if $feature == 'min-#{$item}' or $feature == 'max-#{$item}' {
       @return true;
     }

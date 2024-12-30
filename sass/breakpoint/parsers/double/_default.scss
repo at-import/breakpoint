@@ -1,0 +1,17 @@
+@use "sass:meta";
+
+@function parse($first, $second) {
+  $feature: '';
+  $value: '';
+
+  @if meta.type-of($first) == 'string' {
+    $feature: $first;
+    $value: $second;
+  }
+  @else {
+    $feature: $second;
+    $value: $first;
+  }
+
+  @return '(#{$feature}: #{$value})'
+}

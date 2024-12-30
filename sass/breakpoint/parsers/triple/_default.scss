@@ -1,0 +1,11 @@
+@use "../feature";
+@use 'sass:math';
+
+@function parse($feature, $first, $second) {
+
+  // Sort into min and max
+  $min: math.min($first, $second);
+  $max: math.max($first, $second);
+
+  @return '(min-#{$feature}: #{$min}) and (max-#{$feature}: #{$max})';
+}

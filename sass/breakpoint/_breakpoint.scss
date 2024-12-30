@@ -4,6 +4,7 @@
 @mixin breakpoint($query, $no-query: false) {
   
   $result: parse.breakpoint($query);
+  // @debug $result;
 
   @media #{map.get($result, 'query')} {
     @content;

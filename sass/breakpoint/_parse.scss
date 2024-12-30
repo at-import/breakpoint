@@ -6,6 +6,8 @@
 @use './parsers/query';
 @use './parsers/feature';
 @use './parsers/single';
+@use './parsers/double';
+@use './parsers/triple';
 
 @function breakpoint($query) {
   $run: true;
@@ -67,7 +69,7 @@
 
   @each $feature in $query-holder {
     $length: list.length($feature);
-
+    
     @if ($length == 1) {
       $feature: list.nth($feature, 1);
       @if (feature.is-media($feature)) {
@@ -80,6 +82,35 @@
         $query-print: '#{$query-print} #{$parsed}';
         $first: false;
       }
+    }
+    @else if ($length == 2) {
+      // @if (feature.is-resolution($feature) != false) {
+      //   $query-resolution: $feature;
+      // } @else {
+        $parsed: null;
+        // If it's a string/number pair,
+        // we check to see if one is a single-string value,
+        // then we parse it as a normal double
+        $alpha: list.nth($feature, 1);
+        $beta: list.nth($feature, 2);
+        @if feature.is-single-string($alpha) or feature.is-single-string($beta) {
+          $parsed: single.parse($alpha, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+          $first: false;
+          $parsed: single.parse($beta, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+        }
+        @else {
+          $parsed: double.parse($feature, $empty-media, $first);
+          $query-print: '#{$query-print} #{$parsed}';
+          $first: false;
+        }
+      // }
+    }
+    @else if ($length == 3) {
+       $parsed: triple.parse($feature, $empty-media, $first);
+      $query-print: '#{$query-print} #{$parsed}';
+      $first: false;
     }
   }
 
