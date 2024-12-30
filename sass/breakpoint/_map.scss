@@ -3,7 +3,7 @@
 @use 'sass:meta';
 @forward 'sass:map';
 
-$private-sassy-maps-suppress-warnings: true !default;
+$private-sassy-maps-suppress-warnings: true;
 
 //////////////////////////////
 // Map Get Deep
@@ -43,7 +43,7 @@ $private-sassy-maps-suppress-warnings: true !default;
 // Displays a warning if the retrieved value is `null`
 //////////////////////////////
 @function get-deep-warning($warn, $get, $key) {
-  @if not $private-sassy-maps-suppress-warnings {
+  @if $private-sassy-maps-suppress-warnings == false {
     @if $get == null {
       @warn "Map has no value for key search `#{$warn}`";
     }
@@ -67,7 +67,7 @@ $private-sassy-maps-suppress-warnings: true !default;
 }
 
 @function set-deep($map, $keys, $value) {
-  $private-sassy-maps-suppress-warnings: true !global;
+  // $private-sassy-maps-suppress-warnings: true !global;
   $length: list.length($keys);
   $get-keys: ();
   $map-level: ();
@@ -102,7 +102,7 @@ $private-sassy-maps-suppress-warnings: true !default;
   }
   $map: map.merge($map, $merge);
 
-  $private-sassy-maps-suppress-warnings: false !global;
+  // $private-sassy-maps-suppress-warnings: false !global;
   @return $map;
 }
 
