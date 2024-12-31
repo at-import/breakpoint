@@ -1,0 +1,36 @@
+@use 'map';
+@use 'parse';
+
+@mixin breakpoint($query) {
+  
+  $result: parse.breakpoint($query);
+  // @debug $result;
+
+  @media #{map.get($result, 'query')} {
+    @content;
+  }
+}
+
+@mixin mq($query) {
+  @include breakpoint($query) {
+    @content;
+  }
+}
+
+@mixin viewport($query) {
+  @include breakpoint($query) {
+    @content;
+  }
+}
+
+@mixin q($query) {
+  @include breakpoint($query) {
+    @content;
+  }
+}
+
+@mixin point($query) {
+  @include breakpoint($query) {
+    @content;
+  }
+}

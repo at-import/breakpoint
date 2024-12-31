@@ -1,65 +1,7 @@
-$@use "vars";
-@use "sass:string";
-@use "sass:map";
-@use "sass:list";
+@use 'map';
 
-//////////////////////////////
-// Has Setting
-//////////////////////////////
-@function breakpoint-has($setting) {
-  @if map.has-key(vars.$breakpoint, $setting) {
-    @return true;
-  }
-  @else {
-    @return false;
-  }
-}
+$settings: () !default;
 
-//////////////////////////////
-// Get Settings
-//////////////////////////////
-@function breakpoint-get($setting) {
-  @if breakpoint-has($setting) {
-    @return map.get(vars.$breakpoint, $setting);
-  }
-  @else {
-    @return map.get(vars.$Breakpoint-Settings, $setting);
-  }
-}
-
-//////////////////////////////
-// Set Settings
-//////////////////////////////
-@function breakpoint-set($setting, $value) {
-  @if (string.index($setting, '-') or string.index($setting, '_')) and string.index($setting, ' ') == null {
-    @warn "Words in Breakpoint settings should be separated by spaces, not dashes or underscores. Please replace dashes and underscores between words with spaces. Settings will not work as expected until changed.";
-  }
-  $breakpoint: map.merge(vars.$breakpoint, ($setting: $value)) !global;
-  @return true;
-}
-
-@mixin change($setting, $value) {
-  $breakpoint-change: breakpoint-set($setting, $value);
-}
-
-@mixin set($setting, $value) {
-  @include change($setting, $value);
-}
-
-//////////////////////////////
-// Remove Setting
-//////////////////////////////
-@function breakpoint-reset($settings...) {
-  @if length($settings) == 1 {
-    $settings: list.nth($settings, 1);
-  }
-
-  @each $setting in $settings {
-    $breakpoint: map-remove(vars.$breakpoint, $setting) !global;
-  }
-  @return true;
-}
-
-@mixin reset($settings...) {
-  $breakpoint-reset: breakpoint-reset($settings);
+@function get($setting) {
+  @return map.get($settings, $setting);
 }

@@ -1,7 +1,0 @@
-@use 'map';
-
-$settings: () !default;
-
-@function get($setting) {
-  @return map.get($settings, $setting);
-}

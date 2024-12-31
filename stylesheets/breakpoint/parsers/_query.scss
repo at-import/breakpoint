@@ -1,9 +1,11 @@
-@use "../helpers";
+@use '../settings';
+@use '../internals';
+@use './feature';
+
 @use 'sass:list';
 @use 'sass:meta';
 
-@function breakpoint-parse-query($query) {
-  // Parse features out of an individual query
+@function parse($query) {
   $feature-holder: ();
   $query-holder: ();
   $length: list.length($query);
@@ -25,57 +27,68 @@
       }
 
       // If the string value can be a single value, check to see if the number passed in is a valid input for said single value. Fortunately, all current single-value options only accept unitless numbers, so this check is easy.
-      @if helpers.breakpoint-single-string($value) {
+      @if feature.is-string($value) {
         @if unitless($number) {
-          $feature-holder: append($value, $number, space);
-          $query-holder: append($query-holder, $feature-holder, comma);
+          $feature-holder: list.append($value, $number, space);
+          $query-holder: list.append($query-holder, $feature-holder, comma);
           @return $query-holder;
         }
       }
       // If the string is a media type, split the query
-      @if helpers.breakpoint-is-media($value) {
-        $query-holder: append($query-holder, list.nth($query, 1));
-        $query-holder: append($query-holder, list.nth($query, 2));
+      @if feature.is-media($value) {
+        $query-holder: list.append($query-holder, list.nth($query, 1));
+        $query-holder: list.append($query-holder, list.nth($query, 2));
         @return $query-holder;
       }
       // If it's not a single feature, we're just going to assume it's a proper string/value pair, and roll with it.
       @else {
-        $feature-holder: append($value, $number, space);
-        $query-holder: append($query-holder, $feature-holder, comma);
+        $feature-holder: list.append($value, $number, space);
+        $query-holder: list.append($query-holder, $feature-holder, comma);
         @return $query-holder;
       }
 
     }
     // If they're both numbers, we assume it's a double and roll with that
     @else if (meta.type-of(list.nth($query, 1)) == 'number' and meta.type-of(list.nth($query, 2)) == 'number') {
-      $feature-holder: append(list.nth($query, 1), list.nth($query, 2), space);
-      $query-holder: append($query-holder, $feature-holder, comma);
+      $feature-holder: list.append(list.nth($query, 1), list.nth($query, 2), space);
+      $query-holder: list.append($query-holder, $feature-holder, comma);
       @return $query-holder;
     }
     // If they're both strings and neither are singles, we roll with that.
     @else if (meta.type-of(list.nth($query, 1)) == 'string' and meta.type-of(list.nth($query, 2)) == 'string') {
-      @if not helpers.breakpoint-single-string(list.nth($query, 1)) and not helpers.breakpoint-single-string(list.nth($query, 2)) {
-        $feature-holder: append(list.nth($query, 1), list.nth($query, 2), space);
-        $query-holder: append($query-holder, $feature-holder, comma);
+      @if not feature.is-single-string(list.nth($query, 1)) and not feature.is-single-string(list.nth($query, 2)) {
+        $feature-holder: list.append(list.nth($query, 1), list.nth($query, 2), space);
+        $query-holder: list.append($query-holder, $feature-holder, comma);
         @return $query-holder;
       }
     }
   }
   @else if $length == 3 {
     // If we've got three items and none is a list, we check to see
-    @if meta.type-of(list.nth($query, 1)) != 'list' and meta.type-of(list.nth($query, 2)) != 'list' and meta.type-of(list.nth($query, 3)) != 'list' {
+    $alpha: list.nth($query, 1);
+    $beta: list.nth($query, 2);
+    $gamma: list.nth($query, 3);
+
+    @if meta.type-of($alpha) != 'list' and meta.type-of($beta) != 'list' and meta.type-of($gamma) != 'list' {
       // If none of the items are single string values and none of the values are media values, we're good.
-      @if (not helpers.breakpoint-single-string(list.nth($query, 1)) and not helpers.breakpoint-single-string(list.nth($query, 2)) and not helpers.breakpoint-single-string(list.nth($query, 3))) and  ((not helpers.breakpoint-is-media(list.nth($query, 1)) and not helpers.breakpoint-is-media(list.nth($query, 2)) and not helpers.breakpoint-is-media(list.nth($query, 3)))) {
-        $feature-holder: append(list.nth($query, 1), list.nth($query, 2), space);
-        $feature-holder: append($feature-holder, list.nth($query, 3), space);
-        $query-holder: append($query-holder, $feature-holder, comma);
+      $alphaSingle: feature.is-single-string($alpha);
+      $betaSingle: feature.is-single-string($beta);
+      $gammaSingle: feature.is-single-string($gamma);
+      $alphaMedia: feature.is-media($alpha);
+      $betaMedia: feature.is-media($beta);
+      $gammaMedia: feature.is-media($beta);
+      
+      @if not $alphaSingle and not $betaSingle and not $gammaSingle and not $alphaMedia and not $betaMedia and not $gammaMedia {
+        $feature-holder: list.append($alpha, $beta, space);
+        $feature-holder: list.append($feature-holder, $gamma, space);
+        $query-holder: list.append($query-holder, $feature-holder, comma);
         @return $query-holder;
       }
       // let's check to see if the first item is a media type
-      @else if helpers.breakpoint-is-media(list.nth($query, 1)) {
-        $query-holder: append($query-holder, list.nth($query, 1));
-        $feature-holder: append(list.nth($query, 2), list.nth($query, 3), space);
-        $query-holder: append($query-holder, $feature-holder);
+      @else if $alphaMedia {
+        $query-holder: list.append($query-holder, $alpha);
+        $feature-holder: list.append($beta, $gamma, space);
+        $query-holder: list.append($query-holder, $feature-holder);
         @return $query-holder;
       }
     }

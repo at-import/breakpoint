@@ -1,20 +1,21 @@
 @use "resolution/resolution";
+@use 'sass:list';
 @use "../settings";
 
-@function breakpoint-build-resolution($query-print, $query-resolution, $empty-media, $first) {
+@function parse($query-print, $query-resolution, $empty-media, $first) {
   $leader: '';
   // If we're forcing
   @if not ($empty-media) or not ($first) {
     $leader: 'and ';
   }
 
-  @if settings.breakpoint-get('transform resolutions') and $query-resolution {
-    $resolutions: resolution.breakpoint-make-resolutions($query-resolution);
-    $length: length($resolutions);
+  @if $query-resolution {
+    $resolutions: resolution.build($query-resolution);
+    $length: list.length($resolutions);
     $query-holder: '';
 
     @for $i from 1 through $length {
-      $query: '#{$query-print} #{$leader}#{nth($resolutions, $i)}';
+      $query: '#{$query-print} #{$leader}#{list.nth($resolutions, $i)}';
       @if $i == 1 {
         $query-holder: $query;
       }

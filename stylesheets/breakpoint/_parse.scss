@@ -8,6 +8,7 @@
 @use './parsers/single';
 @use './parsers/double';
 @use './parsers/triple';
+@use './parsers/resolution';
 
 @function breakpoint($query) {
   $run: true;
@@ -84,9 +85,9 @@
       }
     }
     @else if ($length == 2) {
-      // @if (feature.is-resolution($feature) != false) {
-      //   $query-resolution: $feature;
-      // } @else {
+      @if feature.is-resolution($feature) != false {
+        $query-resolution: $feature;
+      } @else {
         $parsed: null;
         // If it's a string/number pair,
         // we check to see if one is a single-string value,
@@ -105,14 +106,20 @@
           $query-print: '#{$query-print} #{$parsed}';
           $first: false;
         }
-      // }
+      }
     }
     @else if ($length == 3) {
-       $parsed: triple.parse($feature, $empty-media, $first);
+      $parsed: triple.parse($feature, $empty-media, $first);
       $query-print: '#{$query-print} #{$parsed}';
       $first: false;
     }
   }
+
+  @if $query-resolution != false {
+    $query-print: resolution.parse($query-print, $query-resolution, $empty-media, $first);
+  }
+
+  
 
   @return $query-print;
 

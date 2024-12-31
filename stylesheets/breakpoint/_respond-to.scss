@@ -1,4 +1,4 @@
-@use '../breakpoint';
+@use './breakpoint';
 @use "sass:map";
 @use 'sass:meta';
 @use 'sass:list';
@@ -12,7 +12,7 @@ $BREAKPOINTS: () !default;
 ////////////////////////
 // Respond-to API Mixin
 ////////////////////////
-@mixin respond-to($context, $no-query: false) {
+@mixin respond-to($context) {
   @if list.length($breakpoints) > 0 and list.length($BREAKPOINTS) == 0 {
     @warn "In order to avoid variable namespace collisions, we have updated the way to add breakpoints for respond-to. Please change all instances of `$breakpoints: add-breakpoint()` to `@include add-breakpoint()`. The `add-breakpoint()` function will be deprecated in a future release.";
     $BREAKPOINTS: $breakpoints !global;
@@ -25,7 +25,7 @@ $BREAKPOINTS: () !default;
     @content;
   }
   @else if map.has-key($BREAKPOINTS, $context) {
-    @include breakpoint.breakpoint(map.get($BREAKPOINTS, $context), $no-query) {
+    @include breakpoint.breakpoint(map.get($BREAKPOINTS, $context)) {
       @content;
     }
   }
@@ -39,28 +39,16 @@ $BREAKPOINTS: () !default;
   }
 }
 
-//////////////////////////////
-// Add Breakpoint to Breakpoints
-// TODO: Remove function in next release
-//////////////////////////////
-@function add-breakpoint($name, $bkpt, $overwrite: false) {
-  $output: ($name: $bkpt);
-
-  @if list.length($breakpoints) == 0 {
-    @return $output;
-  }
-  @else {
-    @if map.has-key($breakpoints, $name) and $overwrite != true {
-      @warn "You already have a breakpoint named `#{$name}`, please choose another breakpoint name, or pass in `$overwrite: true` to overwrite the previous breakpoint.";
-      @return $breakpoints;
-    }
-    @else if not map.has-key($breakpoints, $name) or $overwrite == true {
-      @return map.merge($breakpoints, $output);
-    }
+@mixin to($context) {
+  @include respond-to($context) {
+    @content;
   }
 }
 
-@mixin add-breakpoint($name, $bkpt, $overwrite: false) {
+//////////////////////////////
+// Add Breakpoint to Respond-To
+//////////////////////////////
+@mixin add($name, $bkpt, $overwrite: false) {
   $output: ($name: $bkpt);
 
   @if list.length($BREAKPOINTS) == 0 {
@@ -77,11 +65,3 @@ $BREAKPOINTS: () !default;
   }
 }
 
-@function get-breakpoint($name: false) {
-  @if $name == false {
-    @return $BREAKPOINTS;
-  }
-  @else {
-    @return map.get($BREAKPOINTS, $name);
-  }
-}
