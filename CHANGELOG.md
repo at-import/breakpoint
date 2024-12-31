@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.0.0
+**THIS IS A LARGE BREAKING CHANGE, MIGRATING FROM AN `@IMPORT` BASED SYSTEM TO THE NEW SASS MODULE SYSTEM. SEE THE UPDATED README FOR MIGRATION INSTRUCTIONS.**
+
+* **Deprecation**
+  * Removed `to-em`, context, no query fallback, and legacy syntax support.
+  * Migrated settings from Breakpoint mixin to Sass module `with`.
+* **Fix** - Added support for Sass's module syntax (`@use`). This results in a **breaking change** that requires you to change how your media queries are called. See the updated README for recommendations.
+* **Change** - Memoization is now built in to the module, no need to include Sassy Maps to get the added benefit
+
 ## 3.0.0
 * **Deprecation** - Dropped Ruby, Eyeglass, Bower, and Sache support
 * **Fix** - Fix `math.div` warnings
