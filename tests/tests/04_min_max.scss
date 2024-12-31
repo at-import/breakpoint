@@ -1,12 +1,12 @@
 @use 'variables';
-@use '../../sass/breakpoint';
+@use '../../stylesheets/breakpoint';
 
 /*
  * Set min-width/max-width
  * if both values are numbers
  * $min-max-default-feature : #{variables.$min-max-default-feature};
  */
-.foo{
+.foo {
   @include breakpoint.breakpoint(variables.$min-max-default-feature) {
     content: '$min-max-default-feature';
     content: '@media (min-width: 500px) and (max-width: 700px)';

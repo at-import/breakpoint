@@ -1,0 +1,37 @@
+@use '../../stylesheets/breakpoint' with (
+  $transform-resolutions: false
+);
+
+$device-pixel-ratio: 'resolution' 2dppx;
+$resolution: 'min-resolution' 192dpi;
+@include breakpoint.add('device pixel ratio', $device-pixel-ratio);
+
+/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: #{$device-pixel-ratio}
+ * $resolution: #{$resolution}
+ */
+.resolution {
+  @include breakpoint.breakpoint($device-pixel-ratio) {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx)';
+  }
+  @include breakpoint.breakpoint($resolution) {
+    content: $resolution;
+    content: '@media (min-resolution: 192dpi)';
+  }
+
+  @include breakpoint.mq($device-pixel-ratio) {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx)';
+  }
+  @include breakpoint.mq($resolution) {
+    content: $resolution;
+    content: '@media (min-resolution: 192dpi)';
+  }
+
+  @include breakpoint.respond-to('device pixel ratio') {
+    content: $device-pixel-ratio;
+    content: '@media (resolution: 2dppx)';
+  }
+}

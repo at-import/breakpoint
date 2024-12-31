@@ -1,6 +1,5 @@
 @use 'variables';
-@use '../../sass/breakpoint';
-
+@use '../../stylesheets/breakpoint';
 
 /*
  * One-sided features (ie. monochrome)
@@ -33,26 +32,5 @@
   @include breakpoint.mq(variables.$multidimensional-plus-one-sided) {
     content: '$multidimensional-plus-one-sided';
     content: '@media (height: 500px) and (orientation: portrait) and (monochrome)';
-  }
-}
-/* @include breakpoint-set('to ems', true); */
-@include settings.breakpoint-set('to ems', true);
-.one-sided-to-ems {
-  @include breakpoint.breakpoint(variables.$monochrome-double) {
-    content: '$monochrome-double';
-    content: '@media (monochrome) and (min-width: 18.75em)';
-  }
-  @include breakpoint.breakpoint(variables.$multidimensional-plus-one-sided) {
-    content: '$multidimensional-plus-one-sided';
-    content: '@media (height: 31.25em) and (orientation: portrait) and (monochrome)';
-  }
-
-  @include breakpoint.mq(variables.$monochrome-double) {
-    content: '$monochrome-double';
-    content: '@media (monochrome) and (min-width: 18.75em)';
-  }
-  @include breakpoint.mq(variables.$multidimensional-plus-one-sided) {
-    content: '$multidimensional-plus-one-sided';
-    content: '@media (height: 31.25em) and (orientation: portrait) and (monochrome)';
   }
 }

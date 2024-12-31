@@ -35,17 +35,3 @@
     content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
   }
 }
-
-/* @include breakpoint-set('to ems', true); */
-@media (max-width: 21.875em), (min-width: 31.25em) and (max-width: 37.5em) {
-  .basic-or-to-ems {
-    content: "$basic-or";
-    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
-  }
-}
-@media (max-width: 21.875em), (min-width: 31.25em) and (max-width: 37.5em) {
-  .basic-or-to-ems {
-    content: "$basic-or";
-    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
-  }
-}

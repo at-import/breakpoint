@@ -1,6 +1,5 @@
 @use 'variables';
-@use '../../sass/breakpoint';
-
+@use '../../stylesheets/breakpoint';
 
 /**
  * IE no-query fallbacks.
@@ -13,11 +12,11 @@
  */
 .no-query {
   @include breakpoint.breakpoint(variables.$no-query) {
-    _query: "#{variables.$no-query}";
-    _expected: "@media (min-width: 700px)";
+    _query: '#{variables.$no-query}';
+    _expected: '@media (min-width: 700px)';
   }
   @include breakpoint.mq(variables.$no-query) {
-    _query: "#{variables.$no-query}";
-    _expected: "@media (min-width: 700px)";
+    _query: '#{variables.$no-query}';
+    _expected: '@media (min-width: 700px)';
   }
 }

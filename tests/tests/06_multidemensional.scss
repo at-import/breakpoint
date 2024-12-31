@@ -1,6 +1,5 @@
 @use 'variables';
-@use '../../sass/breakpoint';
-
+@use '../../stylesheets/breakpoint';
 
 /*
  * Multidimensional lists,
@@ -16,18 +15,5 @@
   @include breakpoint.mq(variables.$multidimensional) {
     content: '$multidimensional';
     content: '@media (height: 500px) and (orientation: portrait)';
-  }
-}
-/* @include breakpoint-set('to ems', true); */
-@include settings.breakpoint-set('to ems', true);
-.multidimensional-to-ems {
-  @include breakpoint.breakpoint(variables.$multidimensional) {
-    content: '$multidimensional';
-    content: '@media (height: 31.25em) and (orientation: portrait)';
-  }
-
-  @include breakpoint.mq(variables.$multidimensional) {
-    content: '$multidimensional';
-    content: '@media (height: 31.25em) and (orientation: portrait)';
   }
 }

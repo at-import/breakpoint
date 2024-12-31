@@ -4,7 +4,7 @@ const path = require('path');
 const glob = require('glob');
 const test = require('node:test');
 
-const tests = glob.sync(path.join(__dirname, './tests/**.scss')).filter(file => !path.basename(file).startsWith('_'));
+const tests = glob.sync(path.join(__dirname, './tests/**.scss')).sort().filter(file => !path.basename(file).startsWith('_'));
 
 for (const t of tests) {
   let name = path.basename(t).replace('.scss', '');

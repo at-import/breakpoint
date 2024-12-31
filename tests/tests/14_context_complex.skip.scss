@@ -1,11 +1,10 @@
 @use 'variables';
-@use '../../sass/breakpoint';
+@use '../../stylesheets/breakpoint';
 @use '../../stylesheets/breakpoint/context';
 
 /**
  * Dynamic contexts.
  */
-
 
 #dynamic {
   // What test do we want here?
@@ -15,11 +14,10 @@
   }
 }
 
-
 $multi-media: 300px, print, 200px;
 
 #multi-media {
   @include breakpoint.breakpoint($multi-media) {
-    -media:  context.breakpoint-get-context('media');
+    -media: context.breakpoint-get-context('media');
   }
 }

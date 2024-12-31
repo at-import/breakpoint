@@ -1,7 +1,5 @@
 @use 'variables';
-@use '../../sass/breakpoint';
-@use '../../stylesheets/breakpoint/respond-to';
-
+@use '../../stylesheets/breakpoint';
 
 /*
  * 'OR' mediaqueries.
@@ -14,7 +12,7 @@
     content: '$basic-or';
     content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
   }
-  @include respond-to.respond-to('basic or') {
+  @include breakpoint.respond-to('basic or') {
     content: '$basic-or';
     content: '@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)';
   }
@@ -28,20 +26,8 @@
     content: '$basic-or';
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
   }
-  @include respond-to.respond-to('basic or') {
+  @include breakpoint.respond-to('basic or') {
     content: '$basic-or';
     content: '@media (min-width: 500px), tv and (min-width: 700px) and (color)';
-  }
-}
-/* @include breakpoint-set('to ems', true); */
-@include settings.breakpoint-set('to ems', true);
-.basic-or-to-ems {
-  @include breakpoint.breakpoint(variables.$basic-or) {
-    content: '$basic-or';
-    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
-  }
-  @include breakpoint.mq(variables.$basic-or) {
-    content: '$basic-or';
-    content: '@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)';
   }
 }
