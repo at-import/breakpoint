@@ -5,7 +5,7 @@
   "main": "stylesheets/_breakpoint.scss",
   "exports": {
     ".": {
-      "sass": "stylesheets/_breakpoint.scss"
+      "sass": "./stylesheets/_breakpoint.scss"
     }
   },
   "directories": {

@@ -15,16 +15,16 @@ Breakpoint 4.x requires Sass 1.83 or greater and is now written to make use of S
 Because Breakpoint now is compatible with Sass's module system, you should use the `@use` syntax for importing it. It's set up to be compatible with the [Node.js Package Importer](https://sass-lang.com/documentation/at-rules/use/#node-js-package-importer), so you can use a `pkg:` URL with it when importing.
 
 ```scss
-@use 'pkg:breakpoint';
+@use 'pkg:breakpoint-sass';
 ```
 
-This will give you all of Breakpoint's mixins (including `respond-to`) under the `breakpoint` namespace, so `@include breakpoint.breakpoint` is the equivalent of `@include breakpoint` from 3.x and below. Migrating to this new syntax may be frustrating for modules that use breakpoint across their codebase, or write it often. To help with this, Breakpoint 4.x includes optional mixin names that can be used with Sass modules' [namespace](https://sass-lang.com/documentation/at-rules/use/#choosing-a-namespace) option:
+This will give you all of Breakpoint's mixins (including `respond-to`) under the `breakpoint-sass` namespace, so `@include breakpoint-sass.breakpoint` is the equivalent of `@include breakpoint` from 3.x and below. Migrating to this new syntax may be frustrating for modules that use breakpoint across their codebase, or write it often. To help with this, Breakpoint 4.x includes optional mixin names that can be used with Sass modules' [namespace](https://sass-lang.com/documentation/at-rules/use/#choosing-a-namespace) option:
 
 ```
 // Use one of these
-@use 'pkg:breakpoint' as break; // @include break.point
-@use 'pkg:breakpoint' as m; // @include m.q
-@use 'pkg:breakpoint' as respond; // @include respond.to
+@use 'pkg:breakpoint-sass' as break; // @include break.point
+@use 'pkg:breakpoint-sass' as m; // @include m.q
+@use 'pkg:breakpoint-sass' as respond; // @include respond.to
 ```
 
 ### Settings
@@ -33,7 +33,7 @@ Settings are now passed into Breakpoint when you first `@use` it; that means you
 
 ```scss
 // Variables with their default values. Each variable can be individually passed
-@use 'pkg:breakpoint' with (
+@use 'pkg:breakpoint-sass' with (
   $default-media: all,
   $default-feature: min-width,
   $default-pair: width,
@@ -46,7 +46,7 @@ or
 
 ```scss
 // Variables with their default values
-@use 'pkg:breakpoint' with (
+@use 'pkg:breakpoint-sass' with (
   $settings: (
     'default media': all,
     'default feature': min-width,
@@ -63,7 +63,7 @@ The internals that Breakpoint uses to parse media queries has also been exposed 
 
 ### Respond-to
 
-Respond-to now comes built-in to Breakpoint, no separate imports required. It lives under the default namespace for the module (`@include breakpoint.respond-to`). To add a breakpoint for respond-to, use the exported `add` mixin `@include breakpoint.add`.
+Respond-to now comes built-in to Breakpoint, no separate imports required. It lives under the default namespace for the module (`@include breakpoint-sass.respond-to`). To add a breakpoint for respond-to, use the exported `add` mixin `@include breakpoint-sass.add`.
 
 ## Contributing to Breakpoint
 
