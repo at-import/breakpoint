@@ -31,10 +31,8 @@
   },
   "homepage": "https://github.com/at-import/breakpoint",
   "devDependencies": {
-    "glob": "^11.0"
-  },
-  "peerDependencies": {
-    "sass": "^1.83"
+    "glob": "^11.0",
+    "sass": "^1.85"
   },
   "volta": {
     "node": "22.12.0"
