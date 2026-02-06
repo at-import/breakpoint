@@ -23,9 +23,7 @@
   $query-fallback: false;
   $return: ();
 
-  $or-list: if(list.separator($query) == 'comma', true, false);
-
-  @if ($or-list == false) {
+  @if (list.separator($query) != 'comma') {
     $query-string: parse($query);
   } @else {
     $length: list.length($query);
@@ -33,9 +31,13 @@
 
     $query-string: '';
     @for $i from 1 through $length {
-      $query-string: $query-string +
-        if($i == 1, '', ', ') +
-        parse(list.nth($query, $i));
+      $parsed-item: parse(list.nth($query, $i));
+
+      @if $i == 1 {
+        $query-string: $parsed-item;
+      } @else {
+        $query-string: $query-string + ", " + $parsed-item;
+      }
     }
   }
 
