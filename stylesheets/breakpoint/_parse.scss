@@ -33,7 +33,7 @@
     @for $i from 1 through $length {
       $parsed-item: parse(list.nth($query, $i));
 
-      @if $i == 1 {
+      @if ($i == 1) {
         $query-string: $parsed-item;
       } @else {
         $query-string: $query-string + ", " + $parsed-item;
